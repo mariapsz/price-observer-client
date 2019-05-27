@@ -1,6 +1,4 @@
 import React, {SyntheticEvent} from 'react';
-import {resolveAny} from "dns";
-
 
 type LoginState = {
     userName: string,
