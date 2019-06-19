@@ -9,7 +9,7 @@ export const userActions = {
     getAll
 };
 
-function login(username: any, password: any) {
+function login(username: string, password: string) {
     return (dispatch: any) => {
         dispatch(request({username}));
 
@@ -18,6 +18,7 @@ function login(username: any, password: any) {
                 user => {
                     dispatch(success(user));
                     history.push('/');
+                    console.log('user: ', user);
                 },
                 error => {
                     dispatch(failure(error));
