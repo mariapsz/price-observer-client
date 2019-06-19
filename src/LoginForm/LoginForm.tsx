@@ -1,16 +1,15 @@
 import React, {SyntheticEvent} from 'react';
+import * as superagent from 'superagent';
+import {ILoginFormState} from './ILoginFormState';
 
-type LoginState = {
-    userName: string,
-    password: string,
-}
-
-let initialState: LoginState = {
+let initialState: ILoginFormState = {
     userName: '',
     password: '',
+    serverURL: 'http://localhost:8000/users/authenticate'
+    //serverURL: 'ec2-18-184-255-175.eu-central-1.compute.amazonaws.com:3000/users/authenticate',
 };
 
-class Login extends React.Component<{}, LoginState> {
+class LoginForm extends React.Component<{}, ILoginFormState> {
 
     constructor(props: any) {
         super(props);
@@ -21,7 +20,8 @@ class Login extends React.Component<{}, LoginState> {
         return this.state.userName.length > 0 && this.state.password.length > 0;
     }
 
-    //SyntheticEvent nie echodziło ze względu na target.id
+    //SyntheticEvent nie wchodziło ze względu na target.id
+    //React.FormEvent też niet
     handleChange = (event: any) => {
         if (event.target.id === 'userName') {
             this.setState({
@@ -30,11 +30,27 @@ class Login extends React.Component<{}, LoginState> {
         } else this.setState({
             password: event.target.value,
         });
-        console.log(event);
     };
 
     handleSubmit = (event: any) => {
         event.preventDefault();
+        console.log('clicked!');
+        this.validateUser();
+    };
+
+    validateUser = () => {
+        superagent
+            .post(this.state.serverURL)
+            //.withCredentials()
+            .send(`email=${this.state.userName}`)
+            .send(`password=${this.state.password}`)
+            .then(res => {
+                console.log(res.body);
+                localStorage.setItem('myJWT', res.body.data.token);
+                console.log('my JWT: ', localStorage.getItem('myJWT'));
+            })
+            .catch(err => console.log(err));
+
     };
 
     render() {
@@ -42,10 +58,10 @@ class Login extends React.Component<{}, LoginState> {
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <label>userName</label>
-                    <input id = "userName"
-                        type="userName"
-                        value={this.state.userName}
-                        onChange={this.handleChange}
+                    <input id="userName"
+                           type="userName"
+                           value={this.state.userName}
+                           onChange={this.handleChange}
                     />
                 </div>
                 <div>
@@ -66,4 +82,4 @@ class Login extends React.Component<{}, LoginState> {
     }
 }
 
-export default Login;
+export default LoginForm;
