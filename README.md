@@ -1,6 +1,6 @@
 1. Stworzenie strony logowania i autentykacja użyszkodnika
 2. Stworzenie strony "dodaj nowy produkt"
-a) gadanie przez api żeby zapisać informacje że konkretny użytkownik obserwuje konkretny 
+a) gadanie przez api żeby zapisać informacje, że konkretny użytkownik obserwuje konkretny 
 produkt
 b) interakcje z użytkownikiem
 c) dostosowanie obsługiwanych serwisów
