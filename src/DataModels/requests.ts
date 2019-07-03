@@ -1,6 +1,6 @@
 import {Product} from './Product';
 
-export interface Requests {
+export interface AddProductRequest {
     nickname: string,
     JWT: string,
     product: Product,

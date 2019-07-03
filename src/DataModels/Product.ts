@@ -4,7 +4,7 @@ export interface Product {
     name: string,
     imgSrc: string,
     currentPrice: Price,
-    expectedPrice: Price,
-    sizeOptions: string[],
+    expectedPrice?: Price,
+    sizeOptions?: string[],
 }
 

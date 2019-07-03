@@ -1,26 +1,28 @@
 import React from 'react';
+import {ConfirmationDialogContentProps} from './ConfirmationDialogContentProps';
+import {ConfirmationDialogContentState} from './ConfirmationDialogContentState';
 
-export class ConfirmationDialogContent extends React.Component {
+export class ConfirmationDialogContent extends React.Component<ConfirmationDialogContentProps, ConfirmationDialogContentState> {
 
-    constructor(props) {
+    constructor(props: ConfirmationDialogContentProps) {
         super(props);
         this.state = {
             expectedPriceErrorMessage: '',
         }
     }
 
-    getOptions = (optionsArr) => (
-        optionsArr.map((option, i) => <option key={i} value={option}>{option}</option>)
+    getOptions = (optionsArr: string[]) => (
+        optionsArr.map((option: string, i: number) => <option key={i} value={option}>{option}</option>)
     );
 
     getSizeSelectElement = () => (
         <select onChange={this.props.handleSize}>
-            <option disabled selected value> select size</option>
-            {this.getOptions(this.props.productInfo.sizeOptions)}
+            <option disabled selected> select size</option>
+            {this.getOptions(this.props.product.sizeOptions!)}
         </select>
     );
 
-    handleExpectedPrice = (e) => {
+    handleExpectedPrice = (e: any) => {
         this.setState({
             expectedPriceErrorMessage: this.props.handleExpectedPrice(e),
         })
@@ -30,9 +32,9 @@ export class ConfirmationDialogContent extends React.Component {
 
         return <div>
             <div>
-                <img src={this.props.productInfo.imgSrc} alt='product photo' style={{height: '60px', width: '60px'}}/>
+                <img src={this.props.product.imgSrc} alt='product photo' style={{height: '60px', width: '60px'}}/>
             </div>
-            {!this.props.productInfo.hasOwnProperty('sizeOptions') ?
+            {!this.props.product.hasOwnProperty('sizeOptions') ?
                 null
                 :
                 <div>
@@ -46,7 +48,7 @@ export class ConfirmationDialogContent extends React.Component {
             }
             <div>
                 <div>Current price</div>
-                <div>{this.props.productInfo.currentPrice.number}</div>
+                <div>{this.props.product.currentPrice.count}</div>
                 <div>PLN</div>
             </div>
             <div>

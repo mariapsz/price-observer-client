@@ -3,10 +3,11 @@ import Modal from 'react-modal'
 import {confirmable} from 'react-confirm';
 import * as types from '../AddNewProductPage/currencyTypes';
 import {ConfirmationDialogContent} from '../AddNewProductConfiramtionDialogContent/ConfirmationDialogContent';
+import {AddNewProductConfirmationDialogState} from './AddNewProductConfirmationDialogState';
 
-class AddNewProductConfirmationDialog extends React.Component {
+class AddNewProductConfirmationDialog extends React.Component<any, AddNewProductConfirmationDialogState> {
 
-    constructor(props) {
+    constructor(props: any) {
         super(props);
         this.state = {
             expectedPrice: undefined,
@@ -14,17 +15,16 @@ class AddNewProductConfirmationDialog extends React.Component {
             size: undefined,
             isAddProductBtnDisabled: true,
         };
-
         Modal.setAppElement('body');
     }
 
-    handleSize = (e) => {
+    handleSize = (e: any): void => {
         this.setState({
             size: e.target.value,
         })
     };
 
-    handleExpectedPrice = (e) => {
+    handleExpectedPrice = (e: any): string => {
         if (e.target.value > this.props.confirmation.currentPrice.number) {
             this.setState({
                 expectedPrice: undefined,
@@ -33,7 +33,7 @@ class AddNewProductConfirmationDialog extends React.Component {
         } else {
             this.setState({
                 expectedPrice: {
-                    number: e.target.value,
+                    count: e.target.value,
                     currency: types.PLN
                 }
             });
@@ -80,7 +80,7 @@ class AddNewProductConfirmationDialog extends React.Component {
                         <ConfirmationDialogContent
                             handleExpectedPrice={this.handleExpectedPrice}
                             handleSize={this.handleSize}
-                            productInfo={this.props.confirmation}
+                            product={this.props.confirmation}
                         />
                     </div>
                     <button disabled={this.addProductBtnDisabled()} onClick={this.handleSubmit}>YES, add product</button>

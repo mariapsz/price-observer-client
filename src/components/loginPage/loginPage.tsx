@@ -5,15 +5,14 @@ import {connect} from 'react-redux';
 import {loginUserAction} from '../../actions/authenticationActions';
 import {checkCookie, setCookie} from '../../utils/cookies';
 import {COOKIE_NAME_TOKEN} from '../../config';
-import {ILoginPageProps} from './ILoginPageProps';
-import {User} from '../../DataModels/User';
+import {LoginRequest} from '../../DataModels/requests';
 
 class LoginPage extends Component<any> {
 
     onHandleLogin = (event: any) => {
         event.preventDefault();
 
-        const user: User = {
+        const user: LoginRequest = {
             email: event.target.email.value,
             password: event.target.password.value,
         };

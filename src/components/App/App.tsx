@@ -10,8 +10,8 @@ import LoginPage from '../loginPage/loginPage';
 import RegisterPage from '../registerPage/registerPage';
 import DashboardPage from '../dashboardPage/dashboardPage';
 import DashboardWrapper from '../../hoc/dashboardWrapper/dashboardWrapper';
-import SettingsPage from '../SettingsPage/SettingsPage';
 import AddNewProductPage from '../AddNewProductPage/addNewProductPage';
+import SettingsPage from '../SettingsPage/SettingsPage';
 
 class App extends Component {
     render() {

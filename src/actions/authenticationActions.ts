@@ -1,5 +1,6 @@
 import * as types from './index';
 import {User} from '../DataModels/User';
+import {LoginRequest} from '../DataModels/requests';
 
 export const registerUserAction = (user: User) => {
   return {
@@ -8,7 +9,7 @@ export const registerUserAction = (user: User) => {
   }
 };
 
-export const loginUserAction = (user: User) => {
+export const loginUserAction = (user: LoginRequest) => {
   return {
     type: types.LOGIN_USER,
     user,

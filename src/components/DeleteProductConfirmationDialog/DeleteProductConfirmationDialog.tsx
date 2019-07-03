@@ -15,7 +15,7 @@ const Confirmation = (props: any) => {
                 }
             }
             }>
-                {props.confirmation}
+                <div>Really? Product {props.confirmation.name} will be removed!</div>
                 <button onClick={() => props.proceed()}>YES</button>
                 <button onClick={() => props.cancel()}>CANCEL</button>
             </Modal>
