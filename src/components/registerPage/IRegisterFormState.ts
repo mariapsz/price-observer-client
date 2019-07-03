@@ -1,5 +1,5 @@
-import {IUser} from '../../actions/IUser';
+import {User} from '../../DataModels/User';
 
 export interface IRegisterFormState {
-    user: IUser,
+    user: User,
 }

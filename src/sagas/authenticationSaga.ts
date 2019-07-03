@@ -27,9 +27,9 @@ export function* loginSaga(payload: any) {
         } else {
             response.success = true;
             response.token = response.data.token;
-            yield [
-                put({type: types.LOGIN_USER_SUCCESS, response})
-            ];
+            let yieldResponse = yield put({type: types.LOGIN_USER_SUCCESS, response});
+
+            console.log('yieldResponse', yieldResponse);
         }
     } catch (error) {
         yield put({type: types.LOGIN_USER_ERROR, response: {message: error}});

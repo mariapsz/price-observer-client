@@ -1,14 +1,14 @@
 import * as types from './index';
-import {IUser} from './IUser';
+import {User} from '../DataModels/User';
 
-export const registerUserAction = (user: IUser) => {
+export const registerUserAction = (user: User) => {
   return {
     type: types.REGISTER_USER,
     user,
   }
 };
 
-export const loginUserAction = (user: IUser) => {
+export const loginUserAction = (user: User) => {
   return {
     type: types.LOGIN_USER,
     user,

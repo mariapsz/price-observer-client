@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import {registerUserAction} from '../../actions/authenticationActions';
 import {checkCookie} from '../../utils/cookies';
-import {COOKIE_NAME} from '../../config';
+import {COOKIE_NAME_TOKEN} from '../../config';
 import {IRegisterFormState} from './IRegisterFormState';
 
 class RegisterPage extends Component<any, IRegisterFormState> {
@@ -13,7 +13,7 @@ class RegisterPage extends Component<any, IRegisterFormState> {
         super({});
         this.state = {
             user: {
-                name: '',
+                nickname: '',
                 email: '',
                 password: '',
             }
@@ -37,7 +37,7 @@ class RegisterPage extends Component<any, IRegisterFormState> {
             <form onSubmit={this.onHandleRegistration}>
                 <div>
                     <label>Name</label>
-                    <input type="text" name="name" value={this.state.user.name}
+                    <input type="text" name="name" value={this.state.user.nickname}
                            onChange={this.handleChange}/>
                 </div>
                 <div>
@@ -77,7 +77,7 @@ class RegisterPage extends Component<any, IRegisterFormState> {
 
         return (
             <div>
-                {checkCookie(COOKIE_NAME) ?
+                {checkCookie(COOKIE_NAME_TOKEN) ?
                     <Redirect to='/dashboard'/>
                     :
                     this.showForm()

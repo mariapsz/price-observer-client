@@ -4,19 +4,18 @@ import {connect} from 'react-redux';
 
 import {loginUserAction} from '../../actions/authenticationActions';
 import {checkCookie, setCookie} from '../../utils/cookies';
-import {COOKIE_NAME} from '../../config';
+import {COOKIE_NAME_TOKEN} from '../../config';
 import {ILoginPageProps} from './ILoginPageProps';
+import {User} from '../../DataModels/User';
 
 class LoginPage extends Component<any> {
 
     onHandleLogin = (event: any) => {
         event.preventDefault();
 
-        let email = event.target.email.value;
-        let password = event.target.password.value;
-
-        const user = {
-            email, password
+        const user: User = {
+            email: event.target.email.value,
+            password: event.target.password.value,
         };
 
         this.props.dispatch(loginUserAction(user));
@@ -29,12 +28,12 @@ class LoginPage extends Component<any> {
             message = this.props.store.login.response.message;
 
             if (isSuccess) {
-                setCookie(COOKIE_NAME, this.props.store.login.response.token, 1);
+                setCookie(COOKIE_NAME_TOKEN, this.props.store.login.response.token, 1);
             }
         }
 
         return (
-            <div>{isSuccess || checkCookie(COOKIE_NAME) ? <Redirect to='dashboard'/>
+            <div>{isSuccess || checkCookie(COOKIE_NAME_TOKEN) ? <Redirect to='dashboard'/>
                 :
                 <div>
                     <h3>Login Page</h3>
