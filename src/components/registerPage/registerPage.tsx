@@ -37,7 +37,7 @@ class RegisterPage extends Component<any, IRegisterFormState> {
             <form onSubmit={this.onHandleRegistration}>
                 <div>
                     <label>Name</label>
-                    <input type="text" name="name" value={this.state.user.nickname}
+                    <input type="text" name="nickname" value={this.state.user.nickname}
                            onChange={this.handleChange}/>
                 </div>
                 <div>

@@ -6,7 +6,7 @@ import {DeleteProductButtonProps} from './DeleteProductButtonProps';
 export const DeleteButton = (props: DeleteProductButtonProps) => {
 
     const removeUser = () => {
-        confirm(`Are you sure? Product ${props.product.name} will be removed.`).then(
+        confirm(props.product).then(
             () => {
                 console.log('Delete button: now create function to remove product')
             },

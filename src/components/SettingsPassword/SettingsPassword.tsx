@@ -11,7 +11,8 @@ import {
 import {getCookie} from '../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
 import {SettingsPasswordState} from './SettingsPasswordState';
-import {SetPasswordRequest} from '../../DataModels/SetPasswordRequest';
+import {SetPasswordRequest} from '../../DataModels/requests';
+import {changePasswordService} from '../../services/settingsService';
 
 export default class SettingsPassword extends React.Component<{}, SettingsPasswordState> {
 
@@ -34,7 +35,10 @@ export default class SettingsPassword extends React.Component<{}, SettingsPasswo
             currentPassword: e.target.currentPassword.value,
             newPassword: e.target.newPassword.value,
         };
-
+        changePasswordService(request).then(
+            (response: any) => alert(response.message),
+            () => alert('ERROR')
+        )
     };
 
     handleFormState = (e: any) => {

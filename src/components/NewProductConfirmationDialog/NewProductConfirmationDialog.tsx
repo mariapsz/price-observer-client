@@ -1,11 +1,11 @@
 import React from 'react';
 import Modal from 'react-modal'
 import {confirmable} from 'react-confirm';
-import * as types from '../AddNewProductPage/currencyTypes';
-import {ConfirmationDialogContent} from '../AddNewProductConfiramtionDialogContent/ConfirmationDialogContent';
-import {AddNewProductConfirmationDialogState} from './AddNewProductConfirmationDialogState';
+import {ConfirmationDialogContent} from '../NewProductConfiramtionDialogContent/ConfirmationDialogContent';
+import {NewProductConfirmationDialogState} from './NewProductConfirmationDialogState';
+import * as types from '../../DataModels/CurrencyTypes';
 
-class AddNewProductConfirmationDialog extends React.Component<any, AddNewProductConfirmationDialogState> {
+class NewProductConfirmationDialog extends React.Component<any, NewProductConfirmationDialogState> {
 
     constructor(props: any) {
         super(props);
@@ -34,7 +34,7 @@ class AddNewProductConfirmationDialog extends React.Component<any, AddNewProduct
             this.setState({
                 expectedPrice: {
                     count: e.target.value,
-                    currency: types.PLN
+                    currency: types.PLN,
                 }
             });
             return '';
@@ -91,4 +91,4 @@ class AddNewProductConfirmationDialog extends React.Component<any, AddNewProduct
     }
 }
 
-export default confirmable(AddNewProductConfirmationDialog);
+export default confirmable(NewProductConfirmationDialog);

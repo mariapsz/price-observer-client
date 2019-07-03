@@ -2,7 +2,7 @@ import superagent from 'superagent';
 import {ADD_PRODUCT_API_ENDPOINT, CHECK_PRODUCT_API_ENDPOINT, GET_PRODUCTS_LIST_API_ENDPOINT} from '../config';
 import {AuthorizationRequest, AddProductRequest} from '../DataModels/requests';
 
-export const checkProductService = (request: URL) => {
+export const checkProductService = (request: string) => {
     return superagent.post(CHECK_PRODUCT_API_ENDPOINT)
         .send(`data=${request}`)
         .then(res => res.body)

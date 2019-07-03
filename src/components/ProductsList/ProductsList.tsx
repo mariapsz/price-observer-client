@@ -15,10 +15,10 @@ import {DeleteButton} from '../DeleteProductButton/deleteProductButton';
 import {getProductsListService} from '../../services/productOperationsService';
 import {ProductsListState} from './ProductsListState';
 import {Product} from '../../DataModels/Product';
-import {AuthorizationRequest} from '../../DataModels/AuthorizationRequest';
+import {AuthorizationRequest} from '../../DataModels/requests';
 
 
-export class ProductsList extends React.Component<{}, ProductsListState> {
+export default class ProductsList extends React.Component<{}, ProductsListState> {
 
     constructor(props: {}) {
         super(props);
@@ -32,8 +32,8 @@ export class ProductsList extends React.Component<{}, ProductsListState> {
             nickname: getCookie(COOKIE_NAME_USER_NAME),
             JWT: getCookie(COOKIE_NAME_TOKEN),
         };
-        getProductsListService(request).then((productsList) => {
-            let productsListTable = this.getProductsListTable(productsList);
+        getProductsListService(request).then((response) => {
+            let productsListTable = this.getProductsListTable(response.productsList);
 
             this.setState({
                 productsListTable,
@@ -82,7 +82,7 @@ export class ProductsList extends React.Component<{}, ProductsListState> {
                 </ListCell>
                 <IPAdressListCell>
                     <IPAdressWrapper>
-                        {product.expectedPrice.count}
+                        {product.expectedPrice!.count}
                     </IPAdressWrapper>
                     <DeleteButton
                         product={product}

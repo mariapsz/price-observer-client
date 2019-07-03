@@ -11,6 +11,7 @@ export const registerUserService = (request: RegisterRequest) => {
 };
 
 export const loginUserService = (request: LoginRequest) => {
+    console.log(request);
     return superagent.post(LOGIN_API_ENDPOINT)
         .send(`email=${request.email}`)
         .send(`password=${request.password}`)

@@ -5,14 +5,13 @@ import * as types from '../actions'
 
 export function* registerSaga(payload: any) {
     try {
-        const response = yield call(registerUserService, payload);
+        const response = yield call(registerUserService, payload.user);
         if (response.status === 'error') {
             throw  response.message;
         } else {
             response.success = true;
-            yield [
-                put({type: types.REGISTER_USER_SUCCESS, response})
-            ];
+            yield put({type: types.REGISTER_USER_SUCCESS, response})
+            ;
         }
     } catch (error) {
         yield put({type: types.REGISTER_USER_ERROR, response: {message: error}});
@@ -21,7 +20,7 @@ export function* registerSaga(payload: any) {
 
 export function* loginSaga(payload: any) {
     try {
-        const response = yield call(loginUserService, payload);
+        const response = yield call(loginUserService, payload.user);
         if (response.status === 'error') {
             throw response.message;
         } else {

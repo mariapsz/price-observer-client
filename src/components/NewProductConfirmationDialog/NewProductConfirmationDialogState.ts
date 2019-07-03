@@ -1,6 +1,6 @@
 import {Price} from '../../DataModels/Price';
 
-export interface AddNewProductConfirmationDialogState {
+export interface NewProductConfirmationDialogState {
     expectedPrice: Price|undefined,
     productInfoContainsSize: boolean,
     size: string|undefined,

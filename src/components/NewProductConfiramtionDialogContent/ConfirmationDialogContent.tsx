@@ -53,7 +53,7 @@ export class ConfirmationDialogContent extends React.Component<ConfirmationDialo
             </div>
             <div>
                 <div>Expected price</div>
-                <input onChange={this.handleExpectedPrice} type='number'/>
+                <input onChange={this.handleExpectedPrice} type='number' min='0' max='1000000'/>
                 <div>PLN</div>
                 <div>{this.state.expectedPriceErrorMessage}</div>
             </div>
