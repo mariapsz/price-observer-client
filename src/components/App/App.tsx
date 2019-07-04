@@ -19,16 +19,14 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Switch>
-                        <DashboardWrapper>
                         <Route path='/' exact={true} component={LoginPage}/>
-
                         <Route path='/login' component={LoginPage}/>
                         <Route path='/register' component={RegisterPage}/>
-                        </DashboardWrapper>
+                        <DashboardWrapper>
                             <PrivateRoute path='/dashboard' component={DashboardPage}/>
                             <PrivateRoute path='/addItemURLPage' component={NewProductPage}/>
                             <PrivateRoute path='/settings' component={SettingsPage}/>
-
+                        </DashboardWrapper>
                     </Switch>
                 </div>
             </BrowserRouter>

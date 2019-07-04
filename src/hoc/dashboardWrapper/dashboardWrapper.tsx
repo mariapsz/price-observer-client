@@ -1,6 +1,12 @@
 import React from "react";
 import Sidebar from "react-sidebar";
-import {Icon, LinkIcon, LinkText, NavIcon, SideBarWrapper, SideBarChildrenWrapper} from './dashboardWrapperStyles';
+import {
+    Icon,
+    NavIcon,
+    SideBarWrapper,
+    OpenNavBarIcon,
+    PageContentWrapper, PageWrapper
+} from './dashboardWrapperStyles';
 import {deleteCookie, getCookie} from '../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
 
@@ -8,9 +14,8 @@ class DashboardWrapper extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            sidebarOpen: true
+            sidebarOpen: false,
         };
-        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
 
     logoutUser = () => {
@@ -20,52 +25,40 @@ class DashboardWrapper extends React.Component<any, any> {
     };
 
 
-    onSetSidebarOpen(open: any) {
+    onSetSidebarOpen = (open: boolean) => {
+        console.log('asd');
         this.setState({sidebarOpen: open});
-    }
+    };
 
-    getSideBarChildren = (): JSX.Element => {
-        let nickname = 'anna';//getCookie(COOKIE_NAME_USER_NAME);
-        return <SideBarChildrenWrapper>
-            <NavIcon onClick={() => this.onSetSidebarOpen(true)}>
+    getSideBar = (): JSX.Element => {
+        let nickname = getCookie(COOKIE_NAME_USER_NAME);
+        return <SideBarWrapper>
+            <OpenNavBarIcon onClick={() => this.onSetSidebarOpen(true)}>
                 <Icon className="fa fa-bars"/>
-            </NavIcon>
+            </OpenNavBarIcon>
             <div>{nickname}</div>
-            <NavIcon>
-                <LinkIcon to='/dashboard'>
+                <NavIcon to='/dashboard'>
                     <Icon className="fa fa-home"/>
-                </LinkIcon>
-            </NavIcon>
-            <NavIcon>
-                <LinkIcon to='/addItemURLPage'>
+                </NavIcon>
+                <NavIcon to='/addItemURLPage'>
                     <Icon>&#10010;</Icon>
-                </LinkIcon>
-            </NavIcon>
-            <NavIcon>
-                <LinkIcon to='/settings'>
+                </NavIcon>
+                <NavIcon to='/settings'>
                     <Icon className="fa fa-gear"/>
-                </LinkIcon>
-            </NavIcon>
-            <NavIcon>
+                </NavIcon>
+            <OpenNavBarIcon>
                 <Icon className="fa fa-power-off" onClick={this.logoutUser}/>
-            </NavIcon>
-        </SideBarChildrenWrapper>
+            </OpenNavBarIcon>
+        </SideBarWrapper>
     };
 
     render() {
-        return (<div>
-                <SideBarWrapper>
-                <Sidebar
-                    sidebar={<b>Sidebar content</b>}
-                    open={this.state.sidebarOpen}
-                    onSetOpen={this.onSetSidebarOpen}
-                    styles={{sidebar: {background: "white"}}}
-                >
-                    {this.getSideBarChildren()}
-                </Sidebar>
-                </SideBarWrapper>
-                <div>{this.props.children}</div>
-            </div>
+        return (<PageWrapper>
+                {this.getSideBar()}
+                <PageContentWrapper>
+                    {this.props.children}
+                </PageContentWrapper>
+            </PageWrapper>
         );
     }
 }

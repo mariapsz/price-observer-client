@@ -5,7 +5,7 @@ import {DeleteProductButtonProps} from './DeleteProductButtonProps';
 
 export const DeleteButton = (props: DeleteProductButtonProps) => {
 
-    const removeUser = () => {
+    const removeProduct = () => {
         confirm(props.product).then(
             () => {
                 console.log('Delete button: now create function to remove product')
@@ -14,7 +14,7 @@ export const DeleteButton = (props: DeleteProductButtonProps) => {
         )
     };
 
-    return (<DeleteBtn onClick={removeUser}>
+    return (<DeleteBtn onClick={removeProduct}>
             &#10006;
         </DeleteBtn>
     )
