@@ -1,92 +1,58 @@
-import React, {Component} from 'react';
-import {checkCookie, deleteCookie, getCookie} from '../../utils/cookies';
-import {Link, Redirect} from 'react-router-dom';
-import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
+import React from "react";
+import Sidebar from "react-sidebar";
+import {Icon, LinkIcon, LinkText} from './dashboardWrapperStyles';
 
-// @ts-ignore
-//import SideNav, {NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
-import './styles.css';
-import {Icon, LinkIcon, LinkText, PageContentWrapper, SideBarWrapper} from './dashboardWrapperStyles';
-const SideNav = require('@trendmicro/react-sidenav');
-const NavItem = require('@trendmicro/react-sidenav').NavItem;
-const NavIcon = require('@trendmicro/react-sidenav').NavIcon;
-const NavText = require('@trendmicro/react-sidenav').NavText;
-export default class DashboardWrapper extends Component {
-
-    constructor(props: any){
+class DashboardWrapper extends React.Component<any, any> {
+    constructor(props: any) {
         super(props);
         this.state = {
-            selectedRef: null,
+            sidebarOpen: true
         };
-        console.log('SideNav', SideNav, NavItem);
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
 
-    logoutUser = () => {
-        deleteCookie(COOKIE_NAME_TOKEN);
-        window.location.reload();
-    };
+    onSetSidebarOpen(open: any) {
+        this.setState({sidebarOpen: open});
+    }
 
     render() {
-        let userName = getCookie(COOKIE_NAME_USER_NAME);
-        return (
-            <div>
-                {!checkCookie(COOKIE_NAME_TOKEN) ? <Redirect to='/login'/>
-                    :
+        return (<div>
+            <Sidebar
+                sidebar={<b>Sidebar content</b>}
+                open={this.state.sidebarOpen}
+                onSetOpen={this.onSetSidebarOpen}
+                styles={{sidebar: {background: "white"}}}
+            >
+                <button onClick={() => this.onSetSidebarOpen(true)}>
+                    Open sidebar
+                </button>
+                <div>
                     <div>
-                        <SideBarWrapper>
-                            <React.Fragment>
-                                <SideNav>
-                                    <SideNav.Toggle>{userName}</SideNav.Toggle>
-                                    <SideNav.Nav defaultSelected="home">
-                                        <NavItem>
-                                            <NavIcon>
-                                                <LinkIcon to='/dashboard'>
-                                                    <Icon className="fa fa-home"/>
-                                                </LinkIcon>
-                                            </NavIcon>
-                                            <NavText>
-                                                <LinkText to='/dashboard'>Home</LinkText>
-                                            </NavText>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavIcon>
-                                                <LinkIcon to='/addItemURLPage'>
-                                                    <div>&#10010;</div>
-                                                </LinkIcon>
-                                            </NavIcon>
-                                            <NavText>
-                                                <LinkText to='/addItemURLPage'>Add new item</LinkText>
-                                            </NavText>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavIcon>
-                                                <LinkIcon to='/settings'>
-                                                    <Icon className="fa fa-gear"/>
-                                                </LinkIcon>
-                                            </NavIcon>
-                                            <NavText>
-                                                <LinkText to='/settings'>Settings</LinkText>
-                                            </NavText>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavIcon>
-                                                <Icon className="fa fa-power-off" onClick={this.logoutUser}/>
-                                            </NavIcon>
-                                            <NavText>
-                                                <div onClick={this.logoutUser}>Logout</div>
-                                            </NavText>
-                                        </NavItem>
-                                    </SideNav.Nav>
-                                </SideNav>
-                            </React.Fragment>
-                        </SideBarWrapper>
-                        <PageContentWrapper>
-                            {this.props.children}
-                        </PageContentWrapper>
+                        <div>
+                            <LinkIcon to='/addItemURLPage'>
+                                <div>&#10010;</div>
+                            </LinkIcon>
+                        </div>
+                        <div>
+                            <LinkText to='/login'>Add new item</LinkText>
+                        </div>
                     </div>
-                }
-            </div>
+                    <div>
+                        <div>
+                            <LinkIcon to='/register'>
+                                <Icon className="fa fa-home"/>
+                            </LinkIcon>
+                        </div>
+                        <div>
+                            <LinkText to='/dashboard'>Home</LinkText>
+                        </div>
+                    </div>
+                </div>
+            </Sidebar>
+                <div>{this.props.children}</div>
+        </div>
         );
     }
-};
+}
 
+export default DashboardWrapper;
