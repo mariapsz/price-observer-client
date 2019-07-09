@@ -26,7 +26,7 @@ class App extends Component {
                             <PrivateRoute path='/dashboard' component={DashboardPage}/>
                             <PrivateRoute path='/addItemURLPage' component={NewProductPage}/>
                             <PrivateRoute path='/settings' component={SettingsPage}/>
-                        </DashboardWrapper>
+                        </DashboardWrapper>DashboardWrapper>
                     </Switch>
                 </div>
             </BrowserRouter>

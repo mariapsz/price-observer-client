@@ -1,30 +1,32 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
+export const PageWrapper = styled.div`
+  display: flex;
+`;
+
 export const SideBarWrapper = styled.div`
-  width: 8vh;
+    z-index: 2;
+  flex: 0 1 7vh;
   height: 100vh;
   background-color: #1e7c74;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
 `;
 
 export const PageContentWrapper = styled.div`
-  float: right;
-  width: 90%;
+  flex: 1 1 100%;
 `;
 
-export const OpenNavBarIcon = styled.div`
-  width: 100%;
-  height: 10vh;
-  display: inline-block;
-  text-align: center;
-`;
-
-export const NavIcon = styled(Link)`
+export const SideBarNavElement = styled(Link)`
   text-decoration: none;
-  width: 100%;
-  height: 10vh;
-  display: flex;
-  justify-content: center;
+  display: table-cell;
+  text-align: center;
+  :hover{
+    background-color: #30cbc2;
+  }
 `;
 
 export const LinkText = styled(Link)`
@@ -32,10 +34,27 @@ export const LinkText = styled(Link)`
 `;
 
 export const Icon = styled.i`
-  justify-self: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 7vh;
+  width:10%;
+  font-style: normal;
+  font-size: 1.3em;
 `;
 
-export const PageWrapper = styled.div`
-display: flex;
+export const SideBarElement = styled.div`
+  text-decoration: none;
+  display: table-cell;
+  text-align: center;
+  :hover{
+    background-color: #30cbc2;
+  }
+`;
+
+export const SideBarContentWrapper = styled.div`
+   position: relative;
+   left: 10vh; 
+   padding: 2vh;
+   width: auto;
 `;
 

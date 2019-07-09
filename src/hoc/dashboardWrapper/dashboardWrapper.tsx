@@ -2,10 +2,9 @@ import React from "react";
 import Sidebar from "react-sidebar";
 import {
     Icon,
-    NavIcon,
+    SideBarNavElement,
     SideBarWrapper,
-    OpenNavBarIcon,
-    PageContentWrapper, PageWrapper
+    PageContentWrapper, PageWrapper, SideBarElement, SideBarContentWrapper
 } from './dashboardWrapperStyles';
 import {deleteCookie, getCookie} from '../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
@@ -18,48 +17,56 @@ class DashboardWrapper extends React.Component<any, any> {
         };
     }
 
+    onSetSidebarOpen = (open: boolean) => {
+        this.setState({sidebarOpen: !this.state.sidebarOpen});
+    };
+
     logoutUser = () => {
         deleteCookie(COOKIE_NAME_TOKEN);
         deleteCookie(COOKIE_NAME_USER_NAME);
         window.location.reload();
     };
 
-
-    onSetSidebarOpen = (open: boolean) => {
-        console.log('asd');
-        this.setState({sidebarOpen: open});
-    };
-
-    getSideBar = (): JSX.Element => {
-        let nickname = getCookie(COOKIE_NAME_USER_NAME);
-        return <SideBarWrapper>
-            <OpenNavBarIcon onClick={() => this.onSetSidebarOpen(true)}>
-                <Icon className="fa fa-bars"/>
-            </OpenNavBarIcon>
-            <div>{nickname}</div>
-                <NavIcon to='/dashboard'>
-                    <Icon className="fa fa-home"/>
-                </NavIcon>
-                <NavIcon to='/addItemURLPage'>
-                    <Icon>&#10010;</Icon>
-                </NavIcon>
-                <NavIcon to='/settings'>
-                    <Icon className="fa fa-gear"/>
-                </NavIcon>
-            <OpenNavBarIcon>
-                <Icon className="fa fa-power-off" onClick={this.logoutUser}/>
-            </OpenNavBarIcon>
-        </SideBarWrapper>
-    };
+    getSideBarContent = () => (
+        <SideBarContentWrapper>
+            abcdefghijklmnoprstuwxyzzzzzahananaaK
+        </SideBarContentWrapper>
+    );
 
     render() {
-        return (<PageWrapper>
-                {this.getSideBar()}
+        return <Sidebar
+            sidebar={this.getSideBarContent()}
+            open={this.state.sidebarOpen}
+            onSetOpen={this.onSetSidebarOpen}
+            styles={{
+                sidebar: {background: 'red'},
+            }}
+        >
+            <PageWrapper>
+                <SideBarWrapper>
+                    <SideBarElement onClick={() => this.onSetSidebarOpen(true)}>
+                        <Icon className="fa fa-bars"/>
+                    </SideBarElement>
+                    <div>nickname</div>
+                    <SideBarNavElement to='/login'>
+                        <Icon className="fa fa-home"/>
+                    </SideBarNavElement>
+                    <SideBarNavElement to='/addItemURLPage'>
+                        <Icon>&#10010;</Icon>
+                    </SideBarNavElement>
+                    <SideBarNavElement to='/settings'>
+                        <Icon className="fa fa-gear"/>
+                    </SideBarNavElement>
+                    <SideBarElement>
+                        <Icon className="fa fa-power-off" onClick={this.logoutUser}/>
+                    </SideBarElement>
+                </SideBarWrapper>
                 <PageContentWrapper>
                     {this.props.children}
                 </PageContentWrapper>
             </PageWrapper>
-        );
+        </Sidebar>
+
     }
 }
 
