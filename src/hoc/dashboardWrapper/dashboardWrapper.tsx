@@ -17,8 +17,13 @@ class DashboardWrapper extends React.Component<any, any> {
         };
     }
 
-    onSetSidebarOpen = (open: boolean) => {
-        this.setState({sidebarOpen: !this.state.sidebarOpen});
+    onSetSidebarOpen = (open?: boolean) => {
+        if (open === undefined){
+            this.setState({sidebarOpen: !this.state.sidebarOpen});
+        console.log('alo');
+        }
+        else
+            this.setState({sidebarOpen: open});
     };
 
     logoutUser = () => {
@@ -28,7 +33,7 @@ class DashboardWrapper extends React.Component<any, any> {
     };
 
     getSideBarContent = () => (
-        <SideBarContentWrapper>
+        <SideBarContentWrapper onMouseLeave={() => this.onSetSidebarOpen(false)}>
             abcdefghijklmnoprstuwxyzzzzzahananaaK
         </SideBarContentWrapper>
     );
@@ -43,8 +48,8 @@ class DashboardWrapper extends React.Component<any, any> {
             }}
         >
             <PageWrapper>
-                <SideBarWrapper>
-                    <SideBarElement onClick={() => this.onSetSidebarOpen(true)}>
+                <SideBarWrapper onMouseEnter={() => this.onSetSidebarOpen(true)}>
+                    <SideBarElement onClick={() => this.onSetSidebarOpen()}>
                         <Icon className="fa fa-bars"/>
                     </SideBarElement>
                     <div>nickname</div>

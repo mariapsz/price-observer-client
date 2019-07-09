@@ -6,7 +6,7 @@ export const PageWrapper = styled.div`
 `;
 
 export const SideBarWrapper = styled.div`
-    z-index: 2;
+  z-index: 2;
   flex: 0 1 7vh;
   height: 100vh;
   background-color: #1e7c74;
@@ -18,6 +18,7 @@ export const SideBarWrapper = styled.div`
 
 export const PageContentWrapper = styled.div`
   flex: 1 1 100%;
+  padding: 2vh;
 `;
 
 export const SideBarNavElement = styled(Link)`
@@ -56,5 +57,6 @@ export const SideBarContentWrapper = styled.div`
    left: 10vh; 
    padding: 2vh;
    width: auto;
+   height: 100vh;
 `;
 
