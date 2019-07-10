@@ -6,6 +6,7 @@ import {loginUserAction} from '../../actions/authenticationActions';
 import {checkCookie, setCookie} from '../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
 import {LoginRequest} from '../../DataModels/requests';
+//import {TopBar} from './LoginPageStyles';
 
 class LoginPage extends Component<any> {
 
@@ -36,6 +37,7 @@ class LoginPage extends Component<any> {
             <div>{isSuccess || checkCookie(COOKIE_NAME_TOKEN) ? <Redirect to='dashboard'/>
                 :
                 <div>
+                    <div style={{backgroundImage: 'url(' + require('../../SVG/topBar.svg') + ')'}}/>
                     <h3>Login Page</h3>
                     <form onSubmit={this.onHandleLogin}>
                         <div>

@@ -18,10 +18,8 @@ class DashboardWrapper extends React.Component<any, any> {
     }
 
     onSetSidebarOpen = (open?: boolean) => {
-        if (open === undefined){
+        if (open === undefined)
             this.setState({sidebarOpen: !this.state.sidebarOpen});
-        console.log('alo');
-        }
         else
             this.setState({sidebarOpen: open});
     };
