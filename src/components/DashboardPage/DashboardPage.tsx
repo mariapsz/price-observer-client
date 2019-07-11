@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {checkCookie, deleteCookie} from '../../utils/cookies';
 import {Redirect} from 'react-router-dom';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
-import ProductsList from '../ProductsList/ProductsList';
+import ProductsList from './ProductsList/ProductsList';
 
 export default class DashboardPage extends Component {
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SettingsPassword from '../SettingsPassword/SettingsPassword';
+import SettingsPassword from './SettingsPassword/SettingsPassword';
 
 export default class SettingsUserAccount extends React.Component {
 

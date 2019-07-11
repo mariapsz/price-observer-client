@@ -1,4 +1,4 @@
-import {Price} from '../../DataModels/Price';
+import {Price} from '../../../../DataModels/Price';
 
 export interface NewProductConfirmationDialogState {
     expectedPrice: Price|undefined,

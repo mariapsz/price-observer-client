@@ -3,7 +3,7 @@ import Modal from 'react-modal'
 import {confirmable} from 'react-confirm';
 import {ConfirmationDialogContent} from '../NewProductConfiramtionDialogContent/ConfirmationDialogContent';
 import {NewProductConfirmationDialogState} from './NewProductConfirmationDialogState';
-import * as types from '../../DataModels/CurrencyTypes';
+import * as types from '../../../../DataModels/CurrencyTypes';
 
 class NewProductConfirmationDialog extends React.Component<any, NewProductConfirmationDialogState> {
 

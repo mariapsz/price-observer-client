@@ -6,5 +6,6 @@ export interface Product {
     currentPrice: Price,
     expectedPrice?: Price,
     sizeOptions?: string[],
+    size?: string,
 }
 

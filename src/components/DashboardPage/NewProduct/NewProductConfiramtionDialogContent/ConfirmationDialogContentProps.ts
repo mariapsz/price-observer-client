@@ -1,4 +1,4 @@
-import {Product} from '../../DataModels/Product';
+import {Product} from '../../../../DataModels/Product';
 
 export interface ConfirmationDialogContentProps {
     handleExpectedPrice: (e: any) => string,

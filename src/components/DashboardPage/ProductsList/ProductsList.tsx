@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {getCookie} from '../../utils/cookies';
-import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
+import {getCookie} from '../../../utils/cookies';
+import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../config';
 import {
     Image,
     IPAdressListCell,
@@ -11,11 +11,11 @@ import {
     ListRow,
     ListWrapper
 } from './UsersListStyles';
-import {DeleteButton} from '../DeleteProductButton/deleteProductButton';
-import {getProductsListService} from '../../services/productOperationsService';
+import {DeleteButton} from './DeleteProductButton/deleteProductButton';
+import {getProductsListService} from '../../../services/productOperationsService';
 import {ProductsListState} from './ProductsListState';
-import {Product} from '../../DataModels/Product';
-import {AuthorizationRequest} from '../../DataModels/requests';
+import {Product} from '../../../DataModels/Product';
+import {AuthorizationRequest} from '../../../DataModels/requests';
 
 
 export default class ProductsList extends React.Component<{}, ProductsListState> {
