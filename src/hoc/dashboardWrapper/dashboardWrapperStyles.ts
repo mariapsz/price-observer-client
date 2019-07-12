@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import React from "react";
+
+const logo = require('../../SVG/logo.svg');
+const bar = require('../../SVG/bar.svg');
 
 export const PageWrapper = styled.div`
-  display: flex;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 `;
 
 export const SideBarWrapper = styled.div`
@@ -13,12 +19,15 @@ export const SideBarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-content: center;
+  align-items: center;
 `;
 
 export const PageContentWrapper = styled.div`
   flex: 1 1 100%;
   padding: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const SideBarNavElement = styled(Link)`
@@ -58,5 +67,20 @@ export const SideBarContentWrapper = styled.div`
    padding: 2vh;
    width: auto;
    height: 100vh;
+`;
+
+export const TopBar = styled.div`
+  display: flex;
+  height: 109px;
+  position: relative;
+  top: -1vh
+`;
+
+export const Logo = styled.div`
+  flex: 1 0 600px;
+`;
+
+export const Bar = styled.div`
+  flex: 1 1 100%;
 `;
 

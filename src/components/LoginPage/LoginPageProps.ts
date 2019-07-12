@@ -1,6 +1,6 @@
 import {Dispatch, Store} from 'redux';
 
-export interface ILoginPageProps {
+export interface LoginPageProps {
     store: Store<any>,
     dispatch: Dispatch<any>,
 }

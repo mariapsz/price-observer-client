@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
-import LoginPage from '../LoginPage/loginPage';
+import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/registerPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import DashboardWrapper from '../../hoc/dashboardWrapper/dashboardWrapper';
@@ -19,14 +19,13 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Switch>
-                        <Route path='/' exact={true} component={LoginPage}/>
-                        <Route path='/login' component={LoginPage}/>
-                        <Route path='/register' component={RegisterPage}/>
                         <DashboardWrapper>
+                            <Route path='/' exact={true} component={LoginPage}/>
+                            <Route path='/login' component={LoginPage}/>
+                            <Route path='/register' component={RegisterPage}/>
                             <PrivateRoute path='/dashboard' component={DashboardPage}/>
-                            <PrivateRoute path='/addItemURLPage' component={NewProduct}/>
                             <PrivateRoute path='/settings' component={SettingsPage}/>
-                        </DashboardWrapper>DashboardWrapper>
+                        </DashboardWrapper>
                     </Switch>
                 </div>
             </BrowserRouter>

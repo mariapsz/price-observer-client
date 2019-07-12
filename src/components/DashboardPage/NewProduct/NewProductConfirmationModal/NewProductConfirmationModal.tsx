@@ -66,8 +66,8 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
                 overlay: {},
                 content: {
                     color: 'lightsteelblue',
-                    width: '200px',
-                    height: '300px',
+                    width: '400px',
+                    height: '400px',
                     left: '200px'
                 }
             }}>
