@@ -15,7 +15,7 @@ import {
     RowWrapper,
     LoginWrapper,
     SubmitButtonWrapper,
-    RegisterLink,
+    RegisterLink, Message,
 } from './LoginPageStyles';
 import {LoginPageState} from './LoginPageState';
 
@@ -53,11 +53,11 @@ class LoginPage extends Component<any, LoginPageState> {
     };
 
     render() {
-        let isSuccess, message;
+        let isSuccess, serverMessage;
         if (this.props.store.login.response) {
             isSuccess = this.props.store.login.response.success;
-            message = this.props.store.login.response.message;
-
+            serverMessage = this.props.store.login.response.message;
+            serverMessage = 'Złe hasło';
             if (isSuccess) {
                 setCookie(COOKIE_NAME_USER_NAME, this.props.store.login.response.data.nickname, 1);
                 setCookie(COOKIE_NAME_TOKEN, this.props.store.login.response.data.token, 1);
@@ -79,10 +79,10 @@ class LoginPage extends Component<any, LoginPageState> {
                                     <Label>Hasło</Label>
                                     <Input type="password" name="password" maxLength={25} onInvalid={this.handleOnInvalid} required/>
                                 </RowWrapper>
+                                <Message>{serverMessage ? serverMessage : ''}</Message>
                                 <SubmitButtonWrapper>
                                     <Button type='submit' value='ZALOGUJ SIĘ' disabled={this.state.isSubmitDisabled}/>
                                 </SubmitButtonWrapper>
-                                <div>{message ? message : ''}</div>
                             </form>
                         </FormFrame>
                     </FormWrapper>

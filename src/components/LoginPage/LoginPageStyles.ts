@@ -78,5 +78,10 @@ export const LinkWrapper = styled.div`
 `;
 
 export const RegisterLink = styled(Link)`
+  color: #FF8751;
+`;
+
+export const Message = styled.div`
+  font-size: 13px;
   color: rgb(218, 113, 68);
 `;
