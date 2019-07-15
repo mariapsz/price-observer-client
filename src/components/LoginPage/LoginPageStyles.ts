@@ -49,21 +49,30 @@ export const Input = styled.input`
   border-radius: 4px;
   color: #6c7c7b;
   
-  :invalid {
+  :invalid:focus  {
     border: 1px rgba(220, 66, 77, 0.28) solid;
   }
+    
+  //&:invalid {
+  //   //  border: 1px rgba(220, 66, 77, 0.28) solid;
+  //   //}
 `;
 
 export const Button = styled.input`
-  padding: 7px 16px;
-  background: #70A19E;
-  border: none;
+  padding: 7px 16px; 
+  background: #2d635f;
+  border: 2px solid rgba(22,87,81,0.73);
   color: white;
   font-weight: 900;
   font-size: 17px;
-  border: 2px solid #60807e45;
   border-radius: 2px;
   font-family: 'Raleway', sans-serif;
+  
+  :disabled {
+    background: #70A19E;
+    border: 2px solid #60807e45;
+  } 
+  
 `;
 
 export const SubmitButtonWrapper = styled(RowWrapper)`

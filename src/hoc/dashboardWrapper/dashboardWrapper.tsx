@@ -21,12 +21,14 @@ class DashboardWrapper extends React.Component<any, any> {
     render() {
         return <PageWrapper>
             <TopBarWrapper>
-                <TopBar/>
-                <Title>ALERT</Title>
-                <Title>CENOWY</Title>
+                <TopBar>
+                    <div>
+                        <Title>ALERT CENOWY</Title>
+                    </div>
+                </TopBar>
                 {/*<Bar style={{backgroundImage: 'url(' + require('../../SVG/bar.svg') + ')'}}/>*/}
-            {/*    <Logo style={{backgroundImage: 'url(' + require('../../SVG/logo.svg') + ')'}}/>*/}
-            {/*    <Bar style={{backgroundImage: 'url(' + require('../../SVG/bar.svg') + ')'}}/>*/}
+                {/*    <Logo style={{backgroundImage: 'url(' + require('../../SVG/logo.svg') + ')'}}/>*/}
+                {/*    <Bar style={{backgroundImage: 'url(' + require('../../SVG/bar.svg') + ')'}}/>*/}
             </TopBarWrapper>
             <PageContentWrapper>
                 {this.props.children}
