@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {loginUserAction} from '../../actions/authenticationActions';
 import {checkCookie, setCookie} from '../../utils/cookies';
@@ -14,7 +14,8 @@ import {
     LinkWrapper,
     RowWrapper,
     LoginWrapper,
-    SubmitButtonWrapper
+    SubmitButtonWrapper,
+    RegisterLink,
 } from './LoginPageStyles';
 import {LoginPageState} from './LoginPageState';
 
@@ -86,7 +87,7 @@ class LoginPage extends Component<any, LoginPageState> {
                         </FormFrame>
                     </FormWrapper>
                     <LinkWrapper>
-                        Nie masz konta? <Link to='register'>Zarejestruj się</Link>
+                        Nie masz konta? <RegisterLink to='register'>Zarejestruj się</RegisterLink>
                     </LinkWrapper>
                 </LoginWrapper>}
             </div>

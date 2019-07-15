@@ -21,6 +21,7 @@ class DashboardWrapper extends React.Component<any, any> {
     render() {
         return <PageWrapper>
             <TopBar>
+                {/*<Bar style={{backgroundImage: 'url(' + require('../../SVG/bar.svg') + ')'}}/>*/}
                 <Logo style={{backgroundImage: 'url(' + require('../../SVG/logo.svg') + ')'}}/>
                 <Bar style={{backgroundImage: 'url(' + require('../../SVG/bar.svg') + ')'}}/>
             </TopBar>

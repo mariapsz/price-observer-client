@@ -73,14 +73,19 @@ export const TopBar = styled.div`
   display: flex;
   height: 109px;
   position: relative;
-  top: -1vh
+  top: -1vh;
+  max-height: 10vh;
 `;
 
 export const Logo = styled.div`
-  flex: 1 0 600px;
+  flex: 1 0 100%; 
+  background-size: contain;
+  //background-repeat: no-repeat;
+  max-width: 60vh;
 `;
 
 export const Bar = styled.div`
-  flex: 1 1 100%;
+  flex: 1 1 100%;  
+  background-size: contain;
 `;
 
