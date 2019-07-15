@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
-export const LoginWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   padding: 0 0 100px 0;
   flex-direction: column;
@@ -22,6 +22,9 @@ export const FormWrapper = styled.div`
   padding: 4px;
   width: 100%;
   border-radius: 3px;
+  @media(max-width: 450px){
+    border: none;
+  }
 `;
 
 export const FormFrame = styled.div`
@@ -35,8 +38,9 @@ export const RowWrapper = styled.div`
   justify-content: flex-end;
   flex-direction: column;
   align-items: center;
-  padding: 6px 0 6px 0;
+  padding: 0 0 6px 0;
   height: 80px;
+  width: 250px;
 `;
 
 export const Label = styled.label`
@@ -92,7 +96,6 @@ export const Button = styled.input`
 export const SubmitButtonWrapper = styled(RowWrapper)`
   height: auto;
   padding: 20px 0 10px 0;
-  //justify-content: flex-end;
 `;
 
 export const LinkWrapper = styled.div`

@@ -7,7 +7,7 @@ import {
 
 import PrivateRoute from './PrivateRoute';
 import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/registerPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import DashboardWrapper from '../../hoc/dashboardWrapper/dashboardWrapper';
 import NewProduct from '../DashboardPage/NewProduct/NewProduct';
@@ -22,9 +22,9 @@ class App extends Component {
                         <DashboardWrapper>
                             <Route path='/' exact={true} component={LoginPage}/>
                             <Route path='/login' component={LoginPage}/>
-                            <Route path='/register' component={RegisterPage}/>
-                            <PrivateRoute path='/dashboard' component={DashboardPage}/>
-                            <PrivateRoute path='/settings' component={SettingsPage}/>
+                            <Route path='/rejestracja' component={RegisterPage}/>
+                            <PrivateRoute path='/home' component={DashboardPage}/>
+                            <PrivateRoute path='/ustawienia' component={SettingsPage}/>
                         </DashboardWrapper>
                     </Switch>
                 </div>

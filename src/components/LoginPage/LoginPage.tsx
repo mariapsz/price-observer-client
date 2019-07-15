@@ -13,14 +13,14 @@ import {
     Label,
     LinkWrapper,
     RowWrapper,
-    LoginWrapper,
+    Wrapper,
     SubmitButtonWrapper,
     RegisterLink,
     Message,
     ResetPasswordLink,
     MessageWrapper,
     ResetPasswordLinkWrapper,
-} from './LoginPageStyles';
+} from '../../Styles/FormStyles';
 import {LoginPageState} from './LoginPageState';
 
 
@@ -70,14 +70,14 @@ class LoginPage extends Component<any, LoginPageState> {
         return (
             <div>{isSuccess || checkCookie(COOKIE_NAME_TOKEN) ? <Redirect to='dashboard'/>
                 :
-                <LoginWrapper>
+                <Wrapper>
                     <FormWrapper>
                         <FormFrame>
                             <form onSubmit={this.onHandleLogin} onChange={this.handleFormState}>
                                 <RowWrapper>
                                     <Label>E-mail</Label>
-                                    <Input type="email" name="email" maxLength={25} onInvalid={this.handleOnInvalid}
-                                           required/>
+                                    <Input type="email" name="email" maxLength={25}
+                                           onInvalid={this.handleOnInvalid} required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>Hasło</Label>
@@ -97,9 +97,9 @@ class LoginPage extends Component<any, LoginPageState> {
                         </FormFrame>
                     </FormWrapper>
                     <LinkWrapper>
-                        Nie masz konta? <RegisterLink to='register'>Zarejestruj się</RegisterLink>
+                        Nie masz konta? <RegisterLink to='rejestracja'>Zarejestruj się</RegisterLink>
                     </LinkWrapper>
-                </LoginWrapper>}
+                </Wrapper>}
             </div>
         );
     }
