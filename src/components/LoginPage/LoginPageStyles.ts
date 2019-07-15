@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 export const LoginWrapper = styled.div`
   display: flex;
+  padding: 0 0 100px 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;  
@@ -10,6 +11,10 @@ export const LoginWrapper = styled.div`
   font-size: 16px;
   font-weight: 500;
   color: #60807e;
+  
+  @media (max-height: 700px){
+    padding: 0;
+  }
 `;
 
 export const FormWrapper = styled.div`
@@ -50,35 +55,44 @@ export const Input = styled.input`
   color: #6c7c7b;
   
   :invalid:focus  {
-    border: 1px rgba(220, 66, 77, 0.28) solid;
+    border: 1px rgba(215,65,79,0.62) solid;
+    outline: none;
+  }
+  
+  :focus  {
+    border: 1px rgb(32,102,80) solid;
+    outline: none;
   }
     
-  //&:invalid {
-  //   //  border: 1px rgba(220, 66, 77, 0.28) solid;
-  //   //}
+  :invalid {
+    border: 1px rgba(220, 66, 77, 0.28) solid;
+  }
 `;
 
 export const Button = styled.input`
   padding: 7px 16px; 
   background: #2d635f;
-  border: 2px solid rgba(22,87,81,0.73);
+  border: 2px solid rgb(24,99,93);
   color: white;
   font-weight: 900;
   font-size: 17px;
   border-radius: 2px;
   font-family: 'Raleway', sans-serif;
   
+  :hover {
+    background: #4ba29d;
+  }
+  
   :disabled {
     background: #70A19E;
     border: 2px solid #60807e45;
-  } 
-  
+  }   
 `;
 
 export const SubmitButtonWrapper = styled(RowWrapper)`
-  padding: 0;
-  justify-content: flex-end;
-  height: 70px;
+  height: auto;
+  padding: 20px 0 10px 0;
+  //justify-content: flex-end;
 `;
 
 export const LinkWrapper = styled.div`
@@ -93,4 +107,17 @@ export const RegisterLink = styled(Link)`
 export const Message = styled.div`
   font-size: 13px;
   color: rgb(218, 113, 68);
+`;
+
+export const ResetPasswordLinkWrapper = styled.div`
+  padding: 5px 0;
+`;
+
+export const MessageWrapper = styled.div`
+  padding: 5px 0;
+`;
+
+export const ResetPasswordLink = styled(Link)`
+  font-size: 13px;
+  color: rgb(31,77,95);
 `;

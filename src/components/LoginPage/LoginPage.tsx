@@ -15,7 +15,11 @@ import {
     RowWrapper,
     LoginWrapper,
     SubmitButtonWrapper,
-    RegisterLink, Message,
+    RegisterLink,
+    Message,
+    ResetPasswordLink,
+    MessageWrapper,
+    ResetPasswordLinkWrapper,
 } from './LoginPageStyles';
 import {LoginPageState} from './LoginPageState';
 
@@ -57,7 +61,6 @@ class LoginPage extends Component<any, LoginPageState> {
         if (this.props.store.login.response) {
             isSuccess = this.props.store.login.response.success;
             serverMessage = this.props.store.login.response.message;
-            serverMessage = 'Złe hasło';
             if (isSuccess) {
                 setCookie(COOKIE_NAME_USER_NAME, this.props.store.login.response.data.nickname, 1);
                 setCookie(COOKIE_NAME_TOKEN, this.props.store.login.response.data.token, 1);
@@ -72,14 +75,21 @@ class LoginPage extends Component<any, LoginPageState> {
                         <FormFrame>
                             <form onSubmit={this.onHandleLogin} onChange={this.handleFormState}>
                                 <RowWrapper>
-                                    <Label>Email lub nazwa użytkownika</Label>
-                                    <Input type="email" name="email" maxLength={25} onInvalid={this.handleOnInvalid} required/>
+                                    <Label>E-mail</Label>
+                                    <Input type="email" name="email" maxLength={25} onInvalid={this.handleOnInvalid}
+                                           required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>Hasło</Label>
-                                    <Input type="password" name="password" maxLength={25} onInvalid={this.handleOnInvalid} required/>
+                                    <Input type="password" name="password" maxLength={25}
+                                           onInvalid={this.handleOnInvalid} required/>
                                 </RowWrapper>
-                                <Message>{serverMessage ? serverMessage : ''}</Message>
+                                <ResetPasswordLinkWrapper>
+                                    <ResetPasswordLink to='resetPassword'>Nie pamiętasz hasła?</ResetPasswordLink>
+                                </ResetPasswordLinkWrapper>
+                                <MessageWrapper>
+                                    <Message>{serverMessage ? serverMessage : ''}</Message>
+                                </MessageWrapper>
                                 <SubmitButtonWrapper>
                                     <Button type='submit' value='ZALOGUJ SIĘ' disabled={this.state.isSubmitDisabled}/>
                                 </SubmitButtonWrapper>
