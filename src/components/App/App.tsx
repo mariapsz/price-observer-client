@@ -4,30 +4,27 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-
 import PrivateRoute from './PrivateRoute';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
-import DashboardWrapper from '../../hoc/dashboardWrapper/dashboardWrapper';
-import NewProduct from '../DashboardPage/NewProduct/NewProduct';
+import DashboardPageWrapper from '../../hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper';
 import SettingsPage from '../SettingsPage/SettingsPage';
+import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 
 class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <div>
-                    <Switch>
-                        <DashboardWrapper>
-                            <Route path='/' exact={true} component={LoginPage}/>
-                            <Route path='/login' component={LoginPage}/>
-                            <Route path='/rejestracja' component={RegisterPage}/>
-                            <PrivateRoute path='/home' component={DashboardPage}/>
-                            <PrivateRoute path='/ustawienia' component={SettingsPage}/>
-                        </DashboardWrapper>
-                    </Switch>
-                </div>
+                <Switch>
+                    <Route path='/' exact={true} component={LoginPage}/>
+                    <Route path='/login' component={LoginPage}/>
+                    <Route path='/rejestracja' component={RegisterPage}/>
+                    <DashboardPageWrapper>
+                        <PrivateRoute path='/home' component={DashboardPage}/>
+                        <PrivateRoute path='/ustawienia' component={SettingsPage}/>
+                    </DashboardPageWrapper>
+                </Switch>
             </BrowserRouter>
         );
     }

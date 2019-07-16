@@ -22,6 +22,7 @@ import {
     ResetPasswordLinkWrapper,
 } from '../../Styles/FormStyles';
 import {LoginPageState} from './LoginPageState';
+import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 
 
 class LoginPage extends Component<any, LoginPageState> {
@@ -68,38 +69,41 @@ class LoginPage extends Component<any, LoginPageState> {
         }
 
         return (
-            <div>{isSuccess || checkCookie(COOKIE_NAME_TOKEN) ? <Redirect to='dashboard'/>
+            <div>{isSuccess || checkCookie(COOKIE_NAME_TOKEN) ? <Redirect to='/home'/>
                 :
-                <Wrapper>
-                    <FormWrapper>
-                        <FormFrame>
-                            <form onSubmit={this.onHandleLogin} onChange={this.handleFormState}>
-                                <RowWrapper>
-                                    <Label>E-mail</Label>
-                                    <Input type="email" name="email" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} required/>
-                                </RowWrapper>
-                                <RowWrapper>
-                                    <Label>Hasło</Label>
-                                    <Input type="password" name="password" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} required/>
-                                </RowWrapper>
-                                <ResetPasswordLinkWrapper>
-                                    <ResetPasswordLink to='resetPassword'>Nie pamiętasz hasła?</ResetPasswordLink>
-                                </ResetPasswordLinkWrapper>
-                                <MessageWrapper>
-                                    <Message>{serverMessage ? serverMessage : ''}</Message>
-                                </MessageWrapper>
-                                <SubmitButtonWrapper>
-                                    <Button type='submit' value='ZALOGUJ SIĘ' disabled={this.state.isSubmitDisabled}/>
-                                </SubmitButtonWrapper>
-                            </form>
-                        </FormFrame>
-                    </FormWrapper>
-                    <LinkWrapper>
-                        Nie masz konta? <RegisterLink to='rejestracja'>Zarejestruj się</RegisterLink>
-                    </LinkWrapper>
-                </Wrapper>}
+                <PageWrapper>
+                    <Wrapper>
+                        <FormWrapper>
+                            <FormFrame>
+                                <form onSubmit={this.onHandleLogin} onChange={this.handleFormState}>
+                                    <RowWrapper>
+                                        <Label>E-mail</Label>
+                                        <Input type="email" name="email" maxLength={25}
+                                               onInvalid={this.handleOnInvalid} required/>
+                                    </RowWrapper>
+                                    <RowWrapper>
+                                        <Label>Hasło</Label>
+                                        <Input type="password" name="password" maxLength={25}
+                                               onInvalid={this.handleOnInvalid} required/>
+                                    </RowWrapper>
+                                    <ResetPasswordLinkWrapper>
+                                        <ResetPasswordLink to='resetPassword'>Nie pamiętasz hasła?</ResetPasswordLink>
+                                    </ResetPasswordLinkWrapper>
+                                    <MessageWrapper>
+                                        <Message>{serverMessage ? serverMessage : ''}</Message>
+                                    </MessageWrapper>
+                                    <SubmitButtonWrapper>
+                                        <Button type='submit' value='ZALOGUJ SIĘ'
+                                                disabled={this.state.isSubmitDisabled}/>
+                                    </SubmitButtonWrapper>
+                                </form>
+                            </FormFrame>
+                        </FormWrapper>
+                        <LinkWrapper>
+                            Nie masz konta? <RegisterLink to='rejestracja'>Zarejestruj się</RegisterLink>
+                        </LinkWrapper>
+                    </Wrapper>
+                </PageWrapper>}
             </div>
         );
     }

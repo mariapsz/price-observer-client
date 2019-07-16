@@ -19,6 +19,7 @@ import {
 } from '../../Styles/FormStyles';
 import {RegisterRequest} from '../../DataModels/requests';
 import {registerUserService} from '../../services/authenticationService';
+import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 
 export default class RegisterPage extends Component<{}, RegisterFormState> {
 
@@ -107,51 +108,53 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
                 {checkCookie(COOKIE_NAME_TOKEN) ?
                     <Redirect to='/dashboard'/>
                     :
-                    <Wrapper>
-                        <FormWrapper>
-                            <FormFrame>
-                                <form onSubmit={this.handleRegistration} onChange={this.handleFormState}>
-                                    <RowWrapper>
-                                        <Label>Nazwa użytkownika</Label>
-                                        <Input type="text" name="nickname" maxLength={25}
-                                               onInvalid={this.handleOnInvalid} value={this.state.user.nickname}
-                                               onChange={this.handleChange} required/>
-                                    </RowWrapper>
-                                    <RowWrapper>
-                                        <Label>E-mail</Label>
-                                        <Input type="email" name="email" maxLength={25}
-                                               onInvalid={this.handleOnInvalid} value={this.state.user.email}
-                                               onChange={this.handleChange} required/>
-                                    </RowWrapper>
-                                    <RowWrapper>
-                                        <Label>Hasło</Label>
-                                        <Input type="password" name="password" maxLength={25}
-                                               onInvalid={this.handleOnInvalid} value={this.state.user.password}
-                                               onChange={this.handleChange} required/>
-                                    </RowWrapper>
-                                    <RowWrapper>
-                                        <Label>Powtórz hasło</Label>
-                                        <Input type="password" maxLength={25}
-                                               onInvalid={this.handleOnInvalid} value={this.state.passwordRepeated}
-                                               onChange={this.handleChangePasswordRepeated}
-                                               pattern={'^' + this.state.user.password + '$'} required/>
-                                    </RowWrapper>
-                                    <MessageWrapper>
-                                        <Message>{this.state.serverMessage ? this.state.serverMessage : ''}</Message>
-                                    </MessageWrapper>
-                                    <SubmitButtonWrapper>
-                                        <Button type='submit' value='ZAREJESTRUJ SIĘ'
-                                                disabled={this.state.isSubmitDisabled}/>
-                                    </SubmitButtonWrapper>
-                                </form>
-                            </FormFrame>
-                        </FormWrapper>
-                        <LinkWrapper>
-                            Masz już konto? <RegisterLink to='login'>Zaloguj się</RegisterLink>
-                        </LinkWrapper>
-                    </Wrapper>
+                    <PageWrapper>
+                        <Wrapper>
+                            <FormWrapper>
+                                <FormFrame>
+                                    <form onSubmit={this.handleRegistration} onChange={this.handleFormState}>
+                                        <RowWrapper>
+                                            <Label>Nazwa użytkownika</Label>
+                                            <Input type="text" name="nickname" maxLength={25}
+                                                   onInvalid={this.handleOnInvalid} value={this.state.user.nickname}
+                                                   onChange={this.handleChange} required/>
+                                        </RowWrapper>
+                                        <RowWrapper>
+                                            <Label>E-mail</Label>
+                                            <Input type="email" name="email" maxLength={25}
+                                                   onInvalid={this.handleOnInvalid} value={this.state.user.email}
+                                                   onChange={this.handleChange} required/>
+                                        </RowWrapper>
+                                        <RowWrapper>
+                                            <Label>Hasło</Label>
+                                            <Input type="password" name="password" maxLength={25}
+                                                   onInvalid={this.handleOnInvalid} value={this.state.user.password}
+                                                   onChange={this.handleChange} required/>
+                                        </RowWrapper>
+                                        <RowWrapper>
+                                            <Label>Powtórz hasło</Label>
+                                            <Input type="password" maxLength={25}
+                                                   onInvalid={this.handleOnInvalid} value={this.state.passwordRepeated}
+                                                   onChange={this.handleChangePasswordRepeated}
+                                                   pattern={'^' + this.state.user.password + '$'} required/>
+                                        </RowWrapper>
+                                        <MessageWrapper>
+                                            <Message>{this.state.serverMessage ? this.state.serverMessage : ''}</Message>
+                                        </MessageWrapper>
+                                        <SubmitButtonWrapper>
+                                            <Button type='submit' value='ZAREJESTRUJ SIĘ'
+                                                    disabled={this.state.isSubmitDisabled}/>
+                                        </SubmitButtonWrapper>
+                                    </form>
+                                </FormFrame>
+                            </FormWrapper>
+                            <LinkWrapper>
+                                Masz już konto? <RegisterLink to='login'>Zaloguj się</RegisterLink>
+                            </LinkWrapper>
+                        </Wrapper>
+                    </PageWrapper>
                 }
             </div>
         )
     }
-}
+};
