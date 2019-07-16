@@ -19,7 +19,6 @@ export default class DashboardPage extends Component {
                 {!checkCookie(COOKIE_NAME_TOKEN) ? <Redirect to='/login'/>
                     :
                     <div>
-                        <div>Dashboard</div>
                         <NewProduct/>
                         <ProductsList/>
                         <button onClick={this.logoutUser}>Logout</button>

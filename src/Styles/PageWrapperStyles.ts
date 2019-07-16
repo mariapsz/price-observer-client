@@ -20,7 +20,7 @@ export const TopBarWrapper = styled.div`
 `;
 
 export const TopBar = styled.div`
-  height: 70px;
+  height: 60px;
   max-height: 75px;
   background: #2A615D;
   padding: 10px 60px 10px 60px;
@@ -73,7 +73,7 @@ export const NickName = styled.div`
 `;
 
 export const Icon = styled.i`
-    font-size: 45px;
+    font-size: 35px;
     color: #fff;
     -webkit-transition: color 0.3s;
     -moz-transition:    color 0.3s;
@@ -91,14 +91,14 @@ export const Icon = styled.i`
     }
     
     @media(max-device-width: 430px){
-     font-size: 30px;
+     font-size: 28px;
     }
 `;
 
 export const SettingsIcon = styled(Icon)`    
     :hover {
-      -webkit-animation: fa-spin 4s infinite linear;
-      animation: fa-spin 4s infinite linear;
+      -webkit-animation: fa-spin 8s infinite linear;
+      animation: fa-spin 8s infinite linear;
     }
     
     @media(max-width: 780px){

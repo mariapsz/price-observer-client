@@ -33,6 +33,12 @@ export const FormFrame = styled.div`
   border-radius: 3px;
 `;
 
+export const NewProductFormFrame = styled(FormFrame)`
+  @media(max-width: 500px){
+    padding: 10px;
+  }
+`;
+
 export const RowWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -47,7 +53,9 @@ export const Label = styled.label`
   width: 100%;
   height: 40%;
   display: flex;
-  align-items: center;
+  align-items: center;  
+  font-family: 'Raleway', sans-serif;
+  color: #60807e;
 `;
 
 export const Input = styled.input`
@@ -73,6 +81,21 @@ export const Input = styled.input`
   }
 `;
 
+export const URLInput = styled(Input)`
+  width: 450px;
+  height: 40px;
+  
+  @media (max-width: 580px){
+    width: 350px;
+    height: 40px;
+  }
+  
+  @media (max-width: 400px){
+    width: 300px;
+    height: 40px;
+  }
+`;
+
 export const Button = styled.input`
   padding: 7px 16px; 
   background: #2d635f;
@@ -91,6 +114,17 @@ export const Button = styled.input`
     background: #70A19E;
     border: 2px solid #60807e45;
   }   
+`;
+
+export const FindProductButton = styled(Button)`
+    height: 40px;
+    margin-left: 30px;
+    
+    @media (max-width: 850px){
+      margin: 20px;
+      width: fit-content;
+      align-self: flex-end;
+    }
 `;
 
 export const SubmitButtonWrapper = styled(RowWrapper)`
@@ -123,4 +157,21 @@ export const MessageWrapper = styled.div`
 export const ResetPasswordLink = styled(Link)`
   font-size: 13px;
   color: rgb(31,77,95);
+`;
+
+export const FormTitle = styled.div`
+  font-weight: 800;
+  font-size: 22px;
+  color: rgb(218, 113, 68);
+  font-family: 'Raleway', sans-serif;
+  padding: 0 0 10px 0;
+`;
+
+export const NewProductURLWrapper = styled.div`
+  display: flex;
+  padding-top: 20px;
+  @media (max-width: 850px){
+    flex-direction: column;
+    align-items: center;
+  }
 `;
