@@ -7,7 +7,7 @@ import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
 import {LoginRequest} from '../../DataModels/requests';
 import {
     Button,
-    FormFrame,
+    InnerFrame,
     FormWrapper,
     Input,
     Label,
@@ -74,7 +74,7 @@ class LoginPage extends Component<any, LoginPageState> {
                 <PageWrapper>
                     <Wrapper>
                         <FormWrapper>
-                            <FormFrame>
+                            <InnerFrame>
                                 <form onSubmit={this.onHandleLogin} onChange={this.handleFormState}>
                                     <RowWrapper>
                                         <Label>E-mail</Label>
@@ -97,7 +97,7 @@ class LoginPage extends Component<any, LoginPageState> {
                                                 disabled={this.state.isSubmitDisabled}/>
                                     </SubmitButtonWrapper>
                                 </form>
-                            </FormFrame>
+                            </InnerFrame>
                         </FormWrapper>
                         <LinkWrapper>
                             Nie masz konta? <RegisterLink to='rejestracja'>Zarejestruj się</RegisterLink>

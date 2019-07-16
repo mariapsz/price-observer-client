@@ -27,13 +27,17 @@ export const FormWrapper = styled.div`
   }
 `;
 
-export const FormFrame = styled.div`
+export const Frame = styled.div`
   border: 3px solid #f3f1f0;
   padding: 15px 30px 25px 30px;
   border-radius: 3px;
 `;
 
-export const NewProductFormFrame = styled(FormFrame)`
+export const InnerFrame = styled(Frame)`
+  margin: 0;
+`;
+
+export const NewProductFormFrame = styled(Frame)`
   @media(max-width: 500px){
     padding: 10px;
   }
@@ -91,7 +95,7 @@ export const URLInput = styled(Input)`
   }
   
   @media (max-width: 400px){
-    width: 300px;
+    width: 80vw;
     height: 40px;
   }
 `;
@@ -159,7 +163,7 @@ export const ResetPasswordLink = styled(Link)`
   color: rgb(31,77,95);
 `;
 
-export const FormTitle = styled.div`
+export const SectionTitle = styled.div`
   font-weight: 800;
   font-size: 22px;
   color: rgb(218, 113, 68);

@@ -5,7 +5,7 @@ import {COOKIE_NAME_TOKEN} from '../../config';
 import {RegisterFormState} from './RegisterFormState';
 import {
     Button,
-    FormFrame,
+    InnerFrame,
     FormWrapper,
     Input,
     Label,
@@ -111,7 +111,7 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
                     <PageWrapper>
                         <Wrapper>
                             <FormWrapper>
-                                <FormFrame>
+                                <InnerFrame>
                                     <form onSubmit={this.handleRegistration} onChange={this.handleFormState}>
                                         <RowWrapper>
                                             <Label>Nazwa użytkownika</Label>
@@ -146,7 +146,7 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
                                                     disabled={this.state.isSubmitDisabled}/>
                                         </SubmitButtonWrapper>
                                     </form>
-                                </FormFrame>
+                                </InnerFrame>
                             </FormWrapper>
                             <LinkWrapper>
                                 Masz już konto? <RegisterLink to='login'>Zaloguj się</RegisterLink>

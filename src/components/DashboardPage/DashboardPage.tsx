@@ -7,12 +7,6 @@ import NewProduct from './NewProduct/NewProduct';
 
 export default class DashboardPage extends Component {
 
-    logoutUser = () => {
-        deleteCookie(COOKIE_NAME_TOKEN);
-        deleteCookie(COOKIE_NAME_USER_NAME);
-        window.location.reload();
-    };
-
     render() {
         return (
             <div>
@@ -21,7 +15,6 @@ export default class DashboardPage extends Component {
                     <div>
                         <NewProduct/>
                         <ProductsList/>
-                        <button onClick={this.logoutUser}>Logout</button>
                     </div>}
             </div>
         );

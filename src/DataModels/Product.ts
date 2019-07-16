@@ -7,5 +7,6 @@ export interface Product {
     expectedPrice?: Price,
     sizeOptions?: string[],
     size?: string,
+    dateOfAdding?: string, //Date,
 }
 

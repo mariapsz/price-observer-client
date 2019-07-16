@@ -5,7 +5,7 @@ import {NewProductConfirmationModal} from './NewProductConfirmationModal/NewProd
 import {connect} from 'react-redux';
 import {
     FindProductButton,
-    FormTitle,
+    SectionTitle,
     URLInput,
     Label,
     NewProductURLWrapper,
@@ -64,7 +64,7 @@ class NewProduct extends React.Component<{}, NewProductState> {
     render() {
         return <div>
             <NewProductFormFrame>
-                <FormTitle>NOWY PRODUKT</FormTitle>
+                <SectionTitle>NOWY PRODUKT</SectionTitle>
                 <form onSubmit={this.handleSubmit} onChange={this.handleFormState}>
                     <Label>
                         Adres URL strony, na której znajduje się produkt:

@@ -20,7 +20,7 @@ export const TopBarWrapper = styled.div`
 `;
 
 export const TopBar = styled.div`
-  height: 60px;
+  height: 55px;
   max-height: 75px;
   background: #2A615D;
   padding: 10px 60px 10px 60px;
@@ -32,7 +32,7 @@ export const TopBar = styled.div`
     padding: 10px 30px 10px 30px;
   }
   
-  @media(max-device-width: 400px){
+  @media(max-device-width: 430px){
     padding: 10px 10px; 
   }
 `;
@@ -47,7 +47,7 @@ export const Title = styled.div`
  }
   
  @media(max-device-width: 400px){
-  font-size: 25px;
+  font-size: 20px;
  }
 `;
 
@@ -56,7 +56,7 @@ export const UserPanel = styled.div`
 `;
 
 export const NickName = styled.div`
-  font-size: 25px;
+  font-size: 20px;
   color: #fff;
   display: flex;
   font-family: 'Raleway',sans-serif;
@@ -69,11 +69,12 @@ export const NickName = styled.div`
   
   @media(max-device-width: 430px){
     font-size: 20px;
+    padding: 0 5px; 
   }
 `;
 
 export const Icon = styled.i`
-    font-size: 35px;
+    font-size: 25px;
     color: #fff;
     -webkit-transition: color 0.3s;
     -moz-transition:    color 0.3s;
@@ -91,7 +92,7 @@ export const Icon = styled.i`
     }
     
     @media(max-device-width: 430px){
-     font-size: 28px;
+     font-size: 20px;
     }
 `;
 

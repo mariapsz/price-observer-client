@@ -1,21 +1,13 @@
 import * as React from 'react';
 import {getCookie} from '../../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../config';
-import {
-    Image,
-    IPAdressListCell,
-    IPAdressWrapper,
-    ListCell,
-    ListHeader,
-    ListHeaderCell,
-    ListRow,
-    ListWrapper
-} from './UsersListStyles';
+import {Cell, Frame, Image, IPAdressWrapper, ListHeader, ListRow} from './ProductsTableStyles';
 import {DeleteButton} from './DeleteProductButton/deleteProductButton';
 import {getProductsListService} from '../../../services/productOperationsService';
 import {ProductsListState} from './ProductsListState';
 import {Product} from '../../../DataModels/Product';
 import {AuthorizationRequest} from '../../../DataModels/requests';
+import {SectionTitle} from '../../../Styles/FormStyles';
 
 
 export default class ProductsList extends React.Component<{}, ProductsListState> {
@@ -23,7 +15,7 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
     constructor(props: {}) {
         super(props);
         this.state = {
-            productsListTable: <div> </div>,
+            productsListTable: <div></div>,
         };
     }
 
@@ -48,46 +40,45 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
     // };
 
     getProductsListTable = (productsList: Product[]): JSX.Element => (<div>
-            <ListWrapper>
+            <Frame>
+                <SectionTitle>TWOJE PRODUKTY</SectionTitle>
                 <ListHeader>
-                    <ListHeaderCell>
-                        Photo
-                    </ListHeaderCell>
-                    <ListHeaderCell>
-                        Product name
-                    </ListHeaderCell>
-                    <ListHeaderCell>
-                        Current price
-                    </ListHeaderCell>
-                    <ListCell>
-                        Expected price
-                    </ListCell>
+                    <Cell isHeaderCell={true} productProperty='imgSrc'/>
+                    <Cell isHeaderCell={true} productProperty='name'>
+                        Nazwa produkt
+                    </Cell>
+                    <Cell isHeaderCell={true} productProperty='currentPrice'>
+                        Obecna cena
+                    </Cell>
+                    <Cell isHeaderCell={true} productProperty='expectedPrice'>
+                        Oczekiwana cena
+                    </Cell>
                 </ListHeader>
                 {this.getProductsListRows(productsList)}
-            </ListWrapper>
+            </Frame>
         </div>
     );
 
     getProductsListRows = (productsList: Product[]): JSX.Element[] =>
         productsList.map((product: Product, i: number) => (
             <ListRow key={i}>
-                <ListCell>
+                <Cell productProperty='imgSrc'>
                     <Image src={product.imgSrc}/>
-                </ListCell>
-                <ListCell>
+                </Cell>
+                <Cell productProperty='name'>
                     {product.name}
-                </ListCell>
-                <ListCell>
+                </Cell>
+                <Cell productProperty='currentPrice'>
                     {product.currentPrice.count}
-                </ListCell>
-                <IPAdressListCell>
+                </Cell>
+                <Cell productProperty='expectedPrice'>
                     <IPAdressWrapper>
                         {product.expectedPrice!.count}
                     </IPAdressWrapper>
                     <DeleteButton
                         product={product}
                     />
-                </IPAdressListCell>
+                </Cell>
             </ListRow>
         ));
 
