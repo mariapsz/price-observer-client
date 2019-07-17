@@ -16,7 +16,7 @@ import {
     RegisterLink,
     RowWrapper,
     SubmitButtonWrapper
-} from '../../Styles/FormStyles';
+} from '../../Styles/RegisterPageStyles';
 import {RegisterRequest} from '../../DataModels/requests';
 import {registerUserService} from '../../services/authenticationService';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';

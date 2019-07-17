@@ -20,25 +20,27 @@ export const ListRow = styled.div`
 
 export const ListHeader = styled(ListRow)`
     background: #F6FAFF;
+    font-family: 'Raleway', sans-serif;
 `;
-
-// name: string,
-//     imgSrc: string,
-//     currentPrice: Price,
-//     expectedPrice?: Price,
-//     sizeOptions?: string[],
-//     size?: string,
-//     dateOfAdding?: string, //Date,
 
 export const Cell = styled.div`
     text-align: center;
     margin: 3px;
     display: flex;
-    align-items: center;
-    justify-content: ${(props: CellProps) => props.isHeaderCell || props.contentType === 'removeProductButton' ? 'center' : 'flex-start'};
-    color: ${(props: CellProps) => props.isHeaderCell ? '#FFF' : 'rgba(216, 224, 234, 0.38)'};
-    font-weight: ${(props: CellProps) => props.isHeaderCell ? '500' : 'regular'};
-    background: ${(props: CellProps) => props.isHeaderCell ? '#39886f' : 'rgba(216, 224, 234, 0.38)'};
+    align-items: center;    
+    font-size: 15px;
+    padding: ${(props: CellProps) => props.isHeaderCell ? '15px 2px 15px 2px' : '2px'};
+    justify-content: center;
+    color: ${(props: CellProps) => props.isHeaderCell ? '#FFF' : 'rgba(13,29,20,0.38)'};
+    font-weight: 900;
+    background: ${(props: CellProps) => {
+    if (props.isHeaderCell)
+        if (props.contentType !== 'removeProductButton' && props.contentType !== 'imgSrc')
+            return '#39886f';
+        else return 'none';
+    return 'rgba(216, 224, 234, 0.38)';
+}};
+    
     flex-basis: ${(props: CellProps) => {
     switch (props.contentType) {
         case 'name' :
@@ -49,22 +51,37 @@ export const Cell = styled.div`
             return '100%';
     }
 }};
-    padding: ${(props: CellProps) => props.isHeaderCell ? '15px 2px 15px 2px' : '2px'};
    
-    @media(max-width: 750px) {
-      font-size: 13px;
+    @media(max-width: 800px) {
+      font-size: 10px;
     }
     
     @media(max-width: 630px) {
       font-size: 8px;
       padding: ${(props: CellProps) => props.isHeaderCell ? '10px 2px 10px 2px' : '2px'};
     }
+      
+    @media(max-width: 550px) {
+      background: ${(props: CellProps) => props.isHeaderCell ? 'none' : 'rgba(216, 224, 234, 0.38)'};
+      color: ${(props: CellProps) => props.isHeaderCell ? '#DA7144' : 'rgba(13,29,20,0.38)'};        
+    }    
     
     @media(max-width: 400px) {
       font-size: 6px;
       padding: ${(props: CellProps) => props.isHeaderCell ? '7px 2px 7px 2px' : '2px'};
       margin: 1.5px;
-    }    
+    }      
+    
+    :hover {
+    background: ${(props: CellProps) => {
+         if (props.isHeaderCell)
+        if (props.contentType !== 'removeProductButton' && props.contentType !== 'imgSrc')
+            return '#51a78c';
+        else return 'none';
+    return 'rgba(216, 224, 234, 0.38)';
+}};
+    cursor:  ${(props: CellProps) => props.isHeaderCell ? 'pointer' : 'initial'};
+    }   
 `;
 
 interface CellProps {
@@ -95,9 +112,9 @@ export const TrashIcon = styled.i`
       color: rgb(255,190,158);
     }
     
-    @media(max-width: 780px){
-      padding: 0 10px; 
-    }
+    //@media(max-width: 780px){
+    //  padding: 0 10px; 
+    //}
     
     @media(max-device-width: 430px){
      font-size: 20px;

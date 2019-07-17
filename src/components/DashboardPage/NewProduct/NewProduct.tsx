@@ -10,7 +10,7 @@ import {
     Label,
     NewProductURLWrapper,
     NewProductFormFrame,
-} from "Styles/FormStyles";
+} from "Styles/NewProductStyles";
 
 class NewProduct extends React.Component<{}, NewProductState> {
 

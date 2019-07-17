@@ -20,7 +20,7 @@ import {
     ResetPasswordLink,
     MessageWrapper,
     ResetPasswordLinkWrapper,
-} from '../../Styles/FormStyles';
+} from '../../Styles/LoginFormStyles';
 import {LoginPageState} from './LoginPageState';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 

@@ -22,14 +22,11 @@ export const FormWrapper = styled.div`
   padding: 4px;
   width: 100%;
   border-radius: 3px;
-  //@media(max-width: 450px){
-  //  border: none;
-  //}
 `;
 
 export const Frame = styled.div`
   border: 3px solid #f3f1f0;
-  padding: 15px 30px 25px 30px;
+  padding: 15px 20px 25px 20px;
   border-radius: 3px;
   @media(max-width: 600px){
     padding: 15px;
@@ -40,20 +37,19 @@ export const InnerFrame = styled(Frame)`
   margin: 0;
 `;
 
-export const NewProductFormFrame = styled(Frame)`
-  @media(max-width: 500px){
-    padding: 10px;
-  }
-`;
-
 export const RowWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   padding: 0 0 6px 0;
   height: 80px;
-  width: 250px;
+`;
+
+export const SubmitButtonWrapper = styled(RowWrapper)`
+  height: auto;
+  padding: 20px 0 10px 0;  
+  width: 260px;
 `;
 
 export const Label = styled.label`
@@ -89,21 +85,6 @@ export const Input = styled.input`
   }
 `;
 
-export const URLInput = styled(Input)`
-  width: 550px;
-  height: 40px;
-  
-  @media (max-width: 580px){
-    width: 350px;
-    height: 40px;
-  }
-  
-  @media (max-width: 400px){
-    width: 80vw;
-    height: 40px;
-  }
-`;
-
 export const Button = styled.input`
   padding: 7px 16px; 
   background: #2d635f;
@@ -124,22 +105,6 @@ export const Button = styled.input`
   }   
 `;
 
-export const FindProductButton = styled(Button)`
-    height: 40px;
-    margin-left: 30px;
-    
-    @media (max-width: 850px){
-      margin: 20px;
-      width: fit-content;
-      align-self: flex-end;
-    }
-`;
-
-export const SubmitButtonWrapper = styled(RowWrapper)`
-  height: auto;
-  padding: 20px 0 10px 0;
-`;
-
 export const LinkWrapper = styled.div`
   padding: 15px;
   font-family: 'Raleway', sans-serif;
@@ -156,6 +121,7 @@ export const Message = styled.div`
 
 export const ResetPasswordLinkWrapper = styled.div`
   padding: 5px 0;
+  text-align: end;
 `;
 
 export const MessageWrapper = styled.div`
@@ -165,31 +131,4 @@ export const MessageWrapper = styled.div`
 export const ResetPasswordLink = styled(Link)`
   font-size: 13px;
   color: rgb(31,77,95);
-`;
-
-export const SectionTitle = styled.div`
-  font-weight: 800;
-  font-size: 22px;
-  color: rgb(218, 113, 68);
-  font-family: 'Raleway', sans-serif;
-  padding: 0 0 10px 0;
-  
-  @media(max-width: 600px) {
-    padding: 0 0 10px 5px;
-  }
-  
-  @media(max-width: 500px) {
-    font-size: 17px;
-  }
-`;
-
-export const NewProductURLWrapper = styled.div`
-  display: flex;
-  padding-top: 20px;
-
-  @media (max-width: 850px){
-    flex-direction: column;
-    align-items: center;
-    padding-top: 15px;
-  }
 `;

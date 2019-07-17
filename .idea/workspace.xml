@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Styles/LoginFormStyles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Styles/NewProductStyles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPageStyles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/FormStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/FormStyles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProduct.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsTableStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsTableStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,10 +24,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="76" column="34" lean-forward="true" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+            <state relative-caret-position="125">
+              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -30,26 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsTableStyles.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="39" column="85" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="85" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="461">
+              <caret line="82" column="36" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -62,56 +73,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProduct.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+            <state relative-caret-position="189">
+              <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Styles/FormStyles.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/StartPage/StartPage.tsx">
+        <entry file="file://$PROJECT_DIR$/src/Styles/NewProductStyles.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+            <state relative-caret-position="1685">
+              <caret line="180" column="28" lean-forward="true" selection-start-line="180" selection-start-column="28" selection-end-line="180" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProductState.ts">
+        <entry file="file://$PROJECT_DIR$/src/Styles/LoginFormStyles.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+            <state relative-caret-position="284">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapperStyles.ts">
+        <entry file="file://$PROJECT_DIR$/src/Styles/RegisterPageStyles.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="80" column="35" lean-forward="true" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsTableStyles.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Styles/FormStyles.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="177" column="25" selection-start-line="177" selection-start-column="25" selection-end-line="177" selection-end-column="25" />
+            <state relative-caret-position="231">
+              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -134,7 +142,6 @@
       <find>RowWrapper</find>
       <find>default</find>
       <find>vh</find>
-      <find>font</find>
       <find>dashb</find>
       <find>400</find>
       <find>back</find>
@@ -143,6 +150,8 @@
       <find>6</find>
       <find>Ico</find>
       <find>title</find>
+      <find>sec</find>
+      <find>font</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -154,9 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/registerPage/registerPage.tsx" />
-        <option value="$PROJECT_DIR$/src/services/authenticationService.ts" />
-        <option value="$PROJECT_DIR$/src/components/ProductsList/ProductsList.tsx" />
         <option value="$PROJECT_DIR$/src/components/AddNewProductPage/AddNewProductPageState.ts" />
         <option value="$PROJECT_DIR$/src/services/productOperationsService.ts" />
         <option value="$PROJECT_DIR$/src/components/AddNewProductPage/addNewProductPage.tsx" />
@@ -194,17 +200,20 @@
         <option value="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardWrapper/DashboardWrapper.tsx" />
         <option value="$PROJECT_DIR$/src/components/App/App.tsx" />
         <option value="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" />
-        <option value="$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProduct.tsx" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/Styles/PageWrapperStyles.ts" />
         <option value="$PROJECT_DIR$/src/DataModels/Product.ts" />
         <option value="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/UsersListStyles.ts" />
-        <option value="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" />
-        <option value="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" />
         <option value="$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx" />
         <option value="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx" />
-        <option value="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsTableStyles.ts" />
         <option value="$PROJECT_DIR$/src/Styles/FormStyles.ts" />
+        <option value="$PROJECT_DIR$/src/Styles/NewProductStyles.ts" />
+        <option value="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" />
+        <option value="$PROJECT_DIR$/src/Styles/LoginFormStyles.ts" />
+        <option value="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" />
+        <option value="$PROJECT_DIR$/src/Styles/RegisterPageStyles.ts" />
+        <option value="$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProduct.tsx" />
+        <option value="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsTableStyles.ts" />
       </list>
     </option>
   </component>
@@ -272,6 +281,13 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="DashboardPage" type="462c0819:PsiDirectoryNode" />
               <item name="ProductsList" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="LoginPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
@@ -394,18 +410,18 @@
       <workItem from="1563039646312" duration="8033000" />
       <workItem from="1563191002740" duration="19409000" />
       <workItem from="1563259652499" duration="20881000" />
-      <workItem from="1563355989081" duration="9348000" />
+      <workItem from="1563355989081" duration="19366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151414000" />
+    <option name="totallyTimeSpent" value="161432000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17934094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2338403" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -430,24 +446,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/DataModels/requests.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProductConfirmationDialog/NewProductConfirmationDialogState.ts" />
-    <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/DeleteProductConfirmationDialog/DeleteProductConfrimationDialogSecond.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProductConfiramtionDialogContent/ConfirmationDialogContent.tsx" />
     <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProductConfiramtionDialogContent/ConfirmationDialogContentProps.ts" />
     <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProductConfirmationDialog/NewProductConfirmationDialog.tsx" />
@@ -648,23 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1953">
-          <caret line="114" column="46" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -696,12 +677,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProduct.tsx">
+    <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapperStyles.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+        <state relative-caret-position="209">
+          <caret line="80" column="35" lean-forward="true" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -716,20 +704,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsListState.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapperStyles.ts">
+    <entry file="file://$PROJECT_DIR$/src/Styles/NewProductStyles.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="80" column="35" lean-forward="true" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+        <state relative-caret-position="1685">
+          <caret line="180" column="28" lean-forward="true" selection-start-line="180" selection-start-column="28" selection-end-line="180" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/FormStyles.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/RegisterPageStyles.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProduct.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="76" column="34" lean-forward="true" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/LoginFormStyles.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsListState.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+        <state relative-caret-position="125">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -738,28 +783,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsTableStyles.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/FormStyles.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="177" column="25" selection-start-line="177" selection-start-column="25" selection-end-line="177" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="461">
+          <caret line="82" column="36" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
         </state>
       </provider>
     </entry>
