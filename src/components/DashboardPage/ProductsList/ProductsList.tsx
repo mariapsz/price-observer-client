@@ -1,14 +1,13 @@
 import * as React from 'react';
 import {getCookie} from '../../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../config';
-import {Cell, Frame, Image, IPAdressWrapper, ListHeader, ListRow} from './ProductsTableStyles';
+import {Cell, Frame, Image, ListHeader, ListRow, TrashIcon} from './ProductsTableStyles';
 import {DeleteButton} from './DeleteProductButton/deleteProductButton';
 import {getProductsListService} from '../../../services/productOperationsService';
 import {ProductsListState} from './ProductsListState';
 import {Product} from '../../../DataModels/Product';
 import {AuthorizationRequest} from '../../../DataModels/requests';
 import {SectionTitle} from '../../../Styles/FormStyles';
-
 
 export default class ProductsList extends React.Component<{}, ProductsListState> {
 
@@ -43,16 +42,20 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
             <Frame>
                 <SectionTitle>TWOJE PRODUKTY</SectionTitle>
                 <ListHeader>
-                    <Cell isHeaderCell={true} productProperty='imgSrc'/>
-                    <Cell isHeaderCell={true} productProperty='name'>
-                        Nazwa produkt
+                    <Cell isHeaderCell={true} contentType='imgSrc'/>
+                    <Cell isHeaderCell={true} contentType='name'>
+                        NAZWA PRODUKTU
                     </Cell>
-                    <Cell isHeaderCell={true} productProperty='currentPrice'>
-                        Obecna cena
+                    <Cell isHeaderCell={true} contentType='currentPrice'>
+                        OBECNA CENA
                     </Cell>
-                    <Cell isHeaderCell={true} productProperty='expectedPrice'>
-                        Oczekiwana cena
+                    <Cell isHeaderCell={true} contentType='expectedPrice'>
+                        OCZEKIWANA CENA
                     </Cell>
+                    <Cell isHeaderCell={true} contentType='dateOfAdding'>
+                        DATA DODANIA
+                    </Cell>
+                    <Cell isHeaderCell={true} contentType='removeProductButton'/>
                 </ListHeader>
                 {this.getProductsListRows(productsList)}
             </Frame>
@@ -62,26 +65,26 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
     getProductsListRows = (productsList: Product[]): JSX.Element[] =>
         productsList.map((product: Product, i: number) => (
             <ListRow key={i}>
-                <Cell productProperty='imgSrc'>
+                <Cell contentType='imgSrc'>
                     <Image src={product.imgSrc}/>
                 </Cell>
-                <Cell productProperty='name'>
+                <Cell contentType='name'>
                     {product.name}
                 </Cell>
-                <Cell productProperty='currentPrice'>
+                <Cell contentType='currentPrice'>
                     {product.currentPrice.count}
                 </Cell>
-                <Cell productProperty='expectedPrice'>
-                    <IPAdressWrapper>
-                        {product.expectedPrice!.count}
-                    </IPAdressWrapper>
-                    <DeleteButton
-                        product={product}
-                    />
+                <Cell contentType='expectedPrice'>
+                    {product.expectedPrice!.count}
+                </Cell>
+                <Cell contentType='dateOfAdding'>
+                    {product.dateOfAdding}
+                </Cell>
+                <Cell contentType='removeProductButton'>
+                    <TrashIcon className="fa fa-trash"/>
                 </Cell>
             </ListRow>
         ));
-
 
     render() {
         return <div>

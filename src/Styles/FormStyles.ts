@@ -31,6 +31,9 @@ export const Frame = styled.div`
   border: 3px solid #f3f1f0;
   padding: 15px 30px 25px 30px;
   border-radius: 3px;
+  @media(max-width: 600px){
+    padding: 15px 5px 25px 5px;
+  }
 `;
 
 export const InnerFrame = styled(Frame)`
@@ -60,6 +63,7 @@ export const Label = styled.label`
   align-items: center;  
   font-family: 'Raleway', sans-serif;
   color: #60807e;
+  font-size: 13px;
 `;
 
 export const Input = styled.input`
@@ -86,7 +90,7 @@ export const Input = styled.input`
 `;
 
 export const URLInput = styled(Input)`
-  width: 450px;
+  width: 550px;
   height: 40px;
   
   @media (max-width: 580px){
@@ -169,13 +173,23 @@ export const SectionTitle = styled.div`
   color: rgb(218, 113, 68);
   font-family: 'Raleway', sans-serif;
   padding: 0 0 10px 0;
+  
+  @media(max-width: 600px) {
+    padding: 0 0 10px 5px;
+  }
+  
+  @media(max-width: 500px) {
+    font-size: 17px;
+  }
 `;
 
 export const NewProductURLWrapper = styled.div`
   display: flex;
   padding-top: 20px;
+
   @media (max-width: 850px){
     flex-direction: column;
     align-items: center;
+    padding-top: 15px;
   }
 `;
