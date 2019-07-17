@@ -1,13 +1,12 @@
 import * as React from 'react';
 import {getCookie} from '../../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../config';
-import {Cell, Frame, Image, ListHeader, ListRow, TrashIcon} from './ProductsTableStyles';
-import {DeleteButton} from './DeleteProductButton/deleteProductButton';
+import {Cell, Frame, Image, ListHeader, ListRow, TrashIcon} from '../../../Styles/ProductsListStyles';
 import {getProductsListService} from '../../../services/productOperationsService';
 import {ProductsListState} from './ProductsListState';
 import {Product} from '../../../DataModels/Product';
 import {AuthorizationRequest} from '../../../DataModels/requests';
-import {SectionTitle} from '../../../Styles/FormStyles';
+import {SectionTitle} from '../../../Styles/CommonStyles';
 
 export default class ProductsList extends React.Component<{}, ProductsListState> {
 

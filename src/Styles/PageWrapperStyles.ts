@@ -14,6 +14,10 @@ export const PageContentWrapper = styled.div`
   align-items: center;
 `;
 
+export const PrivatePageContentWrapper = styled(PageContentWrapper)`
+  align-items: flex-start;
+`;
+
 export const TopBarWrapper = styled.div`
   padding: 0 0 3px 0;
   border-bottom: 3px solid #FF8751;

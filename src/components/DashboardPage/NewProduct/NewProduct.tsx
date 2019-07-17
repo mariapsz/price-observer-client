@@ -5,12 +5,12 @@ import {NewProductConfirmationModal} from './NewProductConfirmationModal/NewProd
 import {connect} from 'react-redux';
 import {
     FindProductButton,
-    SectionTitle,
     URLInput,
     Label,
     NewProductURLWrapper,
     NewProductFormFrame,
 } from "Styles/NewProductStyles";
+import {SectionTitle} from '../../../Styles/CommonStyles';
 
 class NewProduct extends React.Component<{}, NewProductState> {
 

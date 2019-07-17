@@ -97,6 +97,7 @@ export const Button = styled.input`
   
   :hover {
     background: #4ba29d;
+    cursor: pointer;
   }
   
   :disabled {

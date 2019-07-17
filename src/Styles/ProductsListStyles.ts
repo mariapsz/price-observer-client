@@ -6,6 +6,10 @@ export const Frame = styled.div`
   border-radius: 3px;
   margin: 10px 0;
   
+  @media(min-width: 1200px) {
+    max-width: 80vw;
+  }
+  
   @media(max-width: 600px) {
     padding: 10px 5px 5px 5px;
   }
@@ -74,13 +78,13 @@ export const Cell = styled.div`
     
     :hover {
     background: ${(props: CellProps) => {
-         if (props.isHeaderCell)
+    if (props.isHeaderCell)
         if (props.contentType !== 'removeProductButton' && props.contentType !== 'imgSrc')
             return '#51a78c';
         else return 'none';
     return 'rgba(216, 224, 234, 0.38)';
 }};
-    cursor:  ${(props: CellProps) => props.isHeaderCell ? 'pointer' : 'initial'};
+    cursor:  ${(props: CellProps) => props.isHeaderCell && props.contentType !== 'removeProductButton' && props.contentType !== 'imgSrc' ? 'pointer' : 'initial'};
     }   
 `;
 
@@ -88,10 +92,6 @@ interface CellProps {
     isHeaderCell?: boolean;
     contentType?: string;
 }
-
-export const IPAdressWrapper = styled.div`
-    width: 70%;
-`;
 
 export const Image = styled.img`
     width: 100%;
@@ -110,11 +110,8 @@ export const TrashIcon = styled.i`
    
     :hover {
       color: rgb(255,190,158);
+      cursor: pointer;
     }
-    
-    //@media(max-width: 780px){
-    //  padding: 0 10px; 
-    //}
     
     @media(max-device-width: 430px){
      font-size: 20px;

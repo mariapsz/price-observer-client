@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    PageContentWrapper,
+    PrivatePageContentWrapper,
     Wrapper,
     Title,
     TopBar,
@@ -41,9 +41,9 @@ class DashboardPageWrapper extends React.Component<any, any> {
                     </UserPanel>
                 </TopBar>
             </TopBarWrapper>
-            <PageContentWrapper>
+            <PrivatePageContentWrapper>
                 {this.props.children}
-            </PageContentWrapper>
+            </PrivatePageContentWrapper>
         </Wrapper>
     }
 }
