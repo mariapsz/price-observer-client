@@ -61,17 +61,17 @@ export const Cell = styled.div`
     }
     
     @media(max-width: 630px) {
-      font-size: 8px;
       padding: ${(props: CellProps) => props.isHeaderCell ? '10px 2px 10px 2px' : '2px'};
     }
       
     @media(max-width: 550px) {
       background: ${(props: CellProps) => props.isHeaderCell ? 'none' : 'rgba(216, 224, 234, 0.38)'};
-      color: ${(props: CellProps) => props.isHeaderCell ? '#DA7144' : 'rgba(13,29,20,0.38)'};        
+      align-items: ${(props: CellProps) => props.isHeaderCell ? 'flex-start' : 'center'};
+      color: ${(props: CellProps) => props.isHeaderCell ? '#135a4a' : 'rgba(13,29,20,0.38)'};       
     }    
     
     @media(max-width: 400px) {
-      font-size: 6px;
+      font-size:  ${(props: CellProps) => props.isHeaderCell ? '7px' : '10px'};
       padding: ${(props: CellProps) => props.isHeaderCell ? '7px 2px 7px 2px' : '2px'};
       margin: 1.5px;
     }      
