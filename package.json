@@ -19,6 +19,7 @@
     "@types/redux-saga": "^0.10.5",
     "@types/styled-components": "^4.1.16",
     "@types/superagent": "^4.1.1",
+    "inversify": "^5.0.1",
     "react": "^16.8.6",
     "react-confirm": "^0.1.18",
     "react-dom": "^16.8.6",
@@ -32,6 +33,7 @@
     "react-svg": "^10.0.11",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.3",
+    "reflect-metadata": "^0.1.13",
     "styled-components": "^4.3.2",
     "superagent": "^5.1.0",
     "typescript": "3.4.5"
