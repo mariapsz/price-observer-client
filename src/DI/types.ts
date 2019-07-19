@@ -1,4 +1,3 @@
 export const TYPES = {
-    Service: Symbol.for('Service'),
-    GetProductsListRequest: Symbol.for('GetProductsListRequest'),
+    LOGIN_API_ENDPOINT: Symbol.for('LOGIN_API_ENDPOINT'),
 };
