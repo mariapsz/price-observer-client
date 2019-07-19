@@ -1,9 +1,34 @@
-import * as React from 'react';
+import React, {Component} from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {Carousel} from 'react-responsive-carousel';
+import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
+import {SliderWrapper} from './StartPageStyles';
 
-export class StartPage extends React.Component{
-
-    render(){
-        return <div>Start Page</div>;
+const slide1 = require('./SliderImages/Slide1.png');
+const slide2 = require('./SliderImages/Slide2.png');
+export default class StartPage extends Component {
+    render() {
+        return (
+            <PageWrapper>
+                <SliderWrapper>
+                    <Carousel
+                        showThumbs={false}
+                        infiniteLoop
+                        autoPlay
+                        interval={3000}
+                        width='80vw'
+                    >
+                        <div>
+                            <img src={slide1}/>
+                            <p className="legend">Legend 1</p>
+                        </div>
+                        <div>
+                            <img src={slide2}/>
+                            <p className="legend">Legend 2</p>
+                        </div>
+                    </Carousel>
+                </SliderWrapper>
+            </PageWrapper>
+        );
     }
-
-}
+};
