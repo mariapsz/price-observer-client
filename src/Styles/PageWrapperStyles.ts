@@ -26,7 +26,8 @@ export const TopBarWrapper = styled.div`
 export const TopBar = styled.div`
   height: 55px;
   max-height: 75px;
-  background: #2A615D;
+ // background: #2A615D;
+  background: ${(props: any) => props.theme.topBarColor};
   padding: 10px 60px 10px 60px;
   display: flex;
   align-items: center;  

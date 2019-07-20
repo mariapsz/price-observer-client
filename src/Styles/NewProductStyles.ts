@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as asd from 'styled-components';
 
 export const Frame = styled.div`
   border: 3px solid #f3f1f0;

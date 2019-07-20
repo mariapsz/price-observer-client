@@ -4,8 +4,8 @@ import {Carousel} from 'react-responsive-carousel';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 import {SliderWrapper} from './StartPageStyles';
 
-const slide1 = require('./SliderImages/Slide1.png');
-const slide2 = require('./SliderImages/Slide2.png');
+const slide1 = require('./SliderImages/slide1.png');
+const slide2 = require('./SliderImages/slide2.png');
 export default class StartPage extends Component {
     render() {
         return (
