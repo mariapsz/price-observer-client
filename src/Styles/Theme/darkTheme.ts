@@ -1,11 +1,33 @@
 import {Theme} from './Theme';
 
 const darkTheme: Theme = {
-    pageBackgroundColor: '#0e271c',
-    topBarColor: 'rgba(9,42,18,0.96)',
-    buttonColor: '#0d272a',
-    buttonFontColor: '#a4a8a0',
-    sectionTitleFontColor: '#973520',
+    button: {
+        background: '',
+        backgroundOnHover: '',
+        backgroundOnDisabled: '',
+        borderColor: '',
+        borderColorOnDisabled: '',
+        fontColor: '',
+    },
+    form: {
+        labelFontColor: '',
+        inputFontColor: '',
+    },
+    pageWrapper: {
+        pageBackground: '',
+        topBarBackground: '',
+    },
+    productsList: {
+        listHeaderBackground: '',
+        customCellBackground: '',
+        customFontColor: '',
+        headerCellBackground: '',
+        headerCellBackgroundOnHover: '',
+        headerCellColor: '',
+        trashIconColor: '',
+    },
+    sectionTitle: {
+        fontColor: '',
+    }
 };
-
 export default darkTheme;

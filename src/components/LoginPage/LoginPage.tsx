@@ -5,24 +5,21 @@ import {loginUserAction} from '../../actions/authenticationActions';
 import {checkCookie, setCookie} from '../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
 import {LoginRequest} from '../../DataModels/requests';
-import {
-    Button,
-    InnerFrame,
-    FormWrapper,
-    Input,
-    Label,
-    LinkWrapper,
-    RowWrapper,
-    Wrapper,
-    SubmitButtonWrapper,
-    RegisterLink,
-    Message,
-    ResetPasswordLink,
-    MessageWrapper,
-    ResetPasswordLinkWrapper,
-} from '../../Styles/LoginFormStyles';
 import {LoginPageState} from './LoginPageState';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
+import {Wrapper} from '../../Styles/LoginForm/Wrapper';
+import {FormWrapper} from '../../Styles/LoginForm/FormFrame';
+import {Label} from '../../Styles/LoginForm/Label';
+import {ResetPasswordLinkWrapper} from '../../Styles/LoginForm/ResetPasswordLinkWrapper';
+import {ResetPasswordLink} from '../../Styles/LoginForm/ResetPasswordLink';
+import {RowWrapper, SubmitButtonWrapper} from '../../Styles/LoginForm/RowWrapper';
+import {Input} from '../../Styles/LoginForm/Input';
+import {MessageWrapper} from '../../Styles/LoginForm/MessageWrapper';
+import {Message} from '../../Styles/LoginForm/Message';
+import {Button} from '../../Styles/LoginForm/Button';
+import {LinkWrapper} from '../../Styles/LoginForm/LinkWrapper';
+import {RegisterLink} from '../../Styles/LoginForm/RegisterLink';
+import {InnerFrame} from '../../Styles/LoginForm/Frame';
 
 
 class LoginPage extends Component<any, LoginPageState> {

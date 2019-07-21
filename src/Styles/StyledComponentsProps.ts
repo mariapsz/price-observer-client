@@ -1,5 +1,5 @@
 import {Theme} from './Theme/Theme';
 
-export interface StyledComponentsProps {
+export default interface StyledComponentsProps {
     theme: Theme,
 }

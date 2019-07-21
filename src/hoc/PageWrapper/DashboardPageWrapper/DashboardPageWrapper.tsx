@@ -1,14 +1,14 @@
 import React from "react";
-import {
-    PrivatePageContentWrapper,
-    Wrapper,
-    Title,
-    TopBar,
-    TopBarWrapper,
-    SettingsIcon, Icon, UserPanel, NickName,
-} from '../../../Styles/PageWrapperStyles';
+import {Icon, SettingsIcon,} from '../../../Styles/PageWrapper/Icon';
 import {deleteCookie, getCookie} from '../../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../config';
+import {Wrapper} from '../../../Styles/PageWrapper/Wrapper';
+import {PrivatePageContentWrapper} from '../../../Styles/PageWrapper/PageContentWrapper';
+import {TopBarWrapper} from '../../../Styles/PageWrapper/TopBarWrapper';
+import {TopBar} from '../../../Styles/PageWrapper/TopBar';
+import {Title} from '../../../Styles/PageWrapper/Title';
+import {UserPanel} from '../../../Styles/PageWrapper/UserPanel';
+import {NickName} from '../../../Styles/PageWrapper/NickName';
 
 class DashboardPageWrapper extends React.Component<any, any> {
 

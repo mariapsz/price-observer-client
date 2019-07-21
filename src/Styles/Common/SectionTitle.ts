@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import {StyledComponentsProps} from './StyledComponentsProps';
+import StyledComponentsProps from '../StyledComponentsProps';
 
 export const SectionTitle = styled.div`
   font-weight: 800;
   font-size: 22px;
-  color: ${(props: StyledComponentsProps) => props.theme.sectionTitleFontColor};
+  color: ${(props: StyledComponentsProps) => props.theme.sectionTitle.fontColor};
   font-family: 'Raleway', sans-serif;
   padding: 0 0 10px 0;
   

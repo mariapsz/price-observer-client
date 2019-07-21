@@ -3,14 +3,12 @@ import {checkProductService} from '../../../services/productOperationsService';
 import {NewProductState} from './NewProductState';
 import {NewProductConfirmationModal} from './NewProductConfirmationModal/NewProductConfirmationModal';
 import {connect} from 'react-redux';
-import {
-    FindProductButton,
-    URLInput,
-    Label,
-    NewProductURLWrapper,
-    NewProductFormFrame,
-} from "Styles/NewProductStyles";
-import {SectionTitle} from '../../../Styles/CommonStyles';
+import {SectionTitle} from '../../../Styles/Common/SectionTitle';
+import {NewProductFormFrame} from '../../../Styles/NewProduct/Frame';
+import {Label} from '../../../Styles/NewProduct/Label';
+import {URLInput} from '../../../Styles/NewProduct/URLInput';
+import {NewProductURLWrapper} from '../../../Styles/NewProduct/NewProductURLWrapper';
+import {FindProductButton} from '../../../Styles/NewProduct/Button';
 
 class NewProduct extends React.Component<{}, NewProductState> {
 
