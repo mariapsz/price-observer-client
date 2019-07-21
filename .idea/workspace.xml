@@ -2,66 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/Button.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/FormFrame.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/Frame.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/Input.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/Label.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/LinkWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/Message.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/MessageWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/RegisterLink.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/ResetPasswordLink.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/ResetPasswordLinkWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/RowWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/LoginForm/Wrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/NewProduct/Button.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/NewProduct/Frame.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/NewProduct/Input.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/NewProduct/Label.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/NewProduct/NewProductURLWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/NewProduct/URLInput.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/Icon.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/NickName.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/Title.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/TopBar.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/TopBarWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/UserPanel.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/Wrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/ProductsList/Cell.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/ProductsList/Frame.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/ProductsList/Image.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/ProductsList/ListRow.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/ProductsList/TrashIcon.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/Button.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/FormWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/Frame.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/Input.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/Label.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/LinkWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/Message.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/RegisterLink.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/RowWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/Wrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Styles/StartPage/Button.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Styles/StartPage/SliderWrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapperProps.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/CommonStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Common/SectionTitle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/LoginFormStyles.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/NewProductStyles.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/PageWrapperStyles.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/ProductsListStyles.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/RegisterPageStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/RegisterPage/MessageWrapper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/StyledComponentsProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/StyledComponentsProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/Theme/Theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Theme/Theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProduct.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/StartPage/StartPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StartPage/StartPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/StartPage/StartPageStyles.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/ThemeResolver/ThemeResolver.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/ThemeResolver/ThemeResolver.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -75,51 +24,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hoc/ThemeResolver/ThemeResolver.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="51" column="23" lean-forward="true" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/StyledComponentsProps.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="282">
+              <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapperProps.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" column="99" selection-start-line="7" selection-start-column="99" selection-end-line="7" selection-end-column="99" />
             </state>
           </provider>
         </entry>
@@ -136,19 +65,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/Theme/Theme.ts">
+        <entry file="file://$PROJECT_DIR$/src/components/StartPage/StartPage.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Styles/ProductsList/Cell.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+            <state relative-caret-position="84">
+              <caret line="14" column="36" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="36" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -157,10 +77,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/TopBar.ts">
+        <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/SliderWrapper.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="86" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
+            <state relative-caret-position="231">
+              <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/Button.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -169,10 +107,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts">
+        <entry file="file://$PROJECT_DIR$/src/Styles/LoginForm/Button.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+            <state>
+              <caret selection-end-line="22" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/react-responsive-carousel/index.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -219,13 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Styles/Theme/ResolveTheme/ResolveThemeProps.ts" />
-        <option value="$PROJECT_DIR$/src/components/App/App.tsx" />
-        <option value="$PROJECT_DIR$/src/Styles/Theme/ResolveTheme/ResolveTheme.tsx" />
-        <option value="$PROJECT_DIR$/src/hoc/ResolveTheme/ResolveTheme.tsx" />
-        <option value="$PROJECT_DIR$/src/Styles/CommonStyles.ts" />
-        <option value="$PROJECT_DIR$/src/Styles/Common.ts" />
-        <option value="$PROJECT_DIR$/src/Styles/StyledComponentsProps.ts" />
         <option value="$PROJECT_DIR$/src/Styles/LoginForm.ts" />
         <option value="$PROJECT_DIR$/src/Styles/LoginForm/Wrapper.tsx" />
         <option value="$PROJECT_DIR$/src/Styles/LoginForm/FormFrame.ts" />
@@ -245,7 +188,6 @@
         <option value="$PROJECT_DIR$/src/Styles/NewProduct/Input.ts" />
         <option value="$PROJECT_DIR$/src/Styles/NewProduct/Label.ts" />
         <option value="$PROJECT_DIR$/src/Styles/PageWrapper/PageWrapper.ts" />
-        <option value="$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts" />
         <option value="$PROJECT_DIR$/src/Styles/PageWrapper.ts" />
         <option value="$PROJECT_DIR$/src/Styles/PageWrapper/TopBar.ts" />
         <option value="$PROJECT_DIR$/src/Styles/PageWrapper/Wrapper.ts" />
@@ -270,14 +212,22 @@
         <option value="$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts" />
         <option value="$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts" />
         <option value="$PROJECT_DIR$/src/Styles/ProductsList/Cell.ts" />
+        <option value="$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts" />
+        <option value="$PROJECT_DIR$/src/components/StartPage/StartPageStyles.ts" />
+        <option value="$PROJECT_DIR$/src/Styles/StartPage/SliderWrapper.ts" />
+        <option value="$PROJECT_DIR$/src/Styles/StartPage/Button.ts" />
+        <option value="$PROJECT_DIR$/src/components/StartPage/StartPage.tsx" />
+        <option value="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapperProps.ts" />
+        <option value="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" />
+        <option value="$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1647" />
-    <option name="y" value="97" />
-    <option name="width" value="814" />
-    <option name="height" value="867" />
+    <option name="x" value="2553" />
+    <option name="y" value="-95" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -416,14 +366,14 @@
               <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Styles" type="462c0819:PsiDirectoryNode" />
-              <item name="NewProduct" type="462c0819:PsiDirectoryNode" />
+              <item name="PageWrapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Styles" type="462c0819:PsiDirectoryNode" />
-              <item name="Theme" type="462c0819:PsiDirectoryNode" />
+              <item name="StartPage" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -500,12 +450,12 @@
       <workItem from="1563383427187" duration="1950000" />
       <workItem from="1563398872448" duration="607000" />
       <workItem from="1563643801352" duration="8280000" />
-      <workItem from="1563697191705" duration="13612000" />
+      <workItem from="1563697191705" duration="15904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190985000" />
+    <option name="totallyTimeSpent" value="193277000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-103" width="1936" height="1056" extended-state="6" />
@@ -536,60 +486,11 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/TopBarWrapper.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/Wrapper.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="89" selection-start-line="7" selection-start-column="89" selection-end-line="7" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/ProductsList/TrashIcon/ProductsList.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/ProductsList/TrashIcon.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/ProductsList/ListRow.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="98" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="98" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/ProductsList/Image.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Styles/ProductsList/Frame.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/LoginForm/Button.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Styles/LoginForm/FormFrame.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -783,19 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/StartPage/StartPage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/StartPage/StartPageStyles.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPageProps.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -871,24 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hoc/ThemeResolver/ThemeResolver.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -908,11 +778,102 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Styles/ProductsList/Cell.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+        <state relative-caret-position="168">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/LoginForm/Button.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="22" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/StartPage/StartPageStyles.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-responsive-carousel/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/SliderWrapper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/Button.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/StartPage/StartPage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapperProps.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="99" selection-start-line="7" selection-start-column="99" selection-end-line="7" selection-end-column="99" />
         </state>
       </provider>
     </entry>

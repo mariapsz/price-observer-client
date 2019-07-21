@@ -6,10 +6,11 @@ import {Wrapper} from '../../Styles/PageWrapper/Wrapper';
 import {PageContentWrapper} from '../../Styles/PageWrapper/PageContentWrapper';
 import {TopBarWrapper} from '../../Styles/PageWrapper/TopBarWrapper';
 import {TopBar} from '../../Styles/PageWrapper/TopBar';
+import {PageWrapperProps} from './PageWrapperProps';
 
-export default class PageWrapper extends React.Component<any, any> {
+export default class PageWrapper extends React.Component<PageWrapperProps, any> {
 
-    constructor(props: any) {
+    constructor(props: PageWrapperProps) {
         super(props);
         this.state = {
             sidebarOpen: false,
@@ -31,7 +32,7 @@ export default class PageWrapper extends React.Component<any, any> {
                     </div>
                 </TopBar>
             </TopBarWrapper>
-            <PageContentWrapper>
+            <PageContentWrapper isStartPage={this.props.isStartPage}>
                 {this.props.children}
             </PageContentWrapper>
         </Wrapper>
