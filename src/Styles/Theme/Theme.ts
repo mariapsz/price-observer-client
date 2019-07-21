@@ -4,6 +4,7 @@ export interface Theme {
     form: FormStyles,
     pageWrapper: PageWrapperStyles,
     sectionTitle: SectionTitleStyles,
+    startPage: StartPageStyles,
 }
 
 interface ButtonStyles {
@@ -37,4 +38,8 @@ interface PageWrapperStyles {
 
 interface SectionTitleStyles {
     fontColor: string,
+}
+
+interface StartPageStyles {
+    buttonBorderColor: string,
 }

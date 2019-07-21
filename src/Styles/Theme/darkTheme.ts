@@ -28,6 +28,9 @@ const darkTheme: Theme = {
     },
     sectionTitle: {
         fontColor: '',
+    },
+    startPage: {
+        buttonBorderColor: '',
     }
 };
 export default darkTheme;

@@ -28,6 +28,9 @@ const lightTheme: Theme = {
     },
     sectionTitle: {
         fontColor: 'rgb(218, 113, 68)',
+    },
+    startPage: {
+        buttonBorderColor: 'rgb(169, 142, 130)',
     }
 };
 export default lightTheme;

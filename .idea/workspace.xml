@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/TitleWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Styles/StartPage/Slider.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/PageWrapper/Title.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/Title.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/PageWrapper/TopBar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/PageWrapper/TopBar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/ProductsList/Cell.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/ProductsList/Cell.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/StartPage/Button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/StartPage/Button.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/StartPage/SliderWrapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/StartPage/SliderWrapper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/StartPage/StartPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StartPage/StartPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/Theme/Theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Theme/Theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,25 +18,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/StartPage/StartPage.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+            <state relative-caret-position="588">
+              <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,15 +35,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
               <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/Icon.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -81,27 +52,67 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/TopBar.ts">
+        <entry file="file://$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="345">
+              <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/TopBarWrapper.ts">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/Styles/StyledComponentsProps.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="82" selection-start-line="12" selection-start-column="82" selection-end-line="12" selection-end-column="82" />
+            <state relative-caret-position="282">
+              <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Styles/Theme/Theme.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/Button.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" column="95" selection-start-line="7" selection-start-column="95" selection-end-line="7" selection-end-column="95" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -184,22 +195,22 @@
         <option value="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" />
         <option value="$PROJECT_DIR$/src/Styles/NewProduct/URLInput.ts" />
         <option value="$PROJECT_DIR$/src/hoc/ThemeResolver/ThemeResolver.tsx" />
-        <option value="$PROJECT_DIR$/src/Styles/Theme/Theme.ts" />
-        <option value="$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts" />
         <option value="$PROJECT_DIR$/src/components/StartPage/StartPageStyles.ts" />
         <option value="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapperProps.ts" />
         <option value="$PROJECT_DIR$/src/Styles/ProductsList/Cell.ts" />
-        <option value="$PROJECT_DIR$/src/Styles/StartPage/Button.ts" />
         <option value="$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts" />
         <option value="$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts" />
         <option value="$PROJECT_DIR$/src/Styles/StartPage/Slider.ts" />
         <option value="$PROJECT_DIR$/src/Styles/PageWrapper/TopBar.ts" />
         <option value="$PROJECT_DIR$/src/Styles/StartPage/SliderWrapper.ts" />
-        <option value="$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts" />
         <option value="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" />
         <option value="$PROJECT_DIR$/src/Styles/PageWrapper/TitleWrapper.ts" />
         <option value="$PROJECT_DIR$/src/Styles/PageWrapper/Title.ts" />
         <option value="$PROJECT_DIR$/src/components/StartPage/StartPage.tsx" />
+        <option value="$PROJECT_DIR$/src/Styles/Theme/Theme.ts" />
+        <option value="$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts" />
+        <option value="$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts" />
+        <option value="$PROJECT_DIR$/src/Styles/StartPage/Button.ts" />
       </list>
     </option>
   </component>
@@ -236,124 +247,7 @@
               <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="DashboardPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="DashboardPage" type="462c0819:PsiDirectoryNode" />
-              <item name="NewProduct" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="LoginPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="RegisterPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="StartPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="StartPage" type="462c0819:PsiDirectoryNode" />
-              <item name="SliderImages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DataModels" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hoc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hoc" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWrapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hoc" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWrapper" type="462c0819:PsiDirectoryNode" />
-              <item name="DashboardPageWrapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hoc" type="462c0819:PsiDirectoryNode" />
-              <item name="ThemeResolver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sagas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Styles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Styles" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWrapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Styles" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductsList" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
@@ -437,12 +331,12 @@
       <workItem from="1563383427187" duration="1950000" />
       <workItem from="1563398872448" duration="607000" />
       <workItem from="1563643801352" duration="8280000" />
-      <workItem from="1563697191705" duration="22194000" />
+      <workItem from="1563697191705" duration="23185000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199567000" />
+    <option name="totallyTimeSpent" value="200558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-103" width="1936" height="1056" extended-state="6" />
@@ -654,27 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/Theme/Theme.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/StyledComponentsProps.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -735,23 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/Button.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-responsive-carousel/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -773,13 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -821,13 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="82" selection-start-line="12" selection-start-column="82" selection-end-line="12" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/TopBar.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
@@ -860,8 +702,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/StartPage/StartPage.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+        <state relative-caret-position="588">
+          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/PageWrapper/PageContentWrapper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/ButtonsWrapper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/StyledComponentsProps.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/Theme/Theme.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/Theme/lightTheme.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/Theme/darkTheme.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles/StartPage/Button.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="95" selection-start-line="7" selection-start-column="95" selection-end-line="7" selection-end-column="95" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

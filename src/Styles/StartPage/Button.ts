@@ -5,7 +5,7 @@ export const Button = styled.button`
   padding: 10px 16px; 
   width: 200px;
   background: ${(props: StyledComponentsProps) => props.theme.button.background};
-  border: 2px solid ${(props: StyledComponentsProps) => props.theme.sectionTitle.fontColor};
+  border: 2px solid ${(props: StyledComponentsProps) => props.theme.startPage.buttonBorderColor};
   color: ${(props: StyledComponentsProps) => props.theme.button.fontColor};
   font-weight: 900;
   font-size: 17px;
