@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import StyledComponentsProps from '../StyledComponentsProps';
 
 export const Button = styled.button`
-  padding: 7px 16px; 
+  padding: 10px 16px; 
+  width: 200px;
   background: ${(props: StyledComponentsProps) => props.theme.button.background};
-  border: 2px solid ${(props: StyledComponentsProps) => props.theme.button.borderColor};
+  border: 2px solid ${(props: StyledComponentsProps) => props.theme.sectionTitle.fontColor};
   color: ${(props: StyledComponentsProps) => props.theme.button.fontColor};
   font-weight: 900;
   font-size: 17px;

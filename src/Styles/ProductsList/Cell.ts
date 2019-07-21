@@ -40,10 +40,11 @@ export const Cell = styled.div`
     background: ${(props: CellProps) => {
     if (props.isHeaderCell)
         if (props.contentType !== 'removeProductButton' && props.contentType !== 'imgSrc')
-            return `${(props: StyledComponentsProps) => props.theme.productsList.headerCellBackgroundOnHover}`;
+            return props.theme.productsList.headerCellBackgroundOnHover;
         else return 'none';
     return 'rgba(216, 224, 234, 0.38)';
-}};
+}
+    }};
     cursor:  ${(props: CellProps) => props.isHeaderCell && props.contentType !== 'removeProductButton' && props.contentType !== 'imgSrc' ? 'pointer' : 'initial'};
     }   
    

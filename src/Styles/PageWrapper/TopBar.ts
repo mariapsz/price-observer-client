@@ -15,7 +15,8 @@ export const TopBar = styled.div`
     padding: 10px 30px 10px 30px;
   }
   
-  @media(max-device-width: 430px){
+  @media(max-device-width: 500px){
     padding: 10px 10px; 
+    height: 45px;
   }
 `;

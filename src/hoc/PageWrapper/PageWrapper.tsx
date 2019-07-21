@@ -7,6 +7,8 @@ import {PageContentWrapper} from '../../Styles/PageWrapper/PageContentWrapper';
 import {TopBarWrapper} from '../../Styles/PageWrapper/TopBarWrapper';
 import {TopBar} from '../../Styles/PageWrapper/TopBar';
 import {PageWrapperProps} from './PageWrapperProps';
+import {Link} from 'react-router-dom';
+import {RedirectHome} from '../../Styles/PageWrapper/TitleWrapper';
 
 export default class PageWrapper extends React.Component<PageWrapperProps, any> {
 
@@ -28,7 +30,9 @@ export default class PageWrapper extends React.Component<PageWrapperProps, any> 
             <TopBarWrapper>
                 <TopBar>
                     <div>
-                        <Title>ALERT CENOWY</Title>
+                        <RedirectHome to='/'>
+                            <Title>ALERT CENOWY</Title>
+                        </RedirectHome>
                     </div>
                 </TopBar>
             </TopBarWrapper>
