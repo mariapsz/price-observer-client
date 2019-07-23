@@ -1,14 +1,14 @@
 import React from "react";
-import {Icon, SettingsIcon,} from '../../../Styles/PageWrapper/Icon';
+import {Icon, SettingsIcon,} from '../../../styles/PageWrapper/Icon';
 import {deleteCookie, getCookie} from '../../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../config';
-import {Wrapper} from '../../../Styles/PageWrapper/Wrapper';
-import {PrivatePageContentWrapper} from '../../../Styles/PageWrapper/PageContentWrapper';
-import {TopBarWrapper} from '../../../Styles/PageWrapper/TopBarWrapper';
-import {TopBar} from '../../../Styles/PageWrapper/TopBar';
-import {Title} from '../../../Styles/PageWrapper/Title';
-import {UserPanel} from '../../../Styles/PageWrapper/UserPanel';
-import {NickName} from '../../../Styles/PageWrapper/NickName';
+import {Wrapper} from '../../../styles/PageWrapper/Wrapper';
+import {PrivatePageContentWrapper} from '../../../styles/PageWrapper/PageContentWrapper';
+import {TopBarWrapper} from '../../../styles/PageWrapper/TopBarWrapper';
+import {TopBar} from '../../../styles/PageWrapper/TopBar';
+import {Title} from '../../../styles/PageWrapper/Title';
+import {UserPanel} from '../../../styles/PageWrapper/UserPanel';
+import {NickName} from '../../../styles/PageWrapper/NickName';
 
 class DashboardPageWrapper extends React.Component<any, any> {
 

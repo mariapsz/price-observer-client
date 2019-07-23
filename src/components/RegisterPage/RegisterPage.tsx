@@ -3,20 +3,20 @@ import {Redirect} from 'react-router-dom';
 import {checkCookie} from '../../utils/cookies';
 import {COOKIE_NAME_TOKEN} from '../../config';
 import {RegisterFormState} from './RegisterFormState';
-import {MessageWrapper} from '../../Styles/RegisterPage/MessageWrapper';
-import {RegisterRequest} from '../../DataModels/requests';
+import {MessageWrapper} from '../../styles/RegisterPage/MessageWrapper';
+import {RegisterRequest} from '../../dataModels/requests';
 import {registerUserService} from '../../services/authenticationService';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
-import {Wrapper} from '../../Styles/RegisterPage/Wrapper';
-import {FormWrapper} from '../../Styles/RegisterPage/FormWrapper';
-import {InnerFrame} from '../../Styles/RegisterPage/Frame';
-import {RowWrapper, SubmitButtonWrapper} from '../../Styles/RegisterPage/RowWrapper';
-import {Label} from '../../Styles/RegisterPage/Label';
-import {Input} from '../../Styles/RegisterPage/Input';
-import {Button} from '../../Styles/RegisterPage/Button';
-import {LinkWrapper} from '../../Styles/RegisterPage/LinkWrapper';
-import {RegisterLink} from '../../Styles/RegisterPage/RegisterLink';
-import {Message} from '../../Styles/RegisterPage/Message';
+import {Wrapper} from '../../styles/RegisterPage/Wrapper';
+import {FormWrapper} from '../../styles/RegisterPage/FormWrapper';
+import {InnerFrame} from '../../styles/RegisterPage/Frame';
+import {RowWrapper, SubmitButtonWrapper} from '../../styles/RegisterPage/RowWrapper';
+import {Label} from '../../styles/RegisterPage/Label';
+import {Input} from '../../styles/RegisterPage/Input';
+import {Button} from '../../styles/RegisterPage/Button';
+import {LinkWrapper} from '../../styles/RegisterPage/LinkWrapper';
+import {RegisterLink} from '../../styles/RegisterPage/RegisterLink';
+import {Message} from '../../styles/RegisterPage/Message';
 
 export default class RegisterPage extends Component<{}, RegisterFormState> {
 

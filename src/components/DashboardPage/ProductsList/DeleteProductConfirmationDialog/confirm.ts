@@ -1,6 +1,6 @@
 import { createConfirmation } from 'react-confirm';
 import ConfirmationDialog from './DeleteProductConfirmationDialog';
-import {Product} from '../../../../DataModels/Product';
+import {Product} from '../../../../dataModels/Product';
 
 const confirm = createConfirmation(ConfirmationDialog, 10);
 

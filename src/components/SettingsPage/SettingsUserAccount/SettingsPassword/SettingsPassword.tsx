@@ -11,7 +11,7 @@ import {
 import {getCookie} from '../../../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../../config';
 import {SettingsPasswordState} from './SettingsPasswordState';
-import {SetPasswordRequest} from '../../../../DataModels/requests';
+import {SetPasswordRequest} from '../../../../dataModels/requests';
 import {changePasswordService} from '../../../../services/settingsService';
 
 export default class SettingsPassword extends React.Component<{}, SettingsPasswordState> {

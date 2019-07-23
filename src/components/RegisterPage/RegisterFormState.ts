@@ -1,4 +1,4 @@
-import {User} from '../../DataModels/User';
+import {User} from '../../dataModels/User';
 
 export interface RegisterFormState {
     user: User,

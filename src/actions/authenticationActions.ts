@@ -1,6 +1,6 @@
 import * as types from './index';
-import {User} from '../DataModels/User';
-import {LoginRequest} from '../DataModels/requests';
+import {User} from '../dataModels/User';
+import {LoginRequest} from '../dataModels/requests';
 
 export const registerUserAction = (user: User) => {
   return {

@@ -7,7 +7,7 @@ export const Frame = styled.div`
   margin: 10px 0;
   
   @media(min-width: 1200px) {
-    max-width: 80vw;
+    width: 80vw;
   }
   
   @media(max-width: 600px) {

@@ -1,4 +1,4 @@
-import {Product} from '../../../../DataModels/Product';
+import {Product} from '../../../../dataModels/Product';
 
 export default interface NewProductConfirmationModalProps {
     product: Product,

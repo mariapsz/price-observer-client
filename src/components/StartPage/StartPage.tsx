@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
-import {SliderWrapper} from '../../Styles/StartPage/SliderWrapper';
-import {ButtonsWrapper} from '../../Styles/StartPage/ButtonsWrapper';
-import {Button} from '../../Styles/StartPage/Button';
-import {Slider} from '../../Styles/StartPage/Slider';
+import {SliderWrapper} from '../../styles/StartPage/SliderWrapper';
+import {ButtonsWrapper} from '../../styles/StartPage/ButtonsWrapper';
+import {Button} from '../../styles/StartPage/Button';
+import {Slider} from '../../styles/StartPage/Slider';
 import {Link, Redirect} from 'react-router-dom';
 import {checkCookie} from '../../utils/cookies';
 import {COOKIE_NAME_TOKEN} from '../../config';

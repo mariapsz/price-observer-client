@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactModal from 'react-modal';
-import {AddProductRequest} from '../../../../DataModels/requests';
+import {AddProductRequest} from '../../../../dataModels/requests';
 import {addProductService} from '../../../../services/productOperationsService';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../../config';
 import {getCookie} from '../../../../utils/cookies';

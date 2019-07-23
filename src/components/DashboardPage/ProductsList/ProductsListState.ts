@@ -1,3 +1,3 @@
 export interface ProductsListState {
-    productsListTable: JSX.Element,
+    productsList: any[],
 }
