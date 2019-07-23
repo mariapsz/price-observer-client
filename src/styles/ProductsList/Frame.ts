@@ -5,12 +5,13 @@ export const Frame = styled.div`
   padding: 15px 30px 25px 30px;
   border-radius: 3px;
   margin: 10px 0;
-  
+
+  @media(max-width: 600px) {
+    padding: 10px 5px 5px 5px;
+  }
+    
   @media(min-width: 1200px) {
     width: 80vw;
   }
   
-  @media(max-width: 600px) {
-    padding: 10px 5px 5px 5px;
-  }
 `;

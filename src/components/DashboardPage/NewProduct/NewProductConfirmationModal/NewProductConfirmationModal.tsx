@@ -6,6 +6,10 @@ import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../../config';
 import {getCookie} from '../../../../utils/cookies';
 import NewProductConfirmationModalProps from './NewProductConfirmationModalProps';
 import NewProductConfirmationModalState from './NewProductConfirmationModalState';
+import {FormContentWrapper} from '../../../../styles/NewProductConfirmationModal/FormContentWrapper';
+import {ImageWrapper} from '../../../../styles/NewProductConfirmationModal/ImageWrapper';
+import {ParametersWrapper} from '../../../../styles/NewProductConfirmationModal/ParametersWrapper';
+import {RowWrapper} from '../../../../styles/NewProductConfirmationModal/RowWrapper';
 
 
 export class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
@@ -65,42 +69,48 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
             style={{
                 overlay: {},
                 content: {
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
                     color: 'lightsteelblue',
-                    width: '400px',
-                    height: '400px',
-                    left: '200px'
+                    right: 'initial',
+                    bottom: 'initial',
                 }
             }}>
             <form onSubmit={this.handleSubmit} onChange={this.handleFormState}>
-                <div>
-                    <div>
+                <FormContentWrapper>
+                    <ImageWrapper>
                         <img src={this.props.product.imgSrc} alt='product photo'
                              style={{height: '60px', width: '60px'}}/>
-                    </div>
-                    {!this.props.product.hasOwnProperty('sizeOptions') ?
-                        null
-                        :
-                        <div>
-                            <div>
-                                size
-                            </div>
-                            <div>
-                                {this.getSelectSizeElement()}
-                            </div>
-                        </div>
-                    }
-                    <div>
-                        <div>Current price</div>
-                        <div>{this.props.product.currentPrice.count}</div>
-                        <div>PLN</div>
-                    </div>
-                    <div>
-                        <div>Expected price</div>
-                        <input name='expectedPrice' type='number' min='0' max={this.props.product.currentPrice.count}
-                               required/>
-                        <div>PLN</div>
-                    </div>
-                </div>
+                    </ImageWrapper>
+                    <ParametersWrapper>
+                        {!this.props.product.hasOwnProperty('sizeOptions') ?
+                            null
+                            :
+                            <RowWrapper>
+                                <div>
+                                    size
+                                </div>
+                                <div>
+                                    {this.getSelectSizeElement()}
+                                </div>
+                            </RowWrapper>
+                        }
+                        <RowWrapper>
+                            <div>Current price</div>
+                            <div>{this.props.product.currentPrice.count}</div>
+                            <div>PLN</div>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <div>Expected price</div>
+                            <input name='expectedPrice' type='number' min='0'
+                                   max={this.props.product.currentPrice.count}
+                                   required/>
+                            <div>PLN</div>
+                        </RowWrapper>
+                    </ParametersWrapper>
+                </FormContentWrapper>
                 <div>
                     <button onClick={this.props.handleCloseModal}>Anuluj</button>
                     <input type='submit' value='Dodaj produkt' disabled={this.state.submitButtonDisabled}/>

@@ -22,7 +22,7 @@ const lightTheme: Theme = {
         customCellBackground: 'rgba(216, 224, 234, 0.38)',
         headerCellBackground: '#39886f',
         headerCellBackgroundOnHover: '#51a78c',
-        customFontColor: 'rgba(13,29,20,0.38)',
+        customFontColor: 'rgba(13, 29, 20, 0.69)',
         headerCellColor: '#fff',
         trashIconColor: 'rgb(255,190,158)',
     },
