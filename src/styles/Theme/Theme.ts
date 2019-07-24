@@ -5,6 +5,7 @@ export interface Theme {
     pageWrapper: PageWrapperStyles,
     sectionTitle: SectionTitleStyles,
     startPage: StartPageStyles,
+    newProductConfirmation: NewProductConfirmationDialogStyles,
 }
 
 interface ButtonStyles {
@@ -42,4 +43,8 @@ interface SectionTitleStyles {
 
 interface StartPageStyles {
     buttonBorderColor: string,
+}
+
+interface NewProductConfirmationDialogStyles {
+    ProductNameLabelColor: string,
 }

@@ -31,6 +31,9 @@ const lightTheme: Theme = {
     },
     startPage: {
         buttonBorderColor: 'rgb(169, 142, 130)',
+    },
+    newProductConfirmation: {
+        ProductNameLabelColor: '#be714e',
     }
 };
 export default lightTheme;

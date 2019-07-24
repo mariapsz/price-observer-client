@@ -19,4 +19,5 @@ export const PriceLabel = styled(Label)`
 export const NameLabel = styled(Label)`
     font-weight: 700;
     font-size: 18px;
+    color: ${(props: StyledComponentsProps) => props.theme.newProductConfirmation.ProductNameLabelColor};
 `;

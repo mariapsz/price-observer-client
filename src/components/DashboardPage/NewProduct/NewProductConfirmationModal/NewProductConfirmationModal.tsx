@@ -13,6 +13,9 @@ import {RowWrapper} from '../../../../styles/NewProductConfirmationModal/RowWrap
 import {Image} from '../../../../styles/NewProductConfirmationModal/Image';
 import {Label, NameLabel, PriceLabel} from '../../../../styles/NewProductConfirmationModal/Label';
 import {Input} from '../../../../styles/NewProductConfirmationModal/Input';
+import {CancelButton} from '../../../../styles/NewProductConfirmationModal/CancelButton';
+import {SubmitButton} from '../../../../styles/NewProductConfirmationModal/SubmitButton';
+import {ButtonsWrapper} from '../../../../styles/NewProductConfirmationModal/ButtonsWrapper';
 
 export class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
 
@@ -117,10 +120,10 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
                         }
                     </ParametersWrapper>
                 </FormContentWrapper>
-                <div>
-                    <button onClick={this.props.handleCloseModal}>Anuluj</button>
-                    <input type='submit' value='Dodaj produkt' disabled={this.state.submitButtonDisabled}/>
-                </div>
+                <ButtonsWrapper>
+                    <CancelButton onClick={this.props.handleCloseModal}>Anuluj</CancelButton>
+                    <SubmitButton type='submit' value='Dodaj produkt' disabled={this.state.submitButtonDisabled}/>
+                </ButtonsWrapper>
             </form>
         </ReactModal>
     }

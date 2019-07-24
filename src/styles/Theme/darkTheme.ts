@@ -31,6 +31,9 @@ const darkTheme: Theme = {
     },
     startPage: {
         buttonBorderColor: '',
+    },
+    newProductConfirmation: {
+        ProductNameLabelColor: '',
     }
 };
 export default darkTheme;
