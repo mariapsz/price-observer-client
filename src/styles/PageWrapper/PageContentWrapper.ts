@@ -6,7 +6,7 @@ interface PageContentWrapperProps {
 
 export const PageContentWrapper = styled.div`
   flex: 1 1 100%;
-  padding: ${(props: PageContentWrapperProps) => props.isStartPage ? '4vh 0 2vh 0' : '2vh'};
+  padding: ${(props: PageContentWrapperProps) => props.isStartPage ? '5vh 0 2vh 0' : '2vh'};
   display: flex;
   flex-direction: ${(props: PageContentWrapperProps) => props.isStartPage ? 'column' : 'row'};
   justify-content: ${(props: PageContentWrapperProps) => props.isStartPage ? 'flex-start' : 'center'};

@@ -10,7 +10,9 @@ import {FormContentWrapper} from '../../../../styles/NewProductConfirmationModal
 import {ImageWrapper} from '../../../../styles/NewProductConfirmationModal/ImageWrapper';
 import {ParametersWrapper} from '../../../../styles/NewProductConfirmationModal/ParametersWrapper';
 import {RowWrapper} from '../../../../styles/NewProductConfirmationModal/RowWrapper';
-
+import {Image} from '../../../../styles/NewProductConfirmationModal/Image';
+import {Label, NameLabel, PriceLabel} from '../../../../styles/NewProductConfirmationModal/Label';
+import {Input} from '../../../../styles/NewProductConfirmationModal/Input';
 
 export class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
 
@@ -76,39 +78,43 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
                     color: 'lightsteelblue',
                     right: 'initial',
                     bottom: 'initial',
+                    padding: '5px',
                 }
             }}>
             <form onSubmit={this.handleSubmit} onChange={this.handleFormState}>
                 <FormContentWrapper>
                     <ImageWrapper>
-                        <img src={this.props.product.imgSrc} alt='product photo'
-                             style={{height: '60px', width: '60px'}}/>
+                        <Image src={this.props.product.imgSrc} alt='product photo'/>
                     </ImageWrapper>
                     <ParametersWrapper>
-                        {!this.props.product.hasOwnProperty('sizeOptions') ?
-                            null
-                            :
-                            <RowWrapper>
-                                <div>
-                                    size
-                                </div>
-                                <div>
-                                    {this.getSelectSizeElement()}
-                                </div>
-                            </RowWrapper>
-                        }
                         <RowWrapper>
-                            <div>Current price</div>
-                            <div>{this.props.product.currentPrice.count}</div>
-                            <div>PLN</div>
+                            <NameLabel>
+                                {this.props.product.name}
+                            </NameLabel>
                         </RowWrapper>
                         <RowWrapper>
-                            <div>Expected price</div>
-                            <input name='expectedPrice' type='number' min='0'
+                            <Label>Obecna cena</Label>
+                            <PriceLabel>{this.props.product.currentPrice.count}</PriceLabel>
+                        </RowWrapper>
+                        <RowWrapper>
+                            <Label>Oczekiwana cena</Label>
+                            <Input name='expectedPrice' type='number' min='0'
                                    max={this.props.product.currentPrice.count}
                                    required/>
                             <div>PLN</div>
                         </RowWrapper>
+                        {!this.props.product.hasOwnProperty('sizeOptions') ?
+                            null
+                            :
+                            <RowWrapper>
+                                <Label>
+                                    Rozmiar
+                                </Label>
+                                <Label>
+                                    {this.getSelectSizeElement()}
+                                </Label>
+                            </RowWrapper>
+                        }
                     </ParametersWrapper>
                 </FormContentWrapper>
                 <div>

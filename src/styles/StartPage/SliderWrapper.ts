@@ -4,8 +4,8 @@ export const SliderWrapper = styled.div`
     display: flex;
     justify-content: center;
     padding: 10px;
-    border-top: 10px solid #dfdddb;
-    border-bottom: 10px solid #dfdddb;
+    border-top: 5px solid #dfdddb;
+    border-bottom: 5px solid #dfdddb;
     background: #264240;
     max-width: 2000px;
     border-radius: 5px;
@@ -13,7 +13,7 @@ export const SliderWrapper = styled.div`
     
     @media (max-width: 500px){
        padding: 25px 0 25px 0;
-       border-top: 6px solid #dfdddb;
-       border-bottom: 6px solid #dfdddb;
+       border-top: 3px solid #dfdddb;
+       border-bottom: 3px solid #dfdddb;
     }
 `;
