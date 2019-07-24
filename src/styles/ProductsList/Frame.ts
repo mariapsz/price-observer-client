@@ -12,6 +12,7 @@ export const Frame = styled.div`
     
   @media(min-width: 1200px) {
     width: 80vw;
+    max-width: 1400px;
   }
   
 `;

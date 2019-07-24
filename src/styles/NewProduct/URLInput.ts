@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {Input} from './Input';
 
 export const URLInput = styled(Input)`
-  width: 550px;
+  max-width: 550px;
   height: 40px;
   
   @media (max-width: 580px){
