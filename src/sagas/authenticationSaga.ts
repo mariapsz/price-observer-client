@@ -10,8 +10,7 @@ export function* registerSaga(payload: any) {
             throw  response.message;
         } else {
             response.success = true;
-            yield put({type: types.REGISTER_USER_SUCCESS, response})
-            ;
+            yield put({type: types.REGISTER_USER_SUCCESS, response});
         }
     } catch (error) {
         yield put({type: types.REGISTER_USER_ERROR, response: {message: error}});
@@ -26,9 +25,7 @@ export function* loginSaga(payload: any) {
         } else {
             response.success = true;
             response.token = response.data.token;
-            let yieldResponse = yield put({type: types.LOGIN_USER_SUCCESS, response});
-
-            console.log('yieldResponse', yieldResponse);
+            yield put({type: types.LOGIN_USER_SUCCESS, response});
         }
     } catch (error) {
         yield put({type: types.LOGIN_USER_ERROR, response: {message: error}});

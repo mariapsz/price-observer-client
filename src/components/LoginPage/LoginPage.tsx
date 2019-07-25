@@ -56,17 +56,14 @@ class LoginPage extends Component<any, LoginPageState> {
 
     render() {
         let isSuccess, serverMessage;
+        console.log('login', this.props.store.login);
         if (this.props.store.login.response) {
             isSuccess = this.props.store.login.response.success;
             serverMessage = this.props.store.login.response.message;
-            if (isSuccess) {
-                setCookie(COOKIE_NAME_USER_NAME, this.props.store.login.response.data.nickname, 1);
-                setCookie(COOKIE_NAME_TOKEN, this.props.store.login.response.data.token, 1);
-            }
         }
 
         return (
-            <div>{isSuccess || checkCookie(COOKIE_NAME_TOKEN) ? <Redirect to='/home'/>
+            <div>{isSuccess ? <Redirect to='/home'/>
                 :
                 <PageWrapper>
                     <Wrapper>

@@ -1,13 +1,15 @@
-import React from 'react';  
-import { Redirect, Route } from 'react-router-dom';
-import { checkCookie } from '../../utils/cookies';
-import {COOKIE_NAME_TOKEN} from '../../config';
+import React from 'react';
+import {Redirect, Route, withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 // @ts-ignore
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, store, ...rest }) => {
     return (
-    <Route {...rest} render={props => (
-        checkCookie(COOKIE_NAME_TOKEN) !== null ? (
+    <Route {...rest} render={props => {
+
+        console.log('private route props', props);
+        return (
+        props.store ? (
             <Component {...props} />
         ) : (
             <Redirect to={{
@@ -16,7 +18,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
             }}
             />
         )
-    )}/>)
+        )}}/>)
 };
 
-export default PrivateRoute;
+const mapStateToProps = (store: any, ownProps: any) => ({store});
+export default withRouter(connect(mapStateToProps)(PrivateRoute));
