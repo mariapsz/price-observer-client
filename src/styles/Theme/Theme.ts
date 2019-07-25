@@ -47,5 +47,7 @@ interface StartPageStyles {
 
 interface NewProductConfirmationDialogStyles {
     productNameLabelColor: string,
+    productNameWrapperBackground: string,
     customLabelFontColor: string,
+
 }

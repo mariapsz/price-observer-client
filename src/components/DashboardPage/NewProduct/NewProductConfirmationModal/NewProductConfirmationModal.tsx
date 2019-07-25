@@ -59,8 +59,8 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
     );
 
     getSelectSizeElement = () => (
-        <Select name='size' required aria-required="true">
-            <option disabled selected>Wybierz rozmiar</option>
+        <Select name='size' required>
+            <option disabled selected hidden>Wybierz rozmiar</option>
             {this.getOptions(this.props.product.sizeOptions!)}
         </Select>
     );
@@ -94,9 +94,9 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
             }}>
             <form onSubmit={this.handleSubmit} onChange={this.handleFormState}>
                 <FormContentWrapper>
-                    <div>
+                    <Left>
                         <Image src={this.props.product.imgSrc} alt='product photo'/>
-                    </div>
+                    </Left>
                     <Right>
                         <ParametersWrapper>
                             <ProductNameRowWrapper>
@@ -122,9 +122,7 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
                                     <PriceLabel>PLN</PriceLabel>
                                 </PriceWrapper>
                             </RowWrapper>
-                            {!this.props.product.hasOwnProperty('sizeOptions') ?
-                                null
-                                :
+                            {this.props.product.sizeOptions &&
                                 <RowWrapper>
                                     <Label>
                                         Rozmiar:

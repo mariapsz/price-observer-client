@@ -8,7 +8,7 @@ export const Select = styled.select`
   border-radius: 4px;
   color: ${(props: StyledComponentsProps) => props.theme.form.inputFontColor};
     
-  :invalid:focus  {
+  :required:invalid  {
     border: 1px rgba(215,65,79,0.62) solid;
     outline: none;
   }

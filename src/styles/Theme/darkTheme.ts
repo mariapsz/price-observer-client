@@ -35,6 +35,7 @@ const darkTheme: Theme = {
     newProductConfirmation: {
         productNameLabelColor: '',
         customLabelFontColor: '',
+        productNameWrapperBackground: '',
     }
 };
 export default darkTheme;

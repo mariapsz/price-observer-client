@@ -11,7 +11,7 @@ const lightTheme: Theme = {
     },
     form: {
         labelFontColor: '#60807e',
-        inputFontColor: '#6c7c7b',
+        inputFontColor: '#697a79',
     },
     pageWrapper: {
         pageBackground: 'white',
@@ -35,6 +35,7 @@ const lightTheme: Theme = {
     newProductConfirmation: {
         productNameLabelColor: '#be714e',
         customLabelFontColor: '#71777a',
+        productNameWrapperBackground: '#b0b5bd1f',
     }
 };
 export default lightTheme;
