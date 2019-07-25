@@ -4,27 +4,23 @@ import {connect} from 'react-redux';
 import {checkIfTokenExpired} from '../../utils/checkIfTokenExpired';
 
 // @ts-ignore
-const PrivateRoute = ({component: Component, store, ...rest}) => {
-    console.log('PRivate route');
+const PublicRoute = ({component: Component, store, ...rest}) => {
+    console.log('public route');
+
     return (
         <Route
             {...rest}
             render={props => {
                 const userLogged: boolean = (store.login.response && store.login.response.token && !checkIfTokenExpired(store.login.response.token));
-                console.log('userLogged', userLogged, props.location);
                 return (
-                    userLogged ? (
+                    !userLogged ? (
                         <Component {...props} />
                     ) : (
-                        <Redirect to={{
-                            pathname: '/',
-                            state: {from: props.location}
-                        }}
-                        />
+                        <Redirect to='/home'/>
                     )
                 )
             }}/>)
 };
 
 const mapStateToProps = (store: any, ownProps: any) => ({store});
-export default withRouter(connect(mapStateToProps)(PrivateRoute));
+export default withRouter(connect(mapStateToProps)(PublicRoute));

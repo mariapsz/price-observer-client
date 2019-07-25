@@ -12,6 +12,7 @@ export const Icon = styled.i`
    
     :hover {
       color: rgb(255,190,158);
+      cursor: pointer;
     }
     
     @media(max-width: 780px){

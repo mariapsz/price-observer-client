@@ -11,9 +11,17 @@ export const loadState = () => {
 
 export const saveState = (state: any) => {
     try {
-        const serializedState= JSON.stringify(state);
+        const serializedState = JSON.stringify(state);
         localStorage.setItem('state', serializedState);
     } catch (error) {
         //
+    }
+};
+
+export const removeState = () => {
+    try {
+        localStorage.removeItem('state');
+    } catch (error) {
+        return undefined;
     }
 };

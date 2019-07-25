@@ -1,7 +1,5 @@
 import React from "react";
 import {Icon, SettingsIcon,} from '../../../styles/PageWrapper/Icon';
-import {deleteCookie, getCookie} from '../../../utils/cookies';
-import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../config';
 import {Wrapper} from '../../../styles/PageWrapper/Wrapper';
 import {PrivatePageContentWrapper} from '../../../styles/PageWrapper/PageContentWrapper';
 import {TopBarWrapper} from '../../../styles/PageWrapper/TopBarWrapper';
@@ -9,6 +7,8 @@ import {TopBar} from '../../../styles/PageWrapper/TopBar';
 import {Title} from '../../../styles/PageWrapper/Title';
 import {UserPanel} from '../../../styles/PageWrapper/UserPanel';
 import {NickName} from '../../../styles/PageWrapper/NickName';
+import {removeState} from '../../../utils/localStorage';
+import {connect} from 'react-redux';
 
 class DashboardPageWrapper extends React.Component<any, any> {
 
@@ -20,14 +20,11 @@ class DashboardPageWrapper extends React.Component<any, any> {
     }
 
     logoutUser = () => {
-        deleteCookie(COOKIE_NAME_TOKEN);
-        deleteCookie(COOKIE_NAME_USER_NAME);
+        removeState();
         window.location.reload();
     };
 
     render() {
-        let userName = getCookie(COOKIE_NAME_USER_NAME);
-
         return <Wrapper>
             <TopBarWrapper>
                 <TopBar>
@@ -35,7 +32,7 @@ class DashboardPageWrapper extends React.Component<any, any> {
                         <Title>ALERT CENOWY</Title>
                     </div>
                     <UserPanel>
-                        <NickName>{userName}</NickName>
+                        <NickName>{this.props.store.login.response.data.nickname}</NickName>
                         <SettingsIcon className="fa fa-cog fa-5x"/>
                         <Icon className="fa fa-power-off" onClick={this.logoutUser}/>
                     </UserPanel>
@@ -48,4 +45,5 @@ class DashboardPageWrapper extends React.Component<any, any> {
     }
 }
 
-export default DashboardPageWrapper;
+const mapStateToProps = (store: any) => ({store});
+export default connect(mapStateToProps)(DashboardPageWrapper);

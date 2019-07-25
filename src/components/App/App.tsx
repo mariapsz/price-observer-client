@@ -12,6 +12,7 @@ import DashboardPageWrapper from '../../hoc/PageWrapper/DashboardPageWrapper/Das
 import SettingsPage from '../SettingsPage/SettingsPage';
 import StartPage from '../StartPage/StartPage';
 import {ThemeResolver} from '../../hoc/ThemeResolver/ThemeResolver';
+import PublicRoute from './PublicRoute';
 
 class App extends Component {
     render() {
@@ -19,13 +20,11 @@ class App extends Component {
             <ThemeResolver>
                 <BrowserRouter>
                     <Switch>
-                        <Route path='/' exact={true} component={StartPage}/>
-                        <Route path='/login' component={LoginPage}/>
-                        <Route path='/rejestracja' component={RegisterPage}/>
-                        <DashboardPageWrapper>
-                            <PrivateRoute path='/home' component={DashboardPage}/>
-                            <PrivateRoute path='/ustawienia' component={SettingsPage}/>
-                        </DashboardPageWrapper>
+                        <PublicRoute path='/' exact={true} component={StartPage}/>
+                        <PublicRoute path='/login' component={LoginPage}/>
+                        <PublicRoute path='/rejestracja' component={RegisterPage}/>
+                        <PrivateRoute path='/home' component={DashboardPage}/>
+                        <PrivateRoute path='/ustawienia' component={SettingsPage}/>
                     </Switch>
                 </BrowserRouter>
             </ThemeResolver>

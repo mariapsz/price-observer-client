@@ -8,9 +8,15 @@ import {loadState, saveState} from '../utils/localStorage';
 const configureStore = () => {
     const sagaMiddleware = createSagaMiddleware();
     const persistedState = loadState();
-
-    let store = {
-        ...createStore(rootReducer, persistedState, applyMiddleware(sagaMiddleware),),
+    let store: any;
+    console.log('persistedState', persistedState);
+    if (persistedState)
+        store = {
+            ...createStore(rootReducer, persistedState, applyMiddleware(sagaMiddleware)),
+            runSaga: sagaMiddleware.run(rootSaga)
+        };
+    else store = {
+        ...createStore(rootReducer, applyMiddleware(sagaMiddleware)),
         runSaga: sagaMiddleware.run(rootSaga)
     };
 

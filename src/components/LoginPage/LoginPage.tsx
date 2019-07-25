@@ -63,42 +63,39 @@ class LoginPage extends Component<any, LoginPageState> {
         }
 
         return (
-            <div>{isSuccess ? <Redirect to='/home'/>
-                :
-                <PageWrapper>
-                    <Wrapper>
-                        <FormWrapper>
-                            <InnerFrame>
-                                <form onSubmit={this.onHandleLogin} onChange={this.handleFormState}>
-                                    <RowWrapper>
-                                        <Label>E-mail</Label>
-                                        <Input type="email" name="email" maxLength={25}
-                                               onInvalid={this.handleOnInvalid} required/>
-                                    </RowWrapper>
-                                    <RowWrapper>
-                                        <Label>Hasło</Label>
-                                        <Input type="password" name="password" maxLength={25}
-                                               onInvalid={this.handleOnInvalid} required/>
-                                    </RowWrapper>
-                                    <ResetPasswordLinkWrapper>
-                                        <ResetPasswordLink to='resetPassword'>Nie pamiętasz hasła?</ResetPasswordLink>
-                                    </ResetPasswordLinkWrapper>
-                                    <MessageWrapper>
-                                        <Message>{serverMessage ? serverMessage : ''}</Message>
-                                    </MessageWrapper>
-                                    <SubmitButtonWrapper>
-                                        <Button type='submit' value='ZALOGUJ SIĘ'
-                                                disabled={this.state.isSubmitDisabled}/>
-                                    </SubmitButtonWrapper>
-                                </form>
-                            </InnerFrame>
-                        </FormWrapper>
-                        <LinkWrapper>
-                            Nie masz konta? <RegisterLink to='rejestracja'>Zarejestruj się</RegisterLink>
-                        </LinkWrapper>
-                    </Wrapper>
-                </PageWrapper>}
-            </div>
+            <PageWrapper>
+                <Wrapper>
+                    <FormWrapper>
+                        <InnerFrame>
+                            <form onSubmit={this.onHandleLogin} onChange={this.handleFormState}>
+                                <RowWrapper>
+                                    <Label>E-mail</Label>
+                                    <Input type="email" name="email" maxLength={25}
+                                           onInvalid={this.handleOnInvalid} required/>
+                                </RowWrapper>
+                                <RowWrapper>
+                                    <Label>Hasło</Label>
+                                    <Input type="password" name="password" maxLength={25}
+                                           onInvalid={this.handleOnInvalid} required/>
+                                </RowWrapper>
+                                <ResetPasswordLinkWrapper>
+                                    <ResetPasswordLink to='resetPassword'>Nie pamiętasz hasła?</ResetPasswordLink>
+                                </ResetPasswordLinkWrapper>
+                                <MessageWrapper>
+                                    <Message>{serverMessage ? serverMessage : ''}</Message>
+                                </MessageWrapper>
+                                <SubmitButtonWrapper>
+                                    <Button type='submit' value='ZALOGUJ SIĘ'
+                                            disabled={this.state.isSubmitDisabled}/>
+                                </SubmitButtonWrapper>
+                            </form>
+                        </InnerFrame>
+                    </FormWrapper>
+                    <LinkWrapper>
+                        Nie masz konta? <RegisterLink to='rejestracja'>Zarejestruj się</RegisterLink>
+                    </LinkWrapper>
+                </Wrapper>
+            </PageWrapper>
         );
     }
 }
