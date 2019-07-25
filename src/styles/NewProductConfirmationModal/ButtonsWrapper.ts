@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ButtonsWrapper = styled.div`
-  text-align: right;
-  padding: 10px 0;
+  display: flex;
+  width: 350px;
+  justify-content: space-between;
 `;

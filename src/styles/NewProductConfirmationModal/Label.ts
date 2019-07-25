@@ -2,22 +2,24 @@ import styled from 'styled-components';
 import StyledComponentsProps from '../StyledComponentsProps';
 
 export const Label = styled.label`
-  width: 100%;
-  height: 40%;
   display: flex;
   align-items: center;  
   font-family: 'Raleway', sans-serif;
-  color: ${(props: StyledComponentsProps) => props.theme.form.labelFontColor};
+  color: ${(props: StyledComponentsProps) => props.theme.newProductConfirmation.customLabelFontColor};
   font-size: 16px;
+  flex-basis: 50%;
+  justify-content: flex-start;
 `;
 
 export const PriceLabel = styled(Label)`
     font-weight: 700;
     font-size: 20px;
+    flex-basis: 50%;
 `;
 
 export const NameLabel = styled(Label)`
     font-weight: 700;
+    width: 100%;
     font-size: 18px;
-    color: ${(props: StyledComponentsProps) => props.theme.newProductConfirmation.ProductNameLabelColor};
+    color: ${(props: StyledComponentsProps) => props.theme.newProductConfirmation.productNameLabelColor};
 `;

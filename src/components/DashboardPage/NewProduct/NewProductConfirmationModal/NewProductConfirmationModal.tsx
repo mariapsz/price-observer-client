@@ -7,15 +7,19 @@ import {getCookie} from '../../../../utils/cookies';
 import NewProductConfirmationModalProps from './NewProductConfirmationModalProps';
 import NewProductConfirmationModalState from './NewProductConfirmationModalState';
 import {FormContentWrapper} from '../../../../styles/NewProductConfirmationModal/FormContentWrapper';
-import {ImageWrapper} from '../../../../styles/NewProductConfirmationModal/ImageWrapper';
+import {Left} from '../../../../styles/NewProductConfirmationModal/Left';
 import {ParametersWrapper} from '../../../../styles/NewProductConfirmationModal/ParametersWrapper';
-import {RowWrapper} from '../../../../styles/NewProductConfirmationModal/RowWrapper';
+import {ProductNameRowWrapper, RowWrapper} from '../../../../styles/NewProductConfirmationModal/RowWrapper';
 import {Image} from '../../../../styles/NewProductConfirmationModal/Image';
 import {Label, NameLabel, PriceLabel} from '../../../../styles/NewProductConfirmationModal/Label';
 import {Input} from '../../../../styles/NewProductConfirmationModal/Input';
 import {CancelButton} from '../../../../styles/NewProductConfirmationModal/CancelButton';
 import {SubmitButton} from '../../../../styles/NewProductConfirmationModal/SubmitButton';
 import {ButtonsWrapper} from '../../../../styles/NewProductConfirmationModal/ButtonsWrapper';
+import {Right} from '../../../../styles/NewProductConfirmationModal/Right';
+import {PriceWrapper} from '../../../../styles/NewProductConfirmationModal/PriceWrapper';
+import {InputWrapper} from '../../../../styles/NewProductConfirmationModal/InputWrapper';
+import {Select} from '../../../../styles/NewProductConfirmationModal/Select';
 
 export class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
 
@@ -27,16 +31,16 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
         ReactModal.setAppElement('body');
     }
 
-    handleSubmit = (e: any) => {
-        e.preventDefault();
+    handleSubmit = (event: any) => {
+        event.preventDefault();
 
         const request: AddProductRequest = {
             nickname: getCookie(COOKIE_NAME_USER_NAME),
             JWT: getCookie(COOKIE_NAME_TOKEN),
             product: {
                 ...this.props.product,
-                size: e.target.size.value,
-                expectedPrice: {count: e.target.expectedPrice.value, currency: 'PLN'}
+                size: event.target.size.value,
+                expectedPrice: {count: event.target.expectedPrice.value, currency: 'PLN'}
             },
         };
 
@@ -55,17 +59,21 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
     );
 
     getSelectSizeElement = () => (
-        <select name='size' required>
+        <Select name='size' required aria-required="true">
             <option disabled selected>Wybierz rozmiar</option>
             {this.getOptions(this.props.product.sizeOptions!)}
-        </select>
+        </Select>
     );
 
-    handleFormState = (e: any) => {
-        const isDisabled = !e.currentTarget.reportValidity() || e.currentTarget.size.value == 'Wybierz rozmiar';
+    handleFormState = (event: any) => {
+        const isDisabled = !event.currentTarget.reportValidity() || event.currentTarget.size.value == 'Wybierz rozmiar';
         this.setState({
             submitButtonDisabled: isDisabled,
         })
+    };
+
+    handleInvalid = (event: any) => {
+        event.preventDefault();
     };
 
     render() {
@@ -86,44 +94,55 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
             }}>
             <form onSubmit={this.handleSubmit} onChange={this.handleFormState}>
                 <FormContentWrapper>
-                    <ImageWrapper>
+                    <div>
                         <Image src={this.props.product.imgSrc} alt='product photo'/>
-                    </ImageWrapper>
-                    <ParametersWrapper>
-                        <RowWrapper>
-                            <NameLabel>
-                                {this.props.product.name}
-                            </NameLabel>
-                        </RowWrapper>
-                        <RowWrapper>
-                            <Label>Obecna cena</Label>
-                            <PriceLabel>{this.props.product.currentPrice.count}</PriceLabel>
-                        </RowWrapper>
-                        <RowWrapper>
-                            <Label>Oczekiwana cena</Label>
-                            <Input name='expectedPrice' type='number' min='0'
-                                   max={this.props.product.currentPrice.count}
-                                   required/>
-                            <div>PLN</div>
-                        </RowWrapper>
-                        {!this.props.product.hasOwnProperty('sizeOptions') ?
-                            null
-                            :
+                    </div>
+                    <Right>
+                        <ParametersWrapper>
+                            <ProductNameRowWrapper>
+                                <NameLabel>
+                                    {this.props.product.name}
+                                </NameLabel>
+                            </ProductNameRowWrapper>
                             <RowWrapper>
-                                <Label>
-                                    Rozmiar
-                                </Label>
-                                <Label>
-                                    {this.getSelectSizeElement()}
-                                </Label>
+                                <Label>Obecna cena:</Label>
+                                <PriceWrapper>
+                                    <PriceLabel>{this.props.product.currentPrice.count}</PriceLabel>
+                                    <PriceLabel>PLN</PriceLabel>
+                                </PriceWrapper>
                             </RowWrapper>
-                        }
-                    </ParametersWrapper>
+                            <RowWrapper>
+                                <Label>Oczekiwana cena:</Label>
+                                <PriceWrapper>
+                                    <InputWrapper>
+                                        <Input name='expectedPrice' type='number' min='0'
+                                               max={this.props.product.currentPrice.count}
+                                               required onInvalid={this.handleInvalid}/>
+                                    </InputWrapper>
+                                    <PriceLabel>PLN</PriceLabel>
+                                </PriceWrapper>
+                            </RowWrapper>
+                            {!this.props.product.hasOwnProperty('sizeOptions') ?
+                                null
+                                :
+                                <RowWrapper>
+                                    <Label>
+                                        Rozmiar:
+                                    </Label>
+                                    <Label>
+                                        {this.getSelectSizeElement()}
+                                    </Label>
+                                </RowWrapper>
+                            }
+                        </ParametersWrapper>
+                        <ButtonsWrapper>
+                            <CancelButton onClick={this.props.handleCloseModal}>ANULUJ</CancelButton>
+                            <SubmitButton type='submit' value='DODAJ PRODUKT'
+                                          disabled={this.state.submitButtonDisabled}/>
+                        </ButtonsWrapper>
+                    </Right>
                 </FormContentWrapper>
-                <ButtonsWrapper>
-                    <CancelButton onClick={this.props.handleCloseModal}>Anuluj</CancelButton>
-                    <SubmitButton type='submit' value='Dodaj produkt' disabled={this.state.submitButtonDisabled}/>
-                </ButtonsWrapper>
+
             </form>
         </ReactModal>
     }

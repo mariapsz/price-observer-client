@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import StyledComponentsProps from '../StyledComponentsProps';
 
 export const SubmitButton = styled.input`
-  margin: 0 0 0 15px;
+  width: 150px;
   padding: 7px 16px; 
   background: ${(props: StyledComponentsProps) => props.theme.button.background};
   border: 2px solid ${(props: StyledComponentsProps) => props.theme.button.borderColor};

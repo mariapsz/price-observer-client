@@ -33,7 +33,8 @@ const darkTheme: Theme = {
         buttonBorderColor: '',
     },
     newProductConfirmation: {
-        ProductNameLabelColor: '',
+        productNameLabelColor: '',
+        customLabelFontColor: '',
     }
 };
 export default darkTheme;

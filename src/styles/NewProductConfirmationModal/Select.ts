@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import StyledComponentsProps from '../StyledComponentsProps';
 
-export const Input = styled.input`
-  width: 50px;
+export const Select = styled.select`
+  width: 150px;
   padding: 6px;
   border: 1px rgba(37,132,126,0.46) solid;
   border-radius: 4px;
