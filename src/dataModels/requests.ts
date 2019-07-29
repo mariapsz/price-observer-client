@@ -11,13 +11,13 @@ export interface AuthorizationRequest {
     JWT: string,
 }
 
-export interface LoginRequest {
+export interface LoginRequestBody {
     email: string,
     password: string,
 }
 
 export interface RegisterRequest {
-    nickname: string,
+    name: string,
     email: string,
     password: string,
 }

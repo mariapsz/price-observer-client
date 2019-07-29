@@ -1,10 +1,7 @@
-import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import React, {FormEvent} from 'react';
 import {connect} from 'react-redux';
-import {loginUserAction} from '../../actions/authenticationActions';
-import {checkCookie, setCookie} from '../../utils/cookies';
-import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
-import {LoginRequest} from '../../dataModels/requests';
+import {loginUserAction} from '../../redux/actions/authenticationActions';
+import {LoginRequestBody} from '../../dataModels/requests';
 import {LoginPageState} from './LoginPageState';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 import {Wrapper} from '../../styles/LoginForm/Wrapper';
@@ -20,11 +17,13 @@ import {Button} from '../../styles/LoginForm/Button';
 import {LinkWrapper} from '../../styles/LoginForm/LinkWrapper';
 import {RegisterLink} from '../../styles/LoginForm/RegisterLink';
 import {InnerFrame} from '../../styles/LoginForm/Frame';
+import {AppState} from '../../redux/store/storeDataModels/AppState';
+import {Dispatch} from 'redux';
 
 
-class LoginPage extends Component<any, LoginPageState> {
+class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
 
-    constructor(props: any) {
+    constructor(props: LoginPageProps) {
         super(props);
         this.state = {
             isSubmitDisabled: true,
@@ -34,34 +33,26 @@ class LoginPage extends Component<any, LoginPageState> {
     onHandleLogin = (event: any) => {
         event.preventDefault();
 
-        const user: LoginRequest = {
+        const requestBody: LoginRequestBody = {
             email: event.target.email.value,
             password: event.target.password.value,
         };
-
-        this.props.dispatch(loginUserAction(user));
+        this.props.logIn(requestBody);
     };
 
-    handleFormState = (e: any) => {
-        e.preventDefault();
+    handleFormState = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
 
         this.setState({
-            isSubmitDisabled: !e.currentTarget.reportValidity(),
+            isSubmitDisabled: !event.currentTarget.reportValidity(),
         })
     };
 
-    handleOnInvalid = (e: any) => {
-        e.preventDefault();
+    handleOnInvalid = (event: FormEvent<HTMLInputElement>) => {
+        event.preventDefault();
     };
 
     render() {
-        let isSuccess, serverMessage;
-        console.log('login', this.props.store.login);
-        if (this.props.store.login.response) {
-            isSuccess = this.props.store.login.response.success;
-            serverMessage = this.props.store.login.response.message;
-        }
-
         return (
             <PageWrapper>
                 <Wrapper>
@@ -82,7 +73,7 @@ class LoginPage extends Component<any, LoginPageState> {
                                     <ResetPasswordLink to='resetPassword'>Nie pamiętasz hasła?</ResetPasswordLink>
                                 </ResetPasswordLinkWrapper>
                                 <MessageWrapper>
-                                    <Message>{serverMessage ? serverMessage : ''}</Message>
+                                    <Message>{this.props.store.login.errorMessage ? this.props.store.login.errorMessage : ''}</Message>
                                 </MessageWrapper>
                                 <SubmitButtonWrapper>
                                     <Button type='submit' value='ZALOGUJ SIĘ'
@@ -100,6 +91,17 @@ class LoginPage extends Component<any, LoginPageState> {
     }
 }
 
-const mapStateToProps = (store: any) => ({store});
+interface LoginPageProps {
+    store: AppState,
+    logIn: (requestBody: LoginRequestBody) => any,
+}
 
-export default connect(mapStateToProps)(LoginPage);
+const mapStateToProps = (store: AppState) => ({store});
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        logIn: (requestBody: LoginRequestBody): any => dispatch(loginUserAction(requestBody)),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

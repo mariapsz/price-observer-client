@@ -1,7 +1,4 @@
-import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
-import {checkCookie} from '../../utils/cookies';
-import {COOKIE_NAME_TOKEN} from '../../config';
+import React from 'react';
 import {RegisterFormState} from './RegisterFormState';
 import {MessageWrapper} from '../../styles/RegisterPage/MessageWrapper';
 import {RegisterRequest} from '../../dataModels/requests';
@@ -18,63 +15,76 @@ import {LinkWrapper} from '../../styles/RegisterPage/LinkWrapper';
 import {RegisterLink} from '../../styles/RegisterPage/RegisterLink';
 import {Message} from '../../styles/RegisterPage/Message';
 
-export default class RegisterPage extends Component<{}, RegisterFormState> {
+export default class RegisterPage extends React.Component<{}, RegisterFormState> {
 
-    constructor() {
-        super({});
+    constructor(props: {}) {
+        super(props);
         this.state = {
             isSubmitDisabled: true,
             user: {
-                nickname: '',
+                name: '',
                 email: '',
                 password: '',
             },
             passwordRepeated: '',
-            serverMessage: '',
+            errorMessage: '',
         };
     }
 
-    handleRegistration = (event: any) => {
+    handleRegistration = (event: React.FormEvent) => {
         event.preventDefault();
         this.register();
     };
 
     register = () => {
-        let registerRequest: RegisterRequest = this.state.user;
+        const registerRequest: RegisterRequest = this.state.user;
         registerUserService(registerRequest).then(
             (response: any) => {
-                if (response.status === 'success') {
-                    this.showModal(response.message);
+                console.log(response);
+                if (response.statusCode === 200) {
+                    this.showModal('Użytkownik został dodany pomyślnie');
                     this.setStateInitialValues();
                 } else {
+                    let message;
+                    switch (response.body.message) {
+                        case 'USER_WITH_THIS_EMAIL_ALREADY_EXISTS':
+                            message = 'Użytkownik o podanym adresie e-mail już istnieje';
+                            break;
+                        case 'USER_WITH_THIS_NAME_ALREADY_EXISTS':
+                            message = 'Użytkownik o podanej nazwie użytkownika już istnieje';
+                            break;
+                        default:
+                            message = 'Błąd wewnętrzny serwera, prosimy spróbować później';
+                            break;
+                    }
                     this.setState({
-                        serverMessage: response.message,
-                    })
+                        errorMessage: message,
+                    });
                 }
-            }
-        )
+            });
     };
+
 
     setStateInitialValues = () => {
         this.setState({
             isSubmitDisabled: true,
             user: {
-                nickname: '',
+                name: '',
                 email: '',
                 password: '',
             },
             passwordRepeated: '',
-            serverMessage: '',
+            errorMessage: '',
         })
     };
 
-    handleChange = (event: any) => {
+    handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
-            user: {...this.state.user, [event.target.name]: event.target.value,}
+            user: {...this.state.user, [event.target.name]: event.target.name !== 'email' ? event.target.value : event.target.value.toLowerCase(),}
         })
     };
 
-    handleFormState = (event: any) => {
+    handleFormState = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         this.setState({
@@ -82,7 +92,7 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
         })
     };
 
-    handleChangePasswordRepeated = (event: any) => {
+    handleChangePasswordRepeated = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             passwordRepeated: event.target.value,
         })
@@ -91,11 +101,11 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
     showModal = (message: string) => {
         //tutaj będzie modal a nie alert
         //'przekieruj na stronę logowania tak/nie'
-        let alertMessage = message;
+        const alertMessage = message;
         alert(alertMessage);
     };
 
-    handleOnInvalid = (event: any) => {
+    handleOnInvalid = (event: React.InvalidEvent<HTMLInputElement>) => {
         event.preventDefault();
     };
 
@@ -109,9 +119,10 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
                             <form onSubmit={this.handleRegistration} onChange={this.handleFormState}>
                                 <RowWrapper>
                                     <Label>Nazwa użytkownika</Label>
-                                    <Input type="text" name="nickname" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} value={this.state.user.nickname}
-                                           onChange={this.handleChange} required/>
+                                    <Input type="text" name="name" maxLength={25}
+                                           onInvalid={this.handleOnInvalid} value={this.state.user.name}
+                                           onChange={this.handleChange}
+                                           pattern='^\S+$' required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>E-mail</Label>
@@ -133,7 +144,7 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
                                            pattern={'^' + this.state.user.password + '$'} required/>
                                 </RowWrapper>
                                 <MessageWrapper>
-                                    <Message>{this.state.serverMessage ? this.state.serverMessage : ''}</Message>
+                                    <Message>{this.state.errorMessage ? this.state.errorMessage : ''}</Message>
                                 </MessageWrapper>
                                 <SubmitButtonWrapper>
                                     <Button type='submit' value='ZAREJESTRUJ SIĘ'
@@ -149,4 +160,5 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
             </PageWrapper>
         )
     }
-};
+}
+;

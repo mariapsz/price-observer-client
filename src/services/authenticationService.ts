@@ -1,19 +1,21 @@
-import superagent from 'superagent';
+import {post, Response} from 'superagent';
 import {LOGIN_API_ENDPOINT, REGISTER_API_ENDPOINT} from '../config';
-import {LoginRequest, RegisterRequest} from '../dataModels/requests';
+import {LoginRequestBody, RegisterRequest} from '../dataModels/requests';
 
-export const registerUserService = (request: RegisterRequest) => {
-    return superagent.post(REGISTER_API_ENDPOINT)
-        .send(`name=${request.nickname}`)
-        .send(`email=${request.email}`)
-        .send(`password=${request.password}`)
-        .then(res => res.body)
+export const registerUserService = (body: RegisterRequest): Promise<Response> => {
+    return post(REGISTER_API_ENDPOINT)
+        .send(JSON.stringify(body))
+        .set('Accept', 'application/json')
+        .set('Content-Type', 'application/json')
+        .then(res => res)
+        .catch(error => error.response)
 };
 
-export const loginUserService = (request: LoginRequest) => {
-    console.log(request);
-    return superagent.post(LOGIN_API_ENDPOINT)
-        .send(`email=${request.email}`)
-        .send(`password=${request.password}`)
-        .then(res => res.body)
+export const loginUserService = (body: LoginRequestBody): Promise<Response> => {
+    return post(LOGIN_API_ENDPOINT)
+        .send(JSON.stringify(body))
+        .set('Accept', 'application/json')
+        .set('Content-Type', 'application/json')
+        .then(response => response)
+        .catch(error => error.response)
 };

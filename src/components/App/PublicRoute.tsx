@@ -2,16 +2,16 @@ import React from 'react';
 import {Redirect, Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {checkIfTokenExpired} from '../../utils/checkIfTokenExpired';
+import {Store} from 'redux';
+import {AppState} from '../../redux/store/storeDataModels/AppState';
 
 // @ts-ignore
 const PublicRoute = ({component: Component, store, ...rest}) => {
-    console.log('public route');
-
     return (
         <Route
             {...rest}
             render={props => {
-                const userLogged: boolean = (store.login.response && store.login.response.token && !checkIfTokenExpired(store.login.response.token));
+                const userLogged: boolean = (store.login.token && !checkIfTokenExpired(store.login.token));
                 return (
                     !userLogged ? (
                         <Component {...props} />
@@ -22,5 +22,5 @@ const PublicRoute = ({component: Component, store, ...rest}) => {
             }}/>)
 };
 
-const mapStateToProps = (store: any, ownProps: any) => ({store});
+const mapStateToProps = (store: AppState, ownProps: any) => ({store});
 export default withRouter(connect(mapStateToProps)(PublicRoute));
