@@ -46,6 +46,7 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
 
         addProductService(request).then((response) => {
                 alert(response.message);
+                this.props.handleNewProductAdding();
                 this.props.handleCloseModal();
             },
             () => {
@@ -66,7 +67,7 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
     );
 
     handleFormState = (event: any) => {
-        const isDisabled = !event.currentTarget.reportValidity() || event.currentTarget.size.value == 'Wybierz rozmiar';
+        const isDisabled = !event.currentTarget.reportValidity() || (event.currentTarget.size && event.currentTarget.size.value == 'Wybierz rozmiar');
         this.setState({
             submitButtonDisabled: isDisabled,
         })

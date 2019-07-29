@@ -1,9 +1,9 @@
-import {Product} from './Product';
+import {ProductData} from './ProductData';
 
 export interface AddProductRequest {
     nickname: string,
     JWT: string,
-    product: Product,
+    product: ProductData,
 }
 
 export interface AuthorizationRequest {

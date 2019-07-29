@@ -1,8 +1,8 @@
-import {Product} from '../../../dataModels/Product';
+import {ProductData} from '../../../dataModels/ProductData';
 
 export interface NewProductState {
     productURL: string,
     isSubmitDisabled: boolean,
     showModal: boolean,
-    product: Product | undefined,
+    product: ProductData | undefined,
 }

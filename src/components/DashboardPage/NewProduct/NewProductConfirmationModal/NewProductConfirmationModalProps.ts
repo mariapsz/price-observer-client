@@ -1,7 +1,8 @@
-import {Product} from '../../../../dataModels/Product';
+import {ProductData} from '../../../../dataModels/ProductData';
 
 export default interface NewProductConfirmationModalProps {
-    product: Product,
+    product: ProductData,
     showModal: boolean,
     handleCloseModal: () => void,
+    handleNewProductAdding: () => void,
 }

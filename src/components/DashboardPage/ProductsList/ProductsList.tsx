@@ -4,7 +4,7 @@ import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../config';
 import {TrashIcon} from '../../../styles/ProductsList/TrashIcon';
 import {getProductsListService} from '../../../services/productOperationsService';
 import {ProductsListState} from './ProductsListState';
-import {Product} from '../../../dataModels/Product';
+import {ProductData} from '../../../dataModels/ProductData';
 import {AuthorizationRequest} from '../../../dataModels/requests';
 import {SectionTitle} from '../../../styles/Common/SectionTitle';
 import {Frame} from '../../../styles/ProductsList/Frame';
@@ -37,11 +37,11 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
         if (this.state.productsList.length > 1) {
             if (this.state.productsList[0].name > this.state.productsList[1].name)
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)),
+                    productsList: this.state.productsList.sort((a: ProductData, b: ProductData) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)),
                 });
             else
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.name < b.name) ? 1 : ((b.name < a.name) ? -1 : 0)),
+                    productsList: this.state.productsList.sort((a: ProductData, b: ProductData) => (a.name < b.name) ? 1 : ((b.name < a.name) ? -1 : 0)),
                 });
         }
     };
@@ -50,10 +50,10 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
         if (this.state.productsList.length > 1) {
             if (this.state.productsList[0].currentPrice.count > this.state.productsList[1].currentPrice.count)
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.currentPrice.count > b.currentPrice.count) ? 1 : ((b.currentPrice.count > a.currentPrice.count) ? -1 : 0)),
+                    productsList: this.state.productsList.sort((a: ProductData, b: ProductData) => (a.currentPrice.count > b.currentPrice.count) ? 1 : ((b.currentPrice.count > a.currentPrice.count) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.state.productsList.sort((a: Product, b: Product) => (a.currentPrice.count < b.currentPrice.count) ? 1 : ((b.currentPrice.count < a.currentPrice.count) ? -1 : 0)),
+                productsList: this.state.productsList.sort((a: ProductData, b: ProductData) => (a.currentPrice.count < b.currentPrice.count) ? 1 : ((b.currentPrice.count < a.currentPrice.count) ? -1 : 0)),
             })
         }
     };
@@ -62,10 +62,10 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
         if (this.state.productsList.length > 1) {
             if (this.state.productsList[0].expectedPrice!.count > this.state.productsList[1].expectedPrice!.count)
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.expectedPrice!.count > b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count > a.expectedPrice!.count) ? -1 : 0)),
+                    productsList: this.state.productsList.sort((a: ProductData, b: ProductData) => (a.expectedPrice!.count > b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count > a.expectedPrice!.count) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.state.productsList.sort((a: Product, b: Product) => (a.expectedPrice!.count < b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count < a.expectedPrice!.count) ? -1 : 0)),
+                productsList: this.state.productsList.sort((a: ProductData, b: ProductData) => (a.expectedPrice!.count < b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count < a.expectedPrice!.count) ? -1 : 0)),
             });
         }
     };
@@ -74,16 +74,16 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
         if (this.state.productsList.length > 1) {
             if (this.state.productsList[0].dateOfAdding! > this.state.productsList[1].dateOfAdding!)
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
+                    productsList: this.state.productsList.sort((a: ProductData, b: ProductData) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.state.productsList.sort((a: Product, b: Product) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
+                productsList: this.state.productsList.sort((a: ProductData, b: ProductData) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
             });
         }
     };
 
     getProductsListRows = (): JSX.Element[] =>
-        this.state.productsList.map((product: Product, i: number) => (
+        this.state.productsList.map((product: ProductData, i: number) => (
             <ListRow key={i}>
                 <Cell contentType='imgSrc'>
                     <Image src={product.imgSrc}/>

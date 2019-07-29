@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Product} from '../../../../dataModels/Product';
+import {ProductData} from '../../../../dataModels/ProductData';
 import ReactModal from 'react-modal';
 import {AddProductRequest} from '../../../../dataModels/requests';
 import {addProductService} from '../../../../services/productOperationsService';
@@ -11,7 +11,7 @@ export interface NewProductConfirmationModalState {
 }
 
 export interface NewProductConfirmationModalProps {
-    product: Product,
+    product: ProductData,
     showModal: boolean,
 }
 

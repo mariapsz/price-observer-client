@@ -1,9 +1,9 @@
 import { createConfirmation } from 'react-confirm';
 import ConfirmationDialog from './DeleteProductConfirmationDialog';
-import {Product} from '../../../../dataModels/Product';
+import {ProductData} from '../../../../dataModels/ProductData';
 
 const confirm = createConfirmation(ConfirmationDialog, 10);
 
-export default function(confirmation: Product, options = {}) {
+export default function(confirmation: ProductData, options = {}) {
     return confirm({ confirmation, options });
 }
