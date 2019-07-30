@@ -8,7 +8,7 @@ export const Frame = styled.div`
   width: 80vw;
     
   @media(max-width: 600px) {
-    width: 95vw;
+    width: 90vw;
     padding: 10px 5px 5px 5px;
   }
     

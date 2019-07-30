@@ -13,4 +13,5 @@ Do zrobienia:
         * sprawdzanie czy token jest ważny przed autoryzowanym zapytaniem
     - automatyczne przekierowanie na stronę główną po wpisaniu niewłaściwego adresu URL
     - serwer w przypadku braku połączenia z bazą danych nic nie zwraca
+    - zmiana kursora podczas ładowania danych
     
