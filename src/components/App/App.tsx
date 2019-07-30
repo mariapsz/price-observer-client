@@ -1,14 +1,9 @@
 import React, {Component} from 'react';
-import {
-    BrowserRouter,
-    Route,
-    Switch
-} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
-import DashboardPageWrapper from '../../hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper';
 import SettingsPage from '../SettingsPage/SettingsPage';
 import StartPage from '../StartPage/StartPage';
 import {ThemeResolver} from '../../hoc/ThemeResolver/ThemeResolver';
@@ -25,6 +20,12 @@ class App extends Component {
                         <PublicRoute path='/rejestracja' component={RegisterPage}/>
                         <PrivateRoute path='/home' component={DashboardPage}/>
                         <PrivateRoute path='/ustawienia' component={SettingsPage}/>
+                        <Route
+                            path="(.*)"
+                            render={() => (
+                                <Redirect to='/' />
+                            )} />
+                        />
                     </Switch>
                 </BrowserRouter>
             </ThemeResolver>

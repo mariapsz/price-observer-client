@@ -1,9 +1,6 @@
 import * as React from 'react';
 import ReactModal from 'react-modal';
-import {AddProductRequest} from '../../../../dataModels/requests';
 import {addProductService} from '../../../../services/productOperationsService';
-import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../../config';
-import {getCookie} from '../../../../utils/cookies';
 import NewProductConfirmationModalProps from './NewProductConfirmationModalProps';
 import NewProductConfirmationModalState from './NewProductConfirmationModalState';
 import {FormContentWrapper} from '../../../../styles/NewProductConfirmationModal/FormContentWrapper';
@@ -20,8 +17,11 @@ import {Right} from '../../../../styles/NewProductConfirmationModal/Right';
 import {PriceWrapper} from '../../../../styles/NewProductConfirmationModal/PriceWrapper';
 import {InputWrapper} from '../../../../styles/NewProductConfirmationModal/InputWrapper';
 import {Select} from '../../../../styles/NewProductConfirmationModal/Select';
+import {connect} from 'react-redux';
+import {AppState} from '../../../../redux/store/storeDataModels/AppState';
+import {AddProductRequest} from '../../../../dataModels/requests/AddProductRequest';
 
-export class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
+class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
 
     constructor(props: NewProductConfirmationModalProps) {
         super(props);
@@ -35,23 +35,44 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
         event.preventDefault();
 
         const request: AddProductRequest = {
-            nickname: getCookie(COOKIE_NAME_USER_NAME),
-            JWT: getCookie(COOKIE_NAME_TOKEN),
-            product: {
+            body: {
                 ...this.props.product,
-                size: event.target.size.value,
+                // size: event.target.size.value,
                 expectedPrice: {count: event.target.expectedPrice.value, currency: 'PLN'}
             },
+            token: this.props.store.login.token!,
         };
 
-        addProductService(request).then((response) => {
-                alert(response.message);
-                this.props.handleCloseModal();
-            },
-            () => {
-                alert('ERROR');
-                //this.props.handleCloseModal();
-            })
+        addProductService(request).then((response: any) => {
+            if (response.statusCode === 200) {
+                this.showSuccessModal('Produkt został dodany!');
+            } else {
+                let message;
+                switch (response.body.message) {
+                    case 'THIS_DOMAIN_IS_NOT_SUPPORTED':
+                        message = 'Niestety jeszcze nie obsługujemy tego serwisu';
+                        break;
+                    case 'USER_ALREADY_ASSIGNED_TO_PRODUCT':
+                        message = 'Ten produkt już został dodany. \nJeżeli chcesz go edytować, znajdź dany produkt na liście Twoich produktów i kliknij w odpowiadający mu wiersz w tabeli';
+                        break;
+                    default:
+                        message = 'Wystąpił błąd, prosimy spróbować później';
+                        break;
+                }
+                this.showErrorModal(message);
+            }
+            this.props.handleNewProductAdding();
+            this.props.clearNewProductPageState();
+            this.props.handleCloseModal();
+        })
+    };
+
+    showSuccessModal = (message: string) => {
+        alert(message);
+    };
+
+    showErrorModal = (message: string) => {
+        alert(message);
     };
 
     getOptions = (optionsArr: string[]) => (
@@ -66,13 +87,13 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
     );
 
     handleFormState = (event: any) => {
-        const isDisabled = !event.currentTarget.reportValidity() || event.currentTarget.size.value == 'Wybierz rozmiar';
+        const isDisabled = !event.currentTarget.reportValidity() || (event.currentTarget.size && event.currentTarget.size.value == 'Wybierz rozmiar');
         this.setState({
             submitButtonDisabled: isDisabled,
         })
     };
 
-    handleInvalid = (event: any) => {
+    handleInvalid = (event: React.InvalidEvent<HTMLInputElement>) => {
         event.preventDefault();
     };
 
@@ -123,14 +144,14 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
                                 </PriceWrapper>
                             </RowWrapper>
                             {this.props.product.sizeOptions &&
-                                <RowWrapper>
-                                    <Label>
-                                        Rozmiar:
-                                    </Label>
-                                    <Label>
-                                        {this.getSelectSizeElement()}
-                                    </Label>
-                                </RowWrapper>
+                            <RowWrapper>
+                                <Label>
+                                    Rozmiar:
+                                </Label>
+                                <Label>
+                                    {this.getSelectSizeElement()}
+                                </Label>
+                            </RowWrapper>
                             }
                         </ParametersWrapper>
                         <ButtonsWrapper>
@@ -145,3 +166,7 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
         </ReactModal>
     }
 }
+
+const mapStateToProps = (store: AppState) => ({store});
+
+export default connect(mapStateToProps)(NewProductConfirmationModal);

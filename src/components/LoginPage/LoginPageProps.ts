@@ -1,7 +1,7 @@
-import {Dispatch, Store} from 'redux';
+import {AppState} from '../../redux/store/storeDataModels/AppState';
+import {LoginRequest} from '../../dataModels/requests/LoginRequest';
 
-//I don't know how :<
 export interface LoginPageProps {
-    store: Store<any>,
-    dispatch: Dispatch<any>,
+    store: AppState,
+    logIn: (requestBody: LoginRequest) => any,
 }

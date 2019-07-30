@@ -1,10 +1,7 @@
-import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
-import {checkCookie} from '../../utils/cookies';
-import {COOKIE_NAME_TOKEN} from '../../config';
-import {RegisterFormState} from './RegisterFormState';
+import React from 'react';
+import {RegisterPageState} from './RegisterPageState';
 import {MessageWrapper} from '../../styles/RegisterPage/MessageWrapper';
-import {RegisterRequest} from '../../dataModels/requests';
+import {RegisterRequest} from '../../dataModels/requests/RegisterRequest';
 import {registerUserService} from '../../services/authenticationService';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 import {Wrapper} from '../../styles/RegisterPage/Wrapper';
@@ -17,72 +14,102 @@ import {Button} from '../../styles/RegisterPage/Button';
 import {LinkWrapper} from '../../styles/RegisterPage/LinkWrapper';
 import {RegisterLink} from '../../styles/RegisterPage/RegisterLink';
 import {Message} from '../../styles/RegisterPage/Message';
+import {PasswordWrapper} from '../../styles/RegisterPage/PasswordWrapper';
+import {PasswordInput} from '../../styles/RegisterPage/PasswordInput';
+import {TogglePasswordVisibility} from '../../styles/RegisterPage/TogglePasswordVisibility';
+import {SectionTitle} from '../../styles/Common/SectionTitle';
+import {Title} from '../../styles/RegisterPage/Title';
 
-export default class RegisterPage extends Component<{}, RegisterFormState> {
+export default class RegisterPage extends React.Component<{}, RegisterPageState> {
 
-    constructor() {
-        super({});
+    constructor(props: {}) {
+        super(props);
         this.state = {
             isSubmitDisabled: true,
             user: {
-                nickname: '',
+                name: '',
                 email: '',
                 password: '',
             },
             passwordRepeated: '',
-            serverMessage: '',
+            errorMessage: '',
+            isPasswordVisible: false,
+            isPasswordCompleted: false,
+            isRepeatedPasswordVisible: false,
+            isRepeatedPasswordCompleted: false,
         };
     }
 
-    handleRegistration = (event: any) => {
+    handleRegistration = (event: React.FormEvent) => {
         event.preventDefault();
         this.register();
     };
 
     register = () => {
-        let registerRequest: RegisterRequest = this.state.user;
+        const registerRequest: RegisterRequest = {body: this.state.user};
         registerUserService(registerRequest).then(
             (response: any) => {
-                if (response.status === 'success') {
-                    this.showModal(response.message);
+                console.log(response);
+                if (response.statusCode === 200) {
+                    this.showModal('Użytkownik został dodany pomyślnie');
                     this.setStateInitialValues();
                 } else {
+                    let message;
+                    switch (response.body.message) {
+                        case 'USER_WITH_THIS_EMAIL_ALREADY_EXISTS':
+                            message = 'Użytkownik o podanym adresie e-mail już istnieje';
+                            break;
+                        case 'USER_WITH_THIS_NAME_ALREADY_EXISTS':
+                            message = 'Użytkownik o podanej nazwie użytkownika już istnieje';
+                            break;
+                        default:
+                            message = 'Błąd wewnętrzny serwera, prosimy spróbować później';
+                            break;
+                    }
                     this.setState({
-                        serverMessage: response.message,
-                    })
+                        errorMessage: message,
+                    });
                 }
-            }
-        )
+            });
     };
 
     setStateInitialValues = () => {
         this.setState({
             isSubmitDisabled: true,
             user: {
-                nickname: '',
+                name: '',
                 email: '',
                 password: '',
             },
             passwordRepeated: '',
-            serverMessage: '',
+            errorMessage: '',
+            isPasswordVisible: false,
+            isPasswordCompleted: false,
+            isRepeatedPasswordVisible: false,
+            isRepeatedPasswordCompleted: false,
         })
     };
 
-    handleChange = (event: any) => {
+    handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
-            user: {...this.state.user, [event.target.name]: event.target.value,}
+            user: {
+                ...this.state.user,
+                [event.target.name]: event.target.name !== 'email' ? event.target.value : event.target.value.toLowerCase(),
+            }
         })
     };
 
-    handleFormState = (event: any) => {
+    handleFormState = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         this.setState({
             isSubmitDisabled: !event.currentTarget.reportValidity(),
+            isPasswordCompleted: event.currentTarget.password.value.length > 0,
+            isRepeatedPasswordCompleted: event.currentTarget.passwordRepeated.value.length > 0 && event.currentTarget.passwordRepeated.value.match('^' + this.state.user.password + '$'),
         })
     };
 
-    handleChangePasswordRepeated = (event: any) => {
+    handleChangePasswordRepeated = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             passwordRepeated: event.target.value,
         })
@@ -91,12 +118,24 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
     showModal = (message: string) => {
         //tutaj będzie modal a nie alert
         //'przekieruj na stronę logowania tak/nie'
-        let alertMessage = message;
+        const alertMessage = message;
         alert(alertMessage);
     };
 
-    handleOnInvalid = (event: any) => {
+    handleOnInvalid = (event: React.InvalidEvent<HTMLInputElement>) => {
         event.preventDefault();
+    };
+
+    showPassword = () => {
+        this.setState({
+            isPasswordVisible: !this.state.isPasswordVisible,
+        });
+    };
+
+    showRepeatedPassword = () => {
+        this.setState({
+            isRepeatedPasswordVisible: !this.state.isRepeatedPasswordVisible,
+        });
     };
 
     render() {
@@ -106,34 +145,62 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
                 <Wrapper>
                     <FormWrapper>
                         <InnerFrame>
+                            <Title>Załóż konto, aby korzystać z serwisu</Title>
                             <form onSubmit={this.handleRegistration} onChange={this.handleFormState}>
                                 <RowWrapper>
                                     <Label>Nazwa użytkownika</Label>
-                                    <Input type="text" name="nickname" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} value={this.state.user.nickname}
-                                           onChange={this.handleChange} required/>
+                                    <Input name="name"
+                                           value={this.state.user.name}
+                                           type="text"
+                                           maxLength={25}
+                                           onChange={this.handleChange}
+                                           onInvalid={this.handleOnInvalid}
+                                           pattern='^\S+$'
+                                           required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>E-mail</Label>
-                                    <Input type="email" name="email" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} value={this.state.user.email}
-                                           onChange={this.handleChange} required/>
+                                    <Input name="email"
+                                           value={this.state.user.email}
+                                           type="email"
+                                           maxLength={25}
+                                           onChange={this.handleChange}
+                                           onInvalid={this.handleOnInvalid}
+                                           required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>Hasło</Label>
-                                    <Input type="password" name="password" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} value={this.state.user.password}
-                                           onChange={this.handleChange} required/>
+                                    <PasswordWrapper isPasswordCompleted={this.state.isPasswordCompleted}>
+                                        <PasswordInput name="password"
+                                                       type={this.state.isPasswordVisible ? 'text' : 'password'}
+                                                       value={this.state.user.password}
+                                                       maxLength={25}
+                                                       onChange={this.handleChange}
+                                                       onInvalid={this.handleOnInvalid}
+                                                       required/>
+                                        <TogglePasswordVisibility
+                                            className={this.state.isPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'}
+                                            onClick={this.showPassword}/>
+                                    </PasswordWrapper>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>Powtórz hasło</Label>
-                                    <Input type="password" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} value={this.state.passwordRepeated}
-                                           onChange={this.handleChangePasswordRepeated}
-                                           pattern={'^' + this.state.user.password + '$'} required/>
+                                    <PasswordWrapper isPasswordCompleted={this.state.isRepeatedPasswordCompleted}>
+                                        <PasswordInput name="passwordRepeated"
+                                                       type={this.state.isRepeatedPasswordVisible ? 'text' : 'password'}
+                                                       value={this.state.passwordRepeated}
+                                                       maxLength={25}
+                                                       onChange={this.handleChangePasswordRepeated}
+                                                       onInvalid={this.handleOnInvalid}
+                                                       pattern={'^' + this.state.user.password + '$'}
+                                                       required/>
+                                        <TogglePasswordVisibility
+                                            className={this.state.isRepeatedPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'}
+                                            onClick={this.showRepeatedPassword}/>
+                                    </PasswordWrapper>
                                 </RowWrapper>
                                 <MessageWrapper>
-                                    <Message>{this.state.serverMessage ? this.state.serverMessage : ''}</Message>
+                                    <Message>{this.state.errorMessage ? this.state.errorMessage : ''}</Message>
                                 </MessageWrapper>
                                 <SubmitButtonWrapper>
                                     <Button type='submit' value='ZAREJESTRUJ SIĘ'
@@ -149,4 +216,5 @@ export default class RegisterPage extends Component<{}, RegisterFormState> {
             </PageWrapper>
         )
     }
-};
+}
+;

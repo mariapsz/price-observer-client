@@ -1,18 +1,21 @@
 import * as React from "react";
 import {checkProductService} from '../../../services/productOperationsService';
 import {NewProductState} from './NewProductState';
-import {NewProductConfirmationModal} from './NewProductConfirmationModal/NewProductConfirmationModal';
-import {connect} from 'react-redux';
+import NewProductConfirmationModal from './NewProductConfirmationModal/NewProductConfirmationModal';
 import {SectionTitle} from '../../../styles/Common/SectionTitle';
 import {NewProductFormFrame} from '../../../styles/NewProduct/Frame';
 import {Label} from '../../../styles/NewProduct/Label';
 import {URLInput} from '../../../styles/NewProduct/URLInput';
 import {NewProductURLWrapper} from '../../../styles/NewProduct/NewProductURLWrapper';
 import {FindProductButton} from '../../../styles/NewProduct/Button';
+import {NewProductProps} from './NewProductProps';
+import {AppState} from '../../../redux/store/storeDataModels/AppState';
+import {connect} from 'react-redux';
+import {CheckProductRequest} from '../../../dataModels/requests/CheckProductRequest';
 
-class NewProduct extends React.Component<{}, NewProductState> {
+class NewProduct extends React.Component<NewProductProps, NewProductState> {
 
-    constructor(props: {}) {
+    constructor(props: NewProductProps) {
         super(props);
         this.state = {
             productURL: '',
@@ -24,14 +27,22 @@ class NewProduct extends React.Component<{}, NewProductState> {
 
     handleSubmit = (event: any) => {
         event.preventDefault();
-        checkProductService(this.state.productURL)
+        const requestData: CheckProductRequest = {
+            token: this.props.store.login.token!,
+            body: {path: this.state.productURL},
+        };
+        checkProductService(requestData)
             .then((response: any) => {
-                this.setState({
-                    product: response.product,
-                }, () => {
-                    console.log('newProductPage product: ', this.state.product);
-                    this.openModal()
-                });
+                console.log('response', response);
+                if (response.statusCode === 200) {
+                    this.setState({
+                        product: response.body,
+                    }, () => {
+                        this.openModal()
+                    });
+                } else {
+                    this.showErrorModal(response.body.message);
+                }
             })
     };
 
@@ -51,12 +62,25 @@ class NewProduct extends React.Component<{}, NewProductState> {
         event.preventDefault();
     };
 
+    showErrorModal = (message: string) => {
+        alert(message);
+    };
+
     openModal = () => {
         this.setState({showModal: true});
     };
 
     handleCloseModal = () => {
         this.setState({showModal: false});
+    };
+
+    setStateInitialValues = (): void => {
+        this.setState({
+            productURL: '',
+            isSubmitDisabled: true,
+            showModal: false,
+            product: undefined,
+        })
     };
 
     render() {
@@ -68,9 +92,11 @@ class NewProduct extends React.Component<{}, NewProductState> {
                         Adres URL strony, na której znajduje się produkt:
                     </Label>
                     <NewProductURLWrapper>
-                        <URLInput type="url" name='productURL' value={this.state.productURL} onChange={this.handleChange}
-                               required onInvalid={this.handleInvalid} maxLength={400}/>
-                        <FindProductButton type='submit' value='WYSZUKAJ PRODUKT' disabled={this.state.isSubmitDisabled}/>
+                        <URLInput type="url" name='productURL' value={this.state.productURL}
+                                  onChange={this.handleChange}
+                                  required onInvalid={this.handleInvalid} maxLength={400}/>
+                        <FindProductButton type='submit' value='WYSZUKAJ PRODUKT'
+                                           disabled={this.state.isSubmitDisabled}/>
                     </NewProductURLWrapper>
                 </form>
             </NewProductFormFrame>
@@ -78,6 +104,8 @@ class NewProduct extends React.Component<{}, NewProductState> {
                     product={this.state.product!}
                     showModal={this.state.showModal}
                     handleCloseModal={this.handleCloseModal}
+                    handleNewProductAdding={this.props.handleNewProductAdding}
+                    clearNewProductPageState={this.setStateInitialValues}
                 />
                 :
                 null}
@@ -85,6 +113,6 @@ class NewProduct extends React.Component<{}, NewProductState> {
     }
 }
 
-const mapStateToProps = (store: any) => ({store});
+const mapStateToProps = (store: AppState) => ({store});
 
 export default connect(mapStateToProps)(NewProduct);

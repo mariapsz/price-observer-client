@@ -1,5 +1,5 @@
-import {Product} from '../../../../dataModels/Product';
+import {ProductData} from '../../../../dataModels/ProductData';
 
 export interface DeleteProductButtonProps {
-    product: Product,
+    product: ProductData,
 }

@@ -1,89 +1,72 @@
 import * as React from 'react';
-import {getCookie} from '../../../utils/cookies';
-import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../config';
 import {TrashIcon} from '../../../styles/ProductsList/TrashIcon';
-import {getProductsListService} from '../../../services/productOperationsService';
-import {ProductsListState} from './ProductsListState';
-import {Product} from '../../../dataModels/Product';
-import {AuthorizationRequest} from '../../../dataModels/requests';
+import {ProductData} from '../../../dataModels/ProductData';
 import {SectionTitle} from '../../../styles/Common/SectionTitle';
 import {Frame} from '../../../styles/ProductsList/Frame';
 import {ListHeader, ListRow} from '../../../styles/ProductsList/ListRow';
 import {Cell} from '../../../styles/ProductsList/Cell';
 import {Image} from '../../../styles/ProductsList/Image';
+import {AppState} from '../../../redux/store/storeDataModels/AppState';
+import {connect} from 'react-redux';
+import {ProductsListProps} from './ProductsListProps';
 
-export default class ProductsList extends React.Component<{}, ProductsListState> {
+class ProductsList extends React.Component<ProductsListProps> {
 
-    constructor(props: {}) {
+    constructor(props: ProductsListProps) {
         super(props);
-        this.state = {
-            productsList: new Array(0)
-        };
-    }
-
-    componentDidMount() {
-        let request: AuthorizationRequest = {
-            nickname: getCookie(COOKIE_NAME_USER_NAME),
-            JWT: getCookie(COOKIE_NAME_TOKEN),
-        };
-        getProductsListService(request).then((response) => {
-            this.setState({
-                productsList: response.productsList,
-            })
-        })
     }
 
     sortByName = () => {
-        if (this.state.productsList.length > 1) {
-            if (this.state.productsList[0].name > this.state.productsList[1].name)
+        if (this.props.productsList.length > 1) {
+            if (this.props.productsList[0].name > this.props.productsList[1].name)
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)),
+                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)),
                 });
             else
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.name < b.name) ? 1 : ((b.name < a.name) ? -1 : 0)),
+                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.name < b.name) ? 1 : ((b.name < a.name) ? -1 : 0)),
                 });
         }
     };
 
     sortByCurrentPrice = () => {
-        if (this.state.productsList.length > 1) {
-            if (this.state.productsList[0].currentPrice.count > this.state.productsList[1].currentPrice.count)
+        if (this.props.productsList.length > 1) {
+            if (this.props.productsList[0].currentPrice.count > this.props.productsList[1].currentPrice.count)
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.currentPrice.count > b.currentPrice.count) ? 1 : ((b.currentPrice.count > a.currentPrice.count) ? -1 : 0)),
+                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.currentPrice.count > b.currentPrice.count) ? 1 : ((b.currentPrice.count > a.currentPrice.count) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.state.productsList.sort((a: Product, b: Product) => (a.currentPrice.count < b.currentPrice.count) ? 1 : ((b.currentPrice.count < a.currentPrice.count) ? -1 : 0)),
+                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.currentPrice.count < b.currentPrice.count) ? 1 : ((b.currentPrice.count < a.currentPrice.count) ? -1 : 0)),
             })
         }
     };
 
     sortByExpectedPrice = () => {
-        if (this.state.productsList.length > 1) {
-            if (this.state.productsList[0].expectedPrice!.count > this.state.productsList[1].expectedPrice!.count)
+        if (this.props.productsList.length > 1) {
+            if (this.props.productsList[0].expectedPrice!.count > this.props.productsList[1].expectedPrice!.count)
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.expectedPrice!.count > b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count > a.expectedPrice!.count) ? -1 : 0)),
+                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.expectedPrice!.count > b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count > a.expectedPrice!.count) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.state.productsList.sort((a: Product, b: Product) => (a.expectedPrice!.count < b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count < a.expectedPrice!.count) ? -1 : 0)),
+                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.expectedPrice!.count < b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count < a.expectedPrice!.count) ? -1 : 0)),
             });
         }
     };
 
     sortByDateOfAdding = () => {
-        if (this.state.productsList.length > 1) {
-            if (this.state.productsList[0].dateOfAdding! > this.state.productsList[1].dateOfAdding!)
+        if (this.props.productsList.length > 1) {
+            if (this.props.productsList[0].dateOfAdding! > this.props.productsList[1].dateOfAdding!)
                 this.setState({
-                    productsList: this.state.productsList.sort((a: Product, b: Product) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
+                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.state.productsList.sort((a: Product, b: Product) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
+                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
             });
         }
     };
 
     getProductsListRows = (): JSX.Element[] =>
-        this.state.productsList.map((product: Product, i: number) => (
+        this.props.productsList.map((product: ProductData, i: number) => (
             <ListRow key={i}>
                 <Cell contentType='imgSrc'>
                     <Image src={product.imgSrc}/>
@@ -92,10 +75,10 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
                     {product.name}
                 </Cell>
                 <Cell contentType='currentPrice'>
-                    {product.currentPrice.count}
+                    {product.currentPrice.count} {product.currentPrice.currency}
                 </Cell>
                 <Cell contentType='expectedPrice'>
-                    {product.expectedPrice!.count}
+                    {product.expectedPrice!.count} {product.expectedPrice!.currency}
                 </Cell>
                 <Cell contentType='dateOfAdding'>
                     {product.dateOfAdding}
@@ -131,5 +114,9 @@ export default class ProductsList extends React.Component<{}, ProductsListState>
         </div>
     }
 }
+
+const mapStateToProps = (store: AppState) => ({store});
+
+export default connect(mapStateToProps)(ProductsList);
 
 

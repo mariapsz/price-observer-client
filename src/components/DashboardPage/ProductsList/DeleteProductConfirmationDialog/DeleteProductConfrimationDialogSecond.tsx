@@ -1,17 +1,13 @@
 import * as React from 'react';
-import {Product} from '../../../../dataModels/Product';
+import {ProductData} from '../../../../dataModels/ProductData';
 import ReactModal from 'react-modal';
-import {AddProductRequest} from '../../../../dataModels/requests';
-import {addProductService} from '../../../../services/productOperationsService';
-import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../../config';
-import {getCookie} from '../../../../utils/cookies';
 
 export interface NewProductConfirmationModalState {
 
 }
 
 export interface NewProductConfirmationModalProps {
-    product: Product,
+    product: ProductData,
     showModal: boolean,
 }
 
@@ -23,17 +19,7 @@ export class NewProductConfirmationModal extends React.Component<NewProductConfi
     }
 
     handleSubmit = () => {
-        let request: AddProductRequest = {
-            nickname: getCookie(COOKIE_NAME_USER_NAME),
-            JWT: getCookie(COOKIE_NAME_TOKEN),
-            product: this.props.product,
-        };
-        addProductService(request).then((response) => {
-                alert(response.message);
-            },
-            () => {
-                alert('ERROR');
-            })
+
     };
 
     render() {

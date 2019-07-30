@@ -1,10 +1,7 @@
-import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import React, {FormEvent} from 'react';
 import {connect} from 'react-redux';
-import {loginUserAction} from '../../actions/authenticationActions';
-import {checkCookie, setCookie} from '../../utils/cookies';
-import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../config';
-import {LoginRequest} from '../../dataModels/requests';
+import {loginUserAction} from '../../redux/actions/authenticationActions';
+import {LoginRequest} from '../../dataModels/requests/LoginRequest';
 import {LoginPageState} from './LoginPageState';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 import {Wrapper} from '../../styles/LoginForm/Wrapper';
@@ -20,72 +17,93 @@ import {Button} from '../../styles/LoginForm/Button';
 import {LinkWrapper} from '../../styles/LoginForm/LinkWrapper';
 import {RegisterLink} from '../../styles/LoginForm/RegisterLink';
 import {InnerFrame} from '../../styles/LoginForm/Frame';
+import {AppState} from '../../redux/store/storeDataModels/AppState';
+import {Dispatch} from 'redux';
+import {PasswordWrapper} from '../../styles/LoginForm/PasswordWrapper';
+import {TogglePasswordVisibility} from '../../styles/LoginForm/TogglePasswordVisibility';
+import {PasswordInput} from '../../styles/LoginForm/PasswordInput';
+import {LoginPageProps} from './LoginPageProps';
 
 
-class LoginPage extends Component<any, LoginPageState> {
+class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
 
-    constructor(props: any) {
+    constructor(props: LoginPageProps) {
         super(props);
         this.state = {
             isSubmitDisabled: true,
+            isPasswordVisible: false,
+            isPasswordCompleted: false,
         };
     }
 
     onHandleLogin = (event: any) => {
         event.preventDefault();
 
-        const user: LoginRequest = {
-            email: event.target.email.value,
-            password: event.target.password.value,
+        const requestBody: LoginRequest = {
+            body: {
+                email: event.target.email.value,
+                password: event.target.password.value,
+            }
         };
-
-        this.props.dispatch(loginUserAction(user));
+        this.props.logIn(requestBody);
     };
 
-    handleFormState = (e: any) => {
-        e.preventDefault();
-
+    handleFormState = (event: any) => {
+        event.preventDefault();
         this.setState({
-            isSubmitDisabled: !e.currentTarget.reportValidity(),
+            isSubmitDisabled: !event.currentTarget.reportValidity(),
+            isPasswordCompleted: event.currentTarget.password.value.length > 0,
         })
     };
 
-    handleOnInvalid = (e: any) => {
-        e.preventDefault();
+    handleOnInvalid = (event: FormEvent<HTMLInputElement>) => {
+        event.preventDefault();
+    };
+
+    showPassword = () => {
+        this.setState({
+            isPasswordVisible: !this.state.isPasswordVisible,
+        });
     };
 
     render() {
-        let isSuccess, serverMessage;
-        console.log('login', this.props.store.login);
-        if (this.props.store.login.response) {
-            isSuccess = this.props.store.login.response.success;
-            serverMessage = this.props.store.login.response.message;
-        }
-
         return (
             <PageWrapper>
                 <Wrapper>
                     <FormWrapper>
                         <InnerFrame>
-                            <form onSubmit={this.onHandleLogin} onChange={this.handleFormState}>
+                            <form onSubmit={this.onHandleLogin}
+                                  onChange={this.handleFormState}>
                                 <RowWrapper>
                                     <Label>E-mail</Label>
-                                    <Input type="email" name="email" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} required/>
+                                    <Input name="email"
+                                           type="email"
+                                           maxLength={25}
+                                           onInvalid={this.handleOnInvalid}
+                                           required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>Hasło</Label>
-                                    <Input type="password" name="password" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} required/>
+                                    <PasswordWrapper isPasswordCompleted={this.state.isPasswordCompleted}>
+                                        <PasswordInput name="password"
+                                                       type={this.state.isPasswordVisible ? 'text' : 'password'}
+                                                       maxLength={25}
+                                                       onInvalid={this.handleOnInvalid}
+                                                       required/>
+                                        <TogglePasswordVisibility
+                                            className={this.state.isPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'}
+                                            onClick={this.showPassword}/>
+                                    </PasswordWrapper>
                                 </RowWrapper>
                                 <ResetPasswordLinkWrapper>
                                     <ResetPasswordLink to='resetPassword'>Nie pamiętasz hasła?</ResetPasswordLink>
                                 </ResetPasswordLinkWrapper>
                                 <MessageWrapper>
-                                    <Message>{serverMessage ? serverMessage : ''}</Message>
+                                    <Message>{this.props.store.login.errorMessage ? this.props.store.login.errorMessage : ''}</Message>
                                 </MessageWrapper>
                                 <SubmitButtonWrapper>
-                                    <Button type='submit' value='ZALOGUJ SIĘ'
+                                    <Button type='submit'
+                                            value='ZALOGUJ SIĘ'
                                             disabled={this.state.isSubmitDisabled}/>
                                 </SubmitButtonWrapper>
                             </form>
@@ -100,6 +118,13 @@ class LoginPage extends Component<any, LoginPageState> {
     }
 }
 
-const mapStateToProps = (store: any) => ({store});
 
-export default connect(mapStateToProps)(LoginPage);
+const mapStateToProps = (store: AppState) => ({store});
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        logIn: (requestBody: LoginRequest): any => dispatch(loginUserAction(requestBody)),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

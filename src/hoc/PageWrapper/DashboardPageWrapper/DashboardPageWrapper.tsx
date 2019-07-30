@@ -9,6 +9,9 @@ import {UserPanel} from '../../../styles/PageWrapper/UserPanel';
 import {NickName} from '../../../styles/PageWrapper/NickName';
 import {removeState} from '../../../utils/localStorage';
 import {connect} from 'react-redux';
+import jwt_decode from "jwt-decode";
+import {UserDetails} from '../../../dataModels/UserDetails';
+
 
 class DashboardPageWrapper extends React.Component<any, any> {
 
@@ -24,6 +27,10 @@ class DashboardPageWrapper extends React.Component<any, any> {
         window.location.reload();
     };
 
+    getNickname = () => {
+        return jwt_decode<UserDetails>(this.props.token).name;
+    };
+
     render() {
         return <Wrapper>
             <TopBarWrapper>
@@ -32,7 +39,7 @@ class DashboardPageWrapper extends React.Component<any, any> {
                         <Title>ALERT CENOWY</Title>
                     </div>
                     <UserPanel>
-                        <NickName>{this.props.store.login.response.data.nickname}</NickName>
+                        <NickName>{this.getNickname()}</NickName>
                         <SettingsIcon className="fa fa-cog fa-5x"/>
                         <Icon className="fa fa-power-off" onClick={this.logoutUser}/>
                     </UserPanel>
@@ -45,5 +52,7 @@ class DashboardPageWrapper extends React.Component<any, any> {
     }
 }
 
-const mapStateToProps = (store: any) => ({store});
+const mapStateToProps = (store: any) => ({
+    token: store.login.token,
+});
 export default connect(mapStateToProps)(DashboardPageWrapper);

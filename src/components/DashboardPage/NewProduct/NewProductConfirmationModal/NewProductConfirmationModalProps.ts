@@ -1,7 +1,11 @@
-import {Product} from '../../../../dataModels/Product';
+import {ProductData} from '../../../../dataModels/ProductData';
+import {AppState} from '../../../../redux/store/storeDataModels/AppState';
 
 export default interface NewProductConfirmationModalProps {
-    product: Product,
+    product: ProductData,
     showModal: boolean,
     handleCloseModal: () => void,
+    handleNewProductAdding: () => void,
+    store: AppState,
+    clearNewProductPageState: () => void,
 }

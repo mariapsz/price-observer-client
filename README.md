@@ -1,10 +1,17 @@
-1. Stworzenie strony logowania i autentykacja użyszkodnika
-2. Stworzenie strony "dodaj nowy produkt"
-a) gadanie przez api żeby zapisać informacje, że konkretny użytkownik obserwuje konkretny 
-produkt
-b) interakcje z użytkownikiem
-c) dostosowanie obsługiwanych serwisów
-d) łapanie niepożądanych żądań
-3. Stworzenie strony "zobacz moje produkty" -> wyświelenie informacji z bazy o zapisanych
-produktach i ostatniej widocznej ceny tego produktu
-4. Zaprojektować sposób komunikacji z użytkownikiem o zmianie ceny
+Do zrobienia:
+    - logowanie:
+        * dodanie możliwośc logowania zarówno mailem jak i nazwą użytkownika
+    - rejestracja:
+        * sprawdzanie na bieżąco czy email/nazwa użytkownika jest wolna
+        * hasło musi spełaniać wymogi
+    - zaprojektować sposób komunikacji z użytkownikiem o zmianie ceny
+    - dodanie inversify
+    - dodanie strony z ustawieniami
+    - localStorage
+        * GUID jako nazwa
+        * chwilowo nie wiem jak automatycznie usuwać dane z localStorage
+        * sprawdzanie czy token jest ważny przed autoryzowanym zapytaniem
+    - automatyczne przekierowanie na stronę główną po wpisaniu niewłaściwego adresu URL
+    - serwer w przypadku braku połączenia z bazą danych nic nie zwraca
+    - zmiana kursora podczas ładowania danych
+    

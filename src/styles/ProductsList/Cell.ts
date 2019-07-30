@@ -8,6 +8,7 @@ export interface CellProps extends StyledComponentsProps {
 
 export const Cell = styled.div`
     text-align: center;
+    height: ${(props: CellProps) => props.isHeaderCell ? 'auto' : '70px'};
     margin: 3px;
     display: flex;
     align-items: center;    
