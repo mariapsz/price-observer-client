@@ -11,5 +11,4 @@ export const RowWrapper = styled.div`
 export const SubmitButtonWrapper = styled(RowWrapper)`
   height: auto;
   padding: 20px 0 10px 0;  
-  width: 260px;
 `;

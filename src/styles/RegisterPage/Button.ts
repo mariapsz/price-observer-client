@@ -20,4 +20,4 @@ export const Button = styled.input`
     background: ${(props: StyledComponentsProps) => props.theme.button.backgroundOnDisabled};
     border: 2px solid ${(props: StyledComponentsProps) => props.theme.button.borderColorOnDisabled};
   }   
-`;;
+`;

@@ -1,7 +1,7 @@
 import React, {FormEvent} from 'react';
 import {connect} from 'react-redux';
 import {loginUserAction} from '../../redux/actions/authenticationActions';
-import {LoginRequestBody} from '../../dataModels/requests';
+import {LoginRequest} from '../../dataModels/requests/LoginRequest';
 import {LoginPageState} from './LoginPageState';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 import {Wrapper} from '../../styles/LoginForm/Wrapper';
@@ -19,6 +19,10 @@ import {RegisterLink} from '../../styles/LoginForm/RegisterLink';
 import {InnerFrame} from '../../styles/LoginForm/Frame';
 import {AppState} from '../../redux/store/storeDataModels/AppState';
 import {Dispatch} from 'redux';
+import {PasswordWrapper} from '../../styles/LoginForm/PasswordWrapper';
+import {TogglePasswordVisibility} from '../../styles/LoginForm/TogglePasswordVisibility';
+import {PasswordInput} from '../../styles/LoginForm/PasswordInput';
+import {LoginPageProps} from './LoginPageProps';
 
 
 class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
@@ -27,29 +31,39 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
         super(props);
         this.state = {
             isSubmitDisabled: true,
+            isPasswordVisible: false,
+            isPasswordCompleted: false,
         };
     }
 
     onHandleLogin = (event: any) => {
         event.preventDefault();
 
-        const requestBody: LoginRequestBody = {
-            email: event.target.email.value,
-            password: event.target.password.value,
+        const requestBody: LoginRequest = {
+            body: {
+                email: event.target.email.value,
+                password: event.target.password.value,
+            }
         };
         this.props.logIn(requestBody);
     };
 
-    handleFormState = (event: FormEvent<HTMLFormElement>) => {
+    handleFormState = (event: any) => {
         event.preventDefault();
-
         this.setState({
             isSubmitDisabled: !event.currentTarget.reportValidity(),
+            isPasswordCompleted: event.currentTarget.password.value.length > 0,
         })
     };
 
     handleOnInvalid = (event: FormEvent<HTMLInputElement>) => {
         event.preventDefault();
+    };
+
+    showPassword = () => {
+        this.setState({
+            isPasswordVisible: !this.state.isPasswordVisible,
+        });
     };
 
     render() {
@@ -58,16 +72,28 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
                 <Wrapper>
                     <FormWrapper>
                         <InnerFrame>
-                            <form onSubmit={this.onHandleLogin} onChange={this.handleFormState}>
+                            <form onSubmit={this.onHandleLogin}
+                                  onChange={this.handleFormState}>
                                 <RowWrapper>
                                     <Label>E-mail</Label>
-                                    <Input type="email" name="email" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} required/>
+                                    <Input name="email"
+                                           type="email"
+                                           maxLength={25}
+                                           onInvalid={this.handleOnInvalid}
+                                           required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>Hasło</Label>
-                                    <Input type="password" name="password" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} required/>
+                                    <PasswordWrapper isPasswordCompleted={this.state.isPasswordCompleted}>
+                                        <PasswordInput name="password"
+                                                       type={this.state.isPasswordVisible ? 'text' : 'password'}
+                                                       maxLength={25}
+                                                       onInvalid={this.handleOnInvalid}
+                                                       required/>
+                                        <TogglePasswordVisibility
+                                            className={this.state.isPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'}
+                                            onClick={this.showPassword}/>
+                                    </PasswordWrapper>
                                 </RowWrapper>
                                 <ResetPasswordLinkWrapper>
                                     <ResetPasswordLink to='resetPassword'>Nie pamiętasz hasła?</ResetPasswordLink>
@@ -76,7 +102,8 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
                                     <Message>{this.props.store.login.errorMessage ? this.props.store.login.errorMessage : ''}</Message>
                                 </MessageWrapper>
                                 <SubmitButtonWrapper>
-                                    <Button type='submit' value='ZALOGUJ SIĘ'
+                                    <Button type='submit'
+                                            value='ZALOGUJ SIĘ'
                                             disabled={this.state.isSubmitDisabled}/>
                                 </SubmitButtonWrapper>
                             </form>
@@ -91,16 +118,12 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
     }
 }
 
-interface LoginPageProps {
-    store: AppState,
-    logIn: (requestBody: LoginRequestBody) => any,
-}
 
 const mapStateToProps = (store: AppState) => ({store});
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        logIn: (requestBody: LoginRequestBody): any => dispatch(loginUserAction(requestBody)),
+        logIn: (requestBody: LoginRequest): any => dispatch(loginUserAction(requestBody)),
     }
 };
 

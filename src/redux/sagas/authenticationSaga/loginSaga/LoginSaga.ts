@@ -6,7 +6,6 @@ import * as types from '../../../actions';
 export function* loginSaga(payload: LoginSagaPayload) {
     try {
         const response = yield call(loginUserService, payload.requestBody);
-        console.log('response: ', response);
         if (response.statusCode === 200) {
             yield put({type: types.LOGIN_USER_SUCCESS, token: response.body.token});
         } else {

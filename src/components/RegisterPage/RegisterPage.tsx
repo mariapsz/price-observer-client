@@ -1,7 +1,7 @@
 import React from 'react';
-import {RegisterFormState} from './RegisterFormState';
+import {RegisterPageState} from './RegisterPageState';
 import {MessageWrapper} from '../../styles/RegisterPage/MessageWrapper';
-import {RegisterRequest} from '../../dataModels/requests';
+import {RegisterRequest} from '../../dataModels/requests/RegisterRequest';
 import {registerUserService} from '../../services/authenticationService';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 import {Wrapper} from '../../styles/RegisterPage/Wrapper';
@@ -14,8 +14,13 @@ import {Button} from '../../styles/RegisterPage/Button';
 import {LinkWrapper} from '../../styles/RegisterPage/LinkWrapper';
 import {RegisterLink} from '../../styles/RegisterPage/RegisterLink';
 import {Message} from '../../styles/RegisterPage/Message';
+import {PasswordWrapper} from '../../styles/RegisterPage/PasswordWrapper';
+import {PasswordInput} from '../../styles/RegisterPage/PasswordInput';
+import {TogglePasswordVisibility} from '../../styles/RegisterPage/TogglePasswordVisibility';
+import {SectionTitle} from '../../styles/Common/SectionTitle';
+import {Title} from '../../styles/RegisterPage/Title';
 
-export default class RegisterPage extends React.Component<{}, RegisterFormState> {
+export default class RegisterPage extends React.Component<{}, RegisterPageState> {
 
     constructor(props: {}) {
         super(props);
@@ -28,6 +33,10 @@ export default class RegisterPage extends React.Component<{}, RegisterFormState>
             },
             passwordRepeated: '',
             errorMessage: '',
+            isPasswordVisible: false,
+            isPasswordCompleted: false,
+            isRepeatedPasswordVisible: false,
+            isRepeatedPasswordCompleted: false,
         };
     }
 
@@ -37,7 +46,7 @@ export default class RegisterPage extends React.Component<{}, RegisterFormState>
     };
 
     register = () => {
-        const registerRequest: RegisterRequest = this.state.user;
+        const registerRequest: RegisterRequest = {body: this.state.user};
         registerUserService(registerRequest).then(
             (response: any) => {
                 console.log(response);
@@ -64,7 +73,6 @@ export default class RegisterPage extends React.Component<{}, RegisterFormState>
             });
     };
 
-
     setStateInitialValues = () => {
         this.setState({
             isSubmitDisabled: true,
@@ -75,12 +83,19 @@ export default class RegisterPage extends React.Component<{}, RegisterFormState>
             },
             passwordRepeated: '',
             errorMessage: '',
+            isPasswordVisible: false,
+            isPasswordCompleted: false,
+            isRepeatedPasswordVisible: false,
+            isRepeatedPasswordCompleted: false,
         })
     };
 
     handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
-            user: {...this.state.user, [event.target.name]: event.target.name !== 'email' ? event.target.value : event.target.value.toLowerCase(),}
+            user: {
+                ...this.state.user,
+                [event.target.name]: event.target.name !== 'email' ? event.target.value : event.target.value.toLowerCase(),
+            }
         })
     };
 
@@ -89,6 +104,8 @@ export default class RegisterPage extends React.Component<{}, RegisterFormState>
 
         this.setState({
             isSubmitDisabled: !event.currentTarget.reportValidity(),
+            isPasswordCompleted: event.currentTarget.password.value.length > 0,
+            isRepeatedPasswordCompleted: event.currentTarget.passwordRepeated.value.length > 0 && event.currentTarget.passwordRepeated.value.match('^' + this.state.user.password + '$'),
         })
     };
 
@@ -109,6 +126,18 @@ export default class RegisterPage extends React.Component<{}, RegisterFormState>
         event.preventDefault();
     };
 
+    showPassword = () => {
+        this.setState({
+            isPasswordVisible: !this.state.isPasswordVisible,
+        });
+    };
+
+    showRepeatedPassword = () => {
+        this.setState({
+            isRepeatedPasswordVisible: !this.state.isRepeatedPasswordVisible,
+        });
+    };
+
     render() {
         return (
 
@@ -116,32 +145,59 @@ export default class RegisterPage extends React.Component<{}, RegisterFormState>
                 <Wrapper>
                     <FormWrapper>
                         <InnerFrame>
+                            <Title>Załóż konto, aby korzystać z serwisu</Title>
                             <form onSubmit={this.handleRegistration} onChange={this.handleFormState}>
                                 <RowWrapper>
                                     <Label>Nazwa użytkownika</Label>
-                                    <Input type="text" name="name" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} value={this.state.user.name}
+                                    <Input name="name"
+                                           value={this.state.user.name}
+                                           type="text"
+                                           maxLength={25}
                                            onChange={this.handleChange}
-                                           pattern='^\S+$' required/>
+                                           onInvalid={this.handleOnInvalid}
+                                           pattern='^\S+$'
+                                           required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>E-mail</Label>
-                                    <Input type="email" name="email" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} value={this.state.user.email}
-                                           onChange={this.handleChange} required/>
+                                    <Input name="email"
+                                           value={this.state.user.email}
+                                           type="email"
+                                           maxLength={25}
+                                           onChange={this.handleChange}
+                                           onInvalid={this.handleOnInvalid}
+                                           required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>Hasło</Label>
-                                    <Input type="password" name="password" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} value={this.state.user.password}
-                                           onChange={this.handleChange} required/>
+                                    <PasswordWrapper isPasswordCompleted={this.state.isPasswordCompleted}>
+                                        <PasswordInput name="password"
+                                                       type={this.state.isPasswordVisible ? 'text' : 'password'}
+                                                       value={this.state.user.password}
+                                                       maxLength={25}
+                                                       onChange={this.handleChange}
+                                                       onInvalid={this.handleOnInvalid}
+                                                       required/>
+                                        <TogglePasswordVisibility
+                                            className={this.state.isPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'}
+                                            onClick={this.showPassword}/>
+                                    </PasswordWrapper>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>Powtórz hasło</Label>
-                                    <Input type="password" maxLength={25}
-                                           onInvalid={this.handleOnInvalid} value={this.state.passwordRepeated}
-                                           onChange={this.handleChangePasswordRepeated}
-                                           pattern={'^' + this.state.user.password + '$'} required/>
+                                    <PasswordWrapper isPasswordCompleted={this.state.isRepeatedPasswordCompleted}>
+                                        <PasswordInput name="passwordRepeated"
+                                                       type={this.state.isRepeatedPasswordVisible ? 'text' : 'password'}
+                                                       value={this.state.passwordRepeated}
+                                                       maxLength={25}
+                                                       onChange={this.handleChangePasswordRepeated}
+                                                       onInvalid={this.handleOnInvalid}
+                                                       pattern={'^' + this.state.user.password + '$'}
+                                                       required/>
+                                        <TogglePasswordVisibility
+                                            className={this.state.isRepeatedPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'}
+                                            onClick={this.showRepeatedPassword}/>
+                                    </PasswordWrapper>
                                 </RowWrapper>
                                 <MessageWrapper>
                                     <Message>{this.state.errorMessage ? this.state.errorMessage : ''}</Message>

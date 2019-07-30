@@ -2,20 +2,41 @@ import React, {Component} from 'react';
 import ProductsList from './ProductsList/ProductsList';
 import NewProduct from './NewProduct/NewProduct';
 import DashboardPageWrapper from '../../hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper';
+import {DashboardPageState} from './DashboardPageState';
+import {GetProductsListRequest} from '../../dataModels/requests/GetProductsListRequest';
+import {getProductsListService} from '../../services/productOperationsService';
+import {AppState} from '../../redux/store/storeDataModels/AppState';
+import {connect} from 'react-redux';
+import {DashboardPageProps} from './DashboardPageProps';
 
-export default class DashboardPage extends Component {
+class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
 
-    constructor(props: {}){
+    constructor(props: DashboardPageProps) {
         super(props);
 
         this.state = {
-            newProductAdded: false,
+            productsList: new Array(),
         }
     }
 
     handleNewProductAdding = () => {
-        this.setState({
-            newProductAdded: true,
+        this.updateProductsList();
+    };
+
+    componentDidMount() {
+        this.updateProductsList();
+    }
+
+    updateProductsList = () => {
+        let request: GetProductsListRequest = {
+            token: this.props.store.login.token!,
+        };
+        getProductsListService(request).then((response: any) => {
+            if (response.statusCode === 200) {
+                this.setState({
+                    productsList: response.body.products,
+                })
+            }
         })
     };
 
@@ -26,10 +47,16 @@ export default class DashboardPage extends Component {
                     <NewProduct
                         handleNewProductAdding={this.handleNewProductAdding}
                     />
-                    <ProductsList/>
+                    <ProductsList
+                        productsList={this.state.productsList}/>
                 </div>
             </DashboardPageWrapper>
         );
     }
 };
+
+
+const mapStateToProps = (store: AppState) => ({store});
+
+export default connect(mapStateToProps)(DashboardPage);
 

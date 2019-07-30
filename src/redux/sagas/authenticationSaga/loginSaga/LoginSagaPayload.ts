@@ -1,6 +1,6 @@
-import {LoginRequestBody} from '../../../../dataModels/requests';
+import {LoginRequest} from '../../../../dataModels/requests/LoginRequest';
 
 export interface LoginSagaPayload {
     type: string,
-    requestBody: LoginRequestBody,
+    requestBody: LoginRequest,
 }

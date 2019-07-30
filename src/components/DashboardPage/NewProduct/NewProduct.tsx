@@ -1,7 +1,7 @@
 import * as React from "react";
 import {checkProductService} from '../../../services/productOperationsService';
 import {NewProductState} from './NewProductState';
-import {NewProductConfirmationModal} from './NewProductConfirmationModal/NewProductConfirmationModal';
+import NewProductConfirmationModal from './NewProductConfirmationModal/NewProductConfirmationModal';
 import {SectionTitle} from '../../../styles/Common/SectionTitle';
 import {NewProductFormFrame} from '../../../styles/NewProduct/Frame';
 import {Label} from '../../../styles/NewProduct/Label';
@@ -9,8 +9,11 @@ import {URLInput} from '../../../styles/NewProduct/URLInput';
 import {NewProductURLWrapper} from '../../../styles/NewProduct/NewProductURLWrapper';
 import {FindProductButton} from '../../../styles/NewProduct/Button';
 import {NewProductProps} from './NewProductProps';
+import {AppState} from '../../../redux/store/storeDataModels/AppState';
+import {connect} from 'react-redux';
+import {CheckProductRequest} from '../../../dataModels/requests/CheckProductRequest';
 
-export default class NewProduct extends React.Component<NewProductProps, NewProductState> {
+class NewProduct extends React.Component<NewProductProps, NewProductState> {
 
     constructor(props: NewProductProps) {
         super(props);
@@ -24,7 +27,11 @@ export default class NewProduct extends React.Component<NewProductProps, NewProd
 
     handleSubmit = (event: any) => {
         event.preventDefault();
-        checkProductService(this.state.productURL)
+        const requestData: CheckProductRequest = {
+            token: this.props.store.login.token!,
+            body: {path: this.state.productURL},
+        };
+        checkProductService(requestData)
             .then((response: any) => {
                 console.log('response', response);
                 if (response.statusCode === 200) {
@@ -67,6 +74,15 @@ export default class NewProduct extends React.Component<NewProductProps, NewProd
         this.setState({showModal: false});
     };
 
+    setStateInitialValues = (): void => {
+        this.setState({
+            productURL: '',
+            isSubmitDisabled: true,
+            showModal: false,
+            product: undefined,
+        })
+    };
+
     render() {
         return <div>
             <NewProductFormFrame>
@@ -89,9 +105,14 @@ export default class NewProduct extends React.Component<NewProductProps, NewProd
                     showModal={this.state.showModal}
                     handleCloseModal={this.handleCloseModal}
                     handleNewProductAdding={this.props.handleNewProductAdding}
+                    clearNewProductPageState={this.setStateInitialValues}
                 />
                 :
                 null}
         </div>
     }
 }
+
+const mapStateToProps = (store: AppState) => ({store});
+
+export default connect(mapStateToProps)(NewProduct);

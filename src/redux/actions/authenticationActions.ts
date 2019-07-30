@@ -1,7 +1,7 @@
 import * as types from './index';
-import {LoginRequestBody} from '../../dataModels/requests';
+import {LoginRequest} from '../../dataModels/requests/LoginRequest';
 
-export const loginUserAction = (requestBody: LoginRequestBody) => {
+export const loginUserAction = (requestBody: LoginRequest) => {
   return {
     type: types.LOGIN_USER,
     requestBody,

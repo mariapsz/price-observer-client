@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Switch} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -20,6 +20,12 @@ class App extends Component {
                         <PublicRoute path='/rejestracja' component={RegisterPage}/>
                         <PrivateRoute path='/home' component={DashboardPage}/>
                         <PrivateRoute path='/ustawienia' component={SettingsPage}/>
+                        <Route
+                            path="(.*)"
+                            render={() => (
+                                <Redirect to='/' />
+                            )} />
+                        />
                     </Switch>
                 </BrowserRouter>
             </ThemeResolver>
