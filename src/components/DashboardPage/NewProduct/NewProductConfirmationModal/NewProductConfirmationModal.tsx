@@ -38,7 +38,7 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
             body: {
                 ...this.props.product,
                 // size: event.target.size.value,
-                expectedPrice: {count: event.target.expectedPrice.value, currency: 'PLN'}
+                expectedPrice: {count: event.target.expectedPrice.value, currency: 'zł'}
             },
             token: this.props.store.login.token!,
         };
