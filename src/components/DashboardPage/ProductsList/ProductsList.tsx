@@ -75,10 +75,10 @@ class ProductsList extends React.Component<ProductsListProps> {
                     {product.name}
                 </Cell>
                 <Cell contentType='currentPrice'>
-                    {product.currentPrice.count}
+                    {product.currentPrice.count} {product.currentPrice.currency}
                 </Cell>
                 <Cell contentType='expectedPrice'>
-                    {product.expectedPrice!.count}
+                    {product.expectedPrice!.count} {product.expectedPrice!.currency}
                 </Cell>
                 <Cell contentType='dateOfAdding'>
                     {product.dateOfAdding}

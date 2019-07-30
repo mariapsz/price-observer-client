@@ -47,7 +47,19 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
             if (response.statusCode === 200) {
                 this.showSuccessModal('Produkt został dodany!');
             } else {
-                this.showErrorModal('Wystąpił błąd, prosimy spróbować później.');
+                let message;
+                switch (response.body.message) {
+                    case 'THIS_DOMAIN_IS_NOT_SUPPORTED':
+                        message = 'Niestety jeszcze nie obsługujemy tego serwisu';
+                        break;
+                    case 'USER_ALREADY_ASSIGNED_TO_PRODUCT':
+                        message = 'Ten produkt już został dodany. \nJeżeli chcesz go edytować, znajdź dany produkt na liście Twoich produktów i kliknij w odpowiadający mu wiersz w tabeli';
+                        break;
+                    default:
+                        message = 'Wystąpił błąd, prosimy spróbować później';
+                        break;
+                }
+                this.showErrorModal(message);
             }
             this.props.handleNewProductAdding();
             this.props.clearNewProductPageState();
