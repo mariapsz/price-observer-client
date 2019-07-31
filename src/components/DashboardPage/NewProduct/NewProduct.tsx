@@ -12,6 +12,7 @@ import {NewProductProps} from './NewProductProps';
 import {AppState} from '../../../redux/store/storeDataModels/AppState';
 import {connect} from 'react-redux';
 import {CheckProductRequest} from '../../../dataModels/requests/CheckProductRequest';
+import {trackPromise} from 'react-promise-tracker';
 
 class NewProduct extends React.Component<NewProductProps, NewProductState> {
 
@@ -31,19 +32,20 @@ class NewProduct extends React.Component<NewProductProps, NewProductState> {
             token: this.props.store.login.token!,
             body: {path: this.state.productURL},
         };
-        checkProductService(requestData)
-            .then((response: any) => {
-                console.log('response', response);
-                if (response.statusCode === 200) {
-                    this.setState({
-                        product: response.body,
-                    }, () => {
-                        this.openModal()
-                    });
-                } else {
-                    this.showErrorModal(response.body.message);
-                }
-            })
+        trackPromise(
+            checkProductService(requestData)
+                .then((response: any) => {
+                    console.log('response', response);
+                    if (response.statusCode === 200) {
+                        this.setState({
+                            product: response.body,
+                        }, () => {
+                            this.openModal()
+                        });
+                    } else {
+                        this.showErrorModal(response.body.message);
+                    }
+                }), 'pageWrapper')
     };
 
     handleChange = (event: any) => {

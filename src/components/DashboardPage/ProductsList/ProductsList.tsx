@@ -9,6 +9,8 @@ import {Image} from '../../../styles/ProductsList/Image';
 import {AppState} from '../../../redux/store/storeDataModels/AppState';
 import {connect} from 'react-redux';
 import {ProductsListProps} from './ProductsListProps';
+import ProductsListLoader from '../../Loader/ProductsListLoader';
+
 
 class ProductsList extends React.Component<ProductsListProps> {
 
@@ -109,6 +111,9 @@ class ProductsList extends React.Component<ProductsListProps> {
                     </Cell>
                     <Cell isHeaderCell={true} contentType='removeProductButton'/>
                 </ListHeader>
+                <ProductsListLoader
+                    area={'productsListArea'}
+                />
                 {this.getProductsListRows()}
             </Frame>
         </div>

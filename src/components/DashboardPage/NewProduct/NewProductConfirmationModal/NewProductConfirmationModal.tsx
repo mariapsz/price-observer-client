@@ -20,6 +20,7 @@ import {Select} from '../../../../styles/NewProductConfirmationModal/Select';
 import {connect} from 'react-redux';
 import {AppState} from '../../../../redux/store/storeDataModels/AppState';
 import {AddProductRequest} from '../../../../dataModels/requests/AddProductRequest';
+import {trackPromise} from 'react-promise-tracker';
 
 class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
 
@@ -43,28 +44,30 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
             token: this.props.store.login.token!,
         };
 
-        addProductService(request).then((response: any) => {
-            if (response.statusCode === 200) {
-                this.showSuccessModal('Produkt został dodany!');
-            } else {
-                let message;
-                switch (response.body.message) {
-                    case 'THIS_DOMAIN_IS_NOT_SUPPORTED':
-                        message = 'Niestety jeszcze nie obsługujemy tego serwisu';
-                        break;
-                    case 'USER_ALREADY_ASSIGNED_TO_PRODUCT':
-                        message = 'Ten produkt już został dodany. \nJeżeli chcesz go edytować, znajdź dany produkt na liście Twoich produktów i kliknij w odpowiadający mu wiersz w tabeli';
-                        break;
-                    default:
-                        message = 'Wystąpił błąd, prosimy spróbować później';
-                        break;
+        trackPromise(
+            addProductService(request).then((response: any) => {
+                if (response.statusCode === 200) {
+                    this.showSuccessModal('Produkt został dodany!');
+                    this.props.handleNewProductAdding();
+                    this.props.clearNewProductPageState();
+                } else {
+                    let message;
+                    switch (response.body.message) {
+                        case 'THIS_DOMAIN_IS_NOT_SUPPORTED':
+                            message = 'Niestety jeszcze nie obsługujemy tego serwisu';
+                            break;
+                        case 'USER_ALREADY_ASSIGNED_TO_PRODUCT':
+                            message = 'Ten produkt już został dodany. \nJeżeli chcesz go edytować, znajdź dany produkt na liście Twoich produktów i kliknij w odpowiadający mu wiersz w tabeli';
+                            this.props.clearNewProductPageState();
+                            break;
+                        default:
+                            message = 'Wystąpił błąd, prosimy spróbować później';
+                            break;
+                    }
+                    this.showErrorModal(message);
                 }
-                this.showErrorModal(message);
-            }
-            this.props.handleNewProductAdding();
-            this.props.clearNewProductPageState();
-            this.props.handleCloseModal();
-        })
+                this.props.handleCloseModal();
+            }), 'pageWrapper');
     };
 
     showSuccessModal = (message: string) => {

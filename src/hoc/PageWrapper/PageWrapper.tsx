@@ -7,38 +7,26 @@ import {PageContentWrapper} from '../../styles/PageWrapper/PageContentWrapper';
 import {TopBarWrapper} from '../../styles/PageWrapper/TopBarWrapper';
 import {TopBar} from '../../styles/PageWrapper/TopBar';
 import {PageWrapperProps} from './PageWrapperProps';
-import {Link} from 'react-router-dom';
 import {RedirectHome} from '../../styles/PageWrapper/TitleWrapper';
+import {usePromiseTracker} from 'react-promise-tracker';
 
-export default class PageWrapper extends React.Component<PageWrapperProps, any> {
+const PageWrapper = (props: PageWrapperProps) => {
+    const {promiseInProgress} = usePromiseTracker({area: 'pageWrapper'});
+    return <Wrapper
+        promiseInProgress={promiseInProgress}>
+        <TopBarWrapper>
+            <TopBar>
+                <div>
+                    <RedirectHome to='/'>
+                        <Title>ALERT CENOWY</Title>
+                    </RedirectHome>
+                </div>
+            </TopBar>
+        </TopBarWrapper>
+        <PageContentWrapper isStartPage={props.isStartPage}>
+            {props.children}
+        </PageContentWrapper>
+    </Wrapper>
+};
 
-    constructor(props: PageWrapperProps) {
-        super(props);
-        this.state = {
-            sidebarOpen: false,
-        };
-    }
-
-    logoutUser = () => {
-        deleteCookie(COOKIE_NAME_TOKEN);
-        deleteCookie(COOKIE_NAME_USER_NAME);
-        window.location.reload();
-    };
-
-    render() {
-        return <Wrapper>
-            <TopBarWrapper>
-                <TopBar>
-                    <div>
-                        <RedirectHome to='/'>
-                            <Title>ALERT CENOWY</Title>
-                        </RedirectHome>
-                    </div>
-                </TopBar>
-            </TopBarWrapper>
-            <PageContentWrapper isStartPage={this.props.isStartPage}>
-                {this.props.children}
-            </PageContentWrapper>
-        </Wrapper>
-    }
-}
+export default PageWrapper;

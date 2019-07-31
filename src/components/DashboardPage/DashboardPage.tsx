@@ -8,6 +8,8 @@ import {getProductsListService} from '../../services/productOperationsService';
 import {AppState} from '../../redux/store/storeDataModels/AppState';
 import {connect} from 'react-redux';
 import {DashboardPageProps} from './DashboardPageProps';
+import {trackPromise} from 'react-promise-tracker';
+
 
 class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
 
@@ -31,13 +33,14 @@ class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
         let request: GetProductsListRequest = {
             token: this.props.store.login.token!,
         };
+        trackPromise(
         getProductsListService(request).then((response: any) => {
             if (response.statusCode === 200) {
                 this.setState({
                     productsList: response.body.products,
                 })
             }
-        })
+        }), 'productsListArea');
     };
 
     render() {
