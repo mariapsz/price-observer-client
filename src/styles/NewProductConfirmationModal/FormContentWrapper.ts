@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const FormContentWrapper = styled.div`
   display: flex;
-  @media (max-width: 780px) {
+  max-width: 94vw;
+  
+  @media (max-width: 950px) {
     flex-direction: column;
   }
 `;
