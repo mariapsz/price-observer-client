@@ -20,6 +20,6 @@ export const ProductNameRowWrapper = styled(RowWrapper)`
     flex-basis: 20%;
     justify-content: flex-start;
     padding:8px;
-    width: 100%;
+    width: fit-content;
     background: ${(props: StyledComponentsProps) => props.theme.newProductConfirmation.productNameWrapperBackground};
 `;
