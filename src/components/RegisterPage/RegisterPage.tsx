@@ -17,27 +17,14 @@ import {Message} from '../../styles/RegisterPage/Message';
 import {PasswordWrapper} from '../../styles/RegisterPage/PasswordWrapper';
 import {PasswordInput} from '../../styles/RegisterPage/PasswordInput';
 import {TogglePasswordVisibility} from '../../styles/RegisterPage/TogglePasswordVisibility';
-import {SectionTitle} from '../../styles/Common/SectionTitle';
 import {Title} from '../../styles/RegisterPage/Title';
+import {trackPromise} from 'react-promise-tracker';
 
 export default class RegisterPage extends React.Component<{}, RegisterPageState> {
 
     constructor(props: {}) {
         super(props);
-        this.state = {
-            isSubmitDisabled: true,
-            user: {
-                name: '',
-                email: '',
-                password: '',
-            },
-            passwordRepeated: '',
-            errorMessage: '',
-            isPasswordVisible: false,
-            isPasswordCompleted: false,
-            isRepeatedPasswordVisible: false,
-            isRepeatedPasswordCompleted: false,
-        };
+        this.state = this.getInitialState();
     }
 
     handleRegistration = (event: React.FormEvent) => {
@@ -47,34 +34,35 @@ export default class RegisterPage extends React.Component<{}, RegisterPageState>
 
     register = () => {
         const registerRequest: RegisterRequest = {body: this.state.user};
-        registerUserService(registerRequest).then(
-            (response: any) => {
-                console.log(response);
-                if (response.statusCode === 200) {
-                    this.showModal('Użytkownik został dodany pomyślnie');
-                    this.setStateInitialValues();
-                } else {
-                    let message;
-                    switch (response.body.message) {
-                        case 'USER_WITH_THIS_EMAIL_ALREADY_EXISTS':
-                            message = 'Użytkownik o podanym adresie e-mail już istnieje';
-                            break;
-                        case 'USER_WITH_THIS_NAME_ALREADY_EXISTS':
-                            message = 'Użytkownik o podanej nazwie użytkownika już istnieje';
-                            break;
-                        default:
-                            message = 'Błąd wewnętrzny serwera, prosimy spróbować później';
-                            break;
+        trackPromise(
+            registerUserService(registerRequest).then(
+                (response: any) => {
+                    console.log(response);
+                    if (response.statusCode === 200) {
+                        this.showModal('Użytkownik został dodany pomyślnie');
+                        this.setState(this.getInitialState());
+                    } else {
+                        let message;
+                        switch (response.body.message) {
+                            case 'USER_WITH_THIS_EMAIL_ALREADY_EXISTS':
+                                message = 'Użytkownik o podanym adresie e-mail już istnieje';
+                                break;
+                            case 'USER_WITH_THIS_NAME_ALREADY_EXISTS':
+                                message = 'Użytkownik o podanej nazwie użytkownika już istnieje';
+                                break;
+                            default:
+                                message = 'Błąd wewnętrzny serwera, prosimy spróbować później';
+                                break;
+                        }
+                        this.setState({
+                            errorMessage: message,
+                        });
                     }
-                    this.setState({
-                        errorMessage: message,
-                    });
-                }
-            });
+                }), 'pageWrapper');
     };
 
-    setStateInitialValues = () => {
-        this.setState({
+    getInitialState = () => {
+        return {
             isSubmitDisabled: true,
             user: {
                 name: '',
@@ -87,7 +75,7 @@ export default class RegisterPage extends React.Component<{}, RegisterPageState>
             isPasswordCompleted: false,
             isRepeatedPasswordVisible: false,
             isRepeatedPasswordCompleted: false,
-        })
+        }
     };
 
     handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

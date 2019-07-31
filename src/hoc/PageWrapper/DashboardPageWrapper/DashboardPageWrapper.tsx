@@ -11,48 +11,45 @@ import {removeState} from '../../../utils/localStorage';
 import {connect} from 'react-redux';
 import jwt_decode from "jwt-decode";
 import {UserDetails} from '../../../dataModels/UserDetails';
+import {usePromiseTracker} from 'react-promise-tracker';
+import {DashboardPageWrapperProps} from './DashboardPageWrapperProps';
+import {AppState} from '../../../redux/store/storeDataModels/AppState';
 
 
-class DashboardPageWrapper extends React.Component<any, any> {
+const DashboardPageWrapper = (props: DashboardPageWrapperProps) => {
 
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            sidebarOpen: false,
-        };
-    }
-
-    logoutUser = () => {
+    const logoutUser = () => {
         removeState();
         window.location.reload();
     };
 
-    getNickname = () => {
-        return jwt_decode<UserDetails>(this.props.token).name;
+    const getNickname = () => {
+        return jwt_decode<UserDetails>(props.token!).name;
     };
 
-    render() {
-        return <Wrapper>
-            <TopBarWrapper>
-                <TopBar>
-                    <div>
-                        <Title>ALERT CENOWY</Title>
-                    </div>
-                    <UserPanel>
-                        <NickName>{this.getNickname()}</NickName>
-                        <SettingsIcon className="fa fa-cog fa-5x"/>
-                        <Icon className="fa fa-power-off" onClick={this.logoutUser}/>
-                    </UserPanel>
-                </TopBar>
-            </TopBarWrapper>
-            <PrivatePageContentWrapper>
-                {this.props.children}
-            </PrivatePageContentWrapper>
-        </Wrapper>
-    }
-}
+    const {promiseInProgress} = usePromiseTracker({area: 'pageWrapper'});
 
-const mapStateToProps = (store: any) => ({
+    return <Wrapper
+        promiseInProgress={promiseInProgress}>
+        <TopBarWrapper>
+            <TopBar>
+                <div>
+                    <Title>ALERT CENOWY</Title>
+                </div>
+                <UserPanel>
+                    <NickName>{getNickname()}</NickName>
+                    <SettingsIcon className="fa fa-cog fa-5x"/>
+                    <Icon className="fa fa-power-off" onClick={logoutUser}/>
+                </UserPanel>
+            </TopBar>
+        </TopBarWrapper>
+        <PrivatePageContentWrapper>
+            {props.children}
+        </PrivatePageContentWrapper>
+    </Wrapper>
+};
+
+const mapStateToProps = (store: AppState) => ({
     token: store.login.token,
 });
 export default connect(mapStateToProps)(DashboardPageWrapper);
