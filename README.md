@@ -16,3 +16,4 @@ Do zrobienia:
     - ProductsList: 
         * zmiana daty dodania na datę ostatniej modyfikacji
         * dodanie linku to sklepu
+        * poprawić sortowanie (nie obsługuje polskich znaków)

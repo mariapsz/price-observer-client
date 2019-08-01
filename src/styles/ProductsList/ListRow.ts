@@ -8,7 +8,7 @@ export const ListRow = styled.div`
     border-bottom: #F6FAFF solid 1px;
     :hover {
       cursor: pointer;
-      background: blanchedalmond;
+      background: #fff4e1;;
     }
 `;
 
@@ -18,5 +18,6 @@ export const ListHeader = styled(ListRow)`
     font-family: 'Raleway', sans-serif;
     :hover {
       cursor: initial;
+      background: ${(props: StyledComponentsProps) => props.theme.productsList.listHeaderBackground};
     }
 `;

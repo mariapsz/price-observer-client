@@ -27,9 +27,14 @@ export const PriceLabel = styled(Label)`
 
 export const NameLabel = styled(Label)`
     font-weight: 700;
+    width: 400px;
     font-size: 18px;
     flex-basis: 100%;
     color: ${(props: StyledComponentsProps) => props.theme.newProductConfirmation.productNameLabelColor};
+
+  @media(max-width: 400px) {
+    width: initial;
+  }  
 `;
 
 export const PropertyLabel = styled(Label)`
