@@ -33,7 +33,7 @@ const lightTheme: Theme = {
         buttonBorderColor: 'rgb(169, 142, 130)',
     },
     newProductConfirmation: {
-        productNameLabelColor: '#be714e',
+        productNameLabelColor: '#c0663e',
         customLabelFontColor: '#71777a',
         productNameWrapperBackground: '#b0b5bd1f',
     }

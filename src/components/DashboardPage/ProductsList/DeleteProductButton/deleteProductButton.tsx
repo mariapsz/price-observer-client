@@ -1,5 +1,5 @@
 import * as React from 'react';
-import confirm from '../DeleteProductConfirmationDialog/confirm';
+import confirm from '../DeleteProductConfirmationModal/confirm';
 import {DeleteBtn} from './DeleteButtonStyles';
 import {DeleteProductButtonProps} from './DeleteProductButtonProps';
 

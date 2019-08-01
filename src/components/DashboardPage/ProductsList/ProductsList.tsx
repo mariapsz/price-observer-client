@@ -10,12 +10,20 @@ import {AppState} from '../../../redux/store/storeDataModels/AppState';
 import {connect} from 'react-redux';
 import {ProductsListProps} from './ProductsListProps';
 import ProductsListLoader from '../../Loader/ProductsListLoader';
+import {ProductsListState} from './ProductsListState';
+import EditProductModal from './EditProductModal/EditProductModal';
 
 
-class ProductsList extends React.Component<ProductsListProps> {
+class ProductsList extends React.Component<ProductsListProps, ProductsListState> {
 
     constructor(props: ProductsListProps) {
         super(props);
+
+        this.state = {
+            showEditProductModal: false,
+            productsList: this.props.productsList,
+            productToEdit: undefined,
+        }
     }
 
     sortByName = () => {
@@ -67,9 +75,23 @@ class ProductsList extends React.Component<ProductsListProps> {
         }
     };
 
+    showEditProductModal = (product: ProductData) => {
+        this.setState({
+            showEditProductModal: true,
+            productToEdit: product,
+        })
+    };
+
+    handleCloseEditProductModal = () => {
+        this.setState({
+            showEditProductModal: false,
+            productToEdit: undefined,
+        })
+    };
+
     getProductsListRows = (): JSX.Element[] =>
         this.props.productsList.map((product: ProductData, i: number) => (
-            <ListRow key={i}>
+            <ListRow key={i} onClick={() => this.showEditProductModal(product)}>
                 <Cell contentType='imgSrc'>
                     <Image src={product.imgSrc}/>
                 </Cell>
@@ -116,6 +138,12 @@ class ProductsList extends React.Component<ProductsListProps> {
                 />
                 {this.getProductsListRows()}
             </Frame>
+            {this.state.showEditProductModal && <EditProductModal
+                showModal={this.state.showEditProductModal}
+                product={this.state.productToEdit!}
+                handleCloseModal={this.handleCloseEditProductModal}
+                handleProductsListChanges={this.props.handleProductsListChanges}
+            />}
         </div>
     }
 }

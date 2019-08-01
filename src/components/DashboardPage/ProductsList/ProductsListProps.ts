@@ -1,3 +1,4 @@
 export interface ProductsListProps {
-    productsList: any[]
+    productsList: any[],
+    handleProductsListChanges: () => void,
 }
