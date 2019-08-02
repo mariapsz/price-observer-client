@@ -6,14 +6,9 @@ export const RowWrapper = styled.div`
   flex-basis: 15%;
   align-items: center;
   justify-content: center;
-  padding: 0 0 6px 10px;
+  padding: 5px 0 6px 10px;
   width: 100%;
   height: auto;
-`;
-
-export const SubmitButtonWrapper = styled(RowWrapper)`
-  padding: 20px 0 10px 0;  
-  width: 260px;
 `;
 
 export const ProductNameRowWrapper = styled(RowWrapper)`

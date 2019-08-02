@@ -2,10 +2,10 @@ import {Theme} from './Theme';
 
 const lightTheme: Theme = {
     button: {
-        background: '#2d635f',
+        background: '#3f827d',
         backgroundOnHover: '#4ba29d',
         backgroundOnDisabled: '#70A19E',
-        borderColor: 'rgb(24,99,93)',
+        borderColor: '#536E6C',
         borderColorOnDisabled: '#60807e45',
         fontColor: 'white',
     },

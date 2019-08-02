@@ -12,6 +12,7 @@ import {ProductsListProps} from './ProductsListProps';
 import ProductsListLoader from '../../Loader/ProductsListLoader';
 import {ProductsListState} from './ProductsListState';
 import EditProductModal from './EditProductModal/EditProductModal';
+import RemoveProductModal from './RemoveProductModal/RemoveProductModal';
 
 
 class ProductsList extends React.Component<ProductsListProps, ProductsListState> {
@@ -21,8 +22,10 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
 
         this.state = {
             showEditProductModal: false,
+            showRemoveProductModal: false,
             productsList: this.props.productsList,
             productToEdit: undefined,
+            productToRemove: undefined,
         }
     }
 
@@ -89,26 +92,58 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
         })
     };
 
+    showRemoveProductModal = (product: ProductData) => {
+        this.setState({
+            showRemoveProductModal: true,
+            productToRemove: product,
+        })
+    };
+
+    handleCloseRemoveProductModal = () => {
+        this.setState({
+            showRemoveProductModal: false,
+            productToRemove: undefined,
+        })
+    };
+
     getProductsListRows = (): JSX.Element[] =>
         this.props.productsList.map((product: ProductData, i: number) => (
-            <ListRow key={i} onClick={() => this.showEditProductModal(product)}>
-                <Cell contentType='imgSrc'>
+            <ListRow key={i}>
+                <Cell
+                    contentType='imgSrc'
+                    onClick={() => this.showEditProductModal(product)}
+                >
                     <Image src={product.imgSrc}/>
                 </Cell>
-                <Cell contentType='name'>
+                <Cell
+                    contentType='name'
+                    onClick={() => this.showEditProductModal(product)}
+                >
                     {product.name}
                 </Cell>
-                <Cell contentType='currentPrice'>
+                <Cell
+                    contentType='currentPrice'
+                    onClick={() => this.showEditProductModal(product)}
+                >
                     {product.currentPrice.count} {product.currentPrice.currency}
                 </Cell>
-                <Cell contentType='expectedPrice'>
+                <Cell
+                    contentType='expectedPrice'
+                    onClick={() => this.showEditProductModal(product)}
+                >
                     {product.expectedPrice!.count} {product.expectedPrice!.currency}
                 </Cell>
-                <Cell contentType='dateOfAdding'>
+                <Cell
+                    contentType='dateOfAdding'
+                    onClick={() => this.showEditProductModal(product)}
+                >
                     {product.dateOfAdding}
                 </Cell>
                 <Cell contentType='removeProductButton'>
-                    <TrashIcon className="fa fa-trash"/>
+                    <TrashIcon
+                        className="fa fa-trash"
+                        onClick={() => this.showRemoveProductModal(product)}
+                    />
                 </Cell>
             </ListRow>
         ));
@@ -142,6 +177,12 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
                 showModal={this.state.showEditProductModal}
                 product={this.state.productToEdit!}
                 handleCloseModal={this.handleCloseEditProductModal}
+                handleProductsListChanges={this.props.handleProductsListChanges}
+            />}
+            {this.state.showRemoveProductModal && <RemoveProductModal
+                showModal={this.state.showRemoveProductModal}
+                product={this.state.productToRemove!}
+                handleCloseModal={this.handleCloseRemoveProductModal}
                 handleProductsListChanges={this.props.handleProductsListChanges}
             />}
         </div>

@@ -21,6 +21,7 @@ import {connect} from 'react-redux';
 import {AppState} from '../../../../redux/store/storeDataModels/AppState';
 import {AddProductRequest} from '../../../../dataModels/requests/AddProductRequest';
 import {trackPromise} from 'react-promise-tracker';
+import {PropertyLabel} from '../../../../styles/EditProductModal/Label';
 
 class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
 
@@ -156,6 +157,30 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
                                 </Label>
                             </RowWrapper>
                             }
+                            <RowWrapper>
+                                <Label>
+                                    Sklep:
+                                </Label>
+                                <PropertyLabel>
+                                    {this.props.product.shopName}
+                                </PropertyLabel>
+                            </RowWrapper>
+                            <RowWrapper>
+                                <Label>
+                                    Data dodania:
+                                </Label>
+                                <PropertyLabel>
+                                    {this.props.product.dateOfAdding}
+                                </PropertyLabel>
+                            </RowWrapper>
+                            <RowWrapper>
+                                <Label>
+                                    Kategoria:
+                                </Label>
+                                <PropertyLabel>
+                                    {this.props.product.category}
+                                </PropertyLabel>
+                            </RowWrapper>
                         </ParametersWrapper>
                         <ButtonsWrapper>
                             <CancelButton onClick={this.props.handleCloseModal}>ANULUJ</CancelButton>
