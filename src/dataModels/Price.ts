@@ -1,6 +1,6 @@
 import * as types from './CurrencyTypes';
 
 export interface Price {
-    count: number,
+    count: any,
     currency: string,
 }

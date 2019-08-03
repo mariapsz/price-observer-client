@@ -38,9 +38,9 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
 
         const request: AddProductRequest = {
             body: {
-                ...this.props.product,
+                product: this.props.product,
                 // size: event.target.size.value,
-                expectedPrice: {count: event.target.expectedPrice.value, currency: 'zł'}
+                userData: {expectedPrice: {count: event.target.expectedPrice.value, currency: 'zł'}}
             },
             token: this.props.store.login.token!,
         };

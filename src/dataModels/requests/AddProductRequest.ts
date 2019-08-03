@@ -1,6 +1,10 @@
 import {ProductData} from '../ProductData';
+import {Price} from '../Price';
 
 export interface AddProductRequest {
     token: string,
-    body: ProductData,
+    body: {
+        product: ProductData,
+        userData: { expectedPrice: Price }
+    },
 }
