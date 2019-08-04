@@ -58,10 +58,10 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
         if (this.props.productsList.length > 1) {
             if (this.props.productsList[0].expectedPrice!.count > this.props.productsList[1].expectedPrice!.count)
                 this.setState({
-                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.expectedPrice!.count > b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count > a.expectedPrice!.count) ? -1 : 0)),
+                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.usersDetails![0].expectedPrice!.count > b.usersDetails![0].expectedPrice!.count) ? 1 : ((b.usersDetails![0].expectedPrice!.count > a.usersDetails![0].expectedPrice!.count) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.expectedPrice!.count < b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count < a.expectedPrice!.count) ? -1 : 0)),
+                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.usersDetails![0].expectedPrice.count < b.usersDetails![0].expectedPrice!.count) ? 1 : ((b.usersDetails![0].expectedPrice!.count < a.usersDetails![0].expectedPrice!.count) ? -1 : 0)),
             });
         }
     };
@@ -70,10 +70,10 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
         if (this.props.productsList.length > 1) {
             if (this.props.productsList[0].dateOfAdding! > this.props.productsList[1].dateOfAdding!)
                 this.setState({
-                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
+                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.usersDetails![0].expectedPrice! > b.usersDetails![0].expectedPrice!) ? 1 : ((b.usersDetails![0].expectedPrice! > a.usersDetails![0].expectedPrice!) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
+                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.usersDetails![0].expectedPrice! > b.usersDetails![0].expectedPrice!) ? 1 : ((b.usersDetails![0].expectedPrice! > a.usersDetails![0].expectedPrice!) ? -1 : 0)),
             });
         }
     };
@@ -131,13 +131,13 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
                     contentType='expectedPrice'
                     onClick={() => this.showEditProductModal(product)}
                 >
-                    {product.expectedPrice!.count} {product.expectedPrice!.currency}
+                    {product.usersDetails![0].expectedPrice.count} {product.usersDetails![0].expectedPrice.currency}
                 </Cell>
                 <Cell
                     contentType='dateOfAdding'
                     onClick={() => this.showEditProductModal(product)}
                 >
-                    {product.dateOfAdding}
+                    {product.usersDetails![0].addedAt}
                 </Cell>
                 <Cell contentType='removeProductButton'>
                     <TrashIcon

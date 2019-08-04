@@ -38,9 +38,9 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
 
         const request: AddProductRequest = {
             body: {
-                product: this.props.product,
+                ...this.props.product,
+                usersDetails: [{expectedPrice: {count: event.target.expectedPrice.value, currency: 'zł'}}]
                 // size: event.target.size.value,
-                userData: {expectedPrice: {count: event.target.expectedPrice.value, currency: 'zł'}}
             },
             token: this.props.store.login.token!,
         };
@@ -163,14 +163,6 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
                                 </Label>
                                 <PropertyLabel>
                                     {this.props.product.shopName}
-                                </PropertyLabel>
-                            </RowWrapper>
-                            <RowWrapper>
-                                <Label>
-                                    Data dodania:
-                                </Label>
-                                <PropertyLabel>
-                                    {this.props.product.dateOfAdding}
                                 </PropertyLabel>
                             </RowWrapper>
                             <RowWrapper>
