@@ -1,31 +1,31 @@
 import * as React from 'react';
 import ReactModal from 'react-modal';
-import {addProductService} from '../../../../services/productService';
-import NewProductConfirmationModalProps from './NewProductConfirmationModalProps';
-import NewProductConfirmationModalState from './NewProductConfirmationModalState';
-import {FormContentWrapper} from '../../../../styles/NewProductConfirmationModal/FormContentWrapper';
-import {Left} from '../../../../styles/NewProductConfirmationModal/Left';
-import {ParametersWrapper} from '../../../../styles/NewProductConfirmationModal/ParametersWrapper';
-import {ProductNameRowWrapper, RowWrapper} from '../../../../styles/NewProductConfirmationModal/RowWrapper';
-import {Image} from '../../../../styles/NewProductConfirmationModal/Image';
-import {Label, NameLabel, PriceLabel} from '../../../../styles/NewProductConfirmationModal/Label';
-import {Input} from '../../../../styles/NewProductConfirmationModal/Input';
-import {CancelButton} from '../../../../styles/NewProductConfirmationModal/CancelButton';
-import {SubmitButton} from '../../../../styles/NewProductConfirmationModal/SubmitButton';
-import {ButtonsWrapper} from '../../../../styles/NewProductConfirmationModal/ButtonsWrapper';
-import {Right} from '../../../../styles/NewProductConfirmationModal/Right';
-import {PriceWrapper} from '../../../../styles/NewProductConfirmationModal/PriceWrapper';
-import {InputWrapper} from '../../../../styles/NewProductConfirmationModal/InputWrapper';
-import {Select} from '../../../../styles/NewProductConfirmationModal/Select';
+import EditProductModalProps from './EditProductModalProps';
+import EditProductModalState from './EditProductModalState';
+import {FormContentWrapper} from '../../../../styles/EditProductModal/FormContentWrapper';
+import {Left} from '../../../../styles/EditProductModal/Left';
+import {ParametersWrapper} from '../../../../styles/EditProductModal/ParametersWrapper';
+import {ProductNameRowWrapper, RowWrapper} from '../../../../styles/EditProductModal/RowWrapper';
+import {Image} from '../../../../styles/EditProductModal/Image';
+import {Label, NameLabel, PriceLabel, PropertyLabel} from '../../../../styles/EditProductModal/Label';
+import {Input} from '../../../../styles/EditProductModal/Input';
+import {CancelButton} from '../../../../styles/EditProductModal/CancelButton';
+import {SubmitButton} from '../../../../styles/EditProductModal/SubmitButton';
+import {ButtonsWrapper} from '../../../../styles/EditProductModal/ButtonsWrapper';
+import {Right} from '../../../../styles/EditProductModal/Right';
+import {PriceWrapper} from '../../../../styles/EditProductModal/PriceWrapper';
+import {InputWrapper} from '../../../../styles/EditProductModal/InputWrapper';
+import {Select} from '../../../../styles/EditProductModal/Select';
 import {connect} from 'react-redux';
 import {AppState} from '../../../../redux/store/storeDataModels/AppState';
-import {AddProductRequest} from '../../../../dataModels/requests/AddProductRequest';
+import {RemoveProductButton} from '../../../../styles/EditProductModal/RemoveProductButton';
+import {EditProductRequest} from '../../../../dataModels/requests/EditProductRequest';
+import {editProductService} from '../../../../services/productService';
 import {trackPromise} from 'react-promise-tracker';
-import {PropertyLabel} from '../../../../styles/EditProductModal/Label';
 
-class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
+class EditProductModal extends React.Component<EditProductModalProps, EditProductModalState> {
 
-    constructor(props: NewProductConfirmationModalProps) {
+    constructor(props: EditProductModalProps) {
         super(props);
         this.state = {
             submitButtonDisabled: true,
@@ -36,7 +36,7 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
     handleSubmit = (event: any) => {
         event.preventDefault();
 
-        const request: AddProductRequest = {
+        const request: EditProductRequest = {
             body: {
                 ...this.props.product,
                 usersDetails: [{expectedPrice: {count: event.target.expectedPrice.value, currency: 'zł'}}]
@@ -46,21 +46,13 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
         };
 
         trackPromise(
-            addProductService(request).then((response: any) => {
+            editProductService(request).then((response: any) => {
                 if (response.statusCode === 200) {
-                    this.showSuccessModal('Produkt został dodany!');
-                    this.props.handleNewProductAdding();
-                    this.props.clearNewProductPageState();
+                    this.showSuccessModal('Produkt został zmodyfikowany pomyślnie!');
+                    this.props.handleProductsListChanges();
                 } else {
                     let message;
                     switch (response.body.message) {
-                        case 'THIS_DOMAIN_IS_NOT_SUPPORTED':
-                            message = 'Niestety jeszcze nie obsługujemy tego serwisu';
-                            break;
-                        case 'USER_ALREADY_ASSIGNED_TO_PRODUCT':
-                            message = 'Ten produkt już został dodany. \nJeżeli chcesz go edytować, znajdź dany produkt na liście Twoich produktów i kliknij w odpowiadający mu wiersz w tabeli';
-                            this.props.clearNewProductPageState();
-                            break;
                         default:
                             message = 'Wystąpił błąd, prosimy spróbować później';
                             break;
@@ -84,8 +76,13 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
     );
 
     getSelectSizeElement = () => (
-        <Select name='size' required>
-            <option disabled selected hidden>Wybierz rozmiar</option>
+        <Select
+            name='size'
+            required>
+            <option
+                disabled selected hidden>
+                Wybierz rozmiar
+            </option>
             {this.getOptions(this.props.product.sizeOptions!)}
         </Select>
     );
@@ -117,10 +114,14 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
                     padding: '5px',
                 }
             }}>
-            <form onSubmit={this.handleSubmit} onChange={this.handleFormState}>
+            <form
+                onSubmit={this.handleSubmit}
+                onChange={this.handleFormState}>
                 <FormContentWrapper>
                     <Left>
-                        <Image src={this.props.product.imgSrc} alt='product photo'/>
+                        <Image
+                            src={this.props.product.imgSrc}
+                            alt='product photo'/>
                     </Left>
                     <Right>
                         <ParametersWrapper>
@@ -140,9 +141,12 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
                                 <Label>Oczekiwana cena:</Label>
                                 <PriceWrapper>
                                     <InputWrapper>
-                                        <Input name='expectedPrice' type='number' min='0'
-                                               max={this.props.product.currentPrice.count}
-                                               required onInvalid={this.handleInvalid}/>
+                                        <Input
+                                            name='expectedPrice'
+                                            type='number'
+                                            min='0'
+                                            max={this.props.product.currentPrice.count}
+                                            required onInvalid={this.handleInvalid}/>
                                     </InputWrapper>
                                     <PriceLabel>PLN</PriceLabel>
                                 </PriceWrapper>
@@ -167,6 +171,14 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
                             </RowWrapper>
                             <RowWrapper>
                                 <Label>
+                                    Data dodania:
+                                </Label>
+                                <PropertyLabel>
+                                    {this.props.product.usersDetails![0].addedAt!}
+                                </PropertyLabel>
+                            </RowWrapper>
+                            <RowWrapper>
+                                <Label>
                                     Kategoria:
                                 </Label>
                                 <PropertyLabel>
@@ -175,9 +187,21 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
                             </RowWrapper>
                         </ParametersWrapper>
                         <ButtonsWrapper>
-                            <CancelButton onClick={this.props.handleCloseModal}>ANULUJ</CancelButton>
-                            <SubmitButton type='submit' value='DODAJ PRODUKT'
-                                          disabled={this.state.submitButtonDisabled}/>
+                            <CancelButton
+                                onClick={this.props.handleCloseModal}>
+                                ANULUJ
+                            </CancelButton>
+                            <RemoveProductButton
+                                onClick={(e: any) => {
+                                    e.preventDefault();
+                                    this.props.handleShowRemoveProductModal(this.props.product)
+                                }}>
+                                USUŃ
+                            </RemoveProductButton>
+                            <SubmitButton
+                                type='submit'
+                                value='ZAPISZ'
+                                disabled={this.state.submitButtonDisabled}/>
                         </ButtonsWrapper>
                     </Right>
                 </FormContentWrapper>
@@ -189,4 +213,4 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
 
 const mapStateToProps = (store: AppState) => ({store});
 
-export default connect(mapStateToProps)(NewProductConfirmationModal);
+export default connect(mapStateToProps)(EditProductModal);

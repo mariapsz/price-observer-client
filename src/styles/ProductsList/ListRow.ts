@@ -6,8 +6,18 @@ export const ListRow = styled.div`
     justify-content: space-around;
     padding: 3px;
     border-bottom: #F6FAFF solid 1px;
+    :hover {
+      cursor: pointer;
+      background: #fff4e1;;
+    }
 `;
+
+
 export const ListHeader = styled(ListRow)`
     background: ${(props: StyledComponentsProps) => props.theme.productsList.listHeaderBackground};
     font-family: 'Raleway', sans-serif;
+    :hover {
+      cursor: initial;
+      background: ${(props: StyledComponentsProps) => props.theme.productsList.listHeaderBackground};
+    }
 `;

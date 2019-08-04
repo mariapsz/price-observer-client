@@ -4,7 +4,7 @@ import NewProduct from './NewProduct/NewProduct';
 import DashboardPageWrapper from '../../hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper';
 import {DashboardPageState} from './DashboardPageState';
 import {GetProductsListRequest} from '../../dataModels/requests/GetProductsListRequest';
-import {getProductsListService} from '../../services/productOperationsService';
+import {getProductsListService} from '../../services/productService';
 import {AppState} from '../../redux/store/storeDataModels/AppState';
 import {connect} from 'react-redux';
 import {DashboardPageProps} from './DashboardPageProps';
@@ -21,7 +21,7 @@ class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
         }
     }
 
-    handleNewProductAdding = () => {
+    handleProductsListChanges = (): void => {
         this.updateProductsList();
     };
 
@@ -34,13 +34,13 @@ class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
             token: this.props.store.login.token!,
         };
         trackPromise(
-        getProductsListService(request).then((response: any) => {
-            if (response.statusCode === 200) {
-                this.setState({
-                    productsList: response.body.products,
-                })
-            }
-        }), 'productsListArea');
+            getProductsListService(request).then((response: any) => {
+                if (response.statusCode === 200) {
+                    this.setState({
+                        productsList: response.body.products,
+                    })
+                }
+            }), 'productsListArea');
     };
 
     render() {
@@ -48,10 +48,12 @@ class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
             <DashboardPageWrapper>
                 <div>
                     <NewProduct
-                        handleNewProductAdding={this.handleNewProductAdding}
+                        handleNewProductAdding={this.handleProductsListChanges}
                     />
                     <ProductsList
-                        productsList={this.state.productsList}/>
+                        productsList={this.state.productsList}
+                        handleProductsListChanges={this.handleProductsListChanges}
+                    />
                 </div>
             </DashboardPageWrapper>
         );

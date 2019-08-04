@@ -1,5 +1,5 @@
 import * as React from "react";
-import {checkProductService} from '../../../services/productOperationsService';
+import {checkProductService} from '../../../services/productService';
 import {NewProductState} from './NewProductState';
 import NewProductConfirmationModal from './NewProductConfirmationModal/NewProductConfirmationModal';
 import {SectionTitle} from '../../../styles/Common/SectionTitle';
@@ -13,6 +13,8 @@ import {AppState} from '../../../redux/store/storeDataModels/AppState';
 import {connect} from 'react-redux';
 import {CheckProductRequest} from '../../../dataModels/requests/CheckProductRequest';
 import {trackPromise} from 'react-promise-tracker';
+import {checkIfTokenExpired} from '../../../utils/checkIfTokenExpired';
+import {logoutUser} from '../../../utils/logoutUser';
 
 class NewProduct extends React.Component<NewProductProps, NewProductState> {
 
@@ -32,20 +34,25 @@ class NewProduct extends React.Component<NewProductProps, NewProductState> {
             token: this.props.store.login.token!,
             body: {path: this.state.productURL},
         };
-        trackPromise(
-            checkProductService(requestData)
-                .then((response: any) => {
-                    console.log('response', response);
-                    if (response.statusCode === 200) {
-                        this.setState({
-                            product: response.body,
-                        }, () => {
-                            this.openModal()
-                        });
-                    } else {
-                        this.showErrorModal(response.body.message);
-                    }
-                }), 'pageWrapper')
+        if (!checkIfTokenExpired(this.props.store.login.token!)) {
+            trackPromise(
+                checkProductService(requestData)
+                    .then((response: any) => {
+                        console.log('response', response);
+                        if (response.statusCode === 200) {
+                            this.setState({
+                                product: response.body,
+                            }, () => {
+                                this.openModal()
+                            });
+                        } else {
+                            this.showErrorModal(response.body.message);
+                        }
+                    }), 'pageWrapper')
+        } else {
+            alert('Sesja wygasła, prosimy zalogować się ponownie');
+            logoutUser();
+        }
     };
 
     handleChange = (event: any) => {

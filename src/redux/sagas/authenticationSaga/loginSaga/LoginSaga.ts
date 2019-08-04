@@ -9,7 +9,19 @@ export function* loginSaga(payload: LoginSagaPayload) {
         if (response.statusCode === 200) {
             yield put({type: types.LOGIN_USER_SUCCESS, token: response.body.token});
         } else {
-            throw new Error(response.body.message === 'BAD_EMAIL_OR_PASSWORD' ? 'Niepoprawny e-mail lub hasło' : 'Wystąpił błąd, prosimy spróbować później');
+            let errorMessage;
+            switch (response.body.message) {
+                case 'USER_DOES_NOT_EXIST':
+                    errorMessage = 'Użytkownik o podanym adresie email nie istnieje';
+                    break;
+                case 'BAD_EMAIL_OR_PASSWORD':
+                    errorMessage = 'Niepoprawny e-mail lub hasło';
+                    break;
+                default:
+                    errorMessage = 'Wystąpił błąd, prosimy spróbować później';
+                    break;
+            }
+            throw new Error(errorMessage);
         }
     } catch (error) {
         yield put({type: types.LOGIN_USER_ERROR, errorMessage: error.message});

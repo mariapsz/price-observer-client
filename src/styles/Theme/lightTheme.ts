@@ -2,10 +2,10 @@ import {Theme} from './Theme';
 
 const lightTheme: Theme = {
     button: {
-        background: '#2d635f',
+        background: '#3f827d',
         backgroundOnHover: '#4ba29d',
         backgroundOnDisabled: '#70A19E',
-        borderColor: 'rgb(24,99,93)',
+        borderColor: '#536E6C',
         borderColorOnDisabled: '#60807e45',
         fontColor: 'white',
     },
@@ -33,7 +33,7 @@ const lightTheme: Theme = {
         buttonBorderColor: 'rgb(169, 142, 130)',
     },
     newProductConfirmation: {
-        productNameLabelColor: '#be714e',
+        productNameLabelColor: '#c0663e',
         customLabelFontColor: '#71777a',
         productNameWrapperBackground: '#b0b5bd1f',
     }

@@ -46,7 +46,7 @@ export const Cell = styled.div`
     return 'rgba(216, 224, 234, 0.38)';
 }
     }};
-    cursor:  ${(props: CellProps) => props.isHeaderCell && props.contentType !== 'removeProductButton' && props.contentType !== 'imgSrc' ? 'pointer' : 'initial'};
+    cursor:  ${(props: CellProps) => props.isHeaderCell && props.contentType !== 'removeProductButton' && props.contentType !== 'imgSrc' ? 'pointer' : 'inherit'};
     }   
    
     @media(max-width: 800px) {

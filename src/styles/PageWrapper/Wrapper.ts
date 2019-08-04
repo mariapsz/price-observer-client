@@ -6,5 +6,5 @@ export const Wrapper = styled.div`
   flex-direction: column;
   height: 100vh;
   background: ${(props: StyledComponentsProps) => props.theme.pageWrapper.pageBackground};
-  cursor: ${(props: StyledComponentsProps) => props.promiseInProgress ? 'progress' : 'initial'};
+  cursor: ${(props: StyledComponentsProps) => props.promiseInProgress ? 'progress'  : 'initial'};
 `;

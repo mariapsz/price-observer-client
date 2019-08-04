@@ -10,12 +10,25 @@ import {AppState} from '../../../redux/store/storeDataModels/AppState';
 import {connect} from 'react-redux';
 import {ProductsListProps} from './ProductsListProps';
 import ProductsListLoader from '../../Loader/ProductsListLoader';
+import {ProductsListState} from './ProductsListState';
+import EditProductModal from './EditProductModal/EditProductModal';
+import RemoveProductModal from './RemoveProductModal/RemoveProductModal';
+import {EmptyListInfo} from '../../../styles/ProductsList/EmptyListInfo';
+import {EmptyListInfoWrapper} from '../../../styles/ProductsList/EmptyListInfoWrapper';
 
 
-class ProductsList extends React.Component<ProductsListProps> {
+class ProductsList extends React.Component<ProductsListProps, ProductsListState> {
 
     constructor(props: ProductsListProps) {
         super(props);
+
+        this.state = {
+            showEditProductModal: false,
+            showRemoveProductModal: false,
+            productsList: this.props.productsList,
+            productToEdit: undefined,
+            productToRemove: undefined,
+        }
     }
 
     sortByName = () => {
@@ -45,12 +58,12 @@ class ProductsList extends React.Component<ProductsListProps> {
 
     sortByExpectedPrice = () => {
         if (this.props.productsList.length > 1) {
-            if (this.props.productsList[0].expectedPrice!.count > this.props.productsList[1].expectedPrice!.count)
+            if (this.props.productsList[0].usersDetails![0].expectedPrice.count > this.props.productsList[1].usersDetails![0].expectedPrice.count)
                 this.setState({
-                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.expectedPrice!.count > b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count > a.expectedPrice!.count) ? -1 : 0)),
+                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.usersDetails![0].expectedPrice!.count > b.usersDetails![0].expectedPrice!.count) ? 1 : ((b.usersDetails![0].expectedPrice!.count > a.usersDetails![0].expectedPrice!.count) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.expectedPrice!.count < b.expectedPrice!.count) ? 1 : ((b.expectedPrice!.count < a.expectedPrice!.count) ? -1 : 0)),
+                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.usersDetails![0].expectedPrice.count < b.usersDetails![0].expectedPrice!.count) ? 1 : ((b.usersDetails![0].expectedPrice!.count < a.usersDetails![0].expectedPrice!.count) ? -1 : 0)),
             });
         }
     };
@@ -59,34 +72,80 @@ class ProductsList extends React.Component<ProductsListProps> {
         if (this.props.productsList.length > 1) {
             if (this.props.productsList[0].dateOfAdding! > this.props.productsList[1].dateOfAdding!)
                 this.setState({
-                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
+                    productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.usersDetails![0].expectedPrice! > b.usersDetails![0].expectedPrice!) ? 1 : ((b.usersDetails![0].expectedPrice! > a.usersDetails![0].expectedPrice!) ? -1 : 0)),
                 });
             else this.setState({
-                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.dateOfAdding! > b.dateOfAdding!) ? 1 : ((b.dateOfAdding! > a.dateOfAdding!) ? -1 : 0)),
+                productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.usersDetails![0].expectedPrice! > b.usersDetails![0].expectedPrice!) ? 1 : ((b.usersDetails![0].expectedPrice! > a.usersDetails![0].expectedPrice!) ? -1 : 0)),
             });
         }
+    };
+
+    showEditProductModal = (product: ProductData) => {
+        this.setState({
+            showEditProductModal: true,
+            productToEdit: product,
+        })
+    };
+
+    handleCloseEditProductModal = () => {
+        this.setState({
+            showEditProductModal: false,
+            productToEdit: undefined,
+        })
+    };
+
+    showRemoveProductModal = (product: ProductData) => {
+        this.setState({
+            showRemoveProductModal: true,
+            productToRemove: product,
+        })
+    };
+
+    handleCloseRemoveProductModal = () => {
+        this.setState({
+            showRemoveProductModal: false,
+            productToRemove: undefined,
+        })
     };
 
     getProductsListRows = (): JSX.Element[] =>
         this.props.productsList.map((product: ProductData, i: number) => (
             <ListRow key={i}>
-                <Cell contentType='imgSrc'>
+                <Cell
+                    contentType='imgSrc'
+                    onClick={() => this.showEditProductModal(product)}
+                >
                     <Image src={product.imgSrc}/>
                 </Cell>
-                <Cell contentType='name'>
+                <Cell
+                    contentType='name'
+                    onClick={() => this.showEditProductModal(product)}
+                >
                     {product.name}
                 </Cell>
-                <Cell contentType='currentPrice'>
+                <Cell
+                    contentType='currentPrice'
+                    onClick={() => this.showEditProductModal(product)}
+                >
                     {product.currentPrice.count} {product.currentPrice.currency}
                 </Cell>
-                <Cell contentType='expectedPrice'>
-                    {product.expectedPrice!.count} {product.expectedPrice!.currency}
+                <Cell
+                    contentType='expectedPrice'
+                    onClick={() => this.showEditProductModal(product)}
+                >
+                    {product.usersDetails![0].expectedPrice.count} {product.usersDetails![0].expectedPrice.currency}
                 </Cell>
-                <Cell contentType='dateOfAdding'>
-                    {product.dateOfAdding}
+                <Cell
+                    contentType='dateOfAdding'
+                    onClick={() => this.showEditProductModal(product)}
+                >
+                    {product.usersDetails![0].addedAt}
                 </Cell>
                 <Cell contentType='removeProductButton'>
-                    <TrashIcon className="fa fa-trash"/>
+                    <TrashIcon
+                        className="fa fa-trash"
+                        onClick={() => this.showRemoveProductModal(product)}
+                    />
                 </Cell>
             </ListRow>
         ));
@@ -114,8 +173,26 @@ class ProductsList extends React.Component<ProductsListProps> {
                 <ProductsListLoader
                     area={'productsListArea'}
                 />
-                {this.getProductsListRows()}
+                {this.props.productsList.length > 0 ? this.getProductsListRows()
+                    :
+                    <EmptyListInfoWrapper>
+                        <EmptyListInfo>Lista Twoich produktów jest pusta</EmptyListInfo>
+                    </EmptyListInfoWrapper>}
             </Frame>
+            {this.state.showEditProductModal && <EditProductModal
+                showModal={this.state.showEditProductModal}
+                product={this.state.productToEdit!}
+                handleCloseModal={this.handleCloseEditProductModal}
+                handleProductsListChanges={this.props.handleProductsListChanges}
+                handleShowRemoveProductModal={this.showRemoveProductModal}
+            />}
+            {this.state.showRemoveProductModal && <RemoveProductModal
+                showModal={this.state.showRemoveProductModal}
+                product={this.state.productToRemove!}
+                handleCloseModal={this.handleCloseRemoveProductModal}
+                handleProductsListChanges={this.props.handleProductsListChanges}
+                handleCloseEditProductModal={this.handleCloseEditProductModal}
+            />}
         </div>
     }
 }
