@@ -7,11 +7,29 @@ import {Wrapper} from '../../../../styles/RemoveProductModal/Wrapper';
 import {HeaderLabel, Label} from '../../../../styles/RemoveProductModal/Label';
 import {ButtonsWrapper} from '../../../../styles/RemoveProductModal/ButtonsWrapper';
 import {Button, SubmitButton} from '../../../../styles/RemoveProductModal/Button';
+import {removeProductService} from '../../../../services/productService';
+import {RemoveProductRequest} from '../../../../dataModels/requests/RemoveProductRequest';
 
 const RemoveProductModal = (props: RemoveProductModalProps) => {
 
     const removeProduct = () => {
+        const request: RemoveProductRequest = {
+            body: props.product,
+            token: props.store.login.token!,
+        };
+        removeProductService(request).then(
+            (response: any) => {
+                if (response.statusCode === 200) {
+                    showServerMessageModal('Produkt został usunięty!');
+                    props.handleCloseModal();
+                    props.handleProductsListChanges();
+                } else showServerMessageModal(response.body.message);
+            })
 
+    };
+
+    const showServerMessageModal = (message: string) => {
+        alert(message);
     };
 
     return <ReactModal
@@ -41,7 +59,10 @@ const RemoveProductModal = (props: RemoveProductModalProps) => {
                     onClick={props.handleCloseModal}>
                     ANULUJ
                 </Button>
-                <SubmitButton>USUŃ PRODUKT</SubmitButton>
+                <SubmitButton
+                    onClick={() => removeProduct()}>
+                    USUŃ PRODUKT
+                </SubmitButton>
             </ButtonsWrapper>
         </Wrapper>
     </ReactModal>

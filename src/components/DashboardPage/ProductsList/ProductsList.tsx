@@ -56,7 +56,7 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
 
     sortByExpectedPrice = () => {
         if (this.props.productsList.length > 1) {
-            if (this.props.productsList[0].expectedPrice!.count > this.props.productsList[1].expectedPrice!.count)
+            if (this.props.productsList[0].usersDetails![0].expectedPrice.count > this.props.productsList[1].usersDetails![0].expectedPrice.count)
                 this.setState({
                     productsList: this.props.productsList.sort((a: ProductData, b: ProductData) => (a.usersDetails![0].expectedPrice!.count > b.usersDetails![0].expectedPrice!.count) ? 1 : ((b.usersDetails![0].expectedPrice!.count > a.usersDetails![0].expectedPrice!.count) ? -1 : 0)),
                 });

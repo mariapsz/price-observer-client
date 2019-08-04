@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactModal from 'react-modal';
-import {addProductService} from '../../../../services/productOperationsService';
+import {addProductService} from '../../../../services/productService';
 import NewProductConfirmationModalProps from './NewProductConfirmationModalProps';
 import NewProductConfirmationModalState from './NewProductConfirmationModalState';
 import {FormContentWrapper} from '../../../../styles/NewProductConfirmationModal/FormContentWrapper';

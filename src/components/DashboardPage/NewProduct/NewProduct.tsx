@@ -1,5 +1,5 @@
 import * as React from "react";
-import {checkProductService} from '../../../services/productOperationsService';
+import {checkProductService} from '../../../services/productService';
 import {NewProductState} from './NewProductState';
 import NewProductConfirmationModal from './NewProductConfirmationModal/NewProductConfirmationModal';
 import {SectionTitle} from '../../../styles/Common/SectionTitle';

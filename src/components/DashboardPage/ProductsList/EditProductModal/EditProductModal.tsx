@@ -19,6 +19,9 @@ import {Select} from '../../../../styles/EditProductModal/Select';
 import {connect} from 'react-redux';
 import {AppState} from '../../../../redux/store/storeDataModels/AppState';
 import {RemoveProductButton} from '../../../../styles/EditProductModal/RemoveProductButton';
+import {EditProductRequest} from '../../../../dataModels/requests/EditProductRequest';
+import {editProductService} from '../../../../services/productService';
+import {trackPromise} from 'react-promise-tracker';
 
 class EditProductModal extends React.Component<EditProductModalProps, EditProductModalState> {
 
@@ -33,34 +36,31 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
     handleSubmit = (event: any) => {
         event.preventDefault();
 
-       // const request: AddProductRequest =  {
-       //         ...this.props.product,
-       //         usersDetails: [{expectedPrice: {count: event.target.expectedPrice.value, currency: 'zł'}}]
-       //         // size: event.target.size.value,
-       //     },
-//
-       // trackPromise(
-       //     addProductService(request).then((response: any) => {
-       //         if (response.statusCode === 200) {
-       //             this.showSuccessModal('Produkt został dodany!');
-       //             this.props.handleProductsListChanges();
-       //         } else {
-       //             let message;
-       //             switch (response.body.message) {
-       //                 case 'THIS_DOMAIN_IS_NOT_SUPPORTED':
-       //                     message = 'Niestety jeszcze nie obsługujemy tego serwisu';
-       //                     break;
-       //                 case 'USER_ALREADY_ASSIGNED_TO_PRODUCT':
-       //                     message = 'Ten produkt już został dodany. \nJeżeli chcesz go edytować, znajdź dany produkt na liście Twoich produktów i kliknij w odpowiadający mu wiersz w tabeli';
-       //                     break;
-       //                 default:
-       //                     message = 'Wystąpił błąd, prosimy spróbować później';
-       //                     break;
-       //             }
-       //             this.showErrorModal(message);
-       //         }
-       //         this.props.handleCloseModal();
-       //     }), 'pageWrapper');
+        const request: EditProductRequest = {
+            body: {
+                ...this.props.product,
+                usersDetails: [{expectedPrice: {count: event.target.expectedPrice.value, currency: 'zł'}}]
+                // size: event.target.size.value,
+            },
+            token: this.props.store.login.token!,
+        };
+
+        trackPromise(
+            editProductService(request).then((response: any) => {
+                if (response.statusCode === 200) {
+                    this.showSuccessModal('Produkt został zmodyfikowany pomyślnie!');
+                    this.props.handleProductsListChanges();
+                } else {
+                    let message;
+                    switch (response.body.message) {
+                        default:
+                            message = 'Wystąpił błąd, prosimy spróbować później';
+                            break;
+                    }
+                    this.showErrorModal(message);
+                }
+                this.props.handleCloseModal();
+            }), 'pageWrapper');
     };
 
     showSuccessModal = (message: string) => {
@@ -133,7 +133,7 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                                 <PriceWrapper>
                                     <InputWrapper>
                                         <Input name='expectedPrice' type='number' min='0'
-                                               max={this.props.product.usersDetails![0].expectedPrice.count}
+                                               max={this.props.product.currentPrice.count}
                                                required onInvalid={this.handleInvalid}/>
                                     </InputWrapper>
                                     <PriceLabel>PLN</PriceLabel>
@@ -168,7 +168,7 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                             <RowWrapper>
                                 <Label>
                                     Kategoria:
-                                 </Label>
+                                </Label>
                                 <PropertyLabel>
                                     {this.props.product.category}
                                 </PropertyLabel>

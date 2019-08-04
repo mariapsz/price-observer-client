@@ -4,7 +4,7 @@ import NewProduct from './NewProduct/NewProduct';
 import DashboardPageWrapper from '../../hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper';
 import {DashboardPageState} from './DashboardPageState';
 import {GetProductsListRequest} from '../../dataModels/requests/GetProductsListRequest';
-import {getProductsListService} from '../../services/productOperationsService';
+import {getProductsListService} from '../../services/productService';
 import {AppState} from '../../redux/store/storeDataModels/AppState';
 import {connect} from 'react-redux';
 import {DashboardPageProps} from './DashboardPageProps';
