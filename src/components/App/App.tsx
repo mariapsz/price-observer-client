@@ -8,6 +8,7 @@ import SettingsPage from '../SettingsPage/SettingsPage';
 import StartPage from '../StartPage/StartPage';
 import {ThemeResolver} from '../../hoc/ThemeResolver/ThemeResolver';
 import PublicRoute from './PublicRoute';
+import ForgotPasswordPage from '../ForgotPasswordPage/ForgotPasswordPage';
 
 class App extends Component {
     render() {
@@ -17,6 +18,7 @@ class App extends Component {
                     <Switch>
                         <PublicRoute path='/' exact={true} component={StartPage}/>
                         <PublicRoute path='/login' component={LoginPage}/>
+                        <PublicRoute path='/password_reminder' component={ForgotPasswordPage}/>
                         <PublicRoute path='/rejestracja' component={RegisterPage}/>
                         <PrivateRoute path='/home' component={DashboardPage}/>
                         <PrivateRoute path='/ustawienia' component={SettingsPage}/>
