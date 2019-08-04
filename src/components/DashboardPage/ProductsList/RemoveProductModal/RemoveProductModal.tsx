@@ -22,10 +22,10 @@ const RemoveProductModal = (props: RemoveProductModalProps) => {
                 if (response.statusCode === 200) {
                     showServerMessageModal('Produkt został usunięty!');
                     props.handleCloseModal();
+                    props.handleCloseEditProductModal();
                     props.handleProductsListChanges();
-                } else showServerMessageModal(response.body.message);
+                } else showServerMessageModal('Wystąpił błąd, prosimy spróbować później');
             })
-
     };
 
     const showServerMessageModal = (message: string) => {

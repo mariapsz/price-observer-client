@@ -7,4 +7,5 @@ export interface RemoveProductModalProps {
     handleCloseModal: () => void,
     handleProductsListChanges: () => void,
     store: AppState,
+    handleCloseEditProductModal: () => void,
 }

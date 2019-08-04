@@ -76,8 +76,13 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
     );
 
     getSelectSizeElement = () => (
-        <Select name='size' required>
-            <option disabled selected hidden>Wybierz rozmiar</option>
+        <Select
+            name='size'
+            required>
+            <option
+                disabled selected hidden>
+                Wybierz rozmiar
+            </option>
             {this.getOptions(this.props.product.sizeOptions!)}
         </Select>
     );
@@ -109,10 +114,14 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                     padding: '5px',
                 }
             }}>
-            <form onSubmit={this.handleSubmit} onChange={this.handleFormState}>
+            <form
+                onSubmit={this.handleSubmit}
+                onChange={this.handleFormState}>
                 <FormContentWrapper>
                     <Left>
-                        <Image src={this.props.product.imgSrc} alt='product photo'/>
+                        <Image
+                            src={this.props.product.imgSrc}
+                            alt='product photo'/>
                     </Left>
                     <Right>
                         <ParametersWrapper>
@@ -132,9 +141,12 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                                 <Label>Oczekiwana cena:</Label>
                                 <PriceWrapper>
                                     <InputWrapper>
-                                        <Input name='expectedPrice' type='number' min='0'
-                                               max={this.props.product.currentPrice.count}
-                                               required onInvalid={this.handleInvalid}/>
+                                        <Input
+                                            name='expectedPrice'
+                                            type='number'
+                                            min='0'
+                                            max={this.props.product.currentPrice.count}
+                                            required onInvalid={this.handleInvalid}/>
                                     </InputWrapper>
                                     <PriceLabel>PLN</PriceLabel>
                                 </PriceWrapper>
@@ -175,10 +187,21 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                             </RowWrapper>
                         </ParametersWrapper>
                         <ButtonsWrapper>
-                            <CancelButton onClick={this.props.handleCloseModal}>ANULUJ</CancelButton>
-                            <RemoveProductButton onClick={this.props.handleCloseModal}>USUŃ</RemoveProductButton>
-                            <SubmitButton type='submit' value='ZAPISZ'
-                                          disabled={this.state.submitButtonDisabled}/>
+                            <CancelButton
+                                onClick={this.props.handleCloseModal}>
+                                ANULUJ
+                            </CancelButton>
+                            <RemoveProductButton
+                                onClick={(e: any) => {
+                                    e.preventDefault();
+                                    this.props.handleShowRemoveProductModal(this.props.product)
+                                }}>
+                                USUŃ
+                            </RemoveProductButton>
+                            <SubmitButton
+                                type='submit'
+                                value='ZAPISZ'
+                                disabled={this.state.submitButtonDisabled}/>
                         </ButtonsWrapper>
                     </Right>
                 </FormContentWrapper>

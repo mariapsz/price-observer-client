@@ -13,6 +13,8 @@ import ProductsListLoader from '../../Loader/ProductsListLoader';
 import {ProductsListState} from './ProductsListState';
 import EditProductModal from './EditProductModal/EditProductModal';
 import RemoveProductModal from './RemoveProductModal/RemoveProductModal';
+import {EmptyListInfo} from '../../../styles/ProductsList/EmptyListInfo';
+import {EmptyListInfoWrapper} from '../../../styles/ProductsList/EmptyListInfoWrapper';
 
 
 class ProductsList extends React.Component<ProductsListProps, ProductsListState> {
@@ -171,19 +173,25 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
                 <ProductsListLoader
                     area={'productsListArea'}
                 />
-                {this.getProductsListRows()}
+                {this.props.productsList.length > 0 ? this.getProductsListRows()
+                    :
+                    <EmptyListInfoWrapper>
+                        <EmptyListInfo>Lista Twoich produktów jest pusta</EmptyListInfo>
+                    </EmptyListInfoWrapper>}
             </Frame>
             {this.state.showEditProductModal && <EditProductModal
                 showModal={this.state.showEditProductModal}
                 product={this.state.productToEdit!}
                 handleCloseModal={this.handleCloseEditProductModal}
                 handleProductsListChanges={this.props.handleProductsListChanges}
+                handleShowRemoveProductModal={this.showRemoveProductModal}
             />}
             {this.state.showRemoveProductModal && <RemoveProductModal
                 showModal={this.state.showRemoveProductModal}
                 product={this.state.productToRemove!}
                 handleCloseModal={this.handleCloseRemoveProductModal}
                 handleProductsListChanges={this.props.handleProductsListChanges}
+                handleCloseEditProductModal={this.handleCloseEditProductModal}
             />}
         </div>
     }

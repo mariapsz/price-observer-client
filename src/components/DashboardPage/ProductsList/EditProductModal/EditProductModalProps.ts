@@ -7,4 +7,5 @@ export default interface EditProductModalProps {
     handleCloseModal: () => void,
     handleProductsListChanges: () => void,
     store: AppState,
+    handleShowRemoveProductModal: (product: ProductData) => void,
 }
