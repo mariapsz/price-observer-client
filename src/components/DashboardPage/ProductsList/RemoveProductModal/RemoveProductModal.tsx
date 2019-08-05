@@ -9,23 +9,31 @@ import {ButtonsWrapper} from '../../../../styles/RemoveProductModal/ButtonsWrapp
 import {Button, SubmitButton} from '../../../../styles/RemoveProductModal/Button';
 import {removeProductService} from '../../../../services/productService';
 import {RemoveProductRequest} from '../../../../dataModels/requests/RemoveProductRequest';
+import {checkIfTokenExpired} from '../../../../utils/checkIfTokenExpired';
+import {logoutUser} from '../../../../utils/logoutUser';
 
 const RemoveProductModal = (props: RemoveProductModalProps) => {
 
     const removeProduct = () => {
-        const request: RemoveProductRequest = {
-            body: props.product,
-            token: props.store.login.token!,
-        };
-        removeProductService(request).then(
-            (response: any) => {
-                if (response.statusCode === 200) {
-                    showServerMessageModal('Produkt został usunięty!');
-                    props.handleCloseModal();
-                    props.handleCloseEditProductModal();
-                    props.handleProductsListChanges();
-                } else showServerMessageModal('Wystąpił błąd, prosimy spróbować później');
-            })
+
+        if (!checkIfTokenExpired(props.store.login.token!)) {
+            const request: RemoveProductRequest = {
+                body: props.product,
+                token: props.store.login.token!,
+            };
+            removeProductService(request).then(
+                (response: any) => {
+                    if (response.statusCode === 200) {
+                        showServerMessageModal('Produkt został usunięty!');
+                        props.handleCloseModal();
+                        props.handleCloseEditProductModal();
+                        props.handleProductsListChanges();
+                    } else showServerMessageModal('Wystąpił błąd, prosimy spróbować później');
+                })
+        } else {
+            alert('Sesja wygasła, prosimy zalogować się ponownie');
+            logoutUser();
+        }
     };
 
     const showServerMessageModal = (message: string) => {

@@ -14,6 +14,8 @@ import {UserDetails} from '../../../dataModels/UserDetails';
 import {usePromiseTracker} from 'react-promise-tracker';
 import {DashboardPageWrapperProps} from './DashboardPageWrapperProps';
 import {AppState} from '../../../redux/store/storeDataModels/AppState';
+import {Link} from 'react-router-dom';
+import {LinkToHome} from '../../../styles/PageWrapper/LinkToHome';
 
 
 const DashboardPageWrapper = (props: DashboardPageWrapperProps) => {
@@ -33,12 +35,14 @@ const DashboardPageWrapper = (props: DashboardPageWrapperProps) => {
         promiseInProgress={promiseInProgress}>
         <TopBarWrapper>
             <TopBar>
-                <div>
+                <LinkToHome to='/home'>
                     <Title>ALERT CENOWY</Title>
-                </div>
+                </LinkToHome>
                 <UserPanel>
                     <NickName>{getNickname()}</NickName>
+                    <Link to='/ustawienia'>
                     <SettingsIcon className="fa fa-cog fa-5x"/>
+                    </Link>
                     <Icon className="fa fa-power-off" onClick={logoutUser}/>
                 </UserPanel>
             </TopBar>

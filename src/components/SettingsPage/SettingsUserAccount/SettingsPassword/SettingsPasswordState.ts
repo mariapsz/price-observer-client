@@ -1,5 +1,5 @@
 export interface SettingsPasswordState {
-    isDisabled: boolean,
+    submitButtonDisabled: boolean,
     errorMessage: string | undefined,
     currentPassword: string,
     newPassword: string,

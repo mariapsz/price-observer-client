@@ -22,6 +22,8 @@ import {RemoveProductButton} from '../../../../styles/EditProductModal/RemovePro
 import {EditProductRequest} from '../../../../dataModels/requests/EditProductRequest';
 import {editProductService} from '../../../../services/productService';
 import {trackPromise} from 'react-promise-tracker';
+import {checkIfTokenExpired} from '../../../../utils/checkIfTokenExpired';
+import {logoutUser} from '../../../../utils/logoutUser';
 
 class EditProductModal extends React.Component<EditProductModalProps, EditProductModalState> {
 
@@ -44,23 +46,27 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
             },
             token: this.props.store.login.token!,
         };
-
-        trackPromise(
-            editProductService(request).then((response: any) => {
-                if (response.statusCode === 200) {
-                    this.showSuccessModal('Produkt został zmodyfikowany pomyślnie!');
-                    this.props.handleProductsListChanges();
-                } else {
-                    let message;
-                    switch (response.body.message) {
-                        default:
-                            message = 'Wystąpił błąd, prosimy spróbować później';
-                            break;
+        if (!checkIfTokenExpired(this.props.store.login.token!)) {
+            trackPromise(
+                editProductService(request).then((response: any) => {
+                    if (response.statusCode === 200) {
+                        this.showSuccessModal('Produkt został zmodyfikowany pomyślnie!');
+                        this.props.handleProductsListChanges();
+                    } else {
+                        let message;
+                        switch (response.body.message) {
+                            default:
+                                message = 'Wystąpił błąd, prosimy spróbować później';
+                                break;
+                        }
+                        this.showErrorModal(message);
                     }
-                    this.showErrorModal(message);
-                }
-                this.props.handleCloseModal();
-            }), 'pageWrapper');
+                    this.props.handleCloseModal();
+                }), 'pageWrapper');
+        } else {
+            alert('Sesja wygasła, prosimy zalogować się ponownie');
+            logoutUser();
+        }
     };
 
     showSuccessModal = (message: string) => {
@@ -145,7 +151,7 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                                             name='expectedPrice'
                                             type='number'
                                             min='0'
-                                            max={this.props.product.currentPrice.count}
+                                            max={this.props.product.currentPrice.count - 0.01}
                                             required onInvalid={this.handleInvalid}/>
                                     </InputWrapper>
                                     <PriceLabel>PLN</PriceLabel>

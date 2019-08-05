@@ -108,47 +108,53 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
         })
     };
 
-    getProductsListRows = (): JSX.Element[] =>
-        this.props.productsList.map((product: ProductData, i: number) => (
-            <ListRow key={i}>
-                <Cell
-                    contentType='imgSrc'
-                    onClick={() => this.showEditProductModal(product)}
-                >
-                    <Image src={product.imgSrc}/>
-                </Cell>
-                <Cell
-                    contentType='name'
-                    onClick={() => this.showEditProductModal(product)}
-                >
-                    {product.name}
-                </Cell>
-                <Cell
-                    contentType='currentPrice'
-                    onClick={() => this.showEditProductModal(product)}
-                >
-                    {product.currentPrice.count} {product.currentPrice.currency}
-                </Cell>
-                <Cell
-                    contentType='expectedPrice'
-                    onClick={() => this.showEditProductModal(product)}
-                >
-                    {product.usersDetails![0].expectedPrice.count} {product.usersDetails![0].expectedPrice.currency}
-                </Cell>
-                <Cell
-                    contentType='dateOfAdding'
-                    onClick={() => this.showEditProductModal(product)}
-                >
-                    {product.usersDetails![0].addedAt}
-                </Cell>
-                <Cell contentType='removeProductButton'>
-                    <TrashIcon
-                        className="fa fa-trash"
-                        onClick={() => this.showRemoveProductModal(product)}
-                    />
-                </Cell>
-            </ListRow>
-        ));
+    getProductsListRows = (): JSX.Element[] | JSX.Element => {
+        if (this.props.productsList.length < 1)
+            return <EmptyListInfoWrapper>
+                <EmptyListInfo>Lista Twoich produktów jest pusta</EmptyListInfo>
+            </EmptyListInfoWrapper>;
+        else
+            return this.props.productsList.map((product: ProductData, i: number) => (
+                <ListRow key={i}>
+                    <Cell
+                        contentType='imgSrc'
+                        onClick={() => this.showEditProductModal(product)}
+                    >
+                        <Image src={product.imgSrc}/>
+                    </Cell>
+                    <Cell
+                        contentType='name'
+                        onClick={() => this.showEditProductModal(product)}
+                    >
+                        {product.name}
+                    </Cell>
+                    <Cell
+                        contentType='currentPrice'
+                        onClick={() => this.showEditProductModal(product)}
+                    >
+                        {product.currentPrice.count} {product.currentPrice.currency}
+                    </Cell>
+                    <Cell
+                        contentType='expectedPrice'
+                        onClick={() => this.showEditProductModal(product)}
+                    >
+                        {product.usersDetails![0].expectedPrice.count} {product.usersDetails![0].expectedPrice.currency}
+                    </Cell>
+                    <Cell
+                        contentType='dateOfAdding'
+                        onClick={() => this.showEditProductModal(product)}
+                    >
+                        {product.usersDetails![0].addedAt}
+                    </Cell>
+                    <Cell contentType='removeProductButton'>
+                        <TrashIcon
+                            className="fa fa-trash"
+                            onClick={() => this.showRemoveProductModal(product)}
+                        />
+                    </Cell>
+                </ListRow>
+            ))
+    };
 
     render() {
         return <div>
@@ -173,11 +179,7 @@ class ProductsList extends React.Component<ProductsListProps, ProductsListState>
                 <ProductsListLoader
                     area={'productsListArea'}
                 />
-                {this.props.productsList.length > 0 ? this.getProductsListRows()
-                    :
-                    <EmptyListInfoWrapper>
-                        <EmptyListInfo>Lista Twoich produktów jest pusta</EmptyListInfo>
-                    </EmptyListInfoWrapper>}
+                {this.getProductsListRows()}
             </Frame>
             {this.state.showEditProductModal && <EditProductModal
                 showModal={this.state.showEditProductModal}
