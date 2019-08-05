@@ -2,20 +2,16 @@ import * as React from 'react';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 import {FormWrapper} from '../../styles/LoginForm/FormFrame';
 import {InnerFrame} from '../../styles/LoginForm/Frame';
-import {RowWrapper, SubmitButtonWrapper} from '../../styles/ForgotPassswordPage/RowWrapper';
-import {Label} from '../../styles/ForgotPassswordPage/Label';
-import {Input} from '../../styles/LoginForm/Input';
-import {PasswordWrapper} from '../../styles/LoginForm/PasswordWrapper';
-import {PasswordInput} from '../../styles/LoginForm/PasswordInput';
-import {TogglePasswordVisibility} from '../../styles/LoginForm/TogglePasswordVisibility';
-import {ResetPasswordLinkWrapper} from '../../styles/LoginForm/ResetPasswordLinkWrapper';
-import {ResetPasswordLink} from '../../styles/LoginForm/ResetPasswordLink';
+import {SubmitButtonWrapper} from '../../styles/ForgotPassswordPage/SubmitButtonWrapper';
+import {EmailLabel, Label} from '../../styles/ForgotPassswordPage/Label';
 import {MessageWrapper} from '../../styles/LoginForm/MessageWrapper';
 import {Message} from '../../styles/LoginForm/Message';
 import {Button} from '../../styles/LoginForm/Button';
 import {Wrapper} from '../../styles/LoginForm/Wrapper';
-import {FormEvent} from 'react';
-import {SectionTitle} from '../../styles/Common/SectionTitle';
+import {SectionTitle} from '../../styles/ForgotPassswordPage/SectionTitle';
+import {DescriptionWrapper} from '../../styles/ForgotPassswordPage/DescriptionWrapper';
+import {InputWrapper} from '../../styles/ForgotPassswordPage/InputWrapper';
+import {Input} from '../../styles/ForgotPassswordPage/Input';
 
 export interface ForgotPasswordPageState {
     submitButtonDisabled: boolean,
@@ -53,22 +49,22 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
                         </SectionTitle>
                         <form onSubmit={this.resetPassword}
                               onChange={this.handleFormState}>
-                            <RowWrapper>
+                            <DescriptionWrapper>
                                 <Label>
                                     Aby zresetować hasło, wpisz adres e-mail, na który zostało założone konto.
-                                    <br/>Na ten adres zostanie wysłana wiadomość z linkiem pozwalacjącym na ustalenie nowego
+                                    <br/>Na ten adres zostanie wysłana wiadomość z linkiem pozwalacjącym na ustawienie nowego
                                     hasła.
                                 </Label>
-                            </RowWrapper>
-                            <RowWrapper>
-                                <Label>E-mail</Label>
+                            </DescriptionWrapper>
+                            <InputWrapper>
+                                <EmailLabel>E-mail:</EmailLabel>
                                 <Input name="email"
                                        type="email"
-                                       maxLength={25}
+                                       maxLength={30}
                                        required/>
-                            </RowWrapper>
+                            </InputWrapper>
                             <MessageWrapper>
-                                <Message>{this.state.errorMessage ? this.state.errorMessage : ''}</Message>
+                                <Message>{this.state.errorMessage || ''}</Message>
                             </MessageWrapper>
                             <SubmitButtonWrapper>
                                 <Button type='submit'
