@@ -22,6 +22,7 @@ import {AppState} from '../../../../redux/store/storeDataModels/AppState';
 import {AddProductRequest} from '../../../../dataModels/requests/AddProductRequest';
 import {trackPromise} from 'react-promise-tracker';
 import {PropertyLabel} from '../../../../styles/EditProductModal/Label';
+import {Link} from 'react-router-dom';
 
 class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
 
@@ -162,7 +163,11 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
                                     Sklep:
                                 </Label>
                                 <PropertyLabel>
-                                    {this.props.product.shopName}
+                                    <a
+                                        href={this.props.product.URL}
+                                        target="_blank">
+                                        {this.props.product.shopName}
+                                    </a>
                                 </PropertyLabel>
                             </RowWrapper>
                             <RowWrapper>
