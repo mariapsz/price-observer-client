@@ -11,5 +11,6 @@ export interface ProductData {
     shopName: string | undefined;
     category: string | undefined;
     usersDetails: ProductUserDetails[] | undefined;
+    URL: string;
 }
 

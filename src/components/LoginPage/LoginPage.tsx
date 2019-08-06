@@ -96,7 +96,7 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
                                     </PasswordWrapper>
                                 </RowWrapper>
                                 <ResetPasswordLinkWrapper>
-                                    <ResetPasswordLink to='resetPassword'>Nie pamiętasz hasła?</ResetPasswordLink>
+                                    <ResetPasswordLink to='/password_reminder'>Nie pamiętasz hasła?</ResetPasswordLink>
                                 </ResetPasswordLinkWrapper>
                                 <MessageWrapper>
                                     <Message>{this.props.store.login.errorMessage ? this.props.store.login.errorMessage : ''}</Message>

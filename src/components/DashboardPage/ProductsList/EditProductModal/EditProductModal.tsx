@@ -22,6 +22,8 @@ import {RemoveProductButton} from '../../../../styles/EditProductModal/RemovePro
 import {EditProductRequest} from '../../../../dataModels/requests/EditProductRequest';
 import {editProductService} from '../../../../services/productService';
 import {trackPromise} from 'react-promise-tracker';
+import {checkIfTokenExpired} from '../../../../utils/checkIfTokenExpired';
+import {logoutUser} from '../../../../utils/logoutUser';
 
 class EditProductModal extends React.Component<EditProductModalProps, EditProductModalState> {
 
@@ -44,23 +46,27 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
             },
             token: this.props.store.login.token!,
         };
-
-        trackPromise(
-            editProductService(request).then((response: any) => {
-                if (response.statusCode === 200) {
-                    this.showSuccessModal('Produkt został zmodyfikowany pomyślnie!');
-                    this.props.handleProductsListChanges();
-                } else {
-                    let message;
-                    switch (response.body.message) {
-                        default:
-                            message = 'Wystąpił błąd, prosimy spróbować później';
-                            break;
+        if (!checkIfTokenExpired(this.props.store.login.token!)) {
+            trackPromise(
+                editProductService(request).then((response: any) => {
+                    if (response.statusCode === 200) {
+                        this.showSuccessModal('Produkt został zmodyfikowany pomyślnie!');
+                        this.props.handleProductsListChanges();
+                    } else {
+                        let message;
+                        switch (response.body.message) {
+                            default:
+                                message = 'Wystąpił błąd, prosimy spróbować później';
+                                break;
+                        }
+                        this.showErrorModal(message);
                     }
-                    this.showErrorModal(message);
-                }
-                this.props.handleCloseModal();
-            }), 'pageWrapper');
+                    this.props.handleCloseModal();
+                }), 'pageWrapper');
+        } else {
+            alert('Sesja wygasła, prosimy zalogować się ponownie');
+            logoutUser();
+        }
     };
 
     showSuccessModal = (message: string) => {
@@ -86,6 +92,11 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
             {this.getOptions(this.props.product.sizeOptions!)}
         </Select>
     );
+
+    parseDate = (dateToParse: string): string => {
+        const date = new Date(dateToParse);
+        return date.toLocaleString();
+    };
 
     handleFormState = (event: any) => {
         const isDisabled = !event.currentTarget.reportValidity() || (event.currentTarget.size && event.currentTarget.size.value == 'Wybierz rozmiar');
@@ -145,7 +156,7 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                                             name='expectedPrice'
                                             type='number'
                                             min='0'
-                                            max={this.props.product.currentPrice.count}
+                                            max={this.props.product.currentPrice.count - 0.01}
                                             required onInvalid={this.handleInvalid}/>
                                     </InputWrapper>
                                     <PriceLabel>PLN</PriceLabel>
@@ -166,7 +177,11 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                                     Sklep:
                                 </Label>
                                 <PropertyLabel>
-                                    {this.props.product.shopName}
+                                    <a
+                                        href={this.props.product.URL}
+                                        target="_blank">
+                                        {this.props.product.shopName}
+                                    </a>
                                 </PropertyLabel>
                             </RowWrapper>
                             <RowWrapper>
@@ -174,7 +189,7 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                                     Data dodania:
                                 </Label>
                                 <PropertyLabel>
-                                    {this.props.product.usersDetails![0].addedAt!}
+                                    {this.parseDate(this.props.product.usersDetails![0].addedAt!)}
                                 </PropertyLabel>
                             </RowWrapper>
                             <RowWrapper>

@@ -1,25 +1,22 @@
 import * as React from 'react';
-import {
-    Form,
-    FormRow,
-    FormWrapper,
-    Input,
-    InputWrapper,
-    RowLabel,
-    RowWrapper, SubmitButton
-} from './SettingsPasswordStyles';
 import {getCookie} from '../../../../utils/cookies';
 import {COOKIE_NAME_TOKEN, COOKIE_NAME_USER_NAME} from '../../../../config';
 import {SettingsPasswordState} from './SettingsPasswordState';
 import {SetPasswordRequest} from '../../../../dataModels/requests';
 import {changePasswordService} from '../../../../services/settingsService';
+import {SectionTitle} from '../../../../styles/SettingPassword/SectionTitle';
+import {Wrapper} from '../../../../styles/SettingPassword/Wrapper';
+import {Label} from '../../../../styles/SettingPassword/Label';
+import {RowWrapper, SubmitButtonWrapper} from '../../../../styles/SettingPassword/RowWrapper';
+import {Input} from '../../../../styles/SettingPassword/Input';
+import {SubmitButton} from '../../../../styles/SettingPassword/SubmitButton';
 
 export default class SettingsPassword extends React.Component<{}, SettingsPasswordState> {
 
     constructor(props: {}) {
         super(props);
         this.state = {
-            isDisabled: false,
+            submitButtonDisabled: true,
             errorMessage: undefined,
             currentPassword: '',
             newPassword: '',
@@ -41,34 +38,38 @@ export default class SettingsPassword extends React.Component<{}, SettingsPasswo
         )
     };
 
-    handleFormState = (e: any) => {
+    handleCurrentPassword = (e: any) => {
+        e.preventDefault();
         this.setState({
-            isDisabled: !e.currentTarget.reportValidity(),
+            currentPassword: e.target.value,
         })
     };
 
     handleNewPasswordRepeated = (e: any) => {
+        e.preventDefault();
         this.setState({
             newPasswordRepeated: e.target.value,
         })
     };
 
 
-    handleCurrentPassword = (e: any) => {
-        this.setState({
-            currentPassword: e.target.value,
-        })
-    };
-
     handleNewPassword = (e: any) => {
+        e.preventDefault();
         this.setState({
             newPassword: e.target.value,
         })
     };
 
+    handleFormState = (event: any) => {
+        event.preventDefault();
+        this.setState({
+            submitButtonDisabled: !event.currentTarget.reportValidity(),
+        });
+    };
+
     clearInputValues = () => {
         this.setState({
-            isDisabled: false,
+            submitButtonDisabled: false,
             errorMessage: undefined,
             currentPassword: '',
             newPassword: '',
@@ -77,38 +78,49 @@ export default class SettingsPassword extends React.Component<{}, SettingsPasswo
     };
 
     render() {
-        return <div>
-            <RowLabel>Change password</RowLabel>
-            <FormWrapper>
-                <Form onSubmit={this.handleSubmit}>
-                    <RowWrapper>
-                        <FormRow>
-                            <RowLabel>Current password</RowLabel>
-                            <Input name='currentPassword' required type='password' onChange={this.handleCurrentPassword}
-                                   value={this.state.currentPassword}/>
-                        </FormRow>
-                        <FormRow>
-                            <RowLabel>New password</RowLabel>
-                            <InputWrapper>
-                                <Input name='newPassword' required type='password' onChange={this.handleNewPassword}
-                                       value={this.state.newPassword}/>
-                            </InputWrapper>
-                        </FormRow>
-                        <FormRow>
-                            <RowLabel>Repeat new password</RowLabel>
-                            <InputWrapper>
-                                <Input name='newPasswordRepeated' required type='password'
-                                       onChange={this.handleNewPasswordRepeated}
-                                       value={this.state.newPasswordRepeated}
-                                       pattern={'^' + this.state.newPassword + '$'}
-                                />
-                            </InputWrapper>
-                        </FormRow>
-                    </RowWrapper>
-                    <input disabled={this.state.isDisabled} type='submit' value='Change password'/>
-                </Form>
-            </FormWrapper>
-        </div>
+        return <Wrapper>
+            <SectionTitle>ZMIANA HASŁA</SectionTitle>
+            <form
+                onSubmit={this.handleSubmit}
+                onChange={this.handleFormState}>
+                <RowWrapper>
+                    <Label>Obecne hasło:</Label>
+                    <Input
+                        name='currentPassword'
+                        required
+                        type='password'
+                        onChange={this.handleCurrentPassword}
+                        value={this.state.currentPassword}/>
+                </RowWrapper>
+                <RowWrapper>
+                    <Label>Nowe hasło:</Label>
+                    <Input
+                        name='newPassword'
+                        required
+                        type='password'
+                        onChange={this.handleNewPassword}
+                        value={this.state.newPassword}/>
+                </RowWrapper>
+                <RowWrapper>
+                    <Label>Powtórz nowe hasło:</Label>
+                    <Input
+                        name='newPasswordRepeated'
+                        required
+                        type='password'
+                        onChange={this.handleNewPasswordRepeated}
+                        value={this.state.newPasswordRepeated}
+                        pattern={'^' + this.state.newPassword + '$'}
+                    />
+                </RowWrapper>
+                <SubmitButtonWrapper>
+                    <SubmitButton
+                        disabled={this.state.submitButtonDisabled}
+                        type='submit'
+                        value='ZMIEŃ HASŁO'/>
+                </SubmitButtonWrapper>
+            </form>
+        </Wrapper>
     }
 }
+
 

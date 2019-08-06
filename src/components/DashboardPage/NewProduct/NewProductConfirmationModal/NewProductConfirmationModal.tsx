@@ -141,7 +141,7 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
                                 <PriceWrapper>
                                     <InputWrapper>
                                         <Input name='expectedPrice' type='number' min='0'
-                                               max={this.props.product.currentPrice.count}
+                                               max={this.props.product.currentPrice.count - 0.01}
                                                required onInvalid={this.handleInvalid}/>
                                     </InputWrapper>
                                     <PriceLabel>PLN</PriceLabel>
@@ -162,7 +162,11 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
                                     Sklep:
                                 </Label>
                                 <PropertyLabel>
-                                    {this.props.product.shopName}
+                                    <a
+                                        href={this.props.product.URL}
+                                        target="_blank">
+                                        {this.props.product.shopName}
+                                    </a>
                                 </PropertyLabel>
                             </RowWrapper>
                             <RowWrapper>
