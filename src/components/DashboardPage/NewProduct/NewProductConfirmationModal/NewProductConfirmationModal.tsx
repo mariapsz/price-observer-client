@@ -22,7 +22,6 @@ import {AppState} from '../../../../redux/store/storeDataModels/AppState';
 import {AddProductRequest} from '../../../../dataModels/requests/AddProductRequest';
 import {trackPromise} from 'react-promise-tracker';
 import {PropertyLabel} from '../../../../styles/EditProductModal/Label';
-import {Link} from 'react-router-dom';
 
 class NewProductConfirmationModal extends React.Component<NewProductConfirmationModalProps, NewProductConfirmationModalState> {
 

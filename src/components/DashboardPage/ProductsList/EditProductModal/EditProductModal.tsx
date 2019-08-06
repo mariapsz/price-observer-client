@@ -93,6 +93,11 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
         </Select>
     );
 
+    parseDate = (dateToParse: string): string => {
+        const date = new Date(dateToParse);
+        return date.toLocaleString();
+    };
+
     handleFormState = (event: any) => {
         const isDisabled = !event.currentTarget.reportValidity() || (event.currentTarget.size && event.currentTarget.size.value == 'Wybierz rozmiar');
         this.setState({
@@ -172,7 +177,11 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                                     Sklep:
                                 </Label>
                                 <PropertyLabel>
-                                    {this.props.product.shopName}
+                                    <a
+                                        href={this.props.product.URL}
+                                        target="_blank">
+                                        {this.props.product.shopName}
+                                    </a>
                                 </PropertyLabel>
                             </RowWrapper>
                             <RowWrapper>
@@ -180,7 +189,7 @@ class EditProductModal extends React.Component<EditProductModalProps, EditProduc
                                     Data dodania:
                                 </Label>
                                 <PropertyLabel>
-                                    {this.props.product.usersDetails![0].addedAt!}
+                                    {this.parseDate(this.props.product.usersDetails![0].addedAt!)}
                                 </PropertyLabel>
                             </RowWrapper>
                             <RowWrapper>
