@@ -15,21 +15,26 @@ import {Input} from '../../styles/ForgotPassswordPage/Input';
 import {resetPasswordService} from '../../services/settingsService';
 import mailRegex from '../../utils/Regex/mailRegex';
 import {ResetPasswordRequest} from '../../dataModels/requests/ResetPasswordRequest';
+import {trackPromise} from 'react-promise-tracker';
 
 export interface ForgotPasswordPageState {
     submitButtonDisabled: boolean,
     errorMessage: string | undefined,
+    email: string,
 }
 
 export default class ForgotPasswordPage extends React.Component<undefined, ForgotPasswordPageState> {
 
     constructor(props: undefined) {
         super(props);
-        this.state = {
-            submitButtonDisabled: true,
-            errorMessage: undefined,
-        };
+        this.state = this.getInitialState();
     }
+
+    getInitialState = (): ForgotPasswordPageState => ({
+        submitButtonDisabled: true,
+        errorMessage: undefined,
+        email: '',
+    });
 
     handleFormState = (event: any) => {
         event.preventDefault();
@@ -53,12 +58,33 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
         const request: ResetPasswordRequest = {
             body: {email: emailAddress,}
         };
-        resetPasswordService(request)
-            .then((res) => {
-                this.setState({
-                    errorMessage: res.body.message,
-                })
-            })
+        let result: any;
+        trackPromise(
+            resetPasswordService(request)
+                .then((res: any) => {
+                    result = res;
+                }), 'pageWrapper').then(
+            () => {
+                if (result && result.statusCode == 200) {
+                    this.setState(this.getInitialState());
+                    this.showModal(`Hasło zostało zmienione.\nNa podany przez Ciebie adres e-mail (${emailAddress}) została wysłana wiadomość z nowym hasłem.`);
+                } else
+                    this.setState({
+                        errorMessage: 'Wystąpił błąd, prosimy spróbować później',
+                    })
+            }
+        );
+
+    };
+
+    showModal = (message: string) => {
+        alert(message);
+    };
+
+    handleEmailChange = (event: any) => {
+        this.setState({
+            email: event.target.value,
+        });
     };
 
     render() {
@@ -69,30 +95,35 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
                         <SectionTitle>
                             RESETOWANIE HASŁA
                         </SectionTitle>
-                        <form onSubmit={this.handleSubmit}
-                              onChange={this.handleFormState}>
+                        <form
+                            onSubmit={this.handleSubmit}
+                            onChange={this.handleFormState}>
                             <DescriptionWrapper>
                                 <Label>
                                     Aby zresetować hasło, wpisz adres e-mail, na który zostało założone konto.
                                     <br/>Na ten adres zostanie wysłana wiadomość z linkiem pozwalacjącym na ustawienie
-                                    nowego
-                                    hasła.
+                                    nowego hasła.
                                 </Label>
                             </DescriptionWrapper>
                             <InputWrapper>
                                 <EmailLabel>E-mail:</EmailLabel>
-                                <Input name="email"
-                                       type="email"
-                                       maxLength={30}
-                                       required/>
+                                <Input
+                                    name="email"
+                                    type="email"
+                                    value={this.state.email}
+                                    onChange={this.handleEmailChange}
+                                    onInvalid={(event: any) => event.preventDefault()}
+                                    maxLength={30}
+                                    required/>
                             </InputWrapper>
                             <MessageWrapper>
                                 <Message>{this.state.errorMessage || ''}</Message>
                             </MessageWrapper>
                             <SubmitButtonWrapper>
-                                <Button type='submit'
-                                        value='RESETUJ HASŁO'
-                                        disabled={this.state.submitButtonDisabled}/>
+                                <Button
+                                    type='submit'
+                                    value='RESETUJ HASŁO'
+                                    disabled={this.state.submitButtonDisabled}/>
                             </SubmitButtonWrapper>
                         </form>
                     </InnerFrame>

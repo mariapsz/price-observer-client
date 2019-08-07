@@ -39,11 +39,9 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
                     (response: any) => {
                         if (response.statusCode === 200)
                             this.showModal('Hasło zostało zmienione.');
+                        else if (response.body.message && response.body.message === 'INVALID_PASSWORD')
+                            this.showModal('Nieprawidłowe hasło');
                         else this.showModal('Wystąpił błąd, prosimy spróbować później.');
-                        this.setState(this.getInitialState());
-                    },
-                    () => {
-                        this.showModal('Wystąpił błąd, prosimy spróbować później.');
                         this.setState(this.getInitialState());
                     }
                 )
@@ -96,7 +94,8 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
             <SectionTitle>ZMIANA HASŁA</SectionTitle>
             <form
                 onSubmit={this.handleSubmit}
-                onChange={this.handleFormState}>
+                onChange={this.handleFormState}
+                onInvalid={(e: any) => e.preventDefault()}>
                 <RowWrapper>
                     <Label>Obecne hasło:</Label>
                     <Input
