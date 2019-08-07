@@ -12,6 +12,9 @@ import {SectionTitle} from '../../styles/ForgotPassswordPage/SectionTitle';
 import {DescriptionWrapper} from '../../styles/ForgotPassswordPage/DescriptionWrapper';
 import {InputWrapper} from '../../styles/ForgotPassswordPage/InputWrapper';
 import {Input} from '../../styles/ForgotPassswordPage/Input';
+import {resetPasswordService} from '../../services/settingsService';
+import mailRegex from '../../utils/Regex/mailRegex';
+import {ResetPasswordRequest} from '../../dataModels/requests/ResetPasswordRequest';
 
 export interface ForgotPasswordPageState {
     submitButtonDisabled: boolean,
@@ -35,8 +38,27 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
         })
     };
 
-    resetPassword = () => {
+    handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (mailRegex.test(event.currentTarget.email.value)) {
+            this.resetPassword(event.currentTarget.email.value);
+        } else {
+            this.setState({
+                errorMessage: 'Należy wprowadzić adres email',
+            });
+        }
+    };
 
+    resetPassword = (emailAddress: string) => {
+        const request: ResetPasswordRequest = {
+            body: {email: emailAddress,}
+        };
+        resetPasswordService(request)
+            .then((res) => {
+                this.setState({
+                    errorMessage: res.body.message,
+                })
+            })
     };
 
     render() {
@@ -47,12 +69,13 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
                         <SectionTitle>
                             RESETOWANIE HASŁA
                         </SectionTitle>
-                        <form onSubmit={this.resetPassword}
+                        <form onSubmit={this.handleSubmit}
                               onChange={this.handleFormState}>
                             <DescriptionWrapper>
                                 <Label>
                                     Aby zresetować hasło, wpisz adres e-mail, na który zostało założone konto.
-                                    <br/>Na ten adres zostanie wysłana wiadomość z linkiem pozwalacjącym na ustawienie nowego
+                                    <br/>Na ten adres zostanie wysłana wiadomość z linkiem pozwalacjącym na ustawienie
+                                    nowego
                                     hasła.
                                 </Label>
                             </DescriptionWrapper>
