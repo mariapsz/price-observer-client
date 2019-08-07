@@ -16,8 +16,7 @@ const configureStore = (): Store<AppState> => {
         runSaga: sagaMiddleware.run(rootSaga)
     };
     store.subscribe(() => {
-        const state: AppState = store.getState();
-        delete state.login.errorMessage;
+        const state: AppState = {...store.getState()};
         saveState(state);
     });
 

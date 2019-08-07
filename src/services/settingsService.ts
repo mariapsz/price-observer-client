@@ -1,12 +1,16 @@
-import superagent, {post, Response} from 'superagent';
+import {post, Response} from 'superagent';
 import {CHANGE_PASSWORD_API_ENDPOINT, RESET_PASSWORD_API_ENDPOINT} from '../config';
-import {AuthorizationRequest} from '../dataModels/requests';
 import {ResetPasswordRequest} from '../dataModels/requests/ResetPasswordRequest';
+import {ChangePasswordRequest} from '../dataModels/requests/ChangePasswordRequest';
 
-export const changePasswordService = (request: AuthorizationRequest) => {
-    return superagent.post(CHANGE_PASSWORD_API_ENDPOINT)
-        .send(`data=${request}`)
-        .then(res => res.body)
+export const changePasswordService = (request: ChangePasswordRequest) => {
+    return post(CHANGE_PASSWORD_API_ENDPOINT)
+        .send(JSON.stringify(request.body))
+        .set('Accept', 'application/json')
+        .set('Content-Type', 'application/json')
+        .set('Authorization', `${request.token}`)
+        .then(res => res)
+        .catch(error => error.response)
 };
 
 export const resetPasswordService = (request: ResetPasswordRequest): Promise<Response> => {

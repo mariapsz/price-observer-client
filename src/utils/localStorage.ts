@@ -5,7 +5,9 @@ export const loadState = () => {
         const serializedState = localStorage.getItem('state');
         if (serializedState === null)
             return undefined;
-        return JSON.parse(serializedState);
+        const state = JSON.parse(serializedState);
+        delete state.login.errorMessage;
+        return state;
     } catch (error) {
         return undefined;
     }

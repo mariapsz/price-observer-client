@@ -1,11 +1,11 @@
 import * as React from 'react';
-import SettingsPassword from './SettingsPassword/SettingsPassword';
+import ChangePassword from './ChangePassword/ChangePassword';
 
 export default class SettingsUserAccount extends React.Component {
 
     render() {
         return <div>
-            <SettingsPassword/>
+            <ChangePassword/>
         </div>
     }
 }
