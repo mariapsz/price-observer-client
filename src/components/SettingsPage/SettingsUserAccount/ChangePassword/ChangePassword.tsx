@@ -49,14 +49,12 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
     };
 
     handleCurrentPassword = (event: any) => {
-        event.preventDefault();
         this.setState({
             currentPassword: event.target.value,
         })
     };
 
     handleNewPasswordRepeated = (event: any) => {
-        event.preventDefault();
         this.setState({
             newPasswordRepeated: event.target.value,
         })
@@ -64,14 +62,12 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
 
 
     handleNewPassword = (event: any) => {
-        event.preventDefault();
         this.setState({
             newPassword: event.target.value,
         })
     };
 
     handleFormState = (event: any) => {
-        event.preventDefault();
         this.setState({
             submitButtonDisabled: !event.currentTarget.reportValidity(),
         });
@@ -102,6 +98,8 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
                         name='currentPassword'
                         required
                         type='password'
+                        minLength={8}
+                        maxLength={25}
                         onChange={this.handleCurrentPassword}
                         value={this.state.currentPassword}/>
                 </RowWrapper>
@@ -111,6 +109,8 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
                         name='newPassword'
                         required
                         type='password'
+                        minLength={8}
+                        maxLength={25}
                         onChange={this.handleNewPassword}
                         value={this.state.newPassword}/>
                 </RowWrapper>
@@ -120,13 +120,15 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
                         name='newPasswordRepeated'
                         required
                         type='password'
+                        minLength={8}
+                        maxLength={25}
                         onChange={this.handleNewPasswordRepeated}
                         value={this.state.newPasswordRepeated}
                         pattern={'^' + this.state.newPassword + '$'}
                     />
                 </RowWrapper>
                 <RowWrapper>
-                    <Message>{this.state.errorMessage}</Message>
+                    <Message>{this.state.errorMessage || ''}</Message>
                 </RowWrapper>
                 <SubmitButtonWrapper>
                     <SubmitButton

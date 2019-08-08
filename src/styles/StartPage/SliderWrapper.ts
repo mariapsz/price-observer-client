@@ -6,7 +6,7 @@ export const SliderWrapper = styled.div`
     padding: 10px;
     border-top: 5px solid #dfdddb;
     border-bottom: 5px solid #dfdddb;
-    background: #264240;
+    background: #1d2928;
     max-width: 2000px;
     border-radius: 5px;
     width: -webkit-fill-available;

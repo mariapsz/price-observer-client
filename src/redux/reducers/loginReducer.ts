@@ -6,6 +6,8 @@ export default function (state = [], action: any) {
             return {...state, token: action.token};
         case types.LOGIN_USER_ERROR:
             return {...state, errorMessage: action.errorMessage};
+        case types.LOGIN_ERROR_MESSAGE_READ:
+            return {...state, errorMessage: ''};
         default:
             return state;
     }

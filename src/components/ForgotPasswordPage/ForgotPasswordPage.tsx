@@ -15,24 +15,19 @@ import {Input} from '../../styles/ForgotPassswordPage/Input';
 import {resetPasswordService} from '../../services/settingsService';
 import mailRegex from '../../utils/Regex/mailRegex';
 import {ResetPasswordRequest} from '../../dataModels/requests/ResetPasswordRequest';
-import {trackPromise} from 'react-promise-tracker';
+import {ForgotPasswordPageState} from './ForgotPasswordPageState';
+import {withRouter} from 'react-router';
 
-export interface ForgotPasswordPageState {
-    submitButtonDisabled: boolean,
-    errorMessage: string | undefined,
-    email: string,
-}
+class ForgotPasswordPage extends React.Component<any, ForgotPasswordPageState> {
 
-export default class ForgotPasswordPage extends React.Component<undefined, ForgotPasswordPageState> {
-
-    constructor(props: undefined) {
+    constructor(props: any) {
         super(props);
         this.state = this.getInitialState();
     }
 
     getInitialState = (): ForgotPasswordPageState => ({
         submitButtonDisabled: true,
-        errorMessage: undefined,
+        serverMessage: undefined,
         email: '',
     });
 
@@ -49,7 +44,7 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
             this.resetPassword(event.currentTarget.email.value);
         } else {
             this.setState({
-                errorMessage: 'Należy wprowadzić adres email',
+                serverMessage: 'Należy wprowadzić adres email',
             });
         }
     };
@@ -58,22 +53,23 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
         const request: ResetPasswordRequest = {
             body: {email: emailAddress,}
         };
-        let result: any;
-        trackPromise(
-            resetPasswordService(request)
-                .then((res: any) => {
-                    result = res;
-                }), 'pageWrapper').then(
-            () => {
-                if (result && result.statusCode == 200) {
-                    this.setState(this.getInitialState());
-                    this.showModal(`Hasło zostało zmienione.\nNa podany przez Ciebie adres e-mail (${emailAddress}) została wysłana wiadomość z nowym hasłem.`);
-                } else
-                    this.setState({
-                        errorMessage: 'Wystąpił błąd, prosimy spróbować później',
-                    })
-            }
-        );
+        resetPasswordService(request)
+            .then((response: any) => {
+                    if (response && response.statusCode == 200) {
+                        this.setState(this.getInitialState());
+                        this.showModal(`Hasło zostało zmienione.\nNa podany przez Ciebie adres e-mail (${emailAddress}) została wysłana wiadomość z nowym hasłem.`);
+                        this.props.history.push('/login');
+                    } else {
+                        if (response.body.message === 'USER_WITH_THIS_EMAIL_DOES_NOT_EXIST')
+                            this.setState({
+                                serverMessage: 'Nie istnieje użytkownik o podanym adresie e-mail.',
+                            });
+                        else this.setState({
+                            serverMessage: 'Wystąpił błąd, prosimy spróbować późnie.',
+                        })
+                    }
+                }
+            );
 
     };
 
@@ -117,7 +113,7 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
                                     required/>
                             </InputWrapper>
                             <MessageWrapper>
-                                <Message>{this.state.errorMessage || ''}</Message>
+                                <Message>{this.state.serverMessage || ''}</Message>
                             </MessageWrapper>
                             <SubmitButtonWrapper>
                                 <Button
@@ -132,3 +128,5 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
             </Wrapper></PageWrapper>;
     }
 };
+
+export default withRouter(ForgotPasswordPage);

@@ -6,7 +6,7 @@ export const loadState = () => {
         if (serializedState === null)
             return undefined;
         const state = JSON.parse(serializedState);
-        delete state.login.errorMessage;
+        delete state.login.serverMessage;
         return state;
     } catch (error) {
         return undefined;
