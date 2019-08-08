@@ -5,9 +5,9 @@ import * as types from '../../../actions';
 
 export function* loginSaga(payload: LoginSagaPayload) {
     try {
-        if (!payload || !payload.requestBody)
-            return;
         const response = yield call(loginUserService, payload.requestBody);
+        if(!response)
+            throw Error('Wystąpił błąd, nie można się połączyć z serwerem');
         if (response.statusCode === 200) {
             yield put({type: types.LOGIN_USER_SUCCESS, token: response.body.token});
         } else {

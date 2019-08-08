@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, Store} from 'redux';
+import {applyMiddleware, createStore, Store} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from '../reducers';
@@ -16,7 +16,7 @@ const configureStore = (): Store<AppState> => {
         runSaga: sagaMiddleware.run(rootSaga)
     };
     store.subscribe(() => {
-        const state: AppState = store.getState();
+        const state: AppState = {...store.getState()};
         saveState(state);
     });
 
