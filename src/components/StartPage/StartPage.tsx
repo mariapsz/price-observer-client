@@ -22,8 +22,9 @@ export default class StartPage extends React.Component {
                     showThumbs={false}
                     infiniteLoop
                     autoPlay
-                    interval={4400}
+                    interval={3800}
                     centerMode={false}
+                    stopOnHover={false}
                 >
                     <div>
                         <img src={slide1}/>

@@ -38,7 +38,6 @@ class NewProduct extends React.Component<NewProductProps, NewProductState> {
             trackPromise(
                 checkProductService(requestData)
                     .then((response: any) => {
-                        console.log('response', response);
                         if (response.statusCode === 200) {
                             this.setState({
                                 product: response.body,
@@ -46,7 +45,11 @@ class NewProduct extends React.Component<NewProductProps, NewProductState> {
                                 this.openModal()
                             });
                         } else {
-                            this.showErrorModal(response.body.message);
+                            if (response && response.body && response.body.message) {
+                                if (response.body.message === 'CANNOT_PARSE_PRODUCT')
+                                    this.showErrorModal('Wystąpił błąd, prawdopodobnie podany adres URL produktu jest nieprawidłowy');
+                            } else
+                                this.showErrorModal('Błąd wewnętrzny serwera, prosimy spróbować później');
                         }
                     }), 'pageWrapper')
         } else {
