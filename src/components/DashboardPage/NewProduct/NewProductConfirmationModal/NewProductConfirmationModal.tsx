@@ -45,6 +45,7 @@ class NewProductConfirmationModal extends React.Component<NewProductConfirmation
             token: this.props.store.login.token!,
         };
 
+        console.log(request.body);
         trackPromise(
             addProductService(request).then((response: any) => {
                 if (response.statusCode === 200) {

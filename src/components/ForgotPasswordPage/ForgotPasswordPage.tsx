@@ -12,21 +12,24 @@ import {SectionTitle} from '../../styles/ForgotPassswordPage/SectionTitle';
 import {DescriptionWrapper} from '../../styles/ForgotPassswordPage/DescriptionWrapper';
 import {InputWrapper} from '../../styles/ForgotPassswordPage/InputWrapper';
 import {Input} from '../../styles/ForgotPassswordPage/Input';
+import {resetPasswordService} from '../../services/settingsService';
+import mailRegex from '../../utils/Regex/mailRegex';
+import {ResetPasswordRequest} from '../../dataModels/requests/ResetPasswordRequest';
+import {ForgotPasswordPageState} from './ForgotPasswordPageState';
+import {withRouter} from 'react-router';
 
-export interface ForgotPasswordPageState {
-    submitButtonDisabled: boolean,
-    errorMessage: string | undefined,
-}
+class ForgotPasswordPage extends React.Component<any, ForgotPasswordPageState> {
 
-export default class ForgotPasswordPage extends React.Component<undefined, ForgotPasswordPageState> {
-
-    constructor(props: undefined) {
+    constructor(props: any) {
         super(props);
-        this.state = {
-            submitButtonDisabled: true,
-            errorMessage: undefined,
-        };
+        this.state = this.getInitialState();
     }
+
+    getInitialState = (): ForgotPasswordPageState => ({
+        submitButtonDisabled: true,
+        serverMessage: undefined,
+        email: '',
+    });
 
     handleFormState = (event: any) => {
         event.preventDefault();
@@ -35,8 +38,49 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
         })
     };
 
-    resetPassword = () => {
+    handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (mailRegex.test(event.currentTarget.email.value)) {
+            this.resetPassword(event.currentTarget.email.value);
+        } else {
+            this.setState({
+                serverMessage: 'Należy wprowadzić adres email',
+            });
+        }
+    };
 
+    resetPassword = (emailAddress: string) => {
+        const request: ResetPasswordRequest = {
+            body: {email: emailAddress,}
+        };
+        resetPasswordService(request)
+            .then((response: any) => {
+                    if (response && response.statusCode == 200) {
+                        this.setState(this.getInitialState());
+                        this.showModal(`Hasło zostało zmienione.\nNa podany przez Ciebie adres e-mail (${emailAddress}) została wysłana wiadomość z nowym hasłem.`);
+                        this.props.history.push('/login');
+                    } else {
+                        if (response.body.message === 'USER_WITH_THIS_EMAIL_DOES_NOT_EXIST')
+                            this.setState({
+                                serverMessage: 'Nie istnieje użytkownik o podanym adresie e-mail.',
+                            });
+                        else this.setState({
+                            serverMessage: 'Wystąpił błąd, prosimy spróbować późnie.',
+                        })
+                    }
+                }
+            );
+
+    };
+
+    showModal = (message: string) => {
+        alert(message);
+    };
+
+    handleEmailChange = (event: any) => {
+        this.setState({
+            email: event.target.value,
+        });
     };
 
     render() {
@@ -47,29 +91,35 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
                         <SectionTitle>
                             RESETOWANIE HASŁA
                         </SectionTitle>
-                        <form onSubmit={this.resetPassword}
-                              onChange={this.handleFormState}>
+                        <form
+                            onSubmit={this.handleSubmit}
+                            onChange={this.handleFormState}>
                             <DescriptionWrapper>
                                 <Label>
                                     Aby zresetować hasło, wpisz adres e-mail, na który zostało założone konto.
-                                    <br/>Na ten adres zostanie wysłana wiadomość z linkiem pozwalacjącym na ustawienie nowego
-                                    hasła.
+                                    <br/>Na ten adres zostanie wysłana wiadomość z linkiem pozwalacjącym na ustawienie
+                                    nowego hasła.
                                 </Label>
                             </DescriptionWrapper>
                             <InputWrapper>
                                 <EmailLabel>E-mail:</EmailLabel>
-                                <Input name="email"
-                                       type="email"
-                                       maxLength={30}
-                                       required/>
+                                <Input
+                                    name="email"
+                                    type="email"
+                                    value={this.state.email}
+                                    onChange={this.handleEmailChange}
+                                    onInvalid={(event: any) => event.preventDefault()}
+                                    maxLength={30}
+                                    required/>
                             </InputWrapper>
                             <MessageWrapper>
-                                <Message>{this.state.errorMessage || ''}</Message>
+                                <Message>{this.state.serverMessage || ''}</Message>
                             </MessageWrapper>
                             <SubmitButtonWrapper>
-                                <Button type='submit'
-                                        value='RESETUJ HASŁO'
-                                        disabled={this.state.submitButtonDisabled}/>
+                                <Button
+                                    type='submit'
+                                    value='RESETUJ HASŁO'
+                                    disabled={this.state.submitButtonDisabled}/>
                             </SubmitButtonWrapper>
                         </form>
                     </InnerFrame>
@@ -78,3 +128,5 @@ export default class ForgotPasswordPage extends React.Component<undefined, Forgo
             </Wrapper></PageWrapper>;
     }
 };
+
+export default withRouter(ForgotPasswordPage);

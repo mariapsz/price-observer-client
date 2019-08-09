@@ -7,3 +7,9 @@ export const loginUserAction = (requestBody: LoginRequest) => {
     requestBody,
   }
 };
+
+export const loginErrorMessageRead = () => {
+  return {
+    type: types.LOGIN_ERROR_MESSAGE_READ,
+  }
+};

@@ -1,6 +1,6 @@
 import React, {FormEvent} from 'react';
 import {connect} from 'react-redux';
-import {loginUserAction} from '../../redux/actions/authenticationActions';
+import {loginErrorMessageRead, loginUserAction} from '../../redux/actions/authenticationActions';
 import {LoginRequest} from '../../dataModels/requests/LoginRequest';
 import {LoginPageState} from './LoginPageState';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
@@ -45,18 +45,18 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
                 password: event.target.password.value,
             }
         };
+        this.props.notifyErrorMessageRead();
         this.props.logIn(requestBody);
     };
 
     handleFormState = (event: any) => {
-        event.preventDefault();
         this.setState({
             isSubmitDisabled: !event.currentTarget.reportValidity(),
             isPasswordCompleted: event.currentTarget.password.value.length > 0,
         })
     };
 
-    handleOnInvalid = (event: FormEvent<HTMLInputElement>) => {
+    handleOnInvalid = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
     };
 
@@ -66,30 +66,37 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
         });
     };
 
+    componentWillUnmount(): void {
+        this.props.notifyErrorMessageRead();
+    }
+
     render() {
         return (
             <PageWrapper>
                 <Wrapper>
                     <FormWrapper>
                         <InnerFrame>
-                            <form onSubmit={this.onHandleLogin}
-                                  onChange={this.handleFormState}>
+                            <form
+                                onSubmit={this.onHandleLogin}
+                                onChange={this.handleFormState}
+                                onInvalid={this.handleOnInvalid}>
                                 <RowWrapper>
                                     <Label>E-mail</Label>
-                                    <Input name="email"
-                                           type="email"
-                                           maxLength={25}
-                                           onInvalid={this.handleOnInvalid}
-                                           required/>
+                                    <Input
+                                        name="email"
+                                        type="email"
+                                        maxLength={25}
+                                        required/>
                                 </RowWrapper>
                                 <RowWrapper>
                                     <Label>Hasło</Label>
-                                    <PasswordWrapper isPasswordCompleted={this.state.isPasswordCompleted}>
-                                        <PasswordInput name="password"
-                                                       type={this.state.isPasswordVisible ? 'text' : 'password'}
-                                                       maxLength={25}
-                                                       onInvalid={this.handleOnInvalid}
-                                                       required/>
+                                    <PasswordWrapper
+                                        isPasswordCompleted={this.state.isPasswordCompleted}>
+                                        <PasswordInput
+                                            name="password"
+                                            type={this.state.isPasswordVisible ? 'text' : 'password'}
+                                            maxLength={25}
+                                            required/>
                                         <TogglePasswordVisibility
                                             className={this.state.isPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'}
                                             onClick={this.showPassword}/>
@@ -99,12 +106,13 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
                                     <ResetPasswordLink to='/password_reminder'>Nie pamiętasz hasła?</ResetPasswordLink>
                                 </ResetPasswordLinkWrapper>
                                 <MessageWrapper>
-                                    <Message>{this.props.store.login.errorMessage ? this.props.store.login.errorMessage : ''}</Message>
+                                    <Message>{this.props.store.login.errorMessage || ''}</Message>
                                 </MessageWrapper>
                                 <SubmitButtonWrapper>
-                                    <Button type='submit'
-                                            value='ZALOGUJ SIĘ'
-                                            disabled={this.state.isSubmitDisabled}/>
+                                    <Button
+                                        type='submit'
+                                        value='ZALOGUJ SIĘ'
+                                        disabled={this.state.isSubmitDisabled}/>
                                 </SubmitButtonWrapper>
                             </form>
                         </InnerFrame>
@@ -124,6 +132,7 @@ const mapStateToProps = (store: AppState) => ({store});
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         logIn: (requestBody: LoginRequest): any => dispatch(loginUserAction(requestBody)),
+        notifyErrorMessageRead: (): any => dispatch(loginErrorMessageRead()),
     }
 };
 

@@ -10,6 +10,7 @@ import {DashboardPageProps} from './DashboardPageProps';
 import {trackPromise} from 'react-promise-tracker';
 import ProductsList from './ProductsList/ProductsList';
 import {ProductData} from '../../dataModels/ProductData';
+import TestSection from './TestSection/TestSection';
 
 
 class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
@@ -122,6 +123,9 @@ class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
                         handleSortByCurrentPrice={this.sortByCurrentPrice}
                         handleSortByExpectedPrice={this.sortByExpectedPrice}
                         handleSortByAddedAt={this.sortByDateOfAdding}
+                    />
+                    <TestSection
+                        handleProductsListChanges={this.handleProductsListChanges}
                     />
                 </div>
             </DashboardPageWrapper>

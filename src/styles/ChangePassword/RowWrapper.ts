@@ -18,6 +18,7 @@ export const SubmitButtonWrapper = styled(RowWrapper)`
   justify-content: flex-end;
   width: 500px;
   max-width: 80vw;
+  height: auto;
   
   @media(max-width: 500px){
     padding: 15px;
