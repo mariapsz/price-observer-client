@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import StyledComponentsProps from '../StyledComponentsProps';
 
 export const Input = styled.input`
-  width: 100%;
-  height: 40px;
+  width: 70%;
+  height: 35px;
   padding: 0 6px 0 6px;
   border: 1px rgba(37,132,126,0.46) solid;
   border-radius: 4px;

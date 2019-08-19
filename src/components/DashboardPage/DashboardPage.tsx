@@ -36,13 +36,15 @@ class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
             token: this.props.store.login.token!,
         };
         trackPromise(
-            getProductsListService(request).then((response: any) => {
+            getProductsListService(request), 'productsListArea')
+            .then((response: any) => {
+                console.log('products list', response.body.products);
                 if (response.statusCode === 200) {
                     this.setState({
                         productsList: response.body.products,
                     })
                 }
-            }), 'productsListArea');
+            });
     };
 
     sortByName = () => {

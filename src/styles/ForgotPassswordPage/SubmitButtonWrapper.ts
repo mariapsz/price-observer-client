@@ -3,5 +3,5 @@ import {DescriptionWrapper} from './DescriptionWrapper';
 
 export const SubmitButtonWrapper = styled(DescriptionWrapper)`
   height: auto;
-  padding: 10px 0;
+  padding: 7px 0;
 `;

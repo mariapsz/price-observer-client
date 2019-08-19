@@ -47,7 +47,8 @@ const DashboardPageWrapper = (props: DashboardPageWrapperProps) => {
                 </UserPanel>
             </TopBar>
         </TopBarWrapper>
-        <PrivatePageContentWrapper>
+        <PrivatePageContentWrapper
+            promiseInProgress={promiseInProgress}>
             {props.children}
         </PrivatePageContentWrapper>
     </Wrapper>

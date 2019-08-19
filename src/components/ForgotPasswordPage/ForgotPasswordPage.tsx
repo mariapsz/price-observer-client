@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 import {FormWrapper} from '../../styles/LoginForm/FormFrame';
-import {InnerFrame} from '../../styles/LoginForm/Frame';
+import {InnerFrame} from '../../styles/ForgotPassswordPage/InnerFrame';
 import {SubmitButtonWrapper} from '../../styles/ForgotPassswordPage/SubmitButtonWrapper';
 import {EmailLabel, Label} from '../../styles/ForgotPassswordPage/Label';
 import {MessageWrapper} from '../../styles/LoginForm/MessageWrapper';
@@ -17,6 +17,7 @@ import mailRegex from '../../utils/Regex/mailRegex';
 import {ResetPasswordRequest} from '../../dataModels/requests/ResetPasswordRequest';
 import {ForgotPasswordPageState} from './ForgotPasswordPageState';
 import {withRouter} from 'react-router';
+import {trackPromise} from 'react-promise-tracker';
 
 class ForgotPasswordPage extends React.Component<any, ForgotPasswordPageState> {
 
@@ -53,24 +54,34 @@ class ForgotPasswordPage extends React.Component<any, ForgotPasswordPageState> {
         const request: ResetPasswordRequest = {
             body: {email: emailAddress,}
         };
-        resetPasswordService(request)
+        trackPromise(resetPasswordService(request), 'pageWrapper')
             .then((response: any) => {
-                    if (response && response.statusCode == 200) {
+                    if (!response) {
+                        this.setState({
+                            serverMessage: 'Wystąpił błąd, prosimy spróbować później'
+                        });
+                        return;
+                    }
+
+                    if (response.statusCode == 200) {
                         this.setState(this.getInitialState());
                         this.showModal(`Hasło zostało zmienione.\nNa podany przez Ciebie adres e-mail (${emailAddress}) została wysłana wiadomość z nowym hasłem.`);
                         this.props.history.push('/login');
-                    } else {
-                        if (response.body.message === 'USER_WITH_THIS_EMAIL_DOES_NOT_EXIST')
-                            this.setState({
-                                serverMessage: 'Nie istnieje użytkownik o podanym adresie e-mail.',
-                            });
-                        else this.setState({
-                            serverMessage: 'Wystąpił błąd, prosimy spróbować późnie.',
-                        })
+                        return;
                     }
+
+                    if (response.body.message === 'USER_WITH_THIS_EMAIL_DOES_NOT_EXIST') {
+                        this.setState({
+                            serverMessage: 'Nie istnieje użytkownik o podanym adresie e-mail.',
+                        });
+                        return;
+                    }
+
+                    this.setState({
+                        serverMessage: 'Wystąpił błąd, prosimy spróbować późnie.',
+                    })
                 }
             );
-
     };
 
     showModal = (message: string) => {
@@ -124,8 +135,8 @@ class ForgotPasswordPage extends React.Component<any, ForgotPasswordPageState> {
                         </form>
                     </InnerFrame>
                 </FormWrapper>
-
-            </Wrapper></PageWrapper>;
+            </Wrapper>
+        </PageWrapper>;
     }
 };
 

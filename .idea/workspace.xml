@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/InnerFrame.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/sagas/authenticationSaga/loginSaga/LoginSaga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/sagas/authenticationSaga/loginSaga/LoginSaga.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ForgotPasswordPage/ForgotPasswordPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ForgotPasswordPage/ForgotPasswordPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/store/configureStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store/configureStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/PageWrapper/PageContentWrapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/PageWrapper/PageContentWrapper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/PageWrapper/TopBarWrapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/PageWrapper/TopBarWrapper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/PageWrapper/Wrapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/PageWrapper/Wrapper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/Input.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/Input.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/InputWrapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/InputWrapper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/Label.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/Label.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/SectionTitle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/SectionTitle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/SubmitButtonWrapper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ForgotPassswordPage/SubmitButtonWrapper.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,40 +26,48 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx">
+        <entry file="file://$PROJECT_DIR$/src/components/ForgotPasswordPage/ForgotPasswordPage.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1178">
-              <caret line="134" column="69" selection-start-line="134" selection-start-column="69" selection-end-line="134" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redux/actions/authenticationActions.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            <state relative-caret-position="105">
+              <caret line="56" column="66" selection-start-line="56" selection-start-column="66" selection-end-line="56" selection-end-column="66" />
               <folding>
-                <element signature="e#0#33#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-208">
+              <caret line="3" column="82" selection-start-line="3" selection-start-column="82" selection-end-line="3" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="39" column="38" lean-forward="true" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapperProps.ts">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/sagas/authenticationSaga/loginSaga/LoginSaga.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="525">
+              <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
@@ -67,79 +76,51 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/authenticationService.ts">
+        <entry file="file://$PROJECT_DIR$/build/static/js/main.85666c67.chunk.js.map">
+          <provider editor-type-id="sourcemapFileViewerProvider" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="7707">
+              <caret column="69802" selection-start-column="69802" selection-end-column="69802" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/redux/sagas/watchers.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
               <folding>
-                <element signature="e#0#42#0" expanded="true" />
+                <element signature="e#0#46#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx">
+        <entry file="file://$PROJECT_DIR$/src/redux/sagas/authenticationSaga/loginSaga/LoginSagaPayload.ts">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/redux/reducers/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            <state>
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="111" column="49" lean-forward="true" selection-start-line="111" selection-start-column="49" selection-end-line="111" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/react-promise-tracker/index.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/PageWrapper/TopBarWrapper.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/PageWrapper/Wrapper.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="90" selection-start-line="7" selection-start-column="90" selection-end-line="7" selection-end-column="90" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/redux/reducers/loginReducer.ts">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cons</find>
       <find>RowWrapper</find>
       <find>default</find>
       <find>vh</find>
@@ -169,6 +150,7 @@
       <find>http://ec2-3-120-141-247.eu-central-1.compute.amazonaws.com</find>
       <find>http://</find>
       <find>local</find>
+      <find>Wystąpił błąd, nie można się połączyć z serwerem</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -185,13 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsListWithHooks.tsx" />
-        <option value="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/EditProductModal/EditProductModal.tsx" />
-        <option value="$PROJECT_DIR$/src/dataModels/requests/ResetPasswordRequest.ts" />
-        <option value="$PROJECT_DIR$/src/utils/Regex/mailRegex.ts" />
-        <option value="$PROJECT_DIR$/src/services/settingsService.ts" />
-        <option value="$PROJECT_DIR$/src/dataModels/requests/ChangePasswordRequest.ts" />
-        <option value="$PROJECT_DIR$/src/components/SettingsPage/SettingsUserAccount/SettingsPassword/ChangePassword.tsx" />
         <option value="$PROJECT_DIR$/src/components/SettingsPage/SettingsUserAccount/ChangePassword/SettingsPasswordProps.ts" />
         <option value="$PROJECT_DIR$/src/components/SettingsPage/SettingsUserAccount/ChangePassword/SettingsPasswordState.ts" />
         <option value="$PROJECT_DIR$/src/components/SettingsPage/SettingsUserAccount/ChangePassword/ChangePasswordState.ts" />
@@ -202,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/redux/reducers/loginReducer.ts" />
         <option value="$PROJECT_DIR$/src/redux/store/storeDataModels/LoginState.ts" />
         <option value="$PROJECT_DIR$/src/components/LoginPage/LoginPageProps.ts" />
-        <option value="$PROJECT_DIR$/src/components/ForgotPasswordPage/ForgotPasswordPage.tsx" />
         <option value="$PROJECT_DIR$/src/components/SettingsPage/SettingsUserAccount/SettingsUserAccount.tsx" />
         <option value="$PROJECT_DIR$/src/components/SettingsPage/SettingsUserAccount/ChangePassword/ChangePassword.tsx" />
         <option value="$PROJECT_DIR$/src/styles/StartPage/Legend.ts" />
@@ -219,7 +193,6 @@
         <option value="$PROJECT_DIR$/src/components/DashboardPage/TestSection/TestSectionProps.ts" />
         <option value="$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProductConfirmationModal/NewProductConfirmationModal.tsx" />
         <option value="$PROJECT_DIR$/src/dataModels/ProductData.ts" />
-        <option value="$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx" />
         <option value="$PROJECT_DIR$/src/styles/TestSection/Button.ts" />
         <option value="$PROJECT_DIR$/src/styles/TestSection/SubsectionWrapper.ts" />
         <option value="$PROJECT_DIR$/src/styles/TestSection/RowWrapper.ts" />
@@ -227,7 +200,6 @@
         <option value="$PROJECT_DIR$/src/styles/TestSection/SectionTitle.ts" />
         <option value="$PROJECT_DIR$/src/styles/TestSection/TestingOptionsWrapper.ts" />
         <option value="$PROJECT_DIR$/src/components/DashboardPage/TestSection/TestSection.tsx" />
-        <option value="$PROJECT_DIR$/src/redux/store/configureStore.ts" />
         <option value="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" />
         <option value="$PROJECT_DIR$/src/styles/PageWrapper/PageContentWrapper.ts" />
         <option value="$PROJECT_DIR$/src/styles/PageWrapper/Wrapper.ts" />
@@ -236,6 +208,16 @@
         <option value="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" />
         <option value="$PROJECT_DIR$/src/config.js" />
         <option value="$PROJECT_DIR$/src/redux/sagas/authenticationSaga/loginSaga/LoginSaga.ts" />
+        <option value="$PROJECT_DIR$/src/styles/ForgotPassswordPage/Label.ts" />
+        <option value="$PROJECT_DIR$/src/styles/ForgotPassswordPage/SectionTitle.ts" />
+        <option value="$PROJECT_DIR$/src/styles/ForgotPassswordPage/SubmitButtonWrapper.ts" />
+        <option value="$PROJECT_DIR$/src/styles/ForgotPassswordPage/Input.ts" />
+        <option value="$PROJECT_DIR$/src/styles/ForgotPassswordPage/InputWrapper.ts" />
+        <option value="$PROJECT_DIR$/src/styles/ForgotPassswordPage/InnerFrame.ts" />
+        <option value="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" />
+        <option value="$PROJECT_DIR$/src/redux/store/configureStore.ts" />
+        <option value="$PROJECT_DIR$/src/components/ForgotPasswordPage/ForgotPasswordPage.tsx" />
+        <option value="$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx" />
       </list>
     </option>
   </component>
@@ -250,6 +232,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -285,34 +268,48 @@
               <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="DashboardPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="ForgotPasswordPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Loader" type="462c0819:PsiDirectoryNode" />
+              <item name="hoc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="LoginPage" type="462c0819:PsiDirectoryNode" />
+              <item name="hoc" type="462c0819:PsiDirectoryNode" />
+              <item name="PageWrapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="RegisterPage" type="462c0819:PsiDirectoryNode" />
+              <item name="hoc" type="462c0819:PsiDirectoryNode" />
+              <item name="PageWrapper" type="462c0819:PsiDirectoryNode" />
+              <item name="DashboardPageWrapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="redux" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="redux" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="price-observer-client" type="b2602c69:ProjectViewProjectNode" />
@@ -363,13 +360,12 @@
               <item name="price-observer-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="styles" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWrapper" type="462c0819:PsiDirectoryNode" />
+              <item name="ForgotPassswordPage" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -456,12 +452,13 @@
       <workItem from="1564991565757" duration="32047000" />
       <workItem from="1565162694569" duration="37379000" />
       <workItem from="1565384646060" duration="1801000" />
-      <workItem from="1566209217381" duration="13606000" />
+      <workItem from="1566209217381" duration="16956000" />
+      <workItem from="1566240323613" duration="2817000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="438191000" />
+    <option name="totallyTimeSpent" value="444358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-103" width="1936" height="1056" extended-state="6" />
@@ -514,150 +511,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/SettingsPage/SettingsUserAccount/SettingsUserAccountStyles.ts" />
-    <entry file="file://$PROJECT_DIR$/src/components/SettingsPage/SettingsUserAccount/SettingsUserAccount.tsx" />
-    <entry file="file://$PROJECT_DIR$/src/components/SettingsPage/SettingsUserAccount/ChangePassword/ChangePassword.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ForgotPasswordPage/ForgotPasswordPage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1699">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/ProductsList/EmptyListInfoWrapper.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/ProductsList/EmptyListInfo.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/StartPage/Legend.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ForgotPasswordPage/ForgotPasswordPageState.tsx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/StartPage/SliderWrapper.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-responsive-carousel/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/StartPage/Slider.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/reducers/loginReducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/StartPage/StartPage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/sagas/authenticationSaga/loginSaga/LoginSagaPayload.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="99" column="12" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/ProductsList/Frame.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/LoginForm/Button.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/LoginForm/Label.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/ChangePassword/SectionTitle.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="13" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/TestSection/TestSectionProps.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="132" column="5" lean-forward="true" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -779,16 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/store/configureStore.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPageProps.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -813,28 +660,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/PageWrapper/PageContentWrapper.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="100" lean-forward="true" selection-start-line="14" selection-start-column="100" selection-end-line="14" selection-end-column="100" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/PageWrapper/Title.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/PageWrapper/Wrapper.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="90" selection-start-line="7" selection-start-column="90" selection-end-line="7" selection-end-column="90" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/PageWrapper/TopBarWrapper.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -883,13 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="134" column="69" selection-start-line="134" selection-start-column="69" selection-end-line="134" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -907,12 +727,194 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/ForgotPassswordPage/SubmitButtonWrapper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/ForgotPassswordPage/Input.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/ForgotPassswordPage/InputWrapper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/ForgotPassswordPage/Label.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ForgotPasswordPage/ForgotPasswordPageState.tsx">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/LoginForm/Frame.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/ForgotPassswordPage/InnerFrame.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2289">
+          <caret line="134" column="69" selection-start-line="134" selection-start-column="69" selection-end-line="134" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/LoginForm/FormFrame.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/ForgotPassswordPage/SectionTitle.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/ForgotPassswordPage/DescriptionWrapper.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/PageWrapper/Wrapper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/PageWrapper/PageContentWrapper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="100" lean-forward="true" selection-start-line="14" selection-start-column="100" selection-end-line="14" selection-end-column="100" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/store/configureStore.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/sagas/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/sagas/watchers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/sagas/authenticationSaga/loginSaga/LoginSagaPayload.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/loginReducer.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/static/js/main.85666c67.chunk.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7707">
+          <caret column="69802" selection-start-column="69802" selection-end-column="69802" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/sagas/authenticationSaga/loginSaga/LoginSaga.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        <state relative-caret-position="525">
+          <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ForgotPasswordPage/ForgotPasswordPage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="56" column="66" selection-start-line="56" selection-start-column="66" selection-end-line="56" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapperProps.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-208">
+          <caret line="3" column="82" selection-start-line="3" selection-start-column="82" selection-end-line="3" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="39" column="38" lean-forward="true" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
