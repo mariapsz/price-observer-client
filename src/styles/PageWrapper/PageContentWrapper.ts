@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import StyledComponentsProps from '../StyledComponentsProps';
 
-interface PageContentWrapperProps {
+interface PageContentWrapperProps extends StyledComponentsProps{
     isStartPage?: boolean,
 }
 
@@ -11,6 +12,8 @@ export const PageContentWrapper = styled.div`
   flex-direction: ${(props: PageContentWrapperProps) => props.isStartPage ? 'column' : 'row'};
   justify-content: ${(props: PageContentWrapperProps) => props.isStartPage ? 'flex-start' : 'center'};
   align-items: center;
+  pointer-events: ${(props: StyledComponentsProps) => props.promiseInProgress ? 'none' : 'initial'};
+  opacity: ${(props: StyledComponentsProps) => props.promiseInProgress ? '0.6' : 'initial'};
   
   @media(max-width: 500px){
       justify-content: ${(props: PageContentWrapperProps) => props.isStartPage ? 'space-between' : 'center'};

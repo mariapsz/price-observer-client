@@ -12,7 +12,8 @@ const PageWrapper = (props: PageWrapperProps) => {
     const {promiseInProgress} = usePromiseTracker({area: 'pageWrapper'});
     return <Wrapper
         promiseInProgress={promiseInProgress}>
-        <TopBarWrapper>
+        <TopBarWrapper
+            promiseInProgress={promiseInProgress}>
             <TopBar>
                 <div>
                     <LinkToHome to='/'>
@@ -21,7 +22,9 @@ const PageWrapper = (props: PageWrapperProps) => {
                 </div>
             </TopBar>
         </TopBarWrapper>
-        <PageContentWrapper isStartPage={props.isStartPage}>
+        <PageContentWrapper
+            promiseInProgress={promiseInProgress}
+            isStartPage={props.isStartPage}>
             {props.children}
         </PageContentWrapper>
     </Wrapper>

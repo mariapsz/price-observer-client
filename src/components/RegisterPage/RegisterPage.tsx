@@ -38,28 +38,36 @@ class RegisterPage extends React.Component<any, RegisterPageState> {
         trackPromise(
             registerUserService(registerRequest).then(
                 (response: any) => {
-                    console.log(response);
+                    if (!response) {
+                        this.setState({
+                            errorMessage: 'Wystąpił błąd, prosimy spróbować później',
+                        });
+                        return;
+                    }
+
                     if (response.statusCode === 200) {
                         this.showModal('Użytkownik został dodany pomyślnie');
                         this.setState(this.getInitialState());
                         this.props.history.push('/login');
-                    } else {
-                        let message;
-                        switch (response.body.message) {
-                            case 'USER_WITH_THIS_EMAIL_ALREADY_EXISTS':
-                                message = 'Użytkownik o podanym adresie e-mail już istnieje';
-                                break;
-                            case 'USER_WITH_THIS_NAME_ALREADY_EXISTS':
-                                message = 'Użytkownik o podanej nazwie użytkownika już istnieje';
-                                break;
-                            default:
-                                message = 'Błąd wewnętrzny serwera, prosimy spróbować później';
-                                break;
-                        }
-                        this.setState({
-                            errorMessage: message,
-                        });
+                        return;
                     }
+
+                    let message;
+                    switch (response.body.message) {
+                        case 'USER_WITH_THIS_EMAIL_ALREADY_EXISTS':
+                            message = 'Użytkownik o podanym adresie e-mail już istnieje';
+                            break;
+                        case 'USER_WITH_THIS_NAME_ALREADY_EXISTS':
+                            message = 'Użytkownik o podanej nazwie użytkownika już istnieje';
+                            break;
+                        default:
+                            message = 'Błąd wewnętrzny serwera, prosimy spróbować później';
+                            break;
+                    }
+                    this.setState({
+                        errorMessage: message,
+                    });
+
                 }), 'pageWrapper');
     };
 
@@ -107,8 +115,7 @@ class RegisterPage extends React.Component<any, RegisterPageState> {
 
     showModal = (message: string) => {
         //modal (in the future)
-        const alertMessage = message;
-        alert(alertMessage);
+        alert(message);
     };
 
     handleOnInvalid = (event: React.InvalidEvent<HTMLFormElement>) => {
