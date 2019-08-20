@@ -13,6 +13,8 @@ import {ProductData} from '../../../dataModels/ProductData';
 import {SubsectionWrapper} from '../../../styles/TestSection/SubsectionWrapper';
 import {FirstRowWrapper, RowWrapper, SecondRowWrapper, TestButtonWrapper} from '../../../styles/TestSection/RowWrapper';
 import {TestingOptionsWrapper} from '../../../styles/TestSection/TestingOptionsWrapper';
+import jwt_decode from "jwt-decode";
+import {UserDetails} from '../../../dataModels/UserDetails';
 
 const TestSection = (props: TestSectionProps) => {
 
@@ -22,7 +24,7 @@ const TestSection = (props: TestSectionProps) => {
             category: "Ładowarki do akumulatorów (AA i AAA)",
             currentPrice: {count: 24.68, currency: "zł"},
             imgSrc: "https://images.morele.net/i1064/847398_0_i1064.jpeg",
-            name: "Ładowarka Varta Mini charger 2x AA (57646)",
+            name: "Ładowarka Varta Mini charger 2x AA (57646)   (TEST POWIADOMIENIA O OSIĄGNIĘCIU CENY OCZEKIWANEJ)",
             productId: "847398",
             shopName: "morele",
             usersDetails: [{expectedPrice: {count: "1000000", currency: "zł"}}],
@@ -36,8 +38,8 @@ const TestSection = (props: TestSectionProps) => {
             category: "Smartbandy",
             currentPrice: {count: 1000000.00, currency: "zł"},
             imgSrc: "https://images.morele.net/i1064/4142387_10_i1064.jpg",
-            name: "Smartband Xiaomi Mi Band 3 (XMSH05HM)",
-            productId: "4142387",
+            name: "Smartband Xiaomi Mi Band 3 (XMSH05HM)    (TEST AKTUALIZACJI CENY)",
+            productId: (jwt_decode(props.store.login.token!) as UserDetails).name,
             shopName: "morele",
             usersDetails: [{expectedPrice: {count: "1", currency: "zł"}}],
         };
@@ -94,8 +96,8 @@ const TestSection = (props: TestSectionProps) => {
                         Po około 10 minutach powinna przyjść wiadomość na użyty w aplikacji adres mailowy z
                         powiadomieniem
                         o obniżeniu ceny produktu do ceny mniejszej bądź równej cenie oczekiwanej.
-                        Ponieważ produkt osiągnie cenę oczekiwaną, to zostanie usunięty z listy Twoich produktów.
-                        Po otrzymaniu wiadomości e-mail należy odświeżyć tę stronę, żeby załadować aktualne dane.
+                        Produkt zostanie usunięty z listy Twoich produktów, ponieważ osiągnie oczekiwaną cenę.
+                        Po otrzymaniu wiadomości e-mail należy odświeżyć tę stronę, aby załadować aktualne dane.
                     </Label>
                 </SecondRowWrapper>
                 <TestButtonWrapper>

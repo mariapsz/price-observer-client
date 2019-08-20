@@ -10,11 +10,13 @@ export function* loginSaga(payload: LoginSagaPayload) {
     try {
         const response = yield call(loginUser, payload.requestBody);
         if (!response)
-            throw Error('Wystąpił błąd, prosimy spróbować później');
+            throw new Error('Wystąpił błąd, prosimy spróbować później');
         if (response.statusCode === 200) {
             yield put({type: types.LOGIN_USER_SUCCESS, token: response.body.token});
         } else {
             let errorMessage;
+            if (!response.body.message)
+                throw new Error('Wystąpił błąd, prosimy spróbować później');
             switch (response.body.message) {
                 case 'USER_DOES_NOT_EXIST':
                     errorMessage = 'Użytkownik nie istnieje';
