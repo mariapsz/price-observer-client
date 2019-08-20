@@ -101,7 +101,7 @@ class NewProduct extends React.Component<NewProductProps, NewProductState> {
                 <SectionTitle>NOWY PRODUKT</SectionTitle>
                 <form onSubmit={this.handleSubmit} onChange={this.handleFormState}>
                     <Label>
-                        Adres URL strony, na której znajduje się produkt:
+                        Adres URL strony, na której znajduje się produkt (obsługiwane sklepy: morele.net):
                     </Label>
                     <NewProductURLWrapper>
                         <URLInput type="url" name='productURL' value={this.state.productURL}
