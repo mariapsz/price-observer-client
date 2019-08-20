@@ -28,7 +28,7 @@
    4. Editing products 
    5. Removing products 
 ##
-####Click [here](https://alertcenowy.azurewebsites.net/) to see how it works.
+####Click [here](http://alertcenowy.azurewebsites.net/) to see how it works.
 ##
 ####Click [here](https://github.com/lukaszgaj/price-observer-backend/tree/monitorProducts) to see repository with server side of application
 ##
