@@ -12,14 +12,16 @@ export const Input = styled.input`
   :invalid:focus  {
     border: 1px rgba(215,65,79,0.62) solid;
     outline: none;
+    box-shadow: 0px 0px 6px rgba(215,65,79,0.62);
   }
   
   :focus  {
     border: 1px rgb(32,102,80) solid;
     outline: none;
+    box-shadow: 0px 0px 6px rgba(32,102,80);
   }
     
   :invalid {
-    border: 1px rgba(220, 66, 77, 0.28) solid;
+    border: 1px rgba(220, 66, 77) solid;
   }
 `;

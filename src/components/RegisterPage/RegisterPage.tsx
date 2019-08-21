@@ -36,39 +36,38 @@ class RegisterPage extends React.Component<any, RegisterPageState> {
     register = () => {
         const registerRequest: RegisterRequest = {body: this.state.user};
         trackPromise(
-            registerUserService(registerRequest).then(
-                (response: any) => {
-                    if (!response) {
-                        this.setState({
-                            errorMessage: 'Wystąpił błąd, prosimy spróbować później',
-                        });
-                        return;
-                    }
-
-                    if (response.statusCode === 200) {
-                        this.showModal('Użytkownik został dodany pomyślnie');
-                        this.setState(this.getInitialState());
-                        this.props.history.push('/login');
-                        return;
-                    }
-
-                    let message;
-                    switch (response.body.message) {
-                        case 'USER_WITH_THIS_EMAIL_ALREADY_EXISTS':
-                            message = 'Użytkownik o podanym adresie e-mail już istnieje';
-                            break;
-                        case 'USER_WITH_THIS_NAME_ALREADY_EXISTS':
-                            message = 'Użytkownik o podanej nazwie użytkownika już istnieje';
-                            break;
-                        default:
-                            message = 'Błąd wewnętrzny serwera, prosimy spróbować później';
-                            break;
-                    }
+            registerUserService(registerRequest), 'pageWrapper').then(
+            (response: any) => {
+                if (!response) {
                     this.setState({
-                        errorMessage: message,
+                        errorMessage: 'Wystąpił błąd, prosimy spróbować później',
                     });
+                    return;
+                }
 
-                }), 'pageWrapper');
+                if (response.statusCode === 200) {
+                    this.showModal('Użytkownik został dodany pomyślnie');
+                    this.setState(this.getInitialState());
+                    this.props.history.push('/login');
+                    return;
+                }
+
+                let message;
+                switch (response.body.message) {
+                    case 'USER_WITH_THIS_EMAIL_ALREADY_EXISTS':
+                        message = 'Użytkownik o podanym adresie e-mail już istnieje';
+                        break;
+                    case 'USER_WITH_THIS_NAME_ALREADY_EXISTS':
+                        message = 'Użytkownik o podanej nazwie użytkownika już istnieje';
+                        break;
+                    default:
+                        message = 'Błąd wewnętrzny serwera, prosimy spróbować później';
+                        break;
+                }
+                this.setState({
+                    errorMessage: message,
+                });
+            });
     };
 
     getInitialState = (): RegisterPageState => {
@@ -94,7 +93,13 @@ class RegisterPage extends React.Component<any, RegisterPageState> {
                 ...this.state.user,
                 [event.target.name]: event.target.name !== 'email' ? event.target.value : event.target.value.toLowerCase(),
             }
-        })
+        });
+
+        if (event.target.name === 'password') {
+            this.setState({
+                errorMessage: event.target.value.length < 8 ? 'Hasło musi składać się z przynajmniej 8 znaków' : ''
+            })
+        }
     };
 
     handleFormState = (event: React.FormEvent<HTMLFormElement>) => {
@@ -102,8 +107,8 @@ class RegisterPage extends React.Component<any, RegisterPageState> {
 
         this.setState({
             isSubmitDisabled: !event.currentTarget.reportValidity(),
-            isPasswordCompleted: event.currentTarget.password.value.length > 8,
-            isRepeatedPasswordCompleted: event.currentTarget.passwordRepeated.value.length > 8 && (event.currentTarget.passwordRepeated.value === this.state.user.password),
+            isPasswordCompleted: event.currentTarget.password.value.length >= 8,
+            isRepeatedPasswordCompleted: event.currentTarget.passwordRepeated.value.length >= 8 && (event.currentTarget.passwordRepeated.value === this.state.user.password),
         })
     };
 

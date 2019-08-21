@@ -64,6 +64,7 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
     handleNewPassword = (event: any) => {
         this.setState({
             newPassword: event.target.value,
+            errorMessage: event.target.value.length < 8 ? 'Hasło musi składać się z przynajmniej 8 znaków' : ''
         })
     };
 
