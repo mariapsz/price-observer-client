@@ -23,8 +23,7 @@ import {PasswordWrapper} from '../../styles/LoginForm/PasswordWrapper';
 import {TogglePasswordVisibility} from '../../styles/LoginForm/TogglePasswordVisibility';
 import {PasswordInput} from '../../styles/LoginForm/PasswordInput';
 import {LoginPageProps} from './LoginPageProps';
-import {trackPromise} from 'react-promise-tracker';
-
+import {GAEvent} from '../../utils/GA';
 
 class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
 
@@ -39,7 +38,7 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
 
     onHandleLogin = (event: any) => {
         event.preventDefault();
-
+        GAEvent('LOGIN', 'User try to log in', 'LOGIN_PAGE');
         const requestBody: LoginRequest = {
             body: {
                 email: event.target.email.value,
