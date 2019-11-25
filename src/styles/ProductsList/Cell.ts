@@ -18,7 +18,6 @@ export const Cell = styled.div`
     color: ${(props: CellProps) => props.isHeaderCell ? props.theme.productsList.headerCellColor : props.theme.productsList.customFontColor};
     font-weight: 900;
     background: ${(props: CellProps) => {
-    console.log(props.theme.productsList.customCellBackground);
     if (props.isHeaderCell)
         if (props.contentType !== 'removeProductButton' && props.contentType !== 'imgSrc')
             return props.theme.productsList.headerCellBackground;
