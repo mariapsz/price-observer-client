@@ -6,4 +6,5 @@ export interface AppState {
     products: {
         sortedBy: SortingOptions
     },
+    xssProtected: boolean,
 }

@@ -9,6 +9,7 @@ import StartPage from '../StartPage/StartPage';
 import {ThemeResolver} from '../../hoc/ThemeResolver/ThemeResolver';
 import PublicRoute from './PublicRoute';
 import ForgotPasswordPage from '../ForgotPasswordPage/ForgotPasswordPage';
+import DiscussionForumPage from "../DiscussionForumPage/DiscussionForumPage";
 
 class App extends Component {
     render() {
@@ -22,6 +23,7 @@ class App extends Component {
                         <PublicRoute path='/rejestracja' component={RegisterPage}/>
                         <PrivateRoute path='/home' component={DashboardPage}/>
                         <PrivateRoute path='/ustawienia' component={SettingsPage}/>
+                        <PrivateRoute path='/discussion' component={DiscussionForumPage}/>
                         <Route
                             path="(.*)"
                             render={() => (

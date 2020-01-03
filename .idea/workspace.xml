@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/productsManagementActions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/productsReducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/store/storeDataModels/SortingOptions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/DashboardPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/DashboardPageProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/DashboardPageProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProductConfirmationModal/NewProductConfirmationModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/NewProduct/NewProductConfirmationModal/NewProductConfirmationModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/authenticationActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/authenticationActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store/configureStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store/configureStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store/storeDataModels/AppState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store/storeDataModels/AppState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/ProductsList/Cell.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ProductsList/Cell.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiscussionForumPage/ToggleXSSProtected/ToggleXSSProtected.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/ToggleXSSProtected/ToggleXSSProtected.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/xssProtectedReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/xssProtectedReducer.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,16 +29,16 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="C:\code\price-observer-client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\code\price-observer-client\src\components\DiscussionForumPage\ToggleXSSProtected" />
+      <recent name="C:\code\price-observer-client\src\components\DiscussionForumPage" />
       <recent name="D:\code\price-observer-client\src\utils\Regex" />
       <recent name="D:\code\price-observer-client\src\styles\SettingPassword" />
       <recent name="D:\code\price-observer-client\src\dataModels\requests" />
-      <recent name="D:\code\price-observer-client\src\Sagas\sagas" />
-      <recent name="D:\code\price-observer-client\src\Sagas\authenticationSagaa" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="D:\code\price-observer-client\src\components\ForgotPasswordPage\ForgotPasswordPageState.tsx" />
@@ -56,11 +48,11 @@
       <recent name="D:\code\price-observer-client\src\sagas\AuthenticationSaga\LoginSaga\LoginSaga.ts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\code\price-observer-client\src\styles\DiscussionPanel" />
       <recent name="D:\code\price-observer-client\src\styles\TestSection" />
       <recent name="D:\code\price-observer-client\src\styles\ChangePassword" />
       <recent name="D:\code\price-observer-client\src\styles\SettingPassword" />
       <recent name="D:\code\price-observer-client\src\styles\SettingPasswordStyles" />
-      <recent name="D:\code\price-observer-client\src\styles\EditProductModal" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -113,7 +105,13 @@
       <workItem from="1565384646060" duration="1801000" />
       <workItem from="1566209217381" duration="16956000" />
       <workItem from="1566240323613" duration="17452000" />
-      <workItem from="1574710888516" duration="9321000" />
+      <workItem from="1574710888516" duration="11300000" />
+      <workItem from="1574960367903" duration="741000" />
+      <workItem from="1575461386445" duration="3096000" />
+      <workItem from="1575929513204" duration="13118000" />
+      <workItem from="1575991803177" duration="11918000" />
+      <workItem from="1576053407727" duration="8581000" />
+      <workItem from="1577960491298" duration="14321000" />
     </task>
     <servers />
   </component>
@@ -125,7 +123,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

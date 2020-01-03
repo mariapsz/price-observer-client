@@ -52,7 +52,6 @@ const ProductsList = (props: ProductsListProps) => {
     const {promiseInProgress} = usePromiseTracker({area: 'productsListArea'});
 
     const getProductsListRows = (): JSX.Element[] | JSX.Element => {
-        console.log('hello from getProductsListRows');
         if (props.productsList.length < 1 && !promiseInProgress)
             return <EmptyListInfoWrapper>
                 <EmptyListInfo>Lista Twoich produktów jest pusta</EmptyListInfo>

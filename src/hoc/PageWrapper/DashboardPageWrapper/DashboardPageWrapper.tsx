@@ -40,8 +40,14 @@ const DashboardPageWrapper = (props: DashboardPageWrapperProps) => {
                 </LinkToHome>
                 <UserPanel>
                     <NickName>{getNickname()}</NickName>
+                    <Link to='/home'>
+                        <Icon className="fa fa-home"/>
+                    </Link>
+                    <Link to='/discussion'>
+                        <SettingsIcon className="fa fa-child"/>
+                    </Link>
                     <Link to='/ustawienia'>
-                    <SettingsIcon className="fa fa-cog fa-5x"/>
+                        <SettingsIcon className="fa fa-cog fa-5x"/>
                     </Link>
                     <Icon className="fa fa-power-off" onClick={logoutUser}/>
                 </UserPanel>

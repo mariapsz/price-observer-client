@@ -125,17 +125,15 @@ class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
     };
 
     sortByExpectedPriceAsc = () => {
-        console.log('sortByExpectedPriceAsc');
         this.setState({
             productsList: [...this.state.productsList.sort((a: ProductData, b: ProductData) =>
-                (a.usersDetails![0].expectedPrice!.count > b.usersDetails![0].expectedPrice!.count) ? 1
-                    : ((b.usersDetails![0].expectedPrice!.count > a.usersDetails![0].expectedPrice!.count) ? -1 : 0))]
+                (parseFloat(a.usersDetails![0].expectedPrice!.count) > parseFloat(b.usersDetails![0].expectedPrice!.count)) ? 1
+                    : ((parseFloat(b.usersDetails![0].expectedPrice!.count) > parseFloat(a.usersDetails![0].expectedPrice!.count)) ? -1 : 0))]
         });
         this.props.sortingTypeChanged(SortingOptions.ExpectedPriceAsc);
     };
 
     sortByExpectedPriceDesc = () => {
-        console.log('sortByExpectedPriceDesc');
         this.setState({
             productsList: [...this.state.productsList.sort((a: ProductData, b: ProductData) =>
                 (parseFloat(a.usersDetails![0].expectedPrice.count) < parseFloat(b.usersDetails![0].expectedPrice!.count)) ? 1
@@ -205,7 +203,7 @@ class DashboardPage extends Component<DashboardPageProps, DashboardPageState> {
             </DashboardPageWrapper>
         );
     }
-};
+}
 
 
 const mapStateToProps = (store: AppState) => ({store});
