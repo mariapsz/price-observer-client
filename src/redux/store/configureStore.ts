@@ -9,7 +9,6 @@ import {AppState} from './storeDataModels/AppState';
 const configureStore = (): Store<AppState> => {
     const sagaMiddleware = createSagaMiddleware();
     const persistedState = loadState();
-
     let store: any;
     store = {
         ...createStore(rootReducer, persistedState, applyMiddleware(sagaMiddleware)),

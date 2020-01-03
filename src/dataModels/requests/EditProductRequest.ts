@@ -1,6 +1,6 @@
 import {ProductData} from '../ProductData';
+import {AuthRequest} from "./AuthRequest";
 
-export interface EditProductRequest {
+export interface EditProductRequest extends AuthRequest  {
     body: ProductData,
-    token: string,
 }

