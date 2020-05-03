@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage/ProductsList/ProductsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPost.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DiscussionForumPage/ToggleXSSProtected/ToggleXSSProtected.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/ToggleXSSProtected/ToggleXSSProtected.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/xssProtectedReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/xssProtectedReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HomePage.tsx" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +23,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
     <property name="ts.external.directory.path" value="C:\code\price-observer-client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -54,18 +48,6 @@
       <recent name="D:\code\price-observer-client\src\styles\SettingPassword" />
       <recent name="D:\code\price-observer-client\src\styles\SettingPasswordStyles" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -130,6 +112,28 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588532867156">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588532867156" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1588532381534">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588532381534" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1588532398417">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588532398417" />
+    <state x="646" y="236" width="627" height="568" key="find.popup" timestamp="1588533290617">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="646" y="236" width="627" height="568" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588533290617" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588532407755">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588532407755" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

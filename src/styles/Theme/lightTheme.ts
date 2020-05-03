@@ -15,7 +15,7 @@ const lightTheme: Theme = {
     },
     pageWrapper: {
         pageBackground: 'white',
-        topBarBackground: '#2A615D',
+        topBarBackground: 'blue',
     },
     productsList: {
         listHeaderBackground: '#F6FAFF',

@@ -3,7 +3,6 @@ import {Redirect, Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {checkIfTokenExpired} from '../../utils/checkIfTokenExpired';
 import {AppState} from '../../redux/store/storeDataModels/AppState';
-import {Store} from 'redux';
 
 // @ts-ignore
 const PrivateRoute = ({component: Component, store, ...rest}) => {

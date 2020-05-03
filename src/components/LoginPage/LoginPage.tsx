@@ -7,8 +7,6 @@ import PageWrapper from '../../hoc/PageWrapper/PageWrapper';
 import {Wrapper} from '../../styles/LoginForm/Wrapper';
 import {FormWrapper} from '../../styles/LoginForm/FormFrame';
 import {Label} from '../../styles/LoginForm/Label';
-import {ResetPasswordLinkWrapper} from '../../styles/LoginForm/ResetPasswordLinkWrapper';
-import {ResetPasswordLink} from '../../styles/LoginForm/ResetPasswordLink';
 import {RowWrapper, SubmitButtonWrapper} from '../../styles/LoginForm/RowWrapper';
 import {Input} from '../../styles/LoginForm/Input';
 import {MessageWrapper} from '../../styles/LoginForm/MessageWrapper';
@@ -23,8 +21,6 @@ import {PasswordWrapper} from '../../styles/LoginForm/PasswordWrapper';
 import {TogglePasswordVisibility} from '../../styles/LoginForm/TogglePasswordVisibility';
 import {PasswordInput} from '../../styles/LoginForm/PasswordInput';
 import {LoginPageProps} from './LoginPageProps';
-import {trackPromise} from 'react-promise-tracker';
-
 
 class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
 
@@ -103,9 +99,6 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
                                             onClick={this.showPassword}/>
                                     </PasswordWrapper>
                                 </RowWrapper>
-                                <ResetPasswordLinkWrapper>
-                                    <ResetPasswordLink to='/password_reminder'>Nie pamiętasz hasła?</ResetPasswordLink>
-                                </ResetPasswordLinkWrapper>
                                 <MessageWrapper>
                                     <Message>{this.props.store.login.errorMessage || ''}</Message>
                                 </MessageWrapper>

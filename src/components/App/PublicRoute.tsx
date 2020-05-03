@@ -2,7 +2,6 @@ import React from 'react';
 import {Redirect, Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {checkIfTokenExpired} from '../../utils/checkIfTokenExpired';
-import {Store} from 'redux';
 import {AppState} from '../../redux/store/storeDataModels/AppState';
 
 // @ts-ignore

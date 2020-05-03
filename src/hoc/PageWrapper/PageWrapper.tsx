@@ -17,7 +17,7 @@ const PageWrapper = (props: PageWrapperProps) => {
             <TopBar>
                 <div>
                     <LinkToHome to='/'>
-                        <Title>ALERT CENOWY</Title>
+                        <Title>PROGRAMOWANIE W INTERNECIE</Title>
                     </LinkToHome>
                 </div>
             </TopBar>
