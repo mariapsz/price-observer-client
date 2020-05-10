@@ -5,7 +5,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import {ThemeResolver} from '../../hoc/ThemeResolver/ThemeResolver';
 import PublicRoute from './PublicRoute';
-import {HomePage} from '../HomePage/HomePage';
+import SettingsPage from '../SettingsPage/SettingsPage';
 
 class App extends Component {
     render() {
@@ -15,7 +15,7 @@ class App extends Component {
                     <Switch>
                         <PublicRoute path='/' exact={true} component={LoginPage}/>
                         <PublicRoute path='/rejestracja' component={RegisterPage}/>
-                        <PrivateRoute path='/home' component={HomePage}/>
+                        <PrivateRoute path='/home' component={SettingsPage}/>
                         <Route
                             path="(.*)"
                             render={() => (
