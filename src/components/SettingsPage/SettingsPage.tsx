@@ -8,6 +8,7 @@ import {AppState} from '../../redux/store/storeDataModels/AppState';
 import {connect} from 'react-redux';
 import {UserDetails} from '../../dataModels/UserDetails';
 import jwt_decode from "jwt-decode";
+import ChangePassword from './ChangePassword/ChangePassword';
 
 export interface SettingsPageProps {
     store: AppState,
@@ -49,6 +50,7 @@ class SettingsPage extends React.Component<SettingsPageProps> {
                         oczekiwaną cenę.
                     </InfoLabel>
                 </EmailInfoWrapper>
+                <ChangePassword/>
             </Frame>
         </DashboardPageWrapper>
     }

@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="" />
+    <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/SettingsPage/ChangePassword/ChangePassword.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SettingsPage/ChangePassword/ChangePasswordProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SettingsPage/ChangePassword/ChangePasswordState.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataModels/requests/AuthRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataModels/requests/ChangePasswordRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/Input.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/Label.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/Message.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/RowWrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/SectionTitle.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/SubmitButton.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/Wrapper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/price-observer-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/price-observer-client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SettingsPage/SettingsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SettingsPage/SettingsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Theme/lightTheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Theme/lightTheme.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +121,7 @@
       <workItem from="1588692861038" duration="23000" />
       <workItem from="1588693460202" duration="12000" />
       <workItem from="1589142437632" duration="987000" />
-      <workItem from="1589144443688" duration="521000" />
+      <workItem from="1589144443688" duration="1678000" />
     </task>
     <servers />
   </component>
@@ -136,16 +154,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588532398417" />
-    <state x="2566" y="236" width="627" height="568" key="find.popup" timestamp="1589144473573">
+    <state x="2566" y="236" width="627" height="568" key="find.popup" timestamp="1589145901252">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="646" y="236" width="627" height="568" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588693465231" />
-    <state x="2566" y="236" width="627" height="568" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589144473573" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589142721329">
+    <state x="2566" y="236" width="627" height="568" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589145901252" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589146130728">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588532407755" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589142721329" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589146130728" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

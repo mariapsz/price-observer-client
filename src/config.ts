@@ -2,8 +2,12 @@
 const BASIC_URL = 'https://price-observer-backend.herokuapp.com';
 const REGISTER_API_ENDPOINT = `${BASIC_URL}/user/register`;
 const LOGIN_API_ENDPOINT = `${BASIC_URL}/user/authenticate`;
+const CHANGE_PASSWORD_API_ENDPOINT = `${BASIC_URL}/user/change-password`;
+const RESET_PASSWORD_API_ENDPOINT = `${BASIC_URL}/user/reset-password`;
 
 export {
     REGISTER_API_ENDPOINT,
     LOGIN_API_ENDPOINT,
+    CHANGE_PASSWORD_API_ENDPOINT,
+    RESET_PASSWORD_API_ENDPOINT,
 }

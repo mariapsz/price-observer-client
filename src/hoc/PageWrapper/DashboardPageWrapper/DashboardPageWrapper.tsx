@@ -36,7 +36,7 @@ const DashboardPageWrapper = (props: DashboardPageWrapperProps) => {
         <TopBarWrapper>
             <TopBar>
                 <LinkToHome to='/home'>
-                    <Title>ALERT CENOWY</Title>
+                    <Title>LOREM IPSUM</Title>
                 </LinkToHome>
                 <UserPanel>
                     <NickName>{getNickname()}</NickName>
