@@ -20,6 +20,12 @@ const PageWrapper = (props: PageWrapperProps) => {
                         <Title>PROGRAMOWANIE W INTERNECIE</Title>
                     </LinkToHome>
                 </div>
+                <a href='/server.zip' download style={{
+                    color: '#fff',
+                    fontSize: '1.3rem',
+                }}>
+                    Backend: pobierz kod
+                </a>
             </TopBar>
         </TopBarWrapper>
         <PageContentWrapper
