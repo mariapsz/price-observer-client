@@ -4,8 +4,9 @@ import {PostContainerHeader} from "../../../styles/DiscussionPanel/PostContainer
 import {PostContainerContent} from "../../../styles/DiscussionPanel/PostContainerContent";
 import {Link} from "../../../styles/DiscussionPanel/Link";
 import {LinkWrapper} from "../../../styles/DiscussionPanel/LinkWrapper";
+import { withTranslation } from 'react-i18next';
 
-export const Post = (props: { post: DiscussionPost }) => {
+const Post = (props: any) => {
     return <div>
         <PostContainerHeader>
             <div><b>{props.post.userName}</b></div>
@@ -22,3 +23,6 @@ export const Post = (props: { post: DiscussionPost }) => {
         </PostContainerContent>
     </div>
 };
+
+
+export default withTranslation()(Post)

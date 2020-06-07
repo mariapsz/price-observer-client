@@ -1,0 +1,23 @@
+{
+  "discussPanel": "Panel dyskusyjny",
+  "addNewPost": "Dodaj nowy post",
+  "add": "Dodaj",
+  "you": "Ty",
+  "profileSettings": "Ustawienia konta",
+  "username": "Nazwa użytkownika",
+  "email": "Email",
+  "passwordSettings": "Zmiana hasła",
+  "currentPassword": "Obecne hasło",
+  "newPassword": "Nowe hasło",
+  "repeatNewPassword": "Powtórz nowe hasło",
+  "changePassword": "Zmień hasło",
+  "english": "angielski",
+  "polish": "polski",
+  "password": "Hasło",
+  "logIn": "Zaloguj się",
+  "noAccount": "Nie masz konta?",
+  "register": "Zarejestruj się",
+  "registerToUseService": "Zarejestruj się, aby korzystać z serwisu",
+  "repeatPassord": "Powtórz hasło",
+  "hasAnAccount": "Masz już konto?"
+}

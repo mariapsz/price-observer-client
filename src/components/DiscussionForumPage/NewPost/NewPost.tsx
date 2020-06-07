@@ -13,10 +13,11 @@ import {DiscussionPost} from "../../../dataModels/Post";
 import {NewPostState} from "./NewPostState";
 import jwt_decode from "jwt-decode";
 import {UserDetails} from "../../../dataModels/UserDetails";
+import { withTranslation } from 'react-i18next'
 
-class NewPost extends React.Component<NewPostProps, NewPostState> {
+class NewPost extends React.Component<any, NewPostState> {
 
-    constructor(props: NewPostProps) {
+    constructor(props: any) {
         super(props);
         this.state = {
             post: {
@@ -30,7 +31,8 @@ class NewPost extends React.Component<NewPostProps, NewPostState> {
     }
 
     addPost = () => {
-        const post: DiscussionPost = {...this.state.post,
+        const post: DiscussionPost = {
+            ...this.state.post,
             date: Date.now().valueOf()
         };
         addDiscussionPost({token: this.props.token, body: {post}})
@@ -86,7 +88,7 @@ class NewPost extends React.Component<NewPostProps, NewPostState> {
 
     render() {
         return <PostContainer>
-            <NewPostContainerTitle>DODAJ POST</NewPostContainerTitle>
+            <NewPostContainerTitle>{this.props.t('addNewPost')}</NewPostContainerTitle>
             <form
                 onSubmit={this.addPost}
                 onChange={this.handleFormStateWithXSSProtection}
@@ -99,14 +101,14 @@ class NewPost extends React.Component<NewPostProps, NewPostState> {
                 <RowWrapper>
                     <div>Link:</div>
                     <NewPostLinkInput name='url'
-                        onChange={this.handleLinkChange}
-                        type='url'/>
+                                      onChange={this.handleLinkChange}
+                                      type='url'/>
                 </RowWrapper>
                 <SubmitButtonWrapper>
                     <Button
                         onClick={this.handleSubmit}
                         disabled={this.state.submitButtonDisabled}>
-                        DODAJ
+                        {this.props.t('add')}
                     </Button>
                 </SubmitButtonWrapper>
             </form>
@@ -128,4 +130,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewPost);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(NewPost));

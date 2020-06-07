@@ -3,7 +3,7 @@ import {DiscussionForumPageState} from "./DiscussionForumPageState";
 import {DiscussionForumPageProps} from "./DiscussionForumPageProps";
 import {DiscussionPost} from "../../dataModels/Post";
 import {AppState} from "../../redux/store/storeDataModels/AppState";
-import {Post} from './Post/Post';
+import Post from './Post/Post';
 import {connect} from "react-redux";
 import jwt_decode from "jwt-decode";
 import {UserDetails} from "../../dataModels/UserDetails";
@@ -13,14 +13,14 @@ import {SectionTitle} from "../../styles/DiscussionPanel/SectionTitle";
 import DashboardPageWrapper from "../../hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper";
 import {getDiscussionPosts} from "../../services/discussionPanelService";
 import {FrameHeader} from "../../styles/DiscussionPanel/FrameHeader";
+import { withTranslation } from 'react-i18next'
 
-
-class DiscussionForumPage extends React.Component<DiscussionForumPageProps, DiscussionForumPageState> {
-    constructor(props: DiscussionForumPageProps) {
+class DiscussionForumPage extends React.Component<any, DiscussionForumPageState> {
+    constructor(props: any) {
         super(props);
         this.state = {
             posts: undefined,
-        }
+        };
     }
 
     componentDidMount(): void {
@@ -33,7 +33,7 @@ class DiscussionForumPage extends React.Component<DiscussionForumPageProps, Disc
             .then((response: any) => {
                 if (response.body.posts.length > 0) {
                     let posts: DiscussionPost[] = response.body.posts.map((post: DiscussionPost) => {
-                        post.userName = post.userName === this.props.userName ? 'Ty' : post.userName;
+                        post.userName = post.userName === this.props.userName ? this.props.t('you') : post.userName;
                         return post;
                     });
                     posts.sort((a: DiscussionPost, b: DiscussionPost) => b.date - a.date);
@@ -46,11 +46,12 @@ class DiscussionForumPage extends React.Component<DiscussionForumPageProps, Disc
     };
 
     render() {
+
         return (
             <DashboardPageWrapper>
                 <Frame>
                     <FrameHeader>
-                        <SectionTitle>PANEL DYSKUSYJNY</SectionTitle>
+                        <SectionTitle>{this.props.t('discussPanel')}</SectionTitle>
                     </FrameHeader>
                     <NewPost
                         postAddedHandler={this.getPosts}
@@ -74,4 +75,4 @@ const mapStateToProps = (store: AppState) => {
 };
 
 
-export default connect(mapStateToProps, null)(DiscussionForumPage);
+export default connect(mapStateToProps, null)(withTranslation()(DiscussionForumPage));

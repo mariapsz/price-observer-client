@@ -21,10 +21,11 @@ import {PasswordWrapper} from '../../styles/LoginForm/PasswordWrapper';
 import {TogglePasswordVisibility} from '../../styles/LoginForm/TogglePasswordVisibility';
 import {PasswordInput} from '../../styles/LoginForm/PasswordInput';
 import {LoginPageProps} from './LoginPageProps';
+import {withTranslation} from "react-i18next";
 
-class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
+class LoginPage extends React.Component<any, LoginPageState> {
 
-    constructor(props: LoginPageProps) {
+    constructor(props: any) {
         super(props);
         this.state = {
             isSubmitDisabled: true,
@@ -86,7 +87,7 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
                                         required/>
                                 </RowWrapper>
                                 <RowWrapper>
-                                    <Label>Hasło</Label>
+                                    <Label>{this.props.t('password')}</Label>
                                     <PasswordWrapper
                                         isPasswordCompleted={this.state.isPasswordCompleted}>
                                         <PasswordInput
@@ -105,14 +106,14 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
                                 <SubmitButtonWrapper>
                                     <Button
                                         type='submit'
-                                        value='ZALOGUJ SIĘ'
+                                        value={this.props.t('logIn')}
                                         disabled={this.state.isSubmitDisabled}/>
                                 </SubmitButtonWrapper>
                             </form>
                         </InnerFrame>
                     </FormWrapper>
                     <LinkWrapper>
-                        Nie masz konta? <RegisterLink to='rejestracja'>Zarejestruj się</RegisterLink>
+                        {this.props.t('noAccount')} <RegisterLink to='rejestracja'>{this.props.t('register')}</RegisterLink>
                     </LinkWrapper>
                 </Wrapper>
             </PageWrapper>
@@ -130,4 +131,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(LoginPage));

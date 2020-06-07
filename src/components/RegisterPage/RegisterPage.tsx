@@ -20,6 +20,7 @@ import {TogglePasswordVisibility} from '../../styles/RegisterPage/TogglePassword
 import {Title} from '../../styles/RegisterPage/Title';
 import {trackPromise} from 'react-promise-tracker';
 import {withRouter} from 'react-router-dom'
+import {withTranslation} from "react-i18next";
 
 class RegisterPage extends React.Component<any, RegisterPageState> {
 
@@ -146,13 +147,13 @@ class RegisterPage extends React.Component<any, RegisterPageState> {
                 <Wrapper>
                     <FormWrapper>
                         <InnerFrame>
-                            <Title>Załóż konto, aby korzystać z serwisu</Title>
+                            <Title>{this.props.t('registerToUseService')} </Title>
                             <form
                                 onSubmit={this.handleRegistration}
                                 onChange={this.handleFormState}
                                 onInvalid={this.handleOnInvalid}>
                                 <RowWrapper>
-                                    <Label>Nazwa użytkownika</Label>
+                                    <Label>{this.props.t('username')} </Label>
                                     <Input
                                         name="name"
                                         value={this.state.user.name}
@@ -173,7 +174,7 @@ class RegisterPage extends React.Component<any, RegisterPageState> {
                                         required/>
                                 </RowWrapper>
                                 <RowWrapper>
-                                    <Label>Hasło</Label>
+                                    <Label>{this.props.t('password')}</Label>
                                     <PasswordWrapper
                                         isPasswordCompleted={this.state.isPasswordCompleted}>
                                         <PasswordInput
@@ -190,7 +191,7 @@ class RegisterPage extends React.Component<any, RegisterPageState> {
                                     </PasswordWrapper>
                                 </RowWrapper>
                                 <RowWrapper>
-                                    <Label>Powtórz hasło</Label>
+                                    <Label>{this.props.t('repeatPassord')}</Label>
                                     <PasswordWrapper
                                         isPasswordCompleted={this.state.isRepeatedPasswordCompleted}>
                                         <PasswordInput
@@ -212,19 +213,19 @@ class RegisterPage extends React.Component<any, RegisterPageState> {
                                 </MessageWrapper>
                                 <SubmitButtonWrapper>
                                     <Button
-                                        type='submit' value='ZAREJESTRUJ SIĘ'
+                                        type='submit' value={this.props.t('register')}
                                         disabled={this.state.isSubmitDisabled}/>
                                 </SubmitButtonWrapper>
                             </form>
                         </InnerFrame>
                     </FormWrapper>
                     <LinkWrapper>
-                        Masz już konto? <RegisterLink to='login'>Zaloguj się</RegisterLink>
+                        {this.props.t('hasAnAccount')} <RegisterLink to='login'>{this.props.t('logIn')}</RegisterLink>
                     </LinkWrapper>
                 </Wrapper>
             </PageWrapper>
         )
     }
-};
+}
 
-export default withRouter(RegisterPage);
+export default withTranslation()(RegisterPage);

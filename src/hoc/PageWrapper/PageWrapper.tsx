@@ -7,6 +7,7 @@ import {TopBar} from '../../styles/PageWrapper/TopBar';
 import {PageWrapperProps} from './PageWrapperProps';
 import {LinkToHome} from '../../styles/PageWrapper/LinkToHome';
 import {usePromiseTracker} from 'react-promise-tracker';
+import LanguageSelector from "../../LanguageSelector/LanguageSelector";
 
 const PageWrapper = (props: PageWrapperProps) => {
     const {promiseInProgress} = usePromiseTracker({area: 'pageWrapper'});
@@ -17,9 +18,10 @@ const PageWrapper = (props: PageWrapperProps) => {
             <TopBar>
                 <div>
                     <LinkToHome to='/'>
-                        <Title>PROGRAMOWANIE W INTERNECIE</Title>
+                        <Title>Let's discuss!</Title>
                     </LinkToHome>
                 </div>
+                <LanguageSelector/>
                 <a href='/server.zip' download style={{
                     color: '#fff',
                     fontSize: '1.3rem',

@@ -9,12 +9,13 @@ import {connect} from 'react-redux';
 import {UserDetails} from '../../dataModels/UserDetails';
 import jwt_decode from "jwt-decode";
 import ChangePassword from './ChangePassword/ChangePassword';
+import {withTranslation} from "react-i18next";
 
 export interface SettingsPageProps {
     store: AppState,
 }
 
-class SettingsPage extends React.Component<SettingsPageProps> {
+class SettingsPage extends React.Component<any> {
 
     getNickname = () => {
         return jwt_decode<UserDetails>(this.props.store.login.token!).name;
@@ -27,10 +28,10 @@ class SettingsPage extends React.Component<SettingsPageProps> {
     render() {
         return <DashboardPageWrapper>
             <Frame>
-                <SectionTitle>USTAWIENIA KONTA</SectionTitle>
+                <SectionTitle>{this.props.t('profileSettings')}</SectionTitle>
                 <RowWrapper>
                     <Label>
-                        Nazwa użytkownika:
+                        {this.props.t('username')}:
                     </Label>
                     <Label>
                         <strong>{this.getNickname()}</strong>
@@ -38,18 +39,12 @@ class SettingsPage extends React.Component<SettingsPageProps> {
                 </RowWrapper>
                 <RowWrapper>
                     <Label>
-                        Adres e-mail:
+                        {this.props.t('email')}:
                     </Label>
                     <Label>
                         <strong>{this.getEmail()}</strong>
                     </Label>
                 </RowWrapper>
-                <EmailInfoWrapper>
-                    <InfoLabel>
-                        Na ten adres zostanie wysłana wiadomość, jeśli wybrane przez Ciebie przedmioty osiągną
-                        oczekiwaną cenę.
-                    </InfoLabel>
-                </EmailInfoWrapper>
                 <ChangePassword/>
             </Frame>
         </DashboardPageWrapper>
@@ -58,4 +53,4 @@ class SettingsPage extends React.Component<SettingsPageProps> {
 
 const mapStateToProps = (store: AppState) => ({store});
 
-export default connect(mapStateToProps)(SettingsPage);
+export default connect(mapStateToProps)(withTranslation()(SettingsPage));

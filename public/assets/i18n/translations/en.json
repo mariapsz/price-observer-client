@@ -1,0 +1,23 @@
+{
+  "discussPanel": "Discuss panel",
+  "addNewPost": "Add new post",
+  "add": "ADD",
+  "you": "You",
+  "profileSettings": "Profile settings",
+  "username": "Username",
+  "email": "Email",
+  "passwordSettings": "Password settings",
+  "currentPassword": "Current password",
+  "newPassword": "New password",
+  "repeatNewPassword": "Repeat new password",
+  "changePassword": "Change password",
+  "english": "English",
+  "polish": "Polish",
+  "password": "Password",
+  "logIn": "Log in",
+  "noAccount": "No account yet?",
+  "register": "Register",
+  "registerToUseService": "",
+  "repeatPassord": "Repeat password",
+  "hasAnAccount": "Already signed up?"
+  }

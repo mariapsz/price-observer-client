@@ -16,6 +16,7 @@ import {DashboardPageWrapperProps} from './DashboardPageWrapperProps';
 import {AppState} from '../../../redux/store/storeDataModels/AppState';
 import {Link} from 'react-router-dom';
 import {LinkToHome} from '../../../styles/PageWrapper/LinkToHome';
+import LanguageSelector from "../../../LanguageSelector/LanguageSelector";
 
 
 const DashboardPageWrapper = (props: DashboardPageWrapperProps) => {
@@ -36,19 +37,19 @@ const DashboardPageWrapper = (props: DashboardPageWrapperProps) => {
         <TopBarWrapper>
             <TopBar>
                 <LinkToHome to='/home'>
-                    <Title>LOREM IPSUM</Title>
+                    <Title>Let's discuss!</Title>
                 </LinkToHome>
                 <UserPanel>
                     <NickName>{getNickname()}</NickName>
                     <Link to='/home'>
                         <Icon className="fa fa-home"/>
                     </Link>
-                    <Link to='/discussion'>
-                        <SettingsIcon className="fa fa-child"/>
-                    </Link>
-                    <Link to='/ustawienia'>
+                    <Link to='/settings'>
                         <SettingsIcon className="fa fa-cog fa-5x"/>
                     </Link>
+                    <div>
+                        <LanguageSelector/>
+                    </div>
                     <Icon className="fa fa-power-off" onClick={logoutUser}/>
                 </UserPanel>
             </TopBar>

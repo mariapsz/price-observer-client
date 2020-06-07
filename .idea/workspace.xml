@@ -2,35 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/DiscussionForumPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/DiscussionForumPageProps.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/DiscussionForumPageState.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPost.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPostProps.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPostState.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/Post/Post.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/SearchBar/SearchBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dataModels/Post.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dataModels/requests/AddDiscussionPostRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/discussionPanelService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Button.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Checkbox.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Frame.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/FrameHeader.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Label.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/LabelWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Link.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/LinkWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/NewPostMessageInput.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/PostContainerContent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/PostContainerHeader.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/RowWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/SectionTitle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/ToggleXSSProtectedWrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/i18n/translations/en.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/i18n/translations/pl.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LanguageSelector/LanguageSelector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/i18n.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiscussionForumPage/DiscussionForumPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/DiscussionForumPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPostProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPostProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiscussionForumPage/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/Post/Post.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginPage/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginPage/LoginPageProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginPage/LoginPageProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterPage/RegisterPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SettingsPage/ChangePassword/ChangePassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SettingsPage/ChangePassword/ChangePassword.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SettingsPage/SettingsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SettingsPage/SettingsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/PageWrapper.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

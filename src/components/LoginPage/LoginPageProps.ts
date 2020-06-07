@@ -5,4 +5,5 @@ export interface LoginPageProps {
     store: AppState,
     logIn: (requestBody: LoginRequest) => any,
     notifyErrorMessageRead: () => any,
+    t: any
 }

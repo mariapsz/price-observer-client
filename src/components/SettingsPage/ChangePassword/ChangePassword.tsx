@@ -12,10 +12,11 @@ import {ChangePasswordProps} from './ChangePasswordProps';
 import {ChangePasswordRequest} from '../../../dataModels/requests/ChangePasswordRequest';
 import {changePasswordService} from '../../../services/settingsService';
 import {Message} from '../../../styles/ChangePassword/Message';
+import {withTranslation} from "react-i18next";
 
-class ChangePassword extends React.Component<ChangePasswordProps, ChangePasswordState> {
+class ChangePassword extends React.Component<any, ChangePasswordState> {
 
-    constructor(props: ChangePasswordProps) {
+    constructor(props: any) {
         super(props);
         this.state = this.getInitialState();
     }
@@ -88,13 +89,13 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
 
     render() {
         return <Wrapper>
-            <SectionTitle>ZMIANA HASŁA</SectionTitle>
+            <SectionTitle>{this.props.t('passwordSettings')}</SectionTitle>
             <form
                 onSubmit={this.handleSubmit}
                 onChange={this.handleFormState}
                 onInvalid={(e: any) => e.preventDefault()}>
                 <RowWrapper>
-                    <Label>Obecne hasło:</Label>
+                    <Label>{this.props.t('currentPassword')}:</Label>
                     <Input
                         name='currentPassword'
                         required
@@ -105,7 +106,7 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
                         value={this.state.currentPassword}/>
                 </RowWrapper>
                 <RowWrapper>
-                    <Label>Nowe hasło:</Label>
+                    <Label>{this.props.t('newPassword')}:</Label>
                     <Input
                         name='newPassword'
                         required
@@ -116,7 +117,7 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
                         value={this.state.newPassword}/>
                 </RowWrapper>
                 <RowWrapper>
-                    <Label>Powtórz nowe hasło:</Label>
+                    <Label>{this.props.t('repeatNewPassword')}:</Label>
                     <Input
                         name='newPasswordRepeated'
                         required
@@ -135,7 +136,7 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
                     <SubmitButton
                         disabled={this.state.submitButtonDisabled}
                         type='submit'
-                        value='ZMIEŃ HASŁO'/>
+                        value={this.props.t('changePassword')}/>
                 </SubmitButtonWrapper>
             </form>
         </Wrapper>
@@ -144,4 +145,4 @@ class ChangePassword extends React.Component<ChangePasswordProps, ChangePassword
 
 const mapStateToProps = (store: AppState) => ({store});
 
-export default connect(mapStateToProps)(ChangePassword);
+export default connect(mapStateToProps)(withTranslation()(ChangePassword));
