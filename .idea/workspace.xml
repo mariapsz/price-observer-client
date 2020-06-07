@@ -2,23 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/SettingsPage/ChangePassword/ChangePassword.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SettingsPage/ChangePassword/ChangePasswordProps.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SettingsPage/ChangePassword/ChangePasswordState.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dataModels/requests/AuthRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dataModels/requests/ChangePasswordRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/Input.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/Label.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/Message.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/RowWrapper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/SectionTitle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/SubmitButton.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/ChangePassword/Wrapper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/price-observer-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/price-observer-client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/DiscussionForumPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/DiscussionForumPageProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/DiscussionForumPageState.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPost.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPostProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/NewPost/NewPostState.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/Post/Post.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DiscussionForumPage/SearchBar/SearchBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataModels/Post.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataModels/requests/AddDiscussionPostRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/discussionPanelService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Button.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Checkbox.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Frame.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/FrameHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Label.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/LabelWrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/Link.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/LinkWrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/NewPostMessageInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/PostContainerContent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/PostContainerHeader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/RowWrapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/SectionTitle.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/DiscussionPanel/ToggleXSSProtectedWrapper.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SettingsPage/SettingsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SettingsPage/SettingsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/PageWrapper/DashboardPageWrapper/DashboardPageWrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Theme/lightTheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Theme/lightTheme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +52,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/styles" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -51,12 +63,12 @@
     <property name="ts.external.directory.path" value="C:\code\price-observer-client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\code\price-observer-client\src\components\DiscussionForumPage\ToggleXSSProtected" />
-      <recent name="C:\code\price-observer-client\src\components\DiscussionForumPage" />
-      <recent name="D:\code\price-observer-client\src\utils\Regex" />
-      <recent name="D:\code\price-observer-client\src\styles\SettingPassword" />
-      <recent name="D:\code\price-observer-client\src\dataModels\requests" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\code\price-observer-client\src\styles" />
+      <recent name="C:\code\price-observer-client\src\services" />
+      <recent name="C:\code\price-observer-client\src\dataModels\requests" />
+      <recent name="C:\code\price-observer-client\src\dataModels" />
+      <recent name="C:\code\price-observer-client\src\components" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="D:\code\price-observer-client\src\components\ForgotPasswordPage\ForgotPasswordPageState.tsx" />
@@ -65,13 +77,25 @@
       <recent name="D:\code\price-observer-client\src\dataModels\LoginRequest.ts" />
       <recent name="D:\code\price-observer-client\src\sagas\AuthenticationSaga\LoginSaga\LoginSaga.ts" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\code\price-observer-client\src\styles\DiscussionPanel" />
-      <recent name="D:\code\price-observer-client\src\styles\TestSection" />
-      <recent name="D:\code\price-observer-client\src\styles\ChangePassword" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\code\price-observer-client\src\components\DiscussionForumPage\ToggleXSSProtected" />
+      <recent name="C:\code\price-observer-client\src\components\DiscussionForumPage" />
+      <recent name="D:\code\price-observer-client\src\utils\Regex" />
       <recent name="D:\code\price-observer-client\src\styles\SettingPassword" />
-      <recent name="D:\code\price-observer-client\src\styles\SettingPasswordStyles" />
+      <recent name="D:\code\price-observer-client\src\dataModels\requests" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
