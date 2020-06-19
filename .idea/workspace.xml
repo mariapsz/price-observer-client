@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbfd5dba-eb11-476f-9992-d246518c5a7d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -10,65 +11,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>colo</find>
-      <find>700</find>
-      <find>6</find>
-      <find>Ico</find>
-      <find>title</find>
-      <find>sec</find>
-      <find>font</find>
-      <find>Sectio</find>
-      <find>Se</find>
-      <find>this.props.</find>
-      <find>ThemeProvider</find>
-      <find>butt</find>
-      <find>6c7c7b</find>
-      <find>Redirect</find>
-      <find>jwt_decode</find>
-      <find>let</find>
-      <find>store</find>
-      <find>props.</find>
-      <find>link</find>
-      <find>this</find>
-      <find>http://ec2-3-120-141-247.eu-central-1.compute.amazonaws.com</find>
-      <find>local</find>
-      <find>Wystąpił błąd, nie można się połączyć z serwerem</find>
-      <find>http://</find>
-      <find>conf</find>
-      <find>config.js</find>
-      <find>config.js</find>
-      <find>CONFIG.JS</find>
-      <find>http://ec2-3-120-141-247.eu-central-1.compute.amazonaws.com:8000</find>
-      <find>templ</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>localhost</replace>
-      <replace>http://local</replace>
-      <replace>http://ec2-3-120-141-247.eu-central-1.compute.amazonaws.com</replace>
-      <replace>:3000</replace>
-      <replace>${BASIC_URL}</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>D:\code\price-observer-client\src\styles</dir>
-      <dir>D:\code\price-observer-client\src\utils</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="916" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/styles/TestSection" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../heroku/price-observer-backend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -151,7 +100,7 @@
       <workItem from="1565384646060" duration="1801000" />
       <workItem from="1566209217381" duration="16956000" />
       <workItem from="1566240323613" duration="14350000" />
-      <workItem from="1592558293273" duration="665000" />
+      <workItem from="1592558293273" duration="3872000" />
     </task>
     <servers />
   </component>
