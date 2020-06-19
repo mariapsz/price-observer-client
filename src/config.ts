@@ -1,4 +1,4 @@
-const BASIC_URL = 'https://sleepy-temple-43980.herokuapp.com/';
+const BASIC_URL = 'https://sleepy-temple-43980.herokuapp.com';
 //const BASIC_URL = 'http://localhost:8000';
 const REGISTER_API_ENDPOINT = `${BASIC_URL}/user/register`;
 const LOGIN_API_ENDPOINT = `${BASIC_URL}/user/authenticate`;
